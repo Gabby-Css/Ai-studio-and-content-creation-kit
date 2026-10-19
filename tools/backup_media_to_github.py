@@ -1,7 +1,7 @@
 """Back up everything that is NOT in git (videos, audio, renders, assets...) to GitHub Releases of a PRIVATE repo.
 
 Why: GitHub blocks files > 100 MiB in git and recommends repos < 1 GB, but release assets have no total-size / bandwidth limit
-(each file must be < 2 GiB, <= 1000 assets per release). So the media is split into ~450 MB zip parts and uploaded as release assets.
+(each file must be < 2 GiB, <= 1000 assets per release). So the media is split into ~100 MB zip parts (bigger files are cut into 100 MB chunks) and uploaded as release assets.
 
     python tools/backup_media_to_github.py --dry-run          # list tiers / sizes, upload nothing
     python tools/backup_media_to_github.py                    # upload (resumable: finished parts are skipped)
@@ -10,7 +10,8 @@ Why: GitHub blocks files > 100 MiB in git and recommends repos < 1 GB, but relea
 Tiers (most valuable first): 1 = final videos, 2 = audio masters / stems, 3 = everything else.
 Skipped on purpose: node_modules, virtualenvs, third-party checkouts, caches (tok/, cache/), temp / snapshot / QA folders,
 raw duplicates of finished renders, reference plates of unclear origin, and anything that looks like a secret.
-Restore: download the parts of a tier from the Releases page and unzip them into the project root (paths are relative).
+Restore: download the parts of a tier and unzip the *.zip parts into the project root (paths are relative); for a big file cut into
+*.partNNN chunks, join them in order (`cat name.part* > original_file`; see MANIFEST-*.json for the original path and sha256).
 State lives in .backup_state/ (git-ignored).  Needs: gh CLI logged in, Python 3.9+."""
 import argparse, hashlib, json, os, re, subprocess, sys, time, zipfile
 
@@ -85,16 +86,43 @@ def collect():
 
 
 def make_parts(items, part_bytes):
+    """-> list of ("zip", [(rel, size), ...]) groups (< part_bytes raw) and ("big", rel, size) entries for files >= part_bytes,
+    which are uploaded as raw chunks of part_bytes (rejoin with `cat <name>.part* > file`). Small parts matter: GitHub's upload server
+    drops a single request that stays open for ~6 minutes, so on a slow uplink every asset must finish in a few minutes."""
     parts, cur, cur_size = [], [], 0
     for rel, size in items:
-        if size >= 1900 * 1024 * 1024:
-            print("WARNING: file over 1.9 GiB, cannot be a release asset, skipped:", rel); continue
+        if size >= part_bytes:
+            if cur:
+                parts.append(("zip", cur)); cur, cur_size = [], 0
+            parts.append(("big", rel, size)); continue
         if cur and cur_size + size > part_bytes:
-            parts.append(cur); cur, cur_size = [], 0
+            parts.append(("zip", cur)); cur, cur_size = [], 0
         cur.append((rel, size)); cur_size += size
     if cur:
-        parts.append(cur)
+        parts.append(("zip", cur))
     return parts
+
+
+def safe_name(rel):
+    return "".join(c if c.isalnum() or c in "-_." else "_" for c in rel.replace("/", "__"))[-150:]
+
+
+def sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(8 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def upload(repo, tag, path):
+    for attempt in range(1, 9):
+        r = sh(["gh", "release", "upload", tag, path, "--repo", repo, "--clobber"], check=False)
+        if r.returncode == 0:
+            return True
+        print(f"  upload attempt {attempt} failed: {r.stderr.strip()[:160]}", flush=True)
+        time.sleep(min(120, 15 * attempt))
+    return False
 
 
 def sh(cmd, check=True, **kw):
@@ -114,7 +142,7 @@ def ensure_repo(repo):
 def ensure_release(repo, tag, title):
     if sh(["gh", "release", "view", tag, "--repo", repo], check=False).returncode != 0:
         sh(["gh", "release", "create", tag, "--repo", repo, "--title", title, "--notes",
-            f"{title}. Parts are zips of paths relative to the project root; unzip them into the project root. See MANIFEST.json."])
+            f"{title}. Parts are zips of paths relative to the project root (unzip into the project root); *.partNNN files are chunks of one big file (cat in order). See MANIFEST-*.json."])
 
 
 def build_zip(path, files):
@@ -139,7 +167,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", default="Gabby-Css/ai-studio-media-backup")
     ap.add_argument("--tier", type=int, choices=(1, 2, 3))
-    ap.add_argument("--part-mb", type=int, default=450)
+    ap.add_argument("--part-mb", type=int, default=100)
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     lower_priority()
@@ -148,7 +176,8 @@ def main():
     plan = {t: make_parts(files[t], a.part_mb * 1024 * 1024) for t in files}
     for t in (1, 2, 3):
         raw = sum(s for _, s in files[t])
-        print(f"tier {t} {TIERS[t][0]:22s} {len(files[t]):5d} files  {raw / 2**30:6.2f} GB raw  -> {len(plan[t]):3d} parts")
+        nassets = sum(1 if e[0] == "zip" else -(-e[2] // (a.part_mb * 1024 * 1024)) for e in plan[t])
+        print(f"tier {t} {TIERS[t][0]:22s} {len(files[t]):5d} files  {raw / 2**30:6.2f} GB raw  -> {nassets:3d} release assets")
     if a.dry_run:
         return
     state_file = os.path.join(STATE, "state.json")
@@ -159,28 +188,41 @@ def main():
         tag, title = TIERS[t]
         ensure_release(a.repo, tag, title)
         manifest = state.setdefault("manifest", {}).setdefault(tag, {})
-        for i, part in enumerate(plan[t], 1):
-            name = f"{tag}-{i:03d}.zip"
-            if state["done"].get(name):
-                continue
-            zp = os.path.join(PARTS, name)
-            print(f"[{time.strftime('%H:%M:%S')}] building {name} ({len(part)} files, {sum(s for _, s in part) / 2**20:.0f} MB raw)", flush=True)
-            digest = build_zip(zp, part)
-            size = os.path.getsize(zp)
-            for attempt in range(1, 7):
-                r = sh(["gh", "release", "upload", tag, zp, "--repo", a.repo, "--clobber"], check=False)
-                if r.returncode == 0:
-                    break
-                print(f"  upload attempt {attempt} failed: {r.stderr.strip()[:200]}", flush=True)
-                time.sleep(min(300, 20 * attempt))
+        zi = bi = 0
+        for entry in plan[t]:
+            if entry[0] == "zip":
+                zi += 1
+                name = f"{tag}-{zi:03d}.zip"
+                work = [(name, entry[1], None)]
             else:
-                print("  GIVING UP on", name, "- rerun the script to resume"); sys.exit(1)
-            manifest[name] = {"bytes": size, "sha256": digest, "files": [r_ for r_, _ in part]}
-            state["done"][name] = True
-            json.dump(state, open(state_file, "w"), indent=1)
-            os.remove(zp)
-            sent += size
-            print(f"[{time.strftime('%H:%M:%S')}] uploaded {name} ({size / 2**20:.0f} MB, total {sent / 2**30:.2f} GB this run)", flush=True)
+                bi += 1
+                _, rel, fsize = entry
+                n = -(-fsize // (a.part_mb * 1024 * 1024))
+                work = [(f"{tag}-big{bi:02d}-{safe_name(rel)}.part{j:03d}", rel, (j, n)) for j in range(1, n + 1)]
+            for name, src, chunk in work:
+                if state["done"].get(name):
+                    continue
+                zp = os.path.join(PARTS, name)
+                if chunk is None:
+                    print(f"[{time.strftime('%H:%M:%S')}] building {name} ({len(src)} files, {sum(s for _, s in src) / 2**20:.0f} MB raw)", flush=True)
+                    digest = build_zip(zp, src)
+                    info = {"files": [r_ for r_, _ in src]}
+                else:
+                    j, n = chunk
+                    print(f"[{time.strftime('%H:%M:%S')}] cutting {name} (chunk {j}/{n} of {src})", flush=True)
+                    with open(os.path.join(ROOT, src), "rb") as f, open(zp, "wb") as o:
+                        f.seek((j - 1) * a.part_mb * 1024 * 1024); o.write(f.read(a.part_mb * 1024 * 1024))
+                    digest = sha256_file(zp)
+                    info = {"source": src, "chunk": j, "of": n}
+                size = os.path.getsize(zp)
+                if not upload(a.repo, tag, zp):
+                    print("  GIVING UP on", name, "- rerun the script to resume", flush=True); sys.exit(1)
+                manifest[name] = {"bytes": size, "sha256": digest, **info}
+                state["done"][name] = True
+                json.dump(state, open(state_file, "w"), indent=1)
+                os.remove(zp)
+                sent += size
+                print(f"[{time.strftime('%H:%M:%S')}] uploaded {name} ({size / 2**20:.0f} MB, total {sent / 2**30:.2f} GB this run)", flush=True)
         mpath = os.path.join(STATE, f"MANIFEST-{tag}.json")
         json.dump(manifest, open(mpath, "w"), indent=1)
         sh(["gh", "release", "upload", tag, mpath, "--repo", a.repo, "--clobber"], check=False)
