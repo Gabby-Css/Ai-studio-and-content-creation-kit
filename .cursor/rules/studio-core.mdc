@@ -1,0 +1,28 @@
+---
+description: Core rules for the Bo and the Pancake + KiddoVerse video studio (machine limits, never-do list, working method)
+alwaysApply: true
+---
+
+# Studio core rules (always on)
+
+This workspace continues two code-generated kids' video series. Handoff pack: `CURSOR_HANDOFF/` (start with `README_START_HERE.md`).
+- **Bo and the Pancake** — 30 s vertical shorts, folders `hyperframes/toon` … `toon35` (ep1–35). Mega prompt: `CURSOR_HANDOFF/01_BO_MEGA_PROMPT.md`; canon: `02_BO_STORY_BIBLE.md`; build chain: `03_BO_PRODUCTION_PLAYBOOK.md`.
+- **KiddoVerse** — 16:9 learning/sing-along videos, folders `hyperframes/kiddoverse`, `learn1`, `learn2`. Mega prompt: `04_KIDDOVERSE_MEGA_PROMPT.md`; brand: `05_KIDDOVERSE_BIBLE.md`; pipeline: `06_KIDDOVERSE_PRODUCTION_PLAYBOOK.md`.
+- Story drafts and next-episode briefs: `08_NEXT_STORYLINES.md` (proposals, not canon).
+
+Stack (pinned, do not upgrade): HeyGen HyperFrames 0.8.40 + GSAP 3.13.0, Node ≥ 22.12, Python 3.12, ffmpeg (WinGet Gyan 9.0.2), Kokoro TTS, faster-whisper, SoulX-Singer (KiddoVerse). No paid services without asking.
+
+## Hard rules
+1. The PC has 2 cores / 7.7 GB: run ONE heavy job (render, singing, large ASR) at a time. Check `Get-CimInstance Win32_Process` for `hyperframes.mjs render`, `run_all`, `run_final` before starting one.
+2. Never kill processes you did not start (no `taskkill`/`Stop-Process` on python/node/ffmpeg unless the user says so).
+3. Launch long jobs detached with `Invoke-CimMethod -ClassName Win32_Process -MethodName Create`; then verify the process exists and poll its log.
+4. Prepend the Gyan ffmpeg `bin` folder to PATH in every new/detached shell; set `PRODUCER_PAGE_NAVIGATION_TIMEOUT_MS`, `PRODUCER_PLAYER_READY_TIMEOUT_MS`, `PRODUCER_RENDER_READY_TIMEOUT_MS`, `PRODUCER_PUPPETEER_PROTOCOL_TIMEOUT_MS` = 300000 for snapshots/renders.
+5. Never edit a composition `index.html` while its render runs. A killed render restarts from 0.
+6. Write files as UTF-8 WITHOUT BOM (PowerShell `Set-Content -Encoding utf8` adds a BOM). Never name a PowerShell function `R`/`r`.
+7. Do not invent canon; the bibles and the files win. Build new work from the previous episode/video, never from scratch.
+8. Kids' safety: nothing scary/mean, no strobing (single soft flashes ≤ 0.3 s), no real children or real voices, captions on, loudness ≈ -14 LUFS.
+9. You cannot watch or listen: report ASR/loudness/probe numbers as proxies, say what is unverified, and tell the user which timestamps to play.
+10. Ask before uploading/publishing, deleting, overwriting delivered videos, installing/upgrading packages, or spending money.
+
+## Method
+Read → summarise (≤ 10 lines) → plan with exact files/commands and WAIT for approval → build in small verified steps (syntax check, page-error probe, stills) → render/QA/deliver with the series scripts → report honestly → update the docs/notes.

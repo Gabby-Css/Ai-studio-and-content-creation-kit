@@ -1,0 +1,7 @@
+# Vendored Three.js assets are included in the distributed package.
+three.module.js
+three.core.js
+three.module.min.js
+three.core.min.js
+jsm/
+fonts/

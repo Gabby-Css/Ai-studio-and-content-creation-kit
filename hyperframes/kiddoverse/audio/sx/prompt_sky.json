@@ -1,0 +1,16 @@
+[
+ {
+  "index": "prompt_sky",
+  "language": "English",
+  "time": [
+   0,
+   8200
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.500 1.500 0.200",
+  "text": "R-EY1-N-B-OW2 R-EY1-N-B-OW2 HH-IH1-L-Z W-AH1-T D-UW1 W-IY1 S-IY1 R-EH1-D B-AH0-L-UW1-N-Z B-AH0-L-UW1-N-Z F-L-OW1-T-IH0-NG F-L-OW1-T-IH0-NG F-R-IY1 <SP>",
+  "phoneme": "en_R-EY1-N-B-OW2 en_R-EY1-N-B-OW2 en_HH-IH1-L-Z en_W-AH1-T en_D-UW1 en_W-IY1 en_S-IY1 en_R-EH1-D en_B-AH0-L-UW1-N-Z en_B-AH0-L-UW1-N-Z en_F-L-OW1-T-IH0-NG en_F-L-OW1-T-IH0-NG en_F-R-IY1 <SP>",
+  "note_pitch": "64 67 69 67 64 67 72 69 69 67 65 69 67 0",
+  "note_type": "2 3 2 2 2 2 2 2 2 3 2 3 2 1",
+  "f0": ""
+ }
+]

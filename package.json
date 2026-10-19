@@ -1,0 +1,24 @@
+{
+  "name": "ai-video-studio-kit",
+  "version": "2.1.0",
+  "description": "Configurable video-production source tools and workflow guides for editing, motion, transcription, clipping, voice, and external editor integrations.",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "check": "node check-deps.js",
+    "scan": "node longform/bin/lf-scan.cjs",
+    "render": "node motion/html3d-render.cjs",
+    "clipper": "node clipper/clip.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "dotenv": "^16.4.5"
+  },
+  "optionalDependencies": {
+    "puppeteer": "25.10.0",
+    "sharp": "0.35.4"
+  }
+}

@@ -1,0 +1,169 @@
+"""Human-singer mix (v3): SoulX-Singer lead + kids' gang (two takes, spread L/R), produced like a kids'-pop record:
+clean, bright, up-front lead; gang wide behind it; short plate + quiet 1/8 slap; music carved and ducked under words.
+-> audio/master_v3.wav (48 kHz, -14 LUFS).   Old masters (master.wav, master_v2.wav) are left untouched for A/B.
+usage: python mix3.py [voice-over-music dB, default 4.5]"""
+import numpy as np, soundfile as sf, os, subprocess, sys
+from scipy.signal import lfilter, resample_poly, fftconvolve
+import song
+from mix import load, fit, eq, compress, biquad, SR, HERE, DUR
+from mix2 import env_follow, deess, rms_db, cvr
+
+VMR = float(sys.argv[1]) if len(sys.argv) > 1 else 6.0
+D = song.build()
+BEAT = 60 / D["bpm"]
+rng = np.random.default_rng(7)
+
+def load_sx(name, n):
+    p = os.path.join(HERE, "sx", name)
+    if not os.path.exists(p): return None
+    x, sr = sf.read(p, dtype="float64")
+    if x.ndim == 2: x = x.mean(1)
+    if sr != SR: x = resample_poly(x, SR // 300, sr // 300) if sr % 300 == 0 else resample_poly(x, SR, sr)
+    x = x[:n] if len(x) >= n else np.pad(x, (0, n - len(x)))
+    return x
+
+def filt(x, bands):
+    return eq(x[:, None], bands)[:, 0] if x.ndim == 1 else eq(x, bands)
+
+def expander(x, thr_db=-46.0, floor_db=-18.0):
+    """soft downward expander: hiss/breath noise between phrases drops up to |floor_db|, singing untouched."""
+    e = env_follow(np.abs(x), .002, .12); db = 20 * np.log10(e + 1e-9)
+    g_db = np.clip((db - thr_db) * 1.5, floor_db, 0.0)
+    return x * 10 ** (g_db / 20)
+
+def air(x, amt_db=-17.0):
+    """bandwidth extension: the singer model stops at 12 kHz; regenerate soft 12-16 kHz 'air' from the 5-11 kHz band."""
+    b, a = biquad("hp", 5200, .7); band = lfilter(b, a, x)
+    k = 4.0 / (np.max(np.abs(band)) + 1e-9); h = np.tanh(band * k) / k
+    for _ in range(3): b, a = biquad("hp", 11800, .7); h = lfilter(b, a, h)
+    return x + h * 10 ** (amt_db / 20) * 4
+
+def pan(x, p):
+    th = (p + 1) * np.pi / 4; return np.stack([x * np.cos(th), x * np.sin(th)], 1)
+
+def plate(x, rt=1.5, wet=.16, pre=.022, lo=320, hi=7000):
+    """stereo plate-like reverb send (dense decorrelated noise IR, pre-delay, filtered return)."""
+    n = int(rt * SR); t = np.arange(n) / SR
+    ir = rng.standard_normal((n, 2)) * np.exp(-t * 6.9 / rt)[:, None]
+    ir[: int(.004 * SR)] *= np.linspace(0, 1, int(.004 * SR))[:, None]
+    ir = np.pad(ir, ((int(pre * SR), 0), (0, 0)))
+    ir /= np.sqrt((ir ** 2).sum(0)) / 4
+    src = x if x.ndim == 2 else np.stack([x, x], 1)
+    wetsig = np.stack([fftconvolve(src[:, c], ir[:, c])[: len(src)] for c in range(2)], 1)
+    return filt(wetsig, [("hp", lo, .7, 0), ("hshelf", hi, .7, -9)]) * wet
+
+def slap(x, t=BEAT / 2, fb=.22, wet=.07):
+    """filtered ping-pong eighth-note echo, kept low: adds 'record' sheen without blurring words."""
+    d = int(t * SR); src = filt(x, [("hp", 600, .7, 0), ("hshelf", 5000, .7, -8)])
+    out = np.zeros((len(x), 2)); tap = src.copy(); side = 0
+    for k in range(4):
+        tap = np.pad(tap, (d, 0))[: len(x)] * (fb if k else 1.0)
+        out[:, side] += tap; side ^= 1
+    return out * wet
+
+def main():
+    global DUR
+    P = lambda k, d: float(os.environ.get(k, d))          # clarity knobs; defaults = the proven mix2 clarity values
+    PRES, DUCK, CARVE, REV, MAXCUT = P("M3_PRES", 4.5), P("M3_DUCK", .50), P("M3_CARVE", 1.0), P("M3_REV", .15), P("M3_MAXCUT", 14)
+    HFCUT, HFPRES, LOOK, CV, DSTH = P("M3_HFCUT", 0), P("M3_HFPRES", 0), P("M3_LOOK", 0), P("M3_CV", 0), P("M3_DSTH", -34)
+    ONSET = P("M3_ONSET", 0)                              # dB lift of the consonant band (2.5-10 kHz) at the start of every sung lead word
+    n = int((DUR + 3) * SR)
+    music = fit(load(os.environ.get("MIX_MUSIC", "music_stem.wav")), n); spk = fit(load("vocals_speech.wav"), n); sfx = fit(load("sfx_stem.wav"), n)
+    lead = load_sx(os.environ.get("MIX_LEAD", "lead_sx.wav"), n)
+    gangA = load_sx(os.environ.get("MIX_GANG", "gang_sx.wav"), n); gangB = load_sx(os.environ.get("MIX_GANG_B", "gang_sx_b.wav"), n)
+    if lead is None: sys.exit("missing sx/lead_sx.wav")
+    tag = ""; excerpt = False; t_off = 0.0
+    if os.environ.get("MIX_RANGE"):                    # quick A/B on an excerpt: MIX_RANGE=8,24 MIX_TAG=name
+        t0, t1 = (float(x) for x in os.environ["MIX_RANGE"].split(",")); a, b = int(t0 * SR), int(t1 * SR)
+        music, spk, sfx, lead = music[a:b], spk[a:b], sfx[a:b], lead[a:b]
+        gangA = None if gangA is None else gangA[a:b]; gangB = None if gangB is None else gangB[a:b]
+        if os.environ.get("MIX_NOGANG"): gangA = gangB = None
+        D["sections"] = [dict(s, t0=max(0, s["t0"] - t0), t1=s["t1"] - t0) for s in D["sections"] if s["t1"] > t0 and s["t0"] < t1]
+        n = b - a; DUR = (n / SR); tag = "_" + os.environ.get("MIX_TAG", "x"); excerpt = True; t_off = t0
+
+    # ---- lead: clean, warm, present, bright, steady
+    lead = expander(lead)
+    lead = filt(lead, [("hp", 95, .7, 0), ("peak", 320, .9, -2.5), ("peak", 2900, .8, PRES), ("peak", 5200, 1.2, 1.5), ("hshelf", 9000, .7, 1.5)])
+    lead = air(lead)
+    if ONSET:                                                              # word-onset consonant lift: the score tells us exactly where every word starts
+        from scipy.signal import butter, sosfilt
+        L = int(.18 * SR); bump = np.sin(np.linspace(0, np.pi, L)) ** 2        # window: -60 ms .. +120 ms around the onset
+        env = np.zeros(len(lead))
+        for ln in D["lines"]:
+            if ln["voice"] != "lead": continue
+            for w in ln["words"]:
+                for x in (w.get("subs") or [w]):
+                    i = int((x["t0"] - t_off - .06) * SR)
+                    if i < 0 or i >= len(lead): continue
+                    j = min(len(lead), i + L); env[i:j] = np.maximum(env[i:j], bump[: j - i])
+        hf = sosfilt(butter(2, [2500, 10000], "bp", fs=SR, output="sos"), lead)
+        lead = lead + hf * (10 ** (ONSET / 20) - 1) * env
+    if HFPRES: lead = filt(lead, [("peak", 6300, .9, HFPRES)])               # fricative band (z, s, f, th) is what the music hides
+    if CV: lead = cvr(np.stack([lead, lead], 1), CV)[:, 0]                  # consonant-vowel-ratio lift (see mix2.cvr)
+    lead = deess(np.stack([lead, lead], 1), 5800, DSTH)[:, 0]
+    lead = compress(lead[:, None], -24, 3.0, .004, .09, 5.0)[:, 0]
+    lead = compress(lead[:, None], -15, 2.0, .02, .35, 1.5)[:, 0]
+    lead_st = pan(lead, 0.0)
+
+    # ---- gang: two different takes, wide, DARK and further back -> all consonant detail comes from the lead only
+    #      (A/B 2026-10-05: a bright gang at -3.5 dB smeared onsets, "Zoom" -> "Tsum"; backing-vocal treatment fixes it)
+    GANG_DB = float(os.environ.get("GANG_DB", "-8"))
+    zone = os.environ.get("M3_GANGZONE")                    # "lo,hi" song seconds: keep the kids' chorus ONLY there (dance-break echo); silent elsewhere
+    if zone and gangA is not None:
+        lo, hi = (float(v) for v in zone.split(","))
+        mask = np.zeros(n); mask[max(0, int((lo - t_off) * SR)): max(0, int((hi - t_off) * SR))] = 1
+        k = int(.05 * SR); mask = np.convolve(mask, np.ones(k) / k, mode="same")
+        gangA = gangA * mask[: len(gangA)]; gangB = None if gangB is None else gangB * mask[: len(gangB)]
+    gang_st = np.zeros((n, 2))
+    if gangA is not None:
+        if gangB is None:                                            # second take missing -> ADT copy (18 ms, +8 cents)
+            gangB = np.pad(resample_poly(gangA, 1000, 1005), (int(.018 * SR), n))[:n]
+        for g, p in ((gangA, -.65), (gangB, .65)):
+            g = expander(g)
+            g = filt(g, [("hp", 190, .7, 0), ("peak", 380, .9, -3.0), ("peak", 1600, .9, 1.0), ("hshelf", 4200, .7, -8.0)])
+            g = deess(np.stack([g, g], 1), 4500, -40, 6.0)[:, 0]
+            g = compress(g[:, None], -24, 3.0, .025, .15, 4.0)[:, 0]  # slow attack: softens gang consonant spikes
+            gang_st += pan(g, p)
+        lead_rms = rms_db(lead, np.abs(lead) > 1e-3); gang_rms = rms_db(gang_st.mean(1), np.abs(gang_st.mean(1)) > 1e-3)
+        gang_st *= 10 ** ((lead_rms + GANG_DB - gang_rms) / 20)
+        print(f"lead {lead_rms:.1f} dB, gang -> {lead_rms + GANG_DB:.1f} dB")
+
+    # ---- character speech: same polish as v2
+    voc_eq = [("hp", 120, .7, 0), ("peak", 350, .9, -3.0), ("peak", 2800, .8, 3.5), ("hshelf", 10000, .7, 2.0)]
+    spk = compress(compress(deess(eq(spk, voc_eq)), -22, 3.5, .004, .09, 5.0), -16, 2.0, .02, .35, 2.0)
+    spk = spk / (np.max(np.abs(spk)) + 1e-9) * np.max(np.abs(lead_st)) * 1.05
+
+    dry = lead_st + gang_st
+    voice = dry + plate(lead, 1.0, .13 * REV) + plate(gang_st.mean(1), 1.2, .26 * REV) + slap(lead, wet=.07 * REV) + spk + plate(spk.mean(1), .6, .04)
+
+    # ---- music: carve the voice band, duck under words, per-section balance (as v2, gentler now the voice is real)
+    music = eq(music, [("hp", 32, .7, 0), ("peak", 1200, .9, -2.0 * CARVE), ("peak", 2900, .7, -4.5 * CARVE), ("peak", 4500, 1.0, -2.0 * CARVE)] + ([("peak", 6300, .8, -HFCUT), ("hshelf", 9000, .7, -HFCUT / 2)] if HFCUT else []))
+    venv = env_follow(np.abs(dry + spk).max(1), .010, .30)
+    if LOOK: venv = np.concatenate([venv[int(LOOK * SR):], np.zeros(int(LOOK * SR))])   # look-ahead: music already down when the word starts
+    p95 = np.percentile(venv[venv > 1e-4], 95)
+    music = music * (1 - DUCK * np.clip(venv / p95, 0, 1) ** .6)[:, None]
+    active = venv > p95 * .18; g = np.ones(n)
+    for sec in D["sections"]:
+        a, b = int(sec["t0"] * SR), min(n, int(sec["t1"] * SR)); m = active[a:b]
+        if m.sum() < SR * .5: continue
+        vd = rms_db(voice[a:b].mean(1), m); md = rms_db(music[a:b].mean(1), m)
+        gain_db = np.clip(vd - VMR - md, -MAXCUT, 2); g[a:b] = 10 ** (gain_db / 20)
+        print(f"{sec['kind']:7s} voice {vd:6.1f}  music {md:6.1f}  -> music {gain_db:+5.1f} dB")
+    k = int(.35 * SR); c = np.cumsum(np.pad(g, (k + 1, k), mode="edge")); g = (c[2 * k + 1:] - c[:-2 * k - 1]) / (2 * k + 1)
+    music = music * g[:, None]
+    sfx = sfx * (1 - .35 * np.clip(venv / p95, 0, 1))[:, None]
+
+    mix = (music + voice + sfx * .45)[: int(DUR * SR)]
+    if os.environ.get("MIX_OUTTAG"): tag = "_" + os.environ["MIX_OUTTAG"]      # full-song variant -> own filenames
+    if not excerpt:
+        fi = int(.05 * SR); mix[:fi] *= np.linspace(0, 1, fi)[:, None]; fo = int(2.2 * SR); mix[-fo:] *= np.linspace(1, 0, fo)[:, None] ** 1.5
+    mix = compress(mix, -14, 1.5, .03, .25, 1.0)
+    mix = mix / (np.max(np.abs(mix)) + 1e-9) * .89
+    pre = os.path.join(HERE, f"premaster_v3{tag}.wav"); sf.write(pre, mix.astype(np.float32), SR)
+    sf.write(os.path.join(HERE, f"vocals_v3_dry{tag}.wav"), (dry + spk)[: int(DUR * SR)].astype(np.float32), SR)
+    out = os.path.join(HERE, f"master_v3{tag}.wav")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", pre, "-af", "loudnorm=I=-14:TP=-1.2:LRA=9,alimiter=limit=0.93:attack=3:release=60",
+                    "-ar", "48000", "-ac", "2", out], check=True)
+    print("master written", out)
+
+if __name__ == "__main__": main()

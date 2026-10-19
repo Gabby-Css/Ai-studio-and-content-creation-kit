@@ -1,0 +1,23 @@
+---
+description: KiddoVerse learning/sing-along videos (learn1, learn2, kiddoverse, kv_short_* folders: song.py, song.json, *_story.js, stages.py, run_all, mix3.py, thumbnails)
+globs: hyperframes/learn*/**,hyperframes/kiddoverse/**,hyperframes/kv_short_*/**
+alwaysApply: false
+---
+
+# KiddoVerse — production rules
+
+Full docs: `CURSOR_HANDOFF/05_KIDDOVERSE_BIBLE.md` (brand, crew, finished videos, legal/policy) and the pipeline below (`@CURSOR_HANDOFF/06_KIDDOVERSE_PRODUCTION_PLAYBOOK.md`).
+
+**Product:** kids' sing-along/learning videos for toddlers and preschoolers (2–6), 16:9 1920×1080 30 fps, 5–6 min, plus vertical Shorts. Crew: Kiko, Luma, Bloop, Rumble, Gizmo, Nimbus, Zoom (the rocket-bus). Outline `#2B1B5E`; Fredoka + Baloo 2 (keep the capital-B `unicode-range:U+0042` fix in `template.html` and `make_thumbs.cjs`). Captions 70 px white with 15 px indigo stroke, sung word turns yellow. Sonic logo E–G–C. Master ≈ -14 LUFS, true peak ≤ -0.3 dBTP.
+
+**Data model:** `audio/song.py` → `data/song.json` drives the singer, music, captions, mouth sync and the storyboard (`build/*_story.js`: each section's shot beats must sum to `bars*4`, the key learning word is the longest note, objects appear on the sung word). Song rules: notes ≥ 0.55 s, one idea per verse, same tune per item, 3 objects per item, echo + question + pause, 5–8 syllables per line.
+
+**Voices:** theme/counting/ABC songs are sung; letters, sounds, two-letter words, recaps and hard-consonant lines are CHANTED by Kokoro `af_heart` (sung consonants were unintelligible); spoken lines Kokoro. After changing any vocal take delete `audio/sx/qa_done.flag` and `mix_ok.flag`.
+
+**Pipeline (Learn #1):** `stages.py` stages sfx → picture → thumbs → vocals → qa → mix → deliver via `run_all.py`/`run_final.py` (`.cmd` wrappers) launched detached with `Invoke-CimMethod Win32_Process Create`; status in `deliver/STATUS.txt` and `deliver/run_all.log`. Read STATUS + `tasklist` at the start of every session. Learn #2 has no pipeline scripts yet — adapt the Learn #1 ones.
+
+**Traps:** never edit `index.html` during a render (stale-render check + 40-min sfx rebuild); test builds via `zz_test_index.html` + `KV_PAGE=… node build/preview_frames.cjs`; the CLI cannot resume a render (34–60 min); one heavy job at a time; never let helpers kill python/node; the agent cannot listen — give the user timestamps to check.
+
+**Open decisions (the user's only):** channel name (KIDDOVERSE is a registered US trademark of 22LEARN, LLC — not legal advice), YouTube AI-disclosure answer, made-for-kids consequences. Never upload.
+
+**State (2026-10-13):** Learn #1 v2 delivered; Learn #2 "The Color Train" in progress (song data, singer-v3 stems, composition built; no sfx.json, no final mix, no render, `deliver/` empty); another Claude session edited it at 14:08–14:44 — ask before touching.

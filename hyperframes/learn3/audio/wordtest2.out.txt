@@ -1,0 +1,12 @@
+=== quack
+  None                         6/12  | moowags oink bye woof  //  two says worked  //  the dog says quack
+  (None, {'lead_cap': 0.14})   6/12  | moowags oink bye woof  //  two says worked  //  the dog says quack
+  (None, {'lead_cap': 0.18})   6/12  | moowags oink bye woof  //  two says worked  //  the dog says quack
+  (None, {'lead_cap': 0.22})   6/12  | moowags oink bye woof  //  two says worked  //  the dog says quack
+  -> best for quack: None  (6)
+=== woof
+  None                         6/11  | bye move meow nay  //  toon says move  //  the dog says woof
+  (None, {'lead_cap': 0.14})   6/11  | bye move meow nay  //  toon says move  //  the dog says woof
+  (None, {'lead_cap': 0.18})   6/11  | bye move meow nay  //  toon says move  //  the dog says woof
+  ('wˈʊf', None)               6/11  | bye worth meow nay  //  says woof  //  the dog says wharf
+  -> best for woof: None  (6)

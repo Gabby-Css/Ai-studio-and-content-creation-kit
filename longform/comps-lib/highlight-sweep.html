@@ -1,0 +1,211 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* highlight-sweep — a block of body copy sits DIMMED; a marker wipes across the one phrase
+   that matters and that phrase burns bright as the marker passes it.
+   Derived from ref11 (Fern) and ref10 @~396s (2026-07-19 motion study). The study called this
+   "the single highest value-per-line technique in the whole library": it works on any quote,
+   claim, headline or paragraph, and it makes the viewer read the exact words you want read.
+
+   Use only when the line is about ONE clause inside a larger statement mattering — a caveat,
+   an exception, the fine print, the buried admission. If the whole paragraph matters equally,
+   this comp is the wrong read and a plain card is correct.
+
+   Authoring: wrap the phrase(s) to burn in <mark> inside CONFIG.body. Multiple <mark>s sweep
+   in document order at one CONSTANT speed, so a short last line does not linger like a long
+   first one. Everything else is furniture.
+
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   transparent background, pure DOM/CSS, comp-local time from 0. No random at runtime. */
+@font-face{ font-family:'Anton'; src:url('anton.ttf'); }
+@font-face{ font-family:'Mont'; src:url('mont.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#stage{ position:absolute; inset:0; background:#06080E; font-family:'Mont',sans-serif; overflow:hidden; will-change:clip-path; }
+#bg{ position:absolute; inset:0; display:grid; grid-template-columns:repeat(12,1fr); }
+#bg span{ border-left:1px solid rgba(140,180,220,0.05); }
+#glow{ position:absolute; left:6%; top:-20%; width:88%; height:120%;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%, rgba(77,216,255,0.11) 0%, rgba(77,216,255,0) 70%); }
+
+/* the whole card push-ins slowly under the sweep — the reference never holds a document
+   perfectly static; the drift is what keeps a wall of type from reading as a slide */
+#card{ position:absolute; inset:0; will-change:transform; }
+
+.stamp{ position:absolute; left:104px; top:92px; display:flex; align-items:center; gap:16px; will-change:transform,opacity; }
+.stamp em{ width:11px; height:11px; background:#4DD8FF; font-style:normal; }
+.stamp i{ font-style:normal; font-weight:900; font-size:24px; letter-spacing:9px; color:#33414F; }
+.stamp span{ font-weight:900; font-size:24px; letter-spacing:9px; color:#4DD8FF; text-transform:uppercase; }
+#rule{ position:absolute; left:104px; top:236px; height:4px; width:1712px; background:#4DD8FF; transform-origin:left center; }
+#title{ position:absolute; left:104px; top:270px; font-family:'Anton',sans-serif; font-size:76px;
+  line-height:1; color:#F1F0F5; letter-spacing:-1px; text-transform:uppercase; will-change:transform,opacity,filter; }
+
+/* the document page — a hairline panel sells "this is a real source", which is the whole
+   reason the technique reads as evidence rather than as a caption */
+#page{ position:absolute; border:1px solid rgba(140,180,220,0.13); background:rgba(148,190,225,0.028);
+  will-change:opacity,transform; }
+#page::before{ content:''; position:absolute; left:-1px; top:26px; bottom:26px; width:3px; background:#4DD8FF; opacity:0.55; }
+
+/* base copy is DIM — dimming the unhighlighted text is what makes the burn legible.
+   #para and #burnWrap must share identical geometry/type or the two layers desync by a pixel. */
+#para,.burn{ position:absolute; left:0; top:0; width:100%; color:#5A6A7C; font-weight:600; }
+.burn{ color:#F1F0F5; pointer-events:none; text-shadow:0 0 22px rgba(77,216,255,0.30); will-change:clip-path; }
+#para mark,.burn mark{ background:transparent; color:inherit; }
+.mk{ position:absolute; background:#4DD8FF; opacity:0.20; transform-origin:left center; will-change:transform; }
+.tip{ position:absolute; width:3px; background:#EAFBFF; box-shadow:0 0 16px rgba(77,216,255,0.9); will-change:transform,opacity; }
+
+#foot{ position:absolute; left:104px; bottom:104px; font-weight:800; font-size:29px; letter-spacing:4px;
+  color:#6C7C8D; text-transform:uppercase; will-change:transform,opacity; }
+#meta{ position:absolute; left:104px; bottom:52px; font-weight:600; font-size:15px; letter-spacing:2px;
+  color:#2C3742; text-transform:uppercase; }
+</style></head>
+<body><div id="stage">
+  <div id="bg"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div id="glow"></div>
+  <div id="card">
+    <div id="rule"></div>
+    <div class="stamp"><em></em><i id="stampNo">01</i><span id="stampTx">THE CLAUSE</span></div>
+    <div id="title"></div>
+    <div id="page"><div id="para"></div></div>
+  </div>
+  <div id="foot"></div>
+  <div id="meta"></div>
+</div>
+<script>
+/* ============================ CONFIG — edit only this block ============================ */
+const CONFIG = {
+  DUR: 5.0,
+  stamp: { no:'01', text:'THE CLAUSE' },
+  title: 'THE FINE PRINT',                 // '' hides it and the page moves up
+  // wrap the phrase(s) that must burn in <mark>. Everything outside stays dim.
+  body: 'You keep the rights to everything you upload. We may <mark>reproduce, distribute and create derivative works</mark> from your content, worldwide, royalty-free, for as long as the service exists — <mark>including after you delete your account</mark>.',
+  foot:    'nobody reads paragraph nine',
+  meta:    'SOURCE: TERMS OF SERVICE §9.2 · RETRIEVED THIS RECORDING · EMPHASIS ADDED',
+  page:    { x:104, y:392, w:1712, padX:64, padY:52 },   // document panel box
+  type:    { size:46, lh:1.62 },
+  pushIn:  0.030,                          // whole-card scale drift across DUR
+  t: { title:[0.18,0.5], page:[0.34,0.5], sweep:[1.15,2.05], foot:[0.9,0.5], meta:[1.3,0.6] },
+};
+/* ====================================================================================== */
+
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const p01=(t,t0,d)=>clamp((t-t0)/d,0,1);
+const outCubic=p=>1-Math.pow(1-p,3);
+const outQuint=p=>1-Math.pow(1-p,5);
+const inCubic=p=>p*p*p;
+const settle=(p,amp=0.10,f=2.0,decay=5.0)=>p>=1?1:outCubic(p)+amp*Math.sin(2*Math.PI*f*p)*Math.exp(-decay*p);
+const D=id=>document.getElementById(id);
+const {DUR}=CONFIG;
+
+D('stampNo').textContent=CONFIG.stamp.no;
+D('stampTx').textContent=CONFIG.stamp.text;
+D('title').textContent=CONFIG.title;
+D('title').style.display=CONFIG.title?'block':'none';
+D('foot').textContent=CONFIG.foot;
+D('meta').textContent=CONFIG.meta;
+
+const pg=CONFIG.page, ty=CONFIG.type;
+const page=D('page'), para=D('para');
+page.style.left=pg.x+'px'; page.style.width=pg.w+'px';
+page.style.top=(CONFIG.title?pg.y:pg.y-96)+'px';
+page.style.padding=pg.padY+'px '+pg.padX+'px';
+para.style.fontSize=ty.size+'px'; para.style.lineHeight=ty.lh;
+para.style.position='relative'; para.style.width='auto';
+para.innerHTML=CONFIG.body;
+
+/* Measure ONCE, after fonts resolve. Every rect below is a laid-out text box, so the burn
+   layer aligns glyph-for-glyph with the dim layer instead of being re-typeset. */
+const MARKS=[], BURNS=[];
+let TOTAL=0;
+
+function build(){
+  const pr=para.getBoundingClientRect();
+  const rects=[];
+  for(const m of para.querySelectorAll('mark')){
+    // a phrase that wraps produces one rect PER LINE — each becomes its own bar and band
+    for(const r of m.getClientRects()){
+      if(r.width<1) continue;
+      rects.push({ x:r.left-pr.left, y:r.top-pr.top, w:r.width, h:r.height });
+    }
+  }
+  let cum=0;
+  for(const r of rects){
+    // pad the bar vertically so it reads as a marker stroke, not a text-selection box
+    const padY=Math.max(2, r.h*0.10), bh=r.h-padY*2+8;
+    const bar=document.createElement('div'); bar.className='mk';
+    bar.style.left=(r.x-6)+'px'; bar.style.top=(r.y+padY-4)+'px';
+    bar.style.width=(r.w+12)+'px'; bar.style.height=bh+'px';
+    para.appendChild(bar);
+
+    const tip=document.createElement('div'); tip.className='tip';
+    tip.style.left=(r.x-6)+'px'; tip.style.top=(r.y+padY-4)+'px'; tip.style.height=bh+'px';
+    para.appendChild(tip);
+
+    const burn=document.createElement('div'); burn.className='burn';
+    burn.style.fontSize=ty.size+'px'; burn.style.lineHeight=ty.lh;
+    burn.innerHTML=CONFIG.body;
+    para.appendChild(burn);
+
+    MARKS.push({ r, bar, tip, burn, c0:cum, pr:{w:pr.width,h:pr.height} });
+    cum+=r.w; BURNS.push(burn);
+  }
+  TOTAL=cum||1;
+}
+
+window.__seek=(t)=>{
+  const wi=outQuint(p01(t,0,0.34));
+  const wo=inCubic(p01(t,DUR-0.30,0.30));
+  D('stage').style.clipPath='inset(0% '+((1-wi)*100).toFixed(2)+'% 0% '+(wo*100).toFixed(2)+'%)';
+
+  const fade=1-p01(t,DUR-0.34,0.34);
+  const exitSlide=outQuint(p01(t,DUR-0.34,0.34))*90;
+
+  // slow push-in on the whole card — drift, never a zoom the eye can name
+  const gp=clamp(t/DUR,0,1);
+  D('card').style.transform='scale('+(1+CONFIG.pushIn*gp).toFixed(4)+')';
+
+  D('rule').style.transform='scaleX('+outQuint(p01(t,0.06,0.85)).toFixed(3)+')';
+
+  const [tt0,ttd]=CONFIG.t.title;
+  const ts=settle(p01(t,tt0,ttd));
+  const dt=1/30, ts2=settle(p01(t-dt,tt0,ttd));
+  const tblur=clamp(Math.abs(ts-ts2)/dt*90*0.020,0,14);      // velocity-derived motion blur
+  D('title').style.opacity=(ts*fade).toFixed(3);
+  D('title').style.transform='translateX('+((1-ts)*64-exitSlide).toFixed(1)+'px)';
+  D('title').style.filter='blur('+tblur.toFixed(1)+'px)';
+
+  const [pt0,ptd]=CONFIG.t.page;
+  const ps=settle(p01(t,pt0,ptd));
+  page.style.opacity=(ps*fade).toFixed(3);
+  page.style.transform='translateY('+((1-ps)*26).toFixed(1)+'px)';
+
+  // ONE constant-speed sweep across every marked rect, measured in PIXELS not rects —
+  // otherwise a two-word line takes as long as a full one and the stroke reads fake
+  const [st0,std]=CONFIG.t.sweep;
+  const swept=outCubic(p01(t,st0,std))*TOTAL;
+  for(const m of MARKS){
+    const local=clamp((swept-m.c0)/m.r.w,0,1);
+    m.bar.style.transform='scaleX('+local.toFixed(4)+')';
+    const lead=local>0&&local<1;
+    m.tip.style.opacity=(lead?fade:0).toFixed(3);
+    m.tip.style.transform='translateX('+(local*(m.r.w+12)).toFixed(1)+'px)';
+    // reveal the bright copy only inside this rect's band, up to the marker's leading edge
+    const right=m.pr.w-(m.r.x+m.r.w*local);
+    const bottom=m.pr.h-(m.r.y+m.r.h);
+    m.burn.style.clipPath='inset('+m.r.y.toFixed(1)+'px '+right.toFixed(1)+'px '+bottom.toFixed(1)+'px '+m.r.x.toFixed(1)+'px)';
+    m.burn.style.opacity=fade.toFixed(3);
+  }
+
+  const fs=outCubic(p01(t,CONFIG.t.foot[0],CONFIG.t.foot[1]));
+  D('foot').style.opacity=(fs*fade).toFixed(3);
+  D('foot').style.transform='translateY('+((1-fs)*16).toFixed(1)+'px)';
+  D('meta').style.opacity=(outCubic(p01(t,CONFIG.t.meta[0],CONFIG.t.meta[1]))*fade).toFixed(3);
+
+  const es=outCubic(p01(t,0.16,0.44));
+  const st=document.querySelector('.stamp');
+  st.style.opacity=(es*fade).toFixed(3);
+  st.style.transform='translateX('+((1-es)*-24).toFixed(1)+'px)';
+};
+
+/* fonts MUST resolve before measuring — measuring a fallback face and then restyling would
+   put the burn layer a few pixels off the dim layer, which reads as a double-exposure */
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+  .then(()=>{ build(); window.__seek(0); window.__ready=true; });
+</script></body></html>

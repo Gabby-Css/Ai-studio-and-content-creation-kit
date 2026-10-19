@@ -1,0 +1,50 @@
+KIDDOVERSE LEARN #2 - YOUTUBE DESCRIPTION (copy and paste)
+=========================================================
+Decide the channel name BEFORE uploading (see README_START_HERE.txt, trademark note). If the name changes, change "KiddoVerse" in the
+title, description and tags below as well.
+
+TITLE (under 100 characters)
+Learn 6 Colors with The Color Train | Red, Orange, Yellow, Green, Blue, Purple | Songs for Toddlers
+
+DESCRIPTION (everything between the lines)
+------------------------------------------
+All aboard the Color Train! The rainbow has lost its colors, so Kiko, Luma and friends ride the train to find them: red, orange, yellow,
+green, blue and purple. In every stop children hear the color, see three things in that color, say it back and answer "What color is it?".
+At the end the rainbow glows again and there is a "Can you find it?" color game.
+Grown-ups: watch together, pause for the answers and point at things at home that are red, orange, yellow, green, blue or purple.
+
+Chapters
+0:00 Welcome to the Color Train
+0:26 Where Did the Colors Go?
+0:44 Color 1: Red
+1:11 Color 2: Orange
+1:37 Color 3: Yellow
+2:04 Color 4: Green
+2:31 Color 5: Blue
+2:57 Color 6: Purple
+3:24 The Rainbow Song
+3:42 Color Game: Can You Find It?
+4:13 Final Sing-Along
+4:48 Bye Bye
+
+Made with animation and AI: the characters are animated, and the voices and music are AI-generated.
+The lyrics use American pronunciation.
+------------------------------------------
+
+SUGGESTED TAGS (comma separated; tags matter little for search, the title and description matter more)
+learn colors, colors for kids, colors song, rainbow song, color train, learn red orange yellow green blue purple, toddler learning, preschool learning,
+kids songs, learning songs for kids, nursery rhymes style, KiddoVerse
+
+AUDIENCE SETTING
+Choose "Yes, it's made for kids". On made-for-kids videos YouTube turns off comments, end screens and cards, so the video ends with a clean
+outro instead of "watch next" elements.
+
+ALTERED / SYNTHETIC CONTENT QUESTION
+The facts: the characters are animated; the singing and spoken voices and the music are AI-generated (the lead, double, harmony and children's-choir
+voices are made from the Kokoro text-to-speech voices, re-timed and tuned to the melody; the band is a SoundFont orchestra). Read the question exactly
+as YouTube words it in Studio and answer it honestly. The sentence "Made with animation and AI: the characters are animated, and the voices and music
+are AI-generated." in the description is a safe extra.
+
+CAPTIONS
+The captions are already burned into the picture. The SRT file (KiddoVerse_Learn2.srt) would show the same words a second time, so upload it only if
+you want it for search or translation.

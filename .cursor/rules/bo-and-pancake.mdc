@@ -1,0 +1,19 @@
+---
+description: Bo and the Pancake episode work (toonN folders, mk_s*_setup.py, mk_template_s6.py, tts.py, _body/_init/_defs/_audio files, run_episode/queue scripts)
+globs: hyperframes/toon*/**,hyperframes/mk_*.py,hyperframes/run_*.ps1,hyperframes/qa_episode.py,hyperframes/*.cjs
+alwaysApply: false
+---
+
+# Bo and the Pancake — episode rules
+
+Full docs: `CURSOR_HANDOFF/02_BO_STORY_BIBLE.md` (canon) and the build chain below (`@CURSOR_HANDOFF/03_BO_PRODUCTION_PLAYBOOK.md`).
+
+**Format (fixed):** 30.0 s, 1080×1920, 30 fps; 11 Kokoro voice lines (≈ 4–7 words each, ≈ 50–62 words total, aim ≈ 56; line 11 ends before ≈ 26.6 s); word-timed ALL-CAPS captions (Baloo 2 ExtraBold, white, `#2b1a14` stroke); end-card sticker last ≈ 2.5 s; ≈ -14.2 LUFS; delivery `Desktop\Content Creation\Videos\NN_Bo_and_the_Pancake_N_Title.mp4` + `…_COVER.png`.
+
+**Story rules:** Bo ("Just one tiny bite!"), Flapjack, Mochi ("Hmph. … Obviously."), Truffle ("Needs a pinch more love!"), Zap ("Beep boop!"), Coco, Gumdrop, Boo, Peanut, Rocky ("Nobody saw anything."), Blip, Nibbles, King (Sunday pancakes), Jiggles, Munch (giant gray, gentle), Pebble (pink baby). Problems end in sharing food; no villains; ≤ 1 new character per episode; every episode ends on a "But then…" cliff-hanger that the next one opens with; the season's last episode says "And that was the end of Season N!". Voices are fixed (bible §5).
+
+**Build chain per episode N:** `mk_sN_setup.py` (voice lines → `toonN/tts.py`) → `cd toonN; python tts.py` → `python mk_s6_setup.py plan N` → write `_defsN.js` (literals only, runs before FLOOR/ROW*), `_initN.js` (start state = last frame of N-1; helpers accumulate), `_bodyN.js` (must start with `/* ===== this episode's key moments`; body consts are NOT inherited), `_audioN.py` → add `META[N]` to `mk_template_s6.py` → `python mk_template_s6.py N` → `node toonN\build.cjs` → `node chk_js.cjs toonN` → `node errprobe.cjs toonN` (timeline must be 30 s, no PAGEERROR) → `python mk_audio_n.py N` → `cd toonN; python audio.py` → stills (`hyperframes snapshot`, `spaceprobe.cjs`, `stageshot.cjs`) → `run_episode.ps1 -N N -Title … -Cover …` or a detached `run_queue_sX.ps1`.
+
+**Code traps:** new rig prefix needs `svgOrigin:'0 0'` before x/y/scale; Bo's pivot is offset (`chPos()`); GSAP `fromTo` ignores props only in from-vars (use `tl.set` for opacity); don't redeclare shared head names (`BOS`, `RK`, `MW`, `NS`, `RKX`, `T0`); `stagger`+`repeat` repeats the whole group; a missing `CAM` key throws (empty frozen scene); Bo is always drawn above other characters (mount order); Kokoro garbles interjections → plain words; re-time footstep/impact cues in `_audioN.py` after choreography changes.
+
+**Pending (2026-10-13):** Season 7 (ep31–35) is built but NOT rendered — the queue failed ("FFmpeg cannot start"); relaunch only after the checks in playbook §5.

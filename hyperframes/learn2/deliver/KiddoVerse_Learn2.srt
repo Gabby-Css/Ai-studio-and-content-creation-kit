@@ -1,0 +1,296 @@
+1
+00:00:00,000 --> 00:00:01,900
+KiddoVerse!
+
+2
+00:00:02,172 --> 00:00:04,374
+All aboard the Color Train!
+
+3
+00:00:04,394 --> 00:00:05,394
+Ready?
+
+4
+00:00:05,506 --> 00:00:06,506
+Ready!
+
+5
+00:00:06,617 --> 00:00:07,152
+Three!
+
+6
+00:00:07,172 --> 00:00:07,708
+Two!
+
+7
+00:00:07,728 --> 00:00:08,263
+One!
+
+8
+00:00:08,283 --> 00:00:08,749
+Go!
+
+9
+00:00:08,769 --> 00:00:13,283
+Toot, toot! Here comes the train!
+
+10
+00:00:13,303 --> 00:00:17,728
+Rainbow colors big and bright!
+
+11
+00:00:17,748 --> 00:00:22,172
+Red and blue and yellow too!
+
+12
+00:00:22,192 --> 00:00:26,617
+Let's find the colors with me!
+
+13
+00:00:26,637 --> 00:00:31,061
+Oh no! The rainbow's gray!
+
+14
+00:00:31,081 --> 00:00:35,506
+Where did the colors go?
+
+15
+00:00:35,526 --> 00:00:39,950
+Let's ride the train and find them!
+
+16
+00:00:39,970 --> 00:00:44,189
+All aboard! Toot, toot!
+
+17
+00:00:44,324 --> 00:00:48,839
+Toot, toot, stop, stop! Here's red!
+
+18
+00:00:48,859 --> 00:00:52,522
+Red, red, red, red, red!
+
+19
+00:00:53,213 --> 00:00:57,728
+Apples are red! red!
+
+20
+00:00:57,748 --> 00:01:02,172
+Hearts are red! red!
+
+21
+00:01:02,192 --> 00:01:06,617
+Cherries are red! red!
+
+22
+00:01:06,637 --> 00:01:11,061
+What color is it? red!
+
+23
+00:01:11,081 --> 00:01:15,506
+Toot, toot, stop, stop! Here's orange!
+
+24
+00:01:15,526 --> 00:01:19,744
+Orange, orange, orange!
+
+25
+00:01:19,880 --> 00:01:24,394
+Oranges are orange! orange!
+
+26
+00:01:24,414 --> 00:01:28,839
+Carrots are orange! orange!
+
+27
+00:01:28,859 --> 00:01:33,283
+Fish are orange! orange!
+
+28
+00:01:33,303 --> 00:01:37,728
+What color is it? orange!
+
+29
+00:01:37,748 --> 00:01:42,172
+Toot, toot, stop, stop! Here's yellow!
+
+30
+00:01:42,192 --> 00:01:46,411
+Yellow, yellow, yellow!
+
+31
+00:01:46,547 --> 00:01:51,061
+Suns are yellow! yellow!
+
+32
+00:01:51,081 --> 00:01:55,506
+Ducks are yellow! yellow!
+
+33
+00:01:55,526 --> 00:01:59,950
+Stars are yellow! yellow!
+
+34
+00:01:59,970 --> 00:02:04,394
+What color is it? yellow!
+
+35
+00:02:04,414 --> 00:02:08,839
+Toot, toot, stop, stop! Here's green!
+
+36
+00:02:08,859 --> 00:02:12,522
+Green, green, green, green, green!
+
+37
+00:02:13,213 --> 00:02:17,728
+Trees are green! green!
+
+38
+00:02:17,748 --> 00:02:22,172
+Frogs are green! green!
+
+39
+00:02:22,192 --> 00:02:26,617
+Leaves are green! green!
+
+40
+00:02:26,637 --> 00:02:31,061
+What color is it? green!
+
+41
+00:02:31,081 --> 00:02:35,506
+Toot, toot, stop, stop! Here's blue!
+
+42
+00:02:35,526 --> 00:02:39,189
+Blue, blue, blue, blue, blue!
+
+43
+00:02:39,880 --> 00:02:44,394
+Whales are blue! blue!
+
+44
+00:02:44,414 --> 00:02:48,839
+Balloons are blue! blue!
+
+45
+00:02:48,859 --> 00:02:53,283
+Balls are blue! blue!
+
+46
+00:02:53,303 --> 00:02:57,728
+What color is it? blue!
+
+47
+00:02:57,748 --> 00:03:02,172
+Toot, toot, stop, stop! Here's purple!
+
+48
+00:03:02,192 --> 00:03:06,411
+Purple, purple, purple!
+
+49
+00:03:06,547 --> 00:03:11,061
+Grapes are purple! purple!
+
+50
+00:03:11,081 --> 00:03:15,506
+Flowers are purple! purple!
+
+51
+00:03:15,526 --> 00:03:19,950
+Hats are purple! purple!
+
+52
+00:03:19,970 --> 00:03:24,394
+What color is it? purple!
+
+53
+00:03:24,414 --> 00:03:28,839
+Red, orange, yellow!
+
+54
+00:03:28,859 --> 00:03:33,078
+Green, blue, purple!
+
+55
+00:03:33,213 --> 00:03:37,728
+A rainbow! A rainbow!
+
+56
+00:03:37,748 --> 00:03:42,172
+Look at the rainbow! Hooray!
+
+57
+00:03:42,192 --> 00:03:46,617
+Let's play a game! Find the color!
+
+58
+00:03:46,637 --> 00:03:53,193
+Where is blue?
+
+59
+00:03:53,213 --> 00:03:55,506
+Yes! It's blue!
+
+60
+00:03:55,526 --> 00:04:02,082
+Where is green?
+
+61
+00:04:02,102 --> 00:04:04,394
+Yes! It's green!
+
+62
+00:04:04,414 --> 00:04:10,971
+Where is orange?
+
+63
+00:04:10,991 --> 00:04:13,283
+Yes! It's orange!
+
+64
+00:04:13,303 --> 00:04:17,728
+Toot, toot! Here comes the train!
+
+65
+00:04:17,748 --> 00:04:22,172
+Rainbow colors big and bright!
+
+66
+00:04:22,192 --> 00:04:26,617
+Red and blue and yellow too!
+
+67
+00:04:26,637 --> 00:04:31,061
+Let's find the colors with me!
+
+68
+00:04:31,081 --> 00:04:35,506
+Toot, toot! Here comes the train!
+
+69
+00:04:35,526 --> 00:04:39,950
+Rainbow colors big and bright!
+
+70
+00:04:39,970 --> 00:04:44,394
+Red and blue and yellow too!
+
+71
+00:04:44,414 --> 00:04:48,839
+Colors, colors, we love colors!
+
+72
+00:04:48,859 --> 00:04:51,061
+Bye bye, KiddoVerse!
+
+73
+00:04:51,081 --> 00:04:53,021
+See you next time!
+
+74
+00:04:53,283 --> 00:04:55,583
+Ask a grown-up to subscribe!
+

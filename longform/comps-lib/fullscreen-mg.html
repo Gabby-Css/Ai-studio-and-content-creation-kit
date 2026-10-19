@@ -1,0 +1,819 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* fullscreen-mg — FULL-SCREEN motion graphics, near-replicated from the reference frames.
+
+   WHY THIS EXISTS. broadcast-layer.html put graphics NEXT TO the footage — furniture riding
+   over a talking head. Re-reading the references as frames (not as my own notes) killed that
+   premise: in ref10 (Vox) roughly 40-50% of the runtime is a FULL-FRAME graphic that replaces
+   the shot entirely, and every time the frame gets interesting it is because a graphic took
+   it over. you: "you need to actually do on screen animation motion graphics and also full
+   screen ones... throughout the video". So every scene here OWNS the frame.
+
+   NO STOCK / NO GENERATED FOOTAGE. you: "we should never use stock footage, we need motion
+   graphics." Nothing in this comp composites over b-roll; the cutaways ARE the graphics.
+
+   EACH SCENE KIND IS TRACED TO A REAL FRAME I LOOKED AT:
+     flow    <- ref10 @462s  org chart: red circle node, white core box, mint + blue organ
+                boxes, WHITE 2px hard-90-degree elbow connectors, faint '+' tick grid ground.
+                Colour is SEMANTIC (party/military/state), never decorative.
+     field   <- ref10 @336s  dot field morph. The detail my first build missed entirely: dots
+                LIFT OUT of the dense grey field and leave a VISIBLE HOLE behind. The void is
+                the storytelling device - you watch a subset being extracted from the whole.
+     title   <- ref10 @168s  "THE LONG MARCH": small accent square tick + huge tracked caps.
+     stat    <- ref9         thin outlined number box ("4859"), understated, near-black.
+     lineart <- ref11        Fern's accent line-art schematic on near-black: object outline
+                drawn stroke-by-stroke + scale markers + tiny labels.
+     burn    <- ref11 @182s  full-frame document, body dimmed, ONE phrase burns in accent.
+     fanout  <- ref10 + ref13  one source node branching to real platform marks.
+     feed    <- ref13        recreated platform UI as a full-screen graphic. The single most
+                on-topic technique in the whole library for a video about auto-posting.
+     split   <- ref10        field morph run in EXPANSION (one bar -> hundreds of marks).
+
+   THE FIVE BROADCAST LAWS (comps-lib/README.md) all still apply, law 1 hardest:
+     1. graphics posterize to 12fps inside a 30fps render  <- first line of __seek
+     2. morphs stagger by DESTINATION, never by hash
+     3. reveals are jagged; type lags its plate 2 comp-frames
+     4. lens pass on every scene, vignette clear-zone held out past the type
+     5. real marks, one treatment
+
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   TRANSPARENT background between scenes (so the talking head shows through the gaps),
+   pure DOM/CSS/SVG, comp-local time from 0, no runtime randomness. */
+@font-face{ font-family:'Anton'; src:url('anton.ttf'); }
+@font-face{ font-family:'Mont';  src:url('mont.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Mont',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+
+/* THEME = one reference's visual system. Set from JS (THEMES[CONFIG.THEME]) so the same
+   scene code renders as Vox, as Fern, as the Pilecki doc, etc. That is what makes a 20-cut
+   comparison meaningful: each cut IS a reference, so picking a winner picks a direction. */
+:root{
+  --ground:#0B0C0E; --accent:#E5372A; --mint:#7FCBA8; --blue:#8FC4E8;
+  --ink:#FFFFFF; --dim:#79818C; --tick:rgba(150,166,184,0.13); --field:#63696F;
+}
+#root{ position:absolute; inset:0; }
+/* full-screen scenes are OPAQUE — they replace the shot, they do not sit on it */
+.plate{ position:absolute; inset:0; background:var(--ground); opacity:0; will-change:opacity; }
+.scene{ position:absolute; inset:0; opacity:0; will-change:opacity; }
+
+/* ground scaffolding: the faint '+' tick lattice under every Vox full-frame graphic */
+.ticks{ position:absolute; inset:0; opacity:0.55; }
+.ticks i{ position:absolute; width:15px; height:1px; background:var(--tick); font-style:normal; }
+.ticks i:after{ content:''; position:absolute; left:7px; top:-7px; width:1px; height:15px; background:var(--tick); }
+
+/* type: very large or very small, nothing between (true of all 2h of reference) */
+.kick{ font-weight:800; font-size:17px; letter-spacing:7px; color:var(--accent); text-transform:uppercase; }
+.kick b{ display:inline-block; width:9px; height:9px; background:var(--accent); margin-right:14px; vertical-align:2px; }
+.head{ font-family:'Anton',sans-serif; font-size:104px; line-height:0.96; letter-spacing:2px;
+  color:var(--ink); text-transform:uppercase; }
+.sub{ font-weight:700; font-size:19px; letter-spacing:4px; color:var(--dim); text-transform:uppercase; }
+.tiny{ font-weight:700; font-size:14px; letter-spacing:4.5px; color:var(--dim); text-transform:uppercase; }
+
+/* lens pass (law 4) */
+#lens{ position:absolute; inset:0; pointer-events:none; opacity:0; will-change:opacity; }
+.ca{ position:absolute; inset:0; mix-blend-mode:screen; will-change:transform; }
+#vig{ position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 80% at 50% 48%, rgba(0,0,0,0) 63%, rgba(0,0,0,0.60) 100%); }
+#grain{ position:absolute; inset:-50%; opacity:0.095; will-change:transform;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>"); }
+
+/* always-on furniture — rides the whole cut, over graphics AND over the talking head */
+#meta{ position:absolute; left:92px; bottom:50px; font-weight:600; font-size:13px; letter-spacing:2.5px;
+  color:rgba(215,225,235,0.40); text-transform:uppercase; text-shadow:0 2px 12px rgba(0,0,0,0.9); }
+#stamp{ position:absolute; right:92px; top:60px; display:flex; align-items:center; gap:11px; }
+#stamp em{ width:8px; height:8px; background:var(--accent); font-style:normal; }
+#stamp i{ font-style:normal; font-weight:800; font-size:16px; letter-spacing:6px;
+  color:rgba(230,238,246,0.70); text-transform:uppercase; text-shadow:0 2px 12px rgba(0,0,0,0.9); }
+
+/* ---- flow chart (ref10 @462s) ---- */
+.fnode{ position:absolute; will-change:opacity,transform; }
+.fbox{ display:flex; align-items:center; justify-content:center; text-align:center;
+  font-family:'Anton',sans-serif; letter-spacing:1.4px; text-transform:uppercase; }
+.fdot{ position:absolute; border-radius:50%; background:var(--ink); }
+.fedge{ position:absolute; background:var(--ink); }
+.fcirc{ position:absolute; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'Anton',sans-serif; text-transform:uppercase; }
+
+/* ---- dot field (ref10 @336s) ---- */
+.fld{ position:absolute; border-radius:50%; will-change:transform,opacity; }
+
+/* ---- line-art schematic (ref11) ---- */
+.la{ position:absolute; inset:0; }
+
+/* ---- document burn (ref11 @182s) ---- */
+.doc{ position:absolute; font-family:'Courier New',monospace; font-size:25px; line-height:1.72;
+  color:#5A6068; white-space:pre-wrap; }
+.docburn{ position:absolute; font-family:'Courier New',monospace; font-size:25px; line-height:1.72;
+  color:#FFF; white-space:pre-wrap; }
+
+/* ---- platform feed UI (ref13) ---- */
+.card{ position:absolute; background:#15181D; border:1px solid rgba(150,166,184,0.16);
+  border-radius:10px; overflow:hidden; will-change:transform,opacity; }
+.cardbar{ position:absolute; left:0; right:0; top:0; height:44px; display:flex; align-items:center; gap:10px; padding:0 14px; }
+.cardav{ width:22px; height:22px; border-radius:50%; }
+.cardnm{ font-weight:800; font-size:12px; letter-spacing:2px; color:#AEB6C0; text-transform:uppercase; }
+.cardimg{ position:absolute; left:0; right:0; top:44px; bottom:38px; }
+.cardft{ position:absolute; left:0; right:0; bottom:0; height:38px; display:flex; align-items:center; gap:16px; padding:0 14px; }
+</style></head><body>
+<div id="root"></div>
+<div id="lens"><div class="ca" id="ca1"></div><div class="ca" id="ca2"></div><div id="vig"></div><div id="grain"></div></div>
+<div id="meta"></div>
+<div id="stamp"><em></em><i></i></div>
+<script>
+/* ============================ CONFIG ============================
+   A VARIANT IS A SCENE SUBSET, not a hand-authored comp. Derived comps overwrite
+   CONFIG.ONLY (kinds) or CONFIG.PICK (indices) and re-render. */
+/* THEMES — each one is a reference's visual system, read off the actual frames.
+   Same scene code, different world. Swapping CONFIG.THEME re-skins every scene at once. */
+const THEMES = {
+  /* ref10 Vox — near-black, ONE red, mint + blue used SEMANTICALLY in the org chart */
+  vox:     { ground:'#0B0C0E', accent:'#E5372A', mint:'#7FCBA8', blue:'#8FC4E8',
+             ink:'#FFFFFF', dim:'#79818C', tick:'rgba(150,166,184,0.13)', field:'#63696F',
+             boxes:'solid' },
+  /* ref11 Fern — near-black GREEN, one olive-yellow, everything reads as line-art schematic */
+  fern:    { ground:'#0D1310', accent:'#E3D04A', mint:'#8FBF7A', blue:'#9FB86A',
+             ink:'#F2F0DE', dim:'#7C8570', tick:'rgba(227,208,74,0.10)', field:'#4E5A48',
+             boxes:'outline' },
+  /* ref9 Pilecki — deep navy, colour-coded actors, one saturated element per frame */
+  pilecki: { ground:'#080D18', accent:'#E5372A', mint:'#E8C04A', blue:'#4A9EE8',
+             ink:'#EAF0F8', dim:'#6B7789', tick:'rgba(120,160,210,0.12)', field:'#2E3B50',
+             boxes:'solid', glow:true },
+  /* ref12 Ivy Bells — premium doc: warm orange, heavier tracking, colder ground */
+  ivy:     { ground:'#0C0E12', accent:'#E8863A', mint:'#6FB3A8', blue:'#7E96B8',
+             ink:'#F4F1EC', dim:'#79818C', tick:'rgba(232,134,58,0.10)', field:'#59616C',
+             boxes:'solid' },
+  /* the restrained control — pure black, white and red only, no semantic palette at all */
+  mono:    { ground:'#000000', accent:'#E5372A', mint:'#FFFFFF', blue:'#FFFFFF',
+             ink:'#FFFFFF', dim:'#6E747C', tick:'rgba(255,255,255,0.08)', field:'#4A4F55',
+             boxes:'outline' }
+};
+
+const CONFIG = {
+  FPS_POSTERIZE : 12,
+  THEME         : 'vox',  // vox | fern | pilecki | ivy | mono
+  META          : 'YOUR BRAND · SAMPLE WORKFLOW · DEMO COPY',
+  STAMP         : 'REC · 01',
+  ONLY          : null,   // e.g. ['title','flow'] — null = every scene
+  PICK          : null,   // e.g. [0,2,5]          — null = every scene
+
+  /* Scene list, timed to the transcript. The technique is chosen by WHAT HE SAYS —
+     motion is the argument, not decoration on top of one. */
+  SCENES: [
+    /* 0.0-6.1 "stressed trying to post five ten times every three days for a client" */
+    { kind:'field', at:0.30, dur:5.35, kicker:'THE GRIND', head:'POSTING BY HAND',
+      total:260, lift:8, liftLabel:'5–10 POSTS', fieldLabel:'EVERY 3 DAYS · PER CLIENT' },
+
+    /* 6.1-7.7 "Well, I got a solution for you" */
+    { kind:'title', at:6.20, dur:1.42, kicker:'THE FIX', head:'THERE IS A\nSYSTEM' },
+
+    /* 7.7-11.9 "make thousands of dollars a month for clipping 300 videos?" */
+    { kind:'stat', at:7.80, dur:3.95, kicker:'THE MATH', head:'300', unit:'VIDEOS CLIPPED',
+      foot:'PER MONTH · ZERO EDITORS HIRED' },
+
+    /* 12.2-15.9 "you don't even need to lift the finger up" */
+    { kind:'lineart', at:12.30, dur:3.40, kicker:'THE EFFORT', head:'HANDS OFF' },
+
+    /* 15.9-21.9 "you could post autonomously edit autonomously" */
+    { kind:'flow', at:16.10, dur:5.40, kicker:'THE METHOD', head:'', stage:1 },
+
+    /* 21.9-23.3 "Well, I am your solution" */
+    { kind:'title', at:22.00, dur:1.25, kicker:'', head:'CONFIGURE.\nTEST EACH RUN.' },
+
+    /* 23.3-29.3 "a system it could auto post, auto carousel, auto edit and clip" */
+    { kind:'flow', at:23.50, dur:5.55, kicker:'THE SYSTEM', head:'', stage:2 },
+
+    /* 29.3-35.1 "thousands of videos a day and no that's not clickbait" */
+    { kind:'split', at:29.40, dur:5.45, kicker:'DEMO DATA', head:'SAMPLE OUTPUT',
+      stampText:'NOT CLICKBAIT' },
+
+    /* 35.1-37.6 "this is how you actually scale on the social media game" */
+    { kind:'title', at:35.20, dur:2.30, kicker:'THE SHIFT', head:'HOW YOU\nACTUALLY SCALE' },
+
+    /* 37.6-43.9 "drag and drop a video into a folder and it will post on IG snap FB" */
+    { kind:'fanout', at:37.80, dur:5.85, kicker:'THE PIPELINE', head:'ONE FOLDER' },
+
+    /* 43.9-48.8 "TikTok, all platforms that you have it linked to, and just like that" */
+    { kind:'feed', at:44.00, dur:4.55, kicker:'THE OUTPUT', head:'EVERY PLATFORM' },
+
+    /* 48.8-54.5 "that's gonna be a game changer" */
+    { kind:'burn', at:49.05, dur:5.15, kicker:'THE CLAIM',
+      body:'drag and drop a video into a folder\nand it will post on instagram snapchat\nfacebook tiktok all platforms that you\nhave it linked to and just like that\nthat is going to be a game changer',
+      burnLine:4, burnFrom:0, burnTo:34 },
+
+    /* 54.5-60.2 "I will do long form and I will clip thousands of clips a week" */
+    { kind:'split', at:54.60, dur:5.40, kicker:'THE LEVERAGE', head:'1 LONG FORM',
+      mode:'explode', explodeTo:'SAMPLE OUTPUT · VERIFY COUNTS' },
+
+    /* 60.2-63.9 "go make your money. Let's get right into it." */
+    { kind:'title', at:60.30, dur:3.35, kicker:'THE CLOSE', head:'REVIEW\nTHEN PUBLISH' }
+  ]
+};
+
+/* ---- resolve the theme: CSS custom properties for markup, CONFIG.* for the scene code ---- */
+const T = THEMES[CONFIG.THEME] || THEMES.vox;
+{
+  const rs = document.documentElement.style;
+  rs.setProperty('--ground', T.ground); rs.setProperty('--accent', T.accent);
+  rs.setProperty('--mint',   T.mint);   rs.setProperty('--blue',   T.blue);
+  rs.setProperty('--ink',    T.ink);    rs.setProperty('--dim',    T.dim);
+  rs.setProperty('--tick',   T.tick);   rs.setProperty('--field',  T.field);
+  CONFIG.ACCENT = T.accent; CONFIG.MINT = T.mint; CONFIG.BLUE = T.blue;
+  CONFIG.GROUND = T.ground; CONFIG.INK = T.ink;  CONFIG.FIELD = T.field;
+}
+/* outline themes (fern, mono) draw boxes as stroked rectangles rather than filled slabs —
+   the difference between a Vox org chart and a Fern schematic is exactly this. */
+
+
+/* ============================ helpers ============================ */
+const STEP = 1 / CONFIG.FPS_POSTERIZE;
+const Q    = t => Math.floor(t / STEP) * STEP;                 // law 1
+const clamp = (v,a,b) => v < a ? a : v > b ? b : v;
+const p01  = (t,t0,d) => clamp((t - t0) / d, 0, 1);
+const outCubic = p => 1 - Math.pow(1 - p, 3);
+const outQuint = p => 1 - Math.pow(1 - p, 5);
+const inOut = p => p < 0.5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
+const hash = n => { const x = Math.sin(n * 127.1) * 43758.5453; return x - Math.floor(x); };
+
+/* jagged stepped reveal (law 3) — a smooth 0..1 renders as "web page", a stepped one as film */
+function jagged(p, steps){
+  if (p <= 0) return 0; if (p >= 1) return 1;
+  const s = steps || 5, idx = Math.floor(p * s);
+  return clamp(idx/s + (hash(idx*7.3) - 0.5)*0.13 + 0.06, 0, 1);
+}
+const el = (cls, parent, html) => {
+  const d = document.createElement('div');
+  if (cls) d.className = cls;
+  if (html != null) d.innerHTML = html;
+  parent.appendChild(d);
+  return d;
+};
+const px = n => n + 'px';
+
+const root  = document.getElementById('root');
+const lens  = document.getElementById('lens');
+const ca1   = document.getElementById('ca1');
+const ca2   = document.getElementById('ca2');
+const grain = document.getElementById('grain');
+document.getElementById('meta').textContent = CONFIG.META;
+document.querySelector('#stamp i').textContent = CONFIG.STAMP;
+
+/* select the scenes this variant renders */
+let SCENES = CONFIG.SCENES;
+if (CONFIG.ONLY) SCENES = SCENES.filter(s => CONFIG.ONLY.includes(s.kind));
+if (CONFIG.PICK) SCENES = CONFIG.PICK.map(i => CONFIG.SCENES[i]).filter(Boolean);
+
+/* ============================ build ============================ */
+const built = [];
+
+function tickField(parent){
+  const t = el('ticks', parent);
+  for (let y = 0; y < 6; y++) for (let x = 0; x < 10; x++){
+    const i = document.createElement('i');
+    i.style.left = px(96 + x*192); i.style.top = px(120 + y*168);
+    t.appendChild(i);
+  }
+  return t;
+}
+
+function headerBlock(parent, S, x, y){
+  const wrap = el('', parent);
+  wrap.style.cssText = 'position:absolute;left:' + px(x) + ';top:' + px(y) + ';';
+  let k = null, h = null;
+  if (S.kicker){ k = el('kick', wrap, '<b></b>' + S.kicker); k.style.marginBottom = '22px'; }
+  if (S.head){ h = el('head', wrap, S.head.replace(/\n/g, '<br>')); }
+  return { wrap, k, h };
+}
+
+SCENES.forEach((S, si) => {
+  const plate = el('plate', root);
+  const sc    = el('scene', root);
+  const o     = { S, plate, sc, parts:{} };
+
+  if (S.kind === 'title'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 430);
+    hb.h.style.fontSize = '132px';
+    o.parts.hb = hb;
+    /* accent rule that draws under the headline */
+    const rule = el('', sc);
+    rule.style.cssText = 'position:absolute;left:200px;top:' + px(430 + (S.kicker?60:0) + 300) +
+      ';height:4px;background:' + CONFIG.ACCENT + ';width:0;';
+    o.parts.rule = rule;
+  }
+
+  if (S.kind === 'field' || S.kind === 'split'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 150);
+    hb.h.style.fontSize = '78px';
+    o.parts.hb = hb;
+
+    /* dense grey field, laid out as a block; a subset LIFTS OUT and leaves a hole (ref10) */
+    const N    = S.total || 260;
+    const cols = S.cols || 26;
+    const rows = Math.ceil(N / cols);
+    const pitch = 46, dot = 36;   /* the reference field is full-bleed, not a centred motif */
+    const fx = (1920 - cols*pitch) / 2, fy = 430;
+    const lift = S.lift || 8;
+    /* the lifted subset is taken from the MIDDLE of the top row so the hole reads clearly */
+    const liftStart = Math.floor((cols - lift) / 2);
+    const marks = [];
+    for (let i = 0; i < N; i++){
+      const c = i % cols, r = (i / cols) | 0;
+      const d = el('fld', sc);
+      d.style.cssText = 'left:' + px(fx + c*pitch) + ';top:' + px(fy + r*pitch) +
+        ';width:' + px(dot) + ';height:' + px(dot) + ';background:' + T.field + ';';
+      const isLift = (r === 0 && c >= liftStart && c < liftStart + lift);
+      marks.push({ d, c, r, isLift, k: c - liftStart });
+    }
+    o.parts.marks = marks;
+    o.parts.geo = { fx, fy, pitch, dot, cols, rows, lift, liftStart };
+
+    const ll = el('tiny', sc, S.liftLabel || '');
+    ll.style.cssText = 'position:absolute;left:0;right:0;text-align:center;top:' + px(fy - 96) + ';color:#FFF;';
+    o.parts.ll = ll;
+    const fl = el('tiny', sc, S.fieldLabel || '');
+    fl.style.cssText = 'position:absolute;left:0;right:0;text-align:center;top:' + px(fy + rows*pitch + 34) + ';';
+    o.parts.fl = fl;
+
+    if (S.stampText){
+      const st = el('', sc, S.stampText);
+      st.style.cssText = 'position:absolute;right:150px;bottom:150px;padding:16px 26px;' +
+        'border:3px solid ' + CONFIG.ACCENT + ';color:' + CONFIG.ACCENT + ';font-family:Anton,sans-serif;' +
+        'font-size:38px;letter-spacing:4px;transform:rotate(-7deg);opacity:0;';
+      o.parts.stamp = st;
+    }
+    if (S.explodeTo){
+      const ex = el('tiny', sc, S.explodeTo);
+      ex.style.cssText = 'position:absolute;left:0;right:0;text-align:center;top:' + px(fy + rows*pitch + 34) + ';color:#FFF;opacity:0;';
+      o.parts.ex = ex;
+    }
+  }
+
+  if (S.kind === 'stat'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 170);
+    hb.h.style.display = 'none';
+    o.parts.hb = hb;
+    /* thin outlined number box (ref9 "4859") — understated, never a fat 3D counter */
+    const box = el('', sc);
+    box.style.cssText = 'position:absolute;left:50%;top:400px;transform:translateX(-50%);' +
+      'border:2px solid rgba(190,204,218,0.42);padding:34px 70px;';
+    const num = el('', box, '0');
+    num.style.cssText = 'font-family:Anton,sans-serif;font-size:210px;line-height:0.9;color:#FFF;letter-spacing:4px;';
+    o.parts.box = box; o.parts.num = num; o.parts.target = parseInt(S.head, 10) || 300;
+    const un = el('tiny', sc, S.unit || '');
+    un.style.cssText = 'position:absolute;left:0;right:0;text-align:center;top:700px;color:#FFF;';
+    o.parts.un = un;
+    const ft = el('tiny', sc, S.foot || '');
+    ft.style.cssText = 'position:absolute;left:0;right:0;text-align:center;top:754px;';
+    o.parts.ft = ft;
+  }
+
+  if (S.kind === 'lineart'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 170);
+    o.parts.hb = hb;
+    /* Fern-style accent line-art: a hand outline drawn stroke-by-stroke, scale ticks beside it */
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 1920 1080');
+    svg.setAttribute('class','la');
+    const mk = (d, w) => {
+      const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('d', d); p.setAttribute('fill','none');
+      p.setAttribute('stroke', CONFIG.ACCENT); p.setAttribute('stroke-width', w || 3);
+      p.setAttribute('stroke-linecap','round'); p.setAttribute('stroke-linejoin','round');
+      svg.appendChild(p); return p;
+    };
+    /* palm + four fingers + thumb, as separate strokes so they draw in sequence */
+    const paths = [
+      mk('M812 720 L812 604 Q812 578 838 578 Q864 578 864 604 L864 700'),
+      mk('M864 700 L864 486 Q864 460 890 460 Q916 460 916 486 L916 700'),
+      mk('M916 700 L916 452 Q916 426 942 426 Q968 426 968 452 L968 700'),
+      mk('M968 700 L968 494 Q968 468 994 468 Q1020 468 1020 494 L1020 706'),
+      mk('M812 668 Q762 640 738 682 Q722 712 758 740 L836 792'),
+      mk('M812 720 Q806 806 852 856 Q900 908 968 892 Q1024 878 1032 812 L1032 640 Q1032 614 1006 614 Q980 614 980 640')
+    ];
+    paths.forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p.dataset.len = L; });
+    /* prohibition ring — the "hands off" beat */
+    const ring = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    ring.setAttribute('cx','900'); ring.setAttribute('cy','660'); ring.setAttribute('r','268');
+    ring.setAttribute('fill','none'); ring.setAttribute('stroke',T.ink); ring.setAttribute('stroke-width','4');
+    svg.appendChild(ring);
+    const RL = 2*Math.PI*268; ring.style.strokeDasharray = RL; ring.style.strokeDashoffset = RL;
+    const slash = mk('M712 848 L1088 472', 4); slash.setAttribute('stroke',T.ink);
+    const SL = slash.getTotalLength(); slash.style.strokeDasharray = SL; slash.style.strokeDashoffset = SL;
+    sc.appendChild(svg);
+    o.parts.paths = paths; o.parts.ring = ring; o.parts.RL = RL; o.parts.slash = slash; o.parts.SL = SL;
+
+    /* scale markers to the right, Fern's schematic furniture */
+    const sk = el('', sc); sk.style.cssText = 'position:absolute;left:1240px;top:400px;';
+    ['INPUT READY','EDIT REVIEW','EXPORT CHECK','APPROVAL'].forEach((txt,i) => {
+      const r = el('', sk);
+      r.style.cssText = 'display:flex;align-items:center;gap:18px;margin-bottom:34px;opacity:0;';
+      const b = el('', r); b.style.cssText = 'width:44px;height:2px;background:' + CONFIG.ACCENT + ';';
+      const l = el('tiny', r, txt); l.style.color = T.ink;
+      sk.appendChild(r);
+    });
+    o.parts.sk = sk;
+  }
+
+  if (S.kind === 'flow'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 130);
+    if (hb.h) hb.h.style.display = 'none';
+    o.parts.hb = hb;
+
+    /* ref10 @462s, one-for-one: red circle node up top, row of white dots, WHITE core box,
+       mint box right, blue organ boxes bottom-left, white 2px hard-elbow connectors. */
+    const stage = S.stage || 2;
+    const nodes = [];
+    /* ONE colour in; the theme decides whether that means a filled slab (Vox: dark text on a
+       colour field) or a stroked outline (Fern/mono: coloured text inside a coloured rule).
+       Deriving both from one colour is what stops a cream box getting cream text. */
+    const mkBox = (x,y,w,h,col,txt,fs) => {
+      const outline = T.boxes === 'outline';
+      const n = el('fnode', sc);
+      n.style.cssText = 'left:' + px(x) + ';top:' + px(y) + ';width:' + px(w) + ';height:' + px(h) + ';opacity:0;';
+      const b = el('fbox', n, txt);
+      b.style.cssText = 'width:100%;height:100%;padding:10px;font-size:' + px(fs || 30) +
+        ';background:' + (outline ? 'transparent' : col) +
+        ';color:' + (outline ? col : T.ground) +
+        ';border:' + (outline ? '3px solid ' + col : 'none') + ';';
+      nodes.push(n); return n;
+    };
+    const mkCirc = (x,y,d,bg,txt,fs) => {
+      const n = el('fnode', sc);
+      n.style.cssText = 'left:' + px(x) + ';top:' + px(y) + ';width:' + px(d) + ';height:' + px(d) + ';opacity:0;';
+      const c = el('fcirc', n, txt);
+      c.style.cssText = 'width:100%;height:100%;background:' + bg + ';color:#0B0C0E;font-size:' + px(fs||26) + ';';
+      nodes.push(n); return n;
+    };
+    /* geometry mirrors the reference layout */
+    const CORE = { x:760, y:470, w:400, h:150 };
+    mkCirc(842, 210, 150, CONFIG.ACCENT, 'YOU', 34);              // supreme node
+    const dotRow = el('fnode', sc); dotRow.style.cssText = 'left:0;top:412px;width:1920px;height:40px;opacity:0;';
+    for (let i = 0; i < 6; i++){
+      const d = el('fdot', dotRow);
+      d.style.cssText = 'left:' + px(818 + i*57) + ';top:0;width:36px;height:36px;';
+    }
+    nodes.push(dotRow);
+    mkBox(CORE.x, CORE.y, CORE.w, CORE.h, T.ink, 'AUTOMATED<br>CONTENT MACHINE', 34);
+    mkBox(1330, 500, 380, 120, CONFIG.MINT, 'AUTO-EDIT<br>+ CLIP', 32);
+    const organs = stage === 1 ? ['AUTO<br>POST'] : ['AUTO<br>POST','AUTO<br>CAROUSEL','AUTO<br>CLIP'];
+    organs.forEach((txt,i) => mkBox(210 + i*196, 720, 176, 132, CONFIG.BLUE, txt, 22));
+
+    /* white hard-elbow connectors, drawn as L-shaped pairs so they can WIPE in */
+    const edges = [];
+    const mkEdge = (x,y,w,h) => {
+      const e = el('fedge', sc);
+      e.style.cssText = 'left:' + px(x) + ';top:' + px(y) + ';width:' + px(w) + ';height:' + px(h) + ';transform-origin:left center;transform:scaleX(0);';
+      edges.push({ e, horiz:h <= 3 }); return e;
+    };
+    mkEdge(917, 360, 2, 52);                                   // circle -> dot row
+    mkEdge(917, 452, 2, 18);                                   // dot row -> core
+    mkEdge(CORE.x + CORE.w, 545, 170, 2);                      // core -> mint
+    mkEdge(1500, 545, 2, -1);
+    organs.forEach((_,i) => {
+      const bx = 210 + i*196 + 88;
+      mkEdge(bx, 640 + i*24, CORE.x - bx, 2);                  // horizontal run
+      mkEdge(bx, 640 + i*24, 2, 80 - i*24);                    // vertical drop
+    });
+    mkEdge(CORE.x, 620, 2, 20);
+    o.parts.nodes = nodes; o.parts.edges = edges;
+  }
+
+  if (S.kind === 'fanout'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 140);
+    hb.h.style.fontSize = '78px';
+    o.parts.hb = hb;
+    /* one source -> four real platform marks (law 5: white glyphs, one treatment) */
+    const src = el('', sc);
+    src.style.cssText = 'position:absolute;left:50%;top:380px;transform:translateX(-50%);' +
+      'width:262px;height:186px;background:' + CONFIG.ACCENT + ';opacity:0;' +
+      'display:flex;align-items:center;justify-content:center;font-family:Anton,sans-serif;' +
+      'font-size:34px;color:#0B0C0E;letter-spacing:2px;text-align:center;';
+    src.textContent = 'DROP IT HERE';
+    o.parts.src = src;
+
+    const marks = ['ig-w.png','tt-w.png','fb-w.png','sc-w.png'];
+    const names = ['INSTAGRAM','TIKTOK','FACEBOOK','SNAPCHAT'];
+    const branches = [];
+    marks.forEach((m,i) => {
+      const bx = 232 + i*396, by = 800;
+      const n = el('', sc);
+      n.style.cssText = 'position:absolute;left:' + px(bx) + ';top:' + px(by) + ';width:280px;opacity:0;text-align:center;';
+      const im = document.createElement('img');
+      im.src = m; im.style.cssText = 'width:112px;height:112px;object-fit:contain;';
+      n.appendChild(im);
+      const lb = el('tiny', n, names[i]); lb.style.cssText = 'margin-top:18px;color:#FFF;';
+      /* elbow from source down then out to each branch */
+      const vx = bx + 140;
+      const e1 = el('fedge', sc); e1.style.cssText = 'left:960px;top:566px;width:2px;height:0;';
+      const e2 = el('fedge', sc); e2.style.cssText = 'left:' + px(Math.min(960,vx)) + ';top:680px;width:0;height:2px;';
+      const e3 = el('fedge', sc); e3.style.cssText = 'left:' + px(vx) + ';top:680px;width:2px;height:0;';
+      branches.push({ n, e1, e2, e3, vx, span:Math.abs(vx - 960) });
+    });
+    o.parts.branches = branches;
+  }
+
+  if (S.kind === 'feed'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 130);
+    hb.h.style.fontSize = '72px';
+    o.parts.hb = hb;
+    /* ref13's move: recreate the platform UI as a full-screen graphic and let posts land in it */
+    const cols = [
+      { name:'INSTAGRAM', img:'ig-w.png', tint:'#C13584' },
+      { name:'TIKTOK',    img:'tt-w.png', tint:'#25F4EE' },
+      { name:'FACEBOOK',  img:'fb-w.png', tint:'#1877F2' },
+      { name:'SNAPCHAT',  img:'sc-w.png', tint:'#FFFC00' }
+    ];
+    const feeds = [];
+    cols.forEach((c,i) => {
+      const cx = 168 + i*416;
+      const hdr = el('', sc);
+      hdr.style.cssText = 'position:absolute;left:' + px(cx) + ';top:330px;width:352px;display:flex;align-items:center;gap:12px;opacity:0;';
+      const im = document.createElement('img'); im.src = c.img;
+      im.style.cssText = 'width:26px;height:26px;object-fit:contain;';
+      hdr.appendChild(im);
+      const nm = el('tiny', hdr, c.name); nm.style.color = T.ink;
+      const cards = [];
+      for (let k = 0; k < 3; k++){
+        const cd = el('card', sc);
+        cd.style.cssText = 'left:' + px(cx) + ';top:' + px(392 + k*212) + ';width:352px;height:190px;opacity:0;';
+        const bar = el('cardbar', cd);
+        const av = el('cardav', bar); av.style.background = c.tint;
+        el('cardnm', bar, '@YOURBRAND');
+        /* a post, not a placeholder: 16:9 still + a play glyph + a duration chip */
+        const img = el('cardimg', cd);
+        img.style.background = 'linear-gradient(135deg,#232A33 0%,#161B21 60%,#2C3540 100%)';
+        const play = el('', img);
+        play.style.cssText = 'position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);' +
+          'width:0;height:0;border-left:22px solid rgba(255,255,255,0.86);' +
+          'border-top:14px solid transparent;border-bottom:14px solid transparent;';
+        const dur = el('', img, ['0:14','0:22','0:09'][k]);
+        dur.style.cssText = 'position:absolute;right:8px;bottom:6px;font-weight:800;font-size:11px;' +
+          'letter-spacing:1px;color:#DDE3EA;background:rgba(0,0,0,0.62);padding:2px 6px;border-radius:3px;';
+        const ft = el('cardft', cd);
+        /* engagement counters — these TICK during the scene, which is what sells "it is running" */
+        const cnt = el('', ft);
+        cnt.style.cssText = 'font-weight:800;font-size:12px;letter-spacing:1.6px;color:#9AA3AE;';
+        const dot = el('', ft);
+        dot.style.cssText = 'width:7px;height:7px;border-radius:50%;background:' + CONFIG.MINT + ';margin-left:auto;';
+        const st = el('', ft, 'POSTED');
+        st.style.cssText = 'font-weight:800;font-size:11px;letter-spacing:2px;color:' + CONFIG.MINT + ';';
+        cards.push({ cd, cnt, seed: i*7 + k*3 });
+      }
+      feeds.push({ hdr, cards });
+    });
+    o.parts.feeds = feeds;
+  }
+
+  if (S.kind === 'burn'){
+    tickField(sc);
+    const hb = headerBlock(sc, S, 200, 150);
+    if (hb.h) hb.h.style.display = 'none';
+    o.parts.hb = hb;
+    /* ref11 @182s: full-frame document, body dimmed, ONE phrase burns. Marker wipes L->R.
+       Two stacked copies of each line — a dim base and a marked-up overlay clipped from the
+       right. No text measurement anywhere: clip-path does the wipe, so nothing can drift
+       out of register the way an absolutely-positioned marker bar did. */
+    const lines = S.body.split('\n');
+    const wrap = el('', sc);
+    /* Sized for the FRAME, not for a document. At 34px in a 1360px box the paragraph read as
+       grey texture on every theme (fern and mono sheets failed identically) — the burn landed
+       but the sentence it burned through did not. 52px keeps the longest line (38 chars,
+       ~31px advance = ~1190px) inside 1560px, and 5 lines at 92px from top 250 end at 710. */
+    wrap.style.cssText = 'position:absolute;left:50%;top:250px;transform:translateX(-50%);' +
+      'width:1560px;font-family:"Courier New",monospace;font-size:52px;line-height:1.62;';
+    const lineEls = [];
+    lines.forEach((ln, i) => {
+      const holder = el('', wrap);
+      holder.style.cssText = 'position:relative;height:92px;white-space:pre;';
+      const dim = el('', holder, ln);
+      /* was #4E545C — indistinguishable from ground once the grain pass lands on top */
+      dim.style.cssText = 'position:absolute;left:0;top:0;color:#7E868F;';
+      const over = el('', holder);
+      over.style.cssText = 'position:absolute;left:0;top:0;right:0;clip-path:inset(0 100% 0 0);';
+      const bright = el('', over);
+      bright.style.cssText = 'color:#FFF;';
+      if (i === S.burnLine){
+        bright.innerHTML = '<span style="background:' + CONFIG.ACCENT + ';color:#0B0C0E;">' + ln + '</span>';
+      } else {
+        bright.textContent = ln;
+      }
+      lineEls.push({ holder, dim, over });
+    });
+    o.parts.lineEls = lineEls;
+  }
+
+  built.push(o);
+});
+
+/* ============================ seek ============================ */
+function seek(tRaw){
+  const t = Q(tRaw);                                   // LAW 1 — everything below reads t
+  let anyUp = 0;
+
+  built.forEach(o => {
+    const S = o.S, t0 = S.at, d = S.dur, t1 = t0 + d;
+    const live = (t >= t0 - 0.5 && t <= t1 + 0.5);
+    if (!live){ o.plate.style.opacity = 0; o.sc.style.opacity = 0; return; }
+
+    /* plate in/out — a hard-ish cut in, a short fall out */
+    const inP  = jagged(p01(t, t0, 0.26), 4);
+    const outP = 1 - p01(t, t1 - 0.30, 0.30);
+    const vis  = Math.min(inP, outP);
+    o.plate.style.opacity = vis;
+    o.sc.style.opacity    = vis;
+    if (vis > anyUp) anyUp = vis;
+
+    const lt = t - t0;                                  // scene-local time
+
+    if (S.kind === 'title'){
+      const hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.10, 0.30), 3);
+      /* type lags its plate 2 comp-frames (law 3) */
+      const hp = jagged(p01(lt, 0.10 + 2*STEP, 0.42), 5);
+      hb.h.style.opacity = hp;
+      hb.h.style.transform = 'translateY(' + px((1 - outQuint(hp)) * 26) + ')';
+      o.parts.rule.style.width = px(outCubic(p01(lt, 0.34, 0.55)) * 560);
+    }
+
+    if (S.kind === 'field' || S.kind === 'split'){
+      const g = o.parts.geo, hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.08, 0.28), 3);
+      if (hb.h) hb.h.style.opacity = jagged(p01(lt, 0.08 + 2*STEP, 0.38), 5);
+
+      const explode = (S.mode === 'explode');
+      /* fill the field, then lift the subset out leaving a hole (ref10 @336s) */
+      const fillP = p01(lt, 0.22, 1.05);
+      const liftP = outCubic(p01(lt, 1.50, 0.95));
+
+      o.parts.marks.forEach((m, i) => {
+        const order = m.r * g.cols + m.c;
+        const appear = clamp((fillP * o.parts.marks.length - order) / 26, 0, 1);
+        let op = appear, dy = 0, bg = T.field;
+
+        if (explode){
+          /* run it backwards: ONE bar shatters into the whole field. The top row renders as
+             square-and-touching so it reads as a SINGLE solid bar — a row of 26 discs under
+             the headline "1 LONG FORM" says twenty-six, which is the opposite of the point. */
+          const inBar = (m.r === 0);
+          const bp = outCubic(p01(lt, 0.55, 1.25));
+          if (inBar){
+            op = 1; bg = T.ink;
+            m.d.style.width = px(g.pitch);        // close the gaps -> one continuous bar
+            m.d.style.borderRadius = '0';
+          } else {
+            op = appear * bp;
+          }
+          m.d.style.opacity = op;
+          m.d.style.background = bg;
+          m.d.style.transform = 'translateY(' + px((1 - bp) * -(m.r * g.pitch)) + ')';
+          return;
+        }
+
+        if (m.isLift){
+          /* stagger by DESTINATION (law 2) — left-to-right across the lifted row */
+          const dl = m.k / g.lift;
+          const lp = outCubic(clamp((liftP - dl*0.28) / 0.72, 0, 1));
+          dy  = -lp * 112;
+          bg  = lp > 0.15 ? T.ink : T.field;
+          op  = appear;
+        }
+        m.d.style.opacity = op;
+        m.d.style.background = bg;
+        m.d.style.transform = 'translateY(' + px(dy) + ')';
+      });
+
+      o.parts.ll.style.opacity = jagged(p01(lt, 2.05, 0.36), 4);
+      o.parts.fl.style.opacity = jagged(p01(lt, 1.05, 0.36), 4);
+      if (o.parts.stamp) o.parts.stamp.style.opacity = jagged(p01(lt, 3.10, 0.24), 3);
+      if (o.parts.ex){
+        o.parts.ex.style.opacity = jagged(p01(lt, 2.20, 0.36), 4);
+        o.parts.fl.style.opacity = 0;
+      }
+    }
+
+    if (S.kind === 'stat'){
+      const hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.08, 0.28), 3);
+      const cp = p01(lt, 0.30, 1.35);
+      /* count in 12fps steps so the number ticks like film, not like a web counter */
+      const v = Math.round(outQuint(cp) * o.parts.target);
+      o.parts.num.textContent = v;
+      o.parts.box.style.opacity = jagged(p01(lt, 0.20, 0.26), 3);
+      o.parts.un.style.opacity  = jagged(p01(lt, 1.55, 0.34), 4);
+      o.parts.ft.style.opacity  = jagged(p01(lt, 1.95, 0.34), 4);
+    }
+
+    if (S.kind === 'lineart'){
+      const hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.08, 0.28), 3);
+      if (hb.h) hb.h.style.opacity = jagged(p01(lt, 0.08 + 2*STEP, 0.38), 5);
+      /* strokes draw in sequence — the schematic assembles itself */
+      o.parts.paths.forEach((p, i) => {
+        const L = parseFloat(p.dataset.len);
+        const dp = outCubic(p01(lt, 0.28 + i*0.13, 0.52));
+        p.style.strokeDashoffset = L * (1 - dp);
+      });
+      const rp = outCubic(p01(lt, 1.35, 0.55));
+      o.parts.ring.style.strokeDashoffset = o.parts.RL * (1 - rp);
+      const sp = outCubic(p01(lt, 1.80, 0.30));
+      o.parts.slash.style.strokeDashoffset = o.parts.SL * (1 - sp);
+      Array.from(o.parts.sk.children).forEach((r, i) => {
+        r.style.opacity = jagged(p01(lt, 1.05 + i*0.20, 0.30), 3);
+      });
+    }
+
+    if (S.kind === 'flow'){
+      const hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.08, 0.28), 3);
+      /* nodes pop in order, edges wipe between them — the chart BUILDS (ref10) */
+      o.parts.nodes.forEach((n, i) => {
+        const np = jagged(p01(lt, 0.22 + i*0.30, 0.34), 4);
+        n.style.opacity = np;
+        n.style.transform = 'translateY(' + px((1 - outQuint(np)) * 16) + ')';
+      });
+      o.parts.edges.forEach((ed, i) => {
+        const ep = outCubic(p01(lt, 0.44 + i*0.22, 0.34));
+        const e = ed.e;
+        if (ed.horiz){ e.style.transform = 'scaleX(' + ep + ')'; }
+        else {
+          const h = parseFloat(e.style.height) || 0;
+          e.style.transform = 'scaleY(' + ep + ')';
+          e.style.transformOrigin = 'center top';
+          if (h < 0){ e.style.height = px(Math.abs(h)); }
+        }
+      });
+    }
+
+    if (S.kind === 'fanout'){
+      const hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.08, 0.28), 3);
+      if (hb.h) hb.h.style.opacity = jagged(p01(lt, 0.08 + 2*STEP, 0.38), 5);
+      o.parts.src.style.opacity = jagged(p01(lt, 0.40, 0.30), 3);
+      o.parts.branches.forEach((b, i) => {
+        /* trunk down, run out, drop to the platform — then the mark lands */
+        const v1 = outCubic(p01(lt, 0.95, 0.34));
+        b.e1.style.height = px(v1 * 114);
+        const dl = 1.35 + i*0.22;
+        const v2 = outCubic(p01(lt, dl, 0.36));
+        b.e2.style.width = px(v2 * b.span);
+        b.e2.style.left  = px(b.vx > 960 ? 960 : b.vx + (1 - v2) * b.span);
+        const v3 = outCubic(p01(lt, dl + 0.30, 0.30));
+        b.e3.style.height = px(v3 * 120);
+        b.n.style.opacity = jagged(p01(lt, dl + 0.52, 0.30), 3);
+      });
+    }
+
+    if (S.kind === 'feed'){
+      const hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.08, 0.28), 3);
+      if (hb.h) hb.h.style.opacity = jagged(p01(lt, 0.08 + 2*STEP, 0.38), 5);
+      o.parts.feeds.forEach((f, i) => {
+        f.hdr.style.opacity = jagged(p01(lt, 0.34 + i*0.14, 0.28), 3);
+        f.cards.forEach((C, k) => {
+          /* posts land column by column, card by card — the feed fills itself */
+          const dl = 0.72 + i*0.16 + k*0.34;
+          const cp = p01(lt, dl, 0.40);
+          C.cd.style.opacity = jagged(cp, 4);
+          C.cd.style.transform = 'translateY(' + px((1 - outQuint(cp)) * 30) + ')';
+          /* counters climb once the card has landed — the feed is LIVE, not a screenshot */
+          const live = clamp(lt - (dl + 0.40), 0, 99);
+          const base = 40 + Math.floor(hash(C.seed) * 260);
+          const v = Math.floor(base + live * (90 + hash(C.seed + 5) * 210));
+          C.cnt.textContent = (v > 999 ? (v/1000).toFixed(1) + 'K' : v) + ' VIEWS';
+        });
+      });
+    }
+
+    if (S.kind === 'burn'){
+      const hb = o.parts.hb;
+      if (hb.k) hb.k.style.opacity = jagged(p01(lt, 0.08, 0.28), 3);
+      o.parts.lineEls.forEach((L, i) => {
+        L.dim.style.opacity = jagged(p01(lt, 0.24 + i*0.13, 0.32), 4);
+        if (i === S.burnLine){
+          /* the marked-up copy is unclipped left-to-right — marker and type arrive together */
+          const w = outCubic(p01(lt, 2.05, 0.90));
+          L.over.style.clipPath = 'inset(0 ' + ((1 - w) * 100).toFixed(2) + '% 0 0)';
+        }
+      });
+    }
+  });
+
+  /* lens pass (law 4) — only while a scene owns the frame */
+  lens.style.opacity = anyUp;
+  const wob = Math.sin(t * 1.7) * 1.15;
+  ca1.style.transform = 'translate(' + wob.toFixed(2) + 'px,0)';
+  ca2.style.transform = 'translate(' + (-wob).toFixed(2) + 'px,0)';
+  grain.style.transform = 'translate(' + ((hash(Math.round(t/STEP)) - 0.5) * 60).toFixed(1) + 'px,' +
+                                        ((hash(Math.round(t/STEP) + 91) - 0.5) * 60).toFixed(1) + 'px)';
+}
+
+window.__seek = seek;
+seek(0);
+window.__ready = true;
+</script></body></html>

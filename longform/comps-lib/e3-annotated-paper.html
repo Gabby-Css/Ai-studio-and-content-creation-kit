@@ -1,0 +1,433 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E3 — ANNOTATED PAPER
+   Traced to reference `7.mp4`. Highest differentiation in the entire set.
+
+   THE SYSTEM (Phase-0 locks):
+     GROUND      warm paper #E8E4DC with fibre + a strong dark vignette.
+     ACCENT      ink navy #1F2A6B (the writing), correction red #C81E1E (the marking up),
+                 sticky yellow #F5D23A. Red NEVER writes body copy — red only CORRECTS.
+     TYPE        typewriter serif body (Courier Prime); heavy condensed caps for display.
+     TEXTURE     paper fibre, procedurally generated with feTurbulence (fixed seed = deterministic).
+     DEPTH       flat and PHYSICAL. **ZERO GLOW.** Every other system in the library emits
+                 light; this one absorbs it. That single inversion is why it cannot collide.
+
+   Signature techniques, none of which appear in E1 or E2:
+     · hand-drawn marks — ellipse, arrow, X, underline — drawn with irregular beziers and
+       revealed by stroke-dashoffset, so they LOOK drawn rather than faded in
+     · a numbered worksheet that fills itself in, then gets struck through in red
+     · dashed leader lines with a travelling arrowhead
+     · rubber stamps that SLAM in rotated and overshoot
+     · whole-board hand-held wobble, derived from t (deterministic, never random)
+
+   OVERLAY / FULL-SCREEN: 7 and 7. Overlay beats are annotations ON the footage —
+   the paper world reaching onto the shot — which is exactly what the reference does.
+   ============================================================================ */
+@font-face{ font-family:'Cour';  src:url('courierprime.ttf'); }
+@font-face{ font-family:'CourB'; src:url('courierprime-bold.ttf'); }
+@font-face{ font-family:'Cond';  src:url('oswald.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Cour',monospace; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.tw{ font-family:'Cour',monospace; }
+.twb{ font-family:'CourB',monospace; }
+.cond{ font-family:'Cond',sans-serif; font-weight:700; letter-spacing:.01em; }
+</style></head><body><div id="stage"></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <filter id="fibre"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="7"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+</defs></svg>
+<script>
+const S = document.getElementById('stage');
+const NS = 'http://www.w3.org/2000/svg';
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const svg = (parent, w, h) => { const s = document.createElementNS(NS,'svg');
+  s.setAttribute('width', w); s.setAttribute('height', h);
+  s.style.cssText = 'position:absolute;left:0;top:0;overflow:visible;'; (parent||S).appendChild(s); return s; };
+const path = (par, d, col, w, cap) => { const p = document.createElementNS(NS,'path');
+  p.setAttribute('d', d); p.setAttribute('fill','none'); p.setAttribute('stroke', col);
+  p.setAttribute('stroke-width', w); p.setAttribute('stroke-linecap', cap || 'round');
+  p.setAttribute('stroke-linejoin','round'); par.appendChild(p);
+  p.dataset.len = p.getTotalLength(); return p; };
+const px = v => v.toFixed(2) + 'px';
+const clamp = (v,a,b) => v < a ? a : v > b ? b : v;
+const p01 = (lt,d,len) => clamp((lt - d) / len, 0, 1);
+const outCubic = p => 1 - Math.pow(1 - p, 3);
+/* back-out: the overshoot a rubber stamp makes when it hits paper */
+const backOut = p => { const c = 1.9; return 1 + (c+1)*Math.pow(p-1,3) + c*Math.pow(p-1,2); };
+
+const C = {
+  FPS_POSTERIZE: 12,
+  PAPER:'#E8E4DC', INK:'#1F2A6B', RED:'#C81E1E', YELL:'#F5D23A',
+  GRAPH:'#2A2620', DIM:'rgba(42,38,32,0.52)', RULE:'rgba(31,42,107,0.22)',
+  META:'YOUR BRAND — SAMPLE NOTES'
+};
+const STEP = 1 / C.FPS_POSTERIZE;
+
+/* draw-on: reveal a stroke the way a pen lays it down, not the way a fade does */
+const draw = (p, prog) => {
+  const L = parseFloat(p.dataset.len);
+  p.setAttribute('stroke-dasharray', L);
+  p.setAttribute('stroke-dashoffset', L * (1 - prog));
+};
+
+const SCENES = [
+  { kind:'sheet', full:1, at:0.30,  dur:5.35, tab:'01', head:'THE MANUAL METHOD',
+    rows:['POST BY HAND ....................... 5–10','WAIT THREE DAYS ..................... 72 HR',
+          'ONE CLIENT AT A TIME ................ CAPPED','HOURS RECLAIMED ..................... NONE'],
+    strike:3 },
+  { kind:'sticky', full:0, at:6.20,  dur:1.42, l1:'THERE IS', l2:'A SYSTEM', rot:-4 },
+  { kind:'ledger', full:1, at:7.80,  dur:3.95, tab:'02', big:'300', cap:'VIDEOS CLIPPED / MONTH',
+    sub:'ZERO EDITORS HIRED', tallies:12 },
+  { kind:'circle', full:0, at:12.30, dur:3.40, note:'editor review.', note2:'verify export.' },
+  { kind:'diag',   full:1, at:16.10, dur:5.40, tab:'03', head:'THE MACHINE', stage:1,
+    boxes:['DROP THE FILE','AUTO-EDIT','AUTO-CLIP'] },
+  { kind:'stamp',  full:0, at:22.00, dur:1.25, l1:'CONFIGURE', l2:'TEST EACH RUN', rot:-7 },
+  { kind:'diag',   full:1, at:23.50, dur:5.55, tab:'04', head:'THE MACHINE', stage:2,
+    boxes:['DROP THE FILE','AUTO-EDIT','AUTO-CLIP'], adds:['AUTO POST','AUTO CAROUSEL'] },
+  { kind:'margin', full:0, at:29.40, dur:5.45, fig:'1,000', cap:'VIDEOS / DAY', note:'not clickbait —' },
+  { kind:'head',   full:1, at:35.20, dur:2.30, tab:'05', l1:'HOW YOU', l2:'ACTUALLY SCALE' },
+  { kind:'sheet',  full:1, at:37.80, dur:5.85, tab:'06', head:'ONE FOLDER IN',
+    rows:['INSTAGRAM ......................... AUTO','TIKTOK ............................ AUTO',
+          'FACEBOOK .......................... AUTO','SNAPCHAT .......................... AUTO'],
+    tick:1 },
+  { kind:'ticks',  full:0, at:44.00, dur:4.55, items:['INSTAGRAM','TIKTOK','FACEBOOK','SNAPCHAT'] },
+  { kind:'head',   full:1, at:49.05, dur:5.15, tab:'07', l1:'THAT IS A', l2:'GAME CHANGER', under:1 },
+  { kind:'sticky', full:0, at:54.60, dur:5.40, l1:'SAMPLE INPUT', l2:'VERIFY OUTPUT', rot:3, big:1 },
+  { kind:'head',   full:1, at:60.30, dur:3.35, tab:'08', l1:'REVIEW', l2:'THEN PUBLISH', stampIt:1 }
+];
+
+/* the paper board — fibre + vignette, built once per full beat */
+function board(sc){
+  const b = el('', sc);
+  b.style.cssText = 'position:absolute;inset:-40px;background:' + C.PAPER + ';';
+  const grain = el('', b);
+  grain.style.cssText = 'position:absolute;inset:0;filter:url(#fibre);opacity:.30;mix-blend-mode:multiply;';
+  const vig = el('', b);
+  vig.style.cssText = 'position:absolute;inset:0;background:' +
+    'radial-gradient(78% 68% at 50% 46%, rgba(0,0,0,0) 34%, rgba(30,24,16,0.30) 74%, rgba(24,18,10,0.62) 100%);';
+  return b;
+}
+function tab(sc, n){
+  const w = el('', sc);
+  w.style.cssText = 'position:absolute;left:130px;top:92px;display:flex;align-items:center;gap:16px;opacity:0;';
+  const box = el('twb', w, n);
+  box.style.cssText = 'font-size:26px;color:' + C.PAPER + ';background:' + C.INK +
+    ';padding:8px 16px;letter-spacing:.08em;';
+  const m = el('tw', w, C.META);
+  m.style.cssText = 'font-size:19px;color:' + C.DIM + ';letter-spacing:.10em;';
+  return w;
+}
+
+const built = [];
+SCENES.forEach(Sd => {
+  const sc = el('sc');
+  const o = { S:Sd, sc, parts:{} };
+  const inner = el('', sc);              /* wobble rides on this, not on .sc */
+  inner.style.cssText = 'position:absolute;inset:0;';
+  o.parts.inner = inner;
+  if (Sd.full) o.parts.board = board(inner);
+  o.parts.tab = tab(inner, Sd.tab || '');
+
+  if (Sd.kind === 'sheet'){
+    const h = el('cond', inner, Sd.head);
+    h.style.cssText = 'position:absolute;left:130px;top:190px;font-size:104px;color:' + C.INK +
+      ';text-transform:uppercase;opacity:0;';
+    const s = svg(inner, 1920, 1080);
+    const rule = path(s, 'M130,318 C640,314 1200,322 1790,316', C.INK, 3);
+    const rows = [], marks = [];
+    Sd.rows.forEach((r, i) => {
+      const y = 400 + i * 96;
+      const t = el('tw', inner, r);
+      t.style.cssText = 'position:absolute;left:130px;top:' + px(y) + ';font-size:38px;color:' +
+        C.GRAPH + ';letter-spacing:.02em;white-space:pre;opacity:0;';
+      rows.push(t);
+      if (Sd.strike !== undefined && i === Sd.strike){
+        /* red correction stroke — irregular, hand-drawn, never a straight line */
+        marks.push({ i, p: path(s, 'M118,' + (y+30) + ' C520,' + (y+16) + ' 980,' + (y+44) + ' 1240,' + (y+24), C.RED, 6) });
+      }
+      if (Sd.tick){
+        marks.push({ i, p: path(s, 'M1300,' + (y+30) + ' l22,26 l46,-58', C.RED, 7) });
+      }
+    });
+    o.parts = Object.assign(o.parts, { h, rule, rows, marks });
+  }
+
+  if (Sd.kind === 'ledger'){
+    const big = el('cond', inner, Sd.big);
+    big.style.cssText = 'position:absolute;left:130px;top:280px;font-size:340px;line-height:.86;color:' +
+      C.INK + ';opacity:0;';
+    const cap = el('tw', inner, Sd.cap);
+    cap.style.cssText = 'position:absolute;left:140px;top:650px;font-size:34px;color:' + C.GRAPH +
+      ';letter-spacing:.10em;opacity:0;';
+    const sub = el('tw', inner, Sd.sub);
+    sub.style.cssText = 'position:absolute;left:140px;top:700px;font-size:26px;color:' + C.DIM +
+      ';letter-spacing:.10em;opacity:0;';
+    /* tally marks — five-bar gates, the most physical way to show a count */
+    const s = svg(inner, 1920, 1080);
+    const tal = [];
+    for (let i = 0; i < Sd.tallies; i++){
+      const grp = Math.floor(i / 5), idx = i % 5;
+      const gx = 1120 + grp * 230, gy = 320;
+      if (idx < 4) tal.push(path(s, 'M' + (gx + idx*38) + ',' + gy + ' l6,150', C.INK, 7));
+      else tal.push(path(s, 'M' + (gx - 12) + ',' + (gy + 140) + ' l176,-140', C.RED, 7));
+    }
+    o.parts = Object.assign(o.parts, { big, cap, sub, tal });
+  }
+
+  if (Sd.kind === 'diag'){
+    const h = el('cond', inner, Sd.head);
+    h.style.cssText = 'position:absolute;left:130px;top:180px;font-size:96px;color:' + C.INK +
+      ';text-transform:uppercase;opacity:0;';
+    const s = svg(inner, 1920, 1080);
+    const boxes = [], leads = [];
+    Sd.boxes.forEach((b, i) => {
+      const x = 150 + i * 570, y = 430;
+      const bx = el('', inner);
+      bx.style.cssText = 'position:absolute;left:' + px(x) + ';top:' + px(y) +
+        ';width:480px;height:132px;border:4px solid ' + C.INK + ';background:transparent;' +
+        'display:flex;align-items:center;justify-content:center;opacity:0;';
+      const bt = el('twb', bx, b);
+      bt.style.cssText = 'font-size:34px;color:' + C.INK + ';letter-spacing:.04em;';
+      boxes.push(bx);
+      if (i < Sd.boxes.length - 1){
+        /* dashed leader with a travelling arrowhead — the reference's connector */
+        const y2 = y + 66;
+        leads.push({
+          line: path(s, 'M' + (x+480) + ',' + y2 + ' C' + (x+520) + ',' + (y2-8) + ' ' +
+                        (x+580) + ',' + (y2+8) + ' ' + (x+560) + ',' + y2, C.INK, 3),
+          head: path(s, 'M' + (x+536) + ',' + (y2-16) + ' l24,16 l-24,16', C.INK, 4)
+        });
+      }
+    });
+    const adds = [];
+    if (Sd.adds) Sd.adds.forEach((a, i) => {
+      const ax = 330 + i * 700, ay = 700;
+      const w = el('', inner);
+      w.style.cssText = 'position:absolute;left:' + px(ax) + ';top:' + px(ay) + ';opacity:0;';
+      const t = el('tw', w, a);
+      t.style.cssText = 'font-size:36px;color:' + C.RED + ';letter-spacing:.06em;';
+      const s2 = svg(w, 500, 120);
+      /* hand-drawn arc from the box down to the addition */
+      path(s2, 'M60,-42 C40,-6 90,10 150,14', C.RED, 3);
+      adds.push(w);
+    });
+    o.parts = Object.assign(o.parts, { h, boxes, leads, adds, stage: Sd.stage });
+  }
+
+  if (Sd.kind === 'head'){
+    const l1 = el('cond', inner, Sd.l1);
+    l1.style.cssText = 'position:absolute;left:130px;top:360px;font-size:150px;line-height:1.0;color:' +
+      C.INK + ';text-transform:uppercase;opacity:0;';
+    const l2 = el('cond', inner, Sd.l2);
+    l2.style.cssText = 'position:absolute;left:130px;top:520px;font-size:150px;line-height:1.0;color:' +
+      C.GRAPH + ';text-transform:uppercase;opacity:0;';
+    const s = svg(inner, 1920, 1080);
+    /* the underline is drawn twice, slightly offset — nobody underlines once */
+    const u1 = path(s, 'M130,712 C520,704 940,720 1360,708', C.RED, 7);
+    const u2 = path(s, 'M138,728 C540,722 900,736 1290,724', C.RED, 4);
+    let stp = null;
+    if (Sd.stampIt){
+      stp = el('', inner);
+      stp.style.cssText = 'position:absolute;right:180px;top:330px;padding:26px 40px;border:7px solid ' +
+        C.RED + ';transform:rotate(-9deg) scale(.2);opacity:0;';
+      const st = el('cond', stp, 'DONE');
+      st.style.cssText = 'font-size:96px;color:' + C.RED + ';letter-spacing:.06em;';
+    }
+    o.parts = Object.assign(o.parts, { l1, l2, u1, u2, stp, under: Sd.under });
+  }
+
+  /* ---------- OVERLAY beats: annotations reaching onto the live footage ---------- */
+  if (Sd.kind === 'sticky'){
+    const n = el('', inner);
+    const w = Sd.big ? 700 : 520, hgt = Sd.big ? 330 : 260;
+    n.style.cssText = 'position:absolute;right:150px;top:270px;width:' + px(w) + ';height:' + px(hgt) +
+      ';background:' + C.YELL + ';padding:44px 40px;opacity:0;' +
+      'box-shadow:14px 18px 0 rgba(20,16,10,0.30);transform-origin:50% 0%;';
+    const a = el('cond', n, Sd.l1);
+    a.style.cssText = 'font-size:' + (Sd.big ? '62px' : '54px') + ';color:' + C.GRAPH + ';text-transform:uppercase;line-height:1.06;';
+    const b = el('cond', n, Sd.l2);
+    b.style.cssText = 'font-size:' + (Sd.big ? '62px' : '54px') + ';color:' + C.RED + ';text-transform:uppercase;line-height:1.06;';
+    o.parts = Object.assign(o.parts, { n, rot: Sd.rot });
+  }
+
+  if (Sd.kind === 'stamp'){
+    const n = el('', inner);
+    n.style.cssText = 'position:absolute;left:50%;top:340px;transform:translateX(-50%) rotate(' +
+      Sd.rot + 'deg) scale(.25);opacity:0;border:9px solid ' + C.RED + ';padding:30px 54px;' +
+      'background:rgba(232,228,220,0.90);';
+    const a = el('cond', n, Sd.l1);
+    a.style.cssText = 'font-size:92px;color:' + C.RED + ';text-transform:uppercase;line-height:1.0;text-align:center;';
+    const b = el('tw', n, Sd.l2);
+    b.style.cssText = 'font-size:30px;color:' + C.GRAPH + ';letter-spacing:.20em;text-align:center;margin-top:8px;';
+    o.parts = Object.assign(o.parts, { n, rot: Sd.rot });
+  }
+
+  if (Sd.kind === 'circle'){
+    const s = svg(inner, 1920, 1080);
+    /* an irregular hand-drawn ellipse — deliberately not a perfect circle */
+    const ring = path(s, 'M1180,300 C1420,262 1600,392 1568,556 C1540,700 1330,760 1196,700 ' +
+                         'C1064,640 1032,430 1180,300', C.RED, 8);
+    const lead = path(s, 'M1160,690 C1000,760 830,800 700,806', C.RED, 4);
+    const arw  = path(s, 'M742,786 l-44,20 l44,22', C.RED, 4);
+    const n1 = el('cond', inner, Sd.note);
+    n1.style.cssText = 'position:absolute;left:300px;top:756px;font-size:70px;color:' + C.RED +
+      ';transform:rotate(-3deg);opacity:0;';
+    const n2 = el('cond', inner, Sd.note2);
+    n2.style.cssText = 'position:absolute;left:330px;top:836px;font-size:70px;color:' + C.RED +
+      ';transform:rotate(-3deg);opacity:0;';
+    o.parts = Object.assign(o.parts, { ring, lead, arw, n1, n2 });
+  }
+
+  if (Sd.kind === 'margin'){
+    /* a torn margin strip down the left — paper reaching over the shot */
+    const strip = el('', inner);
+    strip.style.cssText = 'position:absolute;left:0;top:0;bottom:0;width:520px;background:' + C.PAPER +
+      ';opacity:0;box-shadow:10px 0 26px rgba(20,16,10,0.34);';
+    const gr = el('', strip);
+    gr.style.cssText = 'position:absolute;inset:0;filter:url(#fibre);opacity:.30;mix-blend-mode:multiply;';
+    const fig = el('cond', inner, '0');
+    fig.style.cssText = 'position:absolute;left:60px;top:330px;font-size:170px;color:' + C.INK +
+      ';line-height:1;opacity:0;';
+    const cap = el('tw', inner, Sd.cap);
+    cap.style.cssText = 'position:absolute;left:66px;top:520px;font-size:30px;color:' + C.GRAPH +
+      ';letter-spacing:.10em;opacity:0;';
+    const note = el('cond', inner, Sd.note);
+    note.style.cssText = 'position:absolute;left:66px;top:610px;font-size:46px;color:' + C.RED +
+      ';transform:rotate(-2deg);opacity:0;';
+    const s = svg(inner, 1920, 1080);
+    const arw = path(s, 'M470,630 C620,624 700,600 780,548', C.RED, 4);
+    const ahd = path(s, 'M756,586 l30,-40 l-46,-6', C.RED, 4);
+    o.parts = Object.assign(o.parts, { strip, fig, cap, note, arw, ahd, target: 1000 });
+  }
+
+  if (Sd.kind === 'ticks'){
+    const items = [], marks = [];
+    const s = svg(inner, 1920, 1080);
+    Sd.items.forEach((t, i) => {
+      const y = 620 + i * 106;
+      const w = el('', inner);
+      w.style.cssText = 'position:absolute;left:130px;top:' + px(y) + ';background:' + C.PAPER +
+        ';padding:14px 30px;opacity:0;box-shadow:8px 9px 0 rgba(20,16,10,0.26);';
+      const tt = el('twb', w, t);
+      tt.style.cssText = 'font-size:40px;color:' + C.INK + ';letter-spacing:.05em;';
+      items.push(w);
+      marks.push(path(s, 'M560,' + (y+34) + ' l26,30 l54,-66', C.RED, 8));
+    });
+    o.parts = Object.assign(o.parts, { items, marks });
+  }
+
+  built.push(o);
+});
+
+function seek(tRaw){
+  const t = Math.floor(tRaw / STEP) * STEP;   /* LAW 1: posterize to 12fps */
+  built.forEach(o => {
+    const S = o.S, sc = o.sc, lt = t - S.at;
+    const on = lt >= -0.001 && lt <= S.dur;
+    sc.style.opacity = on ? 1 : 0;
+    if (!on) return;
+    const P = o.parts;
+
+    /* hand-held wobble on the full-screen board — derived from t, so it is repeatable */
+    if (S.full){
+      const wx = Math.sin(t * 1.7) * 3.4 + Math.sin(t * 4.3) * 1.6;
+      const wy = Math.cos(t * 1.3) * 3.0 + Math.cos(t * 3.9) * 1.4;
+      const wr = Math.sin(t * 0.9) * 0.16;
+      P.inner.style.transform = 'translate(' + wx.toFixed(2) + 'px,' + wy.toFixed(2) + 'px) rotate(' + wr.toFixed(3) + 'deg)';
+    }
+    if (P.tab) P.tab.style.opacity = p01(lt, 0.04, 0.14);
+
+    if (S.kind === 'sheet'){
+      P.h.style.opacity = p01(lt, 0.12, 0.16);
+      draw(P.rule, outCubic(p01(lt, 0.26, 0.40)));
+      P.rows.forEach((r, i) => {
+        /* typed, not faded: each row snaps on one comp-frame after the last */
+        r.style.opacity = p01(lt, 0.52 + i * 0.26, 0.001) ;
+      });
+      P.marks.forEach(m => {
+        draw(m.p, outCubic(p01(lt, 1.90 + m.i * 0.22, 0.30)));
+      });
+    }
+
+    if (S.kind === 'ledger'){
+      P.big.style.opacity = p01(lt, 0.14, 0.001);
+      P.cap.style.opacity = p01(lt, 0.34, 0.14);
+      P.sub.style.opacity = p01(lt, 0.46, 0.14);
+      P.tal.forEach((p, i) => draw(p, outCubic(p01(lt, 0.70 + i * 0.11, 0.09))));
+    }
+
+    if (S.kind === 'diag'){
+      P.h.style.opacity = p01(lt, 0.12, 0.16);
+      P.boxes.forEach((b, i) => {
+        /* stage 2 opens with the chain ALREADY DRAWN — it continues, it does not rebuild */
+        b.style.opacity = P.stage === 2 ? 1 : p01(lt, 0.42 + i * 0.36, 0.001);
+      });
+      P.leads.forEach((L, i) => {
+        const pr = P.stage === 2 ? 1 : outCubic(p01(lt, 0.66 + i * 0.36, 0.26));
+        draw(L.line, pr); draw(L.head, pr);
+      });
+      P.adds.forEach((a, i) => { a.style.opacity = p01(lt, 0.60 + i * 0.50, 0.001); });
+    }
+
+    if (S.kind === 'head'){
+      P.l1.style.opacity = p01(lt, 0.10, 0.001);
+      P.l2.style.opacity = p01(lt, 0.10 + 2*STEP, 0.001);   /* type lags the plate by 2 comp-frames */
+      if (S.under){ draw(P.u1, outCubic(p01(lt, 0.52, 0.30))); draw(P.u2, outCubic(p01(lt, 0.70, 0.28))); }
+      else { draw(P.u1, 0); draw(P.u2, 0); }
+      if (P.stp){
+        const pr = p01(lt, 0.90, 0.34);
+        P.stp.style.opacity = pr > 0 ? 1 : 0;
+        P.stp.style.transform = 'rotate(-9deg) scale(' + (0.2 + 0.8 * backOut(pr)).toFixed(3) + ')';
+      }
+    }
+
+    if (S.kind === 'sticky'){
+      const pr = p01(lt, 0.05, 0.22);
+      P.n.style.opacity = pr;
+      /* it swings down from its top edge, like it was pressed on and let go */
+      const sw = (1 - outCubic(pr)) * -9;
+      P.n.style.transform = 'rotate(' + (P.rot + sw).toFixed(2) + 'deg)';
+    }
+
+    if (S.kind === 'stamp'){
+      const pr = p01(lt, 0.02, 0.26);
+      P.n.style.opacity = pr > 0 ? 1 : 0;
+      P.n.style.transform = 'translateX(-50%) rotate(' + P.rot + 'deg) scale(' +
+        (0.25 + 0.75 * backOut(pr)).toFixed(3) + ')';
+    }
+
+    if (S.kind === 'circle'){
+      draw(P.ring, outCubic(p01(lt, 0.10, 0.44)));
+      draw(P.lead, outCubic(p01(lt, 0.60, 0.28)));
+      draw(P.arw,  outCubic(p01(lt, 0.84, 0.14)));
+      P.n1.style.opacity = p01(lt, 1.00, 0.001);
+      P.n2.style.opacity = p01(lt, 1.18, 0.001);
+    }
+
+    if (S.kind === 'margin'){
+      P.strip.style.opacity = p01(lt, 0.04, 0.20);
+      P.fig.style.opacity = p01(lt, 0.24, 0.14);
+      const v = Math.round(outCubic(p01(lt, 0.28, 1.60)) * P.target);
+      P.fig.textContent = v.toLocaleString('en-US');
+      P.cap.style.opacity = p01(lt, 0.40, 0.14);
+      P.note.style.opacity = p01(lt, 2.10, 0.001);
+      draw(P.arw, outCubic(p01(lt, 2.26, 0.26)));
+      draw(P.ahd, outCubic(p01(lt, 2.48, 0.12)));
+    }
+
+    if (S.kind === 'ticks'){
+      P.items.forEach((w, i) => { w.style.opacity = p01(lt, 0.20 + i * 0.42, 0.001); });
+      P.marks.forEach((m, i) => draw(m, outCubic(p01(lt, 0.44 + i * 0.42, 0.16))));
+    }
+  });
+}
+
+window.__seek = seek;
+seek(0);
+window.__ready = true;
+</script></body></html>

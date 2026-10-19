@@ -1,0 +1,56 @@
+    0.0s intro            0/2 LOW | kiddo verse                                | kidoverse
+    4.0s hook             7/7 OK  | beep boop shapes are all mixed up          | beep boop shapes are all mixed up come
+    8.0s hook             6/6 OK  | come on let's sort them out                | come on let's sort them out what
+   12.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this circle
+   16.0s stop     chant   5/5 OK  | circle circle round and round              | circle circle round and round ball is
+   20.0s stop     obj0    4/4 OK  | ball is a circle                           | ball is a circle cookie is
+   22.0s stop     obj1    4/4 OK  | cookie is a circle                         | cookie is a circle orange is
+   24.0s stop     obj2    4/4 OK  | orange is a circle                         | orange is a circle what shape
+   26.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this square
+   30.0s stop     chant   4/4 OK  | square square four sides                   | square square four side
+   34.0s stop     obj0    4/4 OK  | quilt is a square                          | quilt is a square window is
+   36.0s stop     obj1    4/4 OK  | window is a square                         | window is a square gift is
+   38.0s stop     obj2    4/4 OK  | gift is a square                           | gift is a square what shape
+   40.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this triangle
+   44.0s stop     chant   4/4 OK  | triangle triangle three sides              | triangle triangle three sides peace
+   48.0s stop     obj0    4/4 OK  | pizza is a triangle                        | pizza is a triangle tense is
+   50.0s stop     obj1    3/4 mid | tent is a triangle                         | tends is a triangle sail is
+   52.0s stop     obj2    4/4 OK  | sail is a triangle                         | sail is a triangle what shape
+   54.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this rectangle
+   58.0s stop     chant   5/5 OK  | rectangle rectangle long and wide          | rectangle rectangle long and wide door
+   62.0s stop     obj0    4/4 OK  | door is a rectangle                        | door is a rectangle book is
+   64.0s stop     obj1    3/4 mid | book is a rectangle                        | a rectangle bug is a rectangle flag is
+   66.0s stop     obj2    4/4 OK  | flag is a rectangle                        | flag is a rectangle what shape
+   68.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this oval
+   72.0s stop     chant   5/5 OK  | oval oval like an egg                      | oval oval like an egg egg
+   76.0s stop     obj0    3/4 mid | egg is an oval                             | egg is an uvulemon is
+   78.0s stop     obj1    2/4 mid | lemon is an oval                           | lemon is and oooh the leaves is
+   80.0s stop     obj2    4/4 OK  | leaf is an oval                            | leaf is an oval what shape
+   82.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this star
+   86.0s stop     chant   3/4 mid | star star five points                      | star star fight pint
+   90.0s stop     obj0    4/4 OK  | starfish is a star                         | starfish is a star badge is
+   92.0s stop     obj1    3/4 mid | badge is a star                            | batch is a star sticker is a star
+   94.0s stop     obj2    3/4 mid | sticker is a star                          | stigger is a star what shape
+   96.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this heart
+  100.0s stop     chant   5/5 OK  | heart heart full of love                   | heart heart full of love
+  104.0s stop     obj0    3/4 mid | card is a heart                            | card is a card balloon is a card
+  106.0s stop     obj1    3/4 mid | balloon is a heart                         | it's a heart balloon it's a heart cookie it's a heart
+  108.0s stop     obj2    4/4 OK  | cookie is a heart                          | cookie is a heart what shape
+  110.0s stop     ask     4/4 OK  | what shape is this                         | what shape is this diamond
+  114.0s stop     chant   5/5 OK  | diamond diamond shine and glow             | diamond diamond shine and glow kite
+  118.0s stop     obj0    4/4 OK  | kite is a diamond                          | kite is a diamond gem is
+  120.0s stop     obj1    4/4 OK  | gem is a diamond                           | gem is a diamond sign is
+  122.0s stop     obj2    4/4 OK  | sign is a diamond                          | sign is a diamond where is
+  124.0s game     q       4/4 OK  | where is the triangle                      | where is the triangle
+  132.0s game     q       4/4 OK  | where is the heart                         | where is the heart
+  140.0s game     q       4/4 OK  | where is the diamond                       | where is the diamond
+  148.0s yoga             4/4 OK  | circle arms triangle hands                 | circle arms triangle hands
+  152.0s yoga             2/3 mid | star pose freeze                           | star hose freeze
+  156.0s house            4/4 OK  | square walls triangle roof                 | square walls triangle roofs
+  160.0s house            4/4 OK  | rectangle door circle window               | rectangle door circle window
+  164.0s house            6/6 OK  | star on top heart so sweet                 | star on top heart so sweet
+  168.0s house            2/6 LOW | oval pond diamond kite ta da               | over pond die and kite die die bye
+  172.0s fin              3/5 mid | bye bye shapes kiddo verse                 | bye bye shapes kidoverse bye
+  176.0s outro            2/4 mid | bye bye kiddo verse                        | bye bye kidoverse
+TOTAL 207/228 = 91%
+animal sound words: 

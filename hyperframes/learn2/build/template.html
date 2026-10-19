@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=1080">
+<title>KiddoVerse Learn 2 - The Color Train</title>
+<script src="vendor/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Fredoka';src:url('assets/fonts/fredoka-latin-700-normal.woff2') format('woff2');font-weight:700}
+@font-face{font-family:'Fredoka';src:url('assets/fonts/fredoka-latin-600-normal.woff2') format('woff2');font-weight:600}
+@font-face{font-family:'Baloo 2';src:url('assets/fonts/baloo-2-latin-800-normal.woff2') format('woff2');font-weight:800}
+/* the capital B inside both Fredoka files is drawn wrongly (its two holes merge into one notch): take just that letter from Baloo 2, which draws it correctly */
+@font-face{font-family:'Fredoka';src:url('assets/fonts/baloo-2-latin-800-normal.woff2') format('woff2');font-weight:700;unicode-range:U+0042}
+@font-face{font-family:'Fredoka';src:url('assets/fonts/baloo-2-latin-800-normal.woff2') format('woff2');font-weight:600;unicode-range:U+0042}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#1F1650}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#1F1650;font-family:'Fredoka',sans-serif;font-weight:700}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#scrim{position:absolute;left:0;right:0;bottom:0;height:300px;background:linear-gradient(180deg,rgba(31,22,80,0),rgba(31,22,80,.42));pointer-events:none}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 62%,rgba(24,14,66,.34) 100%);pointer-events:none}
+#caps{position:absolute;left:0;right:0;bottom:0;height:0;pointer-events:none}
+.cap{position:absolute;left:0;right:0;margin:0 auto;bottom:52px;width:1800px;text-align:center;font-size:70px;line-height:1.1;color:#fff;opacity:0}
+.cap .w{display:inline-block;color:#fff;-webkit-text-stroke:15px #2B1B5E;paint-order:stroke fill;text-shadow:0 7px 0 rgba(43,27,94,.55);margin:0 4px}
+#brand{position:absolute;left:0;right:0;top:20px;display:flex;justify-content:center;pointer-events:none;opacity:0}
+#brand .logo{--fs:62px}
+.logo{display:flex;align-items:center;gap:calc(var(--fs)*.1);font-size:var(--fs);line-height:1}
+.logo .planet{width:calc(var(--fs)*1.6);height:calc(var(--fs)*1.6);overflow:visible;margin-right:calc(var(--fs)*.04)}
+.logo .lw b{display:inline-block;font-weight:700;-webkit-text-stroke:calc(var(--fs)*.13) #2B1B5E;paint-order:stroke fill;text-shadow:0 calc(var(--fs)*.07) 0 rgba(43,27,94,.55);letter-spacing:calc(var(--fs)*.01)}
+#title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;opacity:0}
+#title .logo{--fs:200px}
+#title .tag{margin-top:34px;font-family:'Baloo 2';font-weight:800;font-size:46px;letter-spacing:10px;color:#fff;-webkit-text-stroke:10px #2B1B5E;paint-order:stroke fill}
+#endcard{position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,22,80,.82) 0,rgba(31,22,80,.62) 340px,rgba(31,22,80,0) 520px);pointer-events:none;opacity:0}
+#endcard .top{position:absolute;left:0;right:0;top:40px;display:flex;justify-content:center}
+#endcard .logo{--fs:128px}
+#endcard .sub{position:absolute;left:0;right:0;top:268px;text-align:center;font-family:'Baloo 2';font-weight:800;font-size:64px;letter-spacing:6px;color:#fff;-webkit-text-stroke:11px #2B1B5E;paint-order:stroke fill}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1920" data-height="1080" data-fps="30">
+<svg id="stage" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"></svg>
+<div id="scrim"></div><div id="vig"></div>
+<div id="endcard"><div class="top">__LOGO_END__</div><div class="sub">BYE BYE! SEE YOU SOON!</div></div>
+<div id="caps"></div>
+<div id="brand">__LOGO_SMALL__</div>
+<div id="title">__LOGO_BIG__<div class="tag">LEARN · SING · PLAY</div></div>
+<div id="flash"></div>
+<audio id="a-master" src="audio/master.wav" data-start="0" data-duration="__DURATION__" data-track-index="1" data-volume="1"></audio>
+</div>
+<script>window.SONG=__SONG__;</script>
+<script>__CHARS__</script>
+<script>__WORLDS__</script>
+<script>__EDUWORLDS__</script>
+<script>__COLORWORLDS__</script>
+<script>__EDUOBJ__</script>
+<script>__COLOROBJ__</script>
+<script>__PROPS__</script>
+<script>__EDUPROPS__</script>
+<script>__COLORPROPS__</script>
+<script>__LOGO__</script>
+<script>__STORY__</script>
+<script>__ENGINE__</script>
+</body></html>

@@ -1,0 +1,5 @@
+MIX CM5 BUILT
+CM5_estoi: mean ESTOI 0.676 over 13 sections
+CM5         62%   per segment: 24s:94%  72s:65%  104s:38%  136s:57%  152s:58%  168s:52%
+OVERALL master_v3_CM5.wav: recognised 247/319 = 77%
+CM5 CHECK DONE

@@ -1,0 +1,45 @@
+KIDDOVERSE LEARN #1 - YOUTUBE DESCRIPTION (copy and paste)
+=========================================================
+Decide the channel name BEFORE uploading (see README_START_HERE.txt, trademark note). If the name changes, change "KiddoVerse" in the
+title, description and tags below as well.
+
+TITLE (under 100 characters)
+Count 1 to 10, ABC & Two-Letter Words | Learn with KiddoVerse | Songs for Toddlers
+
+DESCRIPTION (everything between the lines)
+------------------------------------------
+Count from 1 to 10, sing the ABC song, hear the sound of every letter and read ten two-letter words (at, in, on, up, go, no, me, be, it, my)
+with Kiko, Luma and Gizmo on the Learning Express! Also inside: a brain-break dance, a "Can you find it?" game and a final sing-along.
+Grown-ups: watch together and answer out loud when the characters ask a question.
+
+Chapters
+0:00 Welcome to Learning Express
+0:24 Counting 1 to 10
+1:48 The Alphabet A to Z
+3:30 Brain Break Dance
+3:46 Two-Letter Words
+4:38 Game Time: Can You Find It?
+5:06 Final Sing-Along
+5:38 Bye Bye
+
+Made with animation and AI: the characters are animated, and the voices and music are AI-generated.
+The lyrics use American pronunciation.
+------------------------------------------
+
+SUGGESTED TAGS (comma separated; tags matter little for search, the title and description matter more)
+counting for kids, count to 10, ABC song, alphabet song, learn the alphabet, letter sounds, phonics for kids, two letter words, learn to read,
+toddler learning, preschool learning, kids songs, learning songs for kids, KiddoVerse
+
+AUDIENCE SETTING
+Choose "Yes, it's made for kids". On made-for-kids videos YouTube turns off comments, end screens and cards, so the video ends with a clean
+outro instead of "watch next" elements.
+
+ALTERED / SYNTHETIC CONTENT QUESTION
+The facts: the characters are animated; the singing and spoken voices and the music are AI-generated (SoulX-Singer for singing, Kokoro for the
+spoken lines). Read the question exactly as YouTube words it in Studio and answer it honestly. Putting the sentence "Made with animation and AI:
+the characters are animated, and the voices and music are AI-generated." in the description is a safe extra. Nothing in this project's files
+states that answering YES is mandatory.
+
+CAPTIONS
+The captions are already burned into the picture. The SRT file (KiddoVerse_Learn1.srt) would show the same words a second time, so upload it
+only if you want it for search or translation (or after accepting the double text).

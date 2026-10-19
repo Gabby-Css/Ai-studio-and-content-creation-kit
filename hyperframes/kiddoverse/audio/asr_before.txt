@@ -1,0 +1,14 @@
+intro   t=    0s  words   2  recognised   1 ( 50%)   heard: kiddo first all aboard the zoomy ready ready three two one zoom
+chorus  t=    8s  words  37  recognised  27 ( 73%)   heard: zoom zoom zoom kiddo first what's going first let's go zoom zoom kiddo first what's going here we go
+v1      t=   24s  words  24  recognised  21 ( 88%)   heard: rainbow hills what do we see red blue blooms floating free yellow sun and night deep up blue a sea g
+chorus  t=   40s  words  37  recognised  25 ( 68%)   heard: zoom kiddo arms let's go let's go zoom zoom kiddo arms let's go let's go we go round the bars and lo
+v2      t=   56s  words  23  recognised  17 ( 74%)   heard: ramble but dino goes stomp stomp stomp counting by eggs pot pot stop one two three four five five li
+chorus  t=   72s  words  37  recognised  23 ( 62%)   heard: zoom zoom kiddo first pop one orange and let's go zoom zoom kiddo first pop pop kiddo we go round ab
+v3      t=   88s  words  27  recognised  20 ( 74%)   heard: i'm happy shining bright sometimes i'm sad and my brain at night take my deep breath count down to h
+dance   t=  104s  words  13  recognised   4 ( 31%)   heard: time for the kiddo wiggle wiggle left wiggle right wiggle left wiggle right yum yum yum yum i'm real
+v4      t=  120s  words  22  recognised  19 ( 86%)   heard: a circle a circle we all just go around a square a square blocks on the ground triangle triangle rop
+bridge  t=  136s  words  23  recognised   6 ( 26%)   heard: maggie gorman is small mary gorman is for everyone's your favorite but it's as nice as you are my fr
+fin     t=  152s  words  37  recognised  17 ( 46%)   heard: kiddo first let's go outdoors let's go a zoo a zoo kiddo first let's go here we go branch past the s
+fin2    t=  168s  words  33  recognised  27 ( 82%)   heard: zoom zoom kiddo verse that's what it was let's zoom zoom zoom kiddo verse that's what it's here we g
+outro   t=  184s  words   4  recognised   3 ( 75%)   heard: bye kiddo verse see you next time
+OVERALL master.wav: recognised 210/319 = 66%

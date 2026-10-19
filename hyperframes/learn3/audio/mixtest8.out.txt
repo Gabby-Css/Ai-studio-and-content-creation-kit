@@ -1,0 +1,12 @@
+       72.0 ask    who says woof the dog                  | and who says who's the bro who's the bro
+       76.0 sound  woof woof woof                         | moo moo moo
+       80.0 say    the dog says woof woof                 | the doggy says wooves
+nodeess      any  38% (5/13)  lead  44% (4/9)  kids  25% (1/4)  | woof 0/6
+       72.0 ask    who says woof the dog                  | and who says we've the wrong way
+       76.0 sound  woof woof woof                         | moo moo
+       80.0 say    the dog says woof woof                 | the doggy says woof
+nocv         any  54% (7/13)  lead  56% (5/9)  kids  50% (2/4)  | woof 2/6
+       72.0 ask    who says woof the dog                  | and who says who's the bro who's
+       76.0 sound  woof woof woof                         | moo moo
+       80.0 say    the dog says woof woof                 | the doggy says woof
+both         any  54% (7/13)  lead  56% (5/9)  kids  50% (2/4)  | woof 2/6

@@ -1,0 +1,24 @@
+gsap.set('#cam',{transformOrigin:'0 0'});
+gsap.set('#boSq,#boLean,#boBody,.spk,.hrt,.drp,.bit,.bub,.ccb,.zzz,.slc,#wedgeBigIn,#pizza,#pizzaIn,#oven,#ovenIn,#peel,#peelIn,#pzTop,#pzSauce,#pzCheese,#pzLove,#pzBaked',{svgOrigin:'0 0'});
+gsap.set('#pigIn',{svgOrigin:'550 736'});gsap.set('#pigSnout',{svgOrigin:'550 716'});
+gsap.set('#cocoSwing',{svgOrigin:CPX+' '+CPY});
+gsap.set('#boTail,#boLegL,#boLegR,#boArmL,#boArmR,#boHead,#boEarL,#boEarR,#boScarfTail,.boEye,.boEyeW,.boBrow,.boPupil',{svgOrigin:'0 0'});
+for(const p of ['pan','bh']) gsap.set(`#${p},#${p}Sq,#${p}Shake,#${p}LegL,#${p}LegR,#${p}ArmL,#${p}ArmR,.${p}Eye,.${p}EyeW,.${p}Pupil,#${p}BrowL,#${p}BrowR`,{svgOrigin:'0 0'});
+for(const p of ['mc','nb','nm','tw','tf']) gsap.set(`#${p},#${p}Sq,#${p}Lean,#${p}Body,#${p}Belly,#${p}Head,#${p}Hat,#${p}Tail,#${p}LegL,#${p}LegR,#${p}ArmL,#${p}ArmR,#${p}EarL,#${p}EarR,#${p}Snout,.${p}Eye,.${p}EyeW,.${p}Pupil,#${p}BrowL,#${p}BrowR`,{svgOrigin:'0 0'});
+gsap.set('.cg',{transformOrigin:'50% 50%'});
+// ---- starting state = the last frame of video #4's window (the chef silhouette), the kitchen waits behind it
+const MCS=.66, NSC=.46, BOX=500, BOS=.88, TFS=.68, MCX=690, NIX=840, OVT=TT-6;
+gsap.set('#bo',{x:BOX,y:FLOOR,scale:BOS});
+gsap.set('#bowl,#bowl2,#spoon',{opacity:0});
+gsap.set('#pan',{opacity:0,x:BOX,y:1122});gsap.set('#panLegs',{opacity:1});gsap.set('#panGlaze',{opacity:1});
+gsap.set('#bh',{opacity:1});gsap.set('#bhGlaze',{opacity:1});gsap.set('#bhArmL',{rotation:-40});gsap.set('#bhArmR',{rotation:40});
+gsap.set('#cheeseWheel,#wedgeBig',{opacity:0});
+gsap.set('#mc',{x:MCX,y:TT,scale:MCS});gsap.set('#mcSq',{scaleY:.94});gsap.set('#mcLids',{opacity:1});gsap.set('#mcArmL',{rotation:-28});gsap.set('#mcArmR',{rotation:28});
+gsap.set('#nb',{opacity:0});
+gsap.set('#nm',{opacity:1,x:NIX,y:TT,scale:NSC});gsap.set('#nmWedgeG',{opacity:1});gsap.set('#nmArmL',{rotation:-38});gsap.set('#nmArmR',{rotation:38});
+gsap.set('#tw',{opacity:0,x:550,y:1067,scale:.95});
+gsap.set('#tf',{opacity:0,x:560,y:772,scale:.5});
+gsap.set('#pizza',{opacity:0,x:PZX,y:PZY});
+gsap.set('#oven',{x:OVX,y:TT});
+gsap.set('#cocoSwing',{opacity:0});gsap.set('#peel',{opacity:0});
+gsap.set('#pigG',{opacity:1});gsap.set('#board',{opacity:0,svgOrigin:PZX+' '+PZY});

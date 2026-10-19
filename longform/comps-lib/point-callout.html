@@ -1,0 +1,133 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* point-callout — labels that POINT AT THINGS already in the frame. A leader line draws out
+   from a target point, a tick lands on it, and a small label types in at the far end.
+   Derived from ref10 @~528s and ref9 (2026-07-19 motion study): `ZHOU ENLAI / 1898-1976`
+   with a short leader touching the person in the archival photo.
+
+   This is the technique that separates an explainer from a lower-third. The study's line:
+   "the graphic and the footage are ONE image." A lower-third sits NEXT TO the footage and
+   the viewer reads two layers; a callout TOUCHES something and the viewer reads one.
+
+   Use when real things are visible in frame and need naming — a face, a product, a region
+   of a screenshot, a part of a machine. Do NOT use it over an empty plate: a leader line
+   pointing at nothing is worse than no graphic, because it promises a referent.
+
+   THIS COMP RENDERS ALPHA-TRANSPARENT and is designed to sit OVER footage. It has no
+   background of its own — that is the entire point. Position targets in normalized 0-1
+   coords against the frame you are pointing INTO, so a reframe rescales them with it.
+
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   transparent background, pure DOM/CSS, comp-local time from 0. No random at runtime. */
+@font-face{ font-family:'Anton'; src:url('anton.ttf'); }
+@font-face{ font-family:'Mont'; src:url('mont.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+/* NO background on #stage — this comp composites over live footage */
+#stage{ position:absolute; inset:0; font-family:'Mont',sans-serif; overflow:hidden; }
+
+/* the dot that sits ON the thing being named. Ring + core so it stays legible on both a
+   blown-out highlight and a crushed shadow, which a single flat dot does not. */
+.dot{ position:absolute; width:19px; height:19px; margin:-9.5px 0 0 -9.5px; border-radius:50%;
+  border:2px solid #4DD8FF; will-change:transform,opacity; }
+.dot i{ position:absolute; inset:4px; border-radius:50%; background:#4DD8FF; font-style:normal; }
+/* pulse ring — one expanding echo, not a loop. A looping pulse reads as a UI element;
+   a single echo reads as "look here, once". */
+.echo{ position:absolute; width:19px; height:19px; margin:-9.5px 0 0 -9.5px; border-radius:50%;
+  border:2px solid #4DD8FF; will-change:transform,opacity; }
+
+.lead{ position:absolute; height:2px; background:#4DD8FF; transform-origin:left center;
+  will-change:transform,opacity; }
+/* the label plate is near-black at low alpha so type stays readable over ANY footage —
+   the references never let a label float unbacked on a busy frame */
+.plate{ position:absolute; padding:13px 20px 15px; background:rgba(6,8,14,0.82);
+  border-left:3px solid #4DD8FF; white-space:nowrap; will-change:transform,opacity,clip-path; }
+.plate b{ display:block; font-family:'Anton',sans-serif; font-size:38px; line-height:1;
+  color:#F1F0F5; letter-spacing:0.5px; text-transform:uppercase; }
+.plate s{ display:block; text-decoration:none; margin-top:7px; font-weight:800; font-size:17px;
+  letter-spacing:5px; color:#4DD8FF; text-transform:uppercase; }
+</style></head>
+<body><div id="stage"></div>
+<script>
+/* ============================ CONFIG — edit only this block ============================ */
+const CONFIG = {
+  DUR: 5.0,
+  // x/y are NORMALIZED 0-1 against the 1920x1080 frame — the point being touched.
+  // side: which way the leader runs out ('l' or 'r'). len: leader length in px.
+  // Stagger `at` so callouts land one at a time; three arriving together reads as a diagram.
+  callouts: [
+    { x:0.285, y:0.415, side:'r', len:210, label:'THE FOLDER',  sub:'ONE INPUT',      at:0.35 },
+    { x:0.735, y:0.605, side:'l', len:190, label:'FOUR OUTPUTS', sub:'AUTO-POSTED',   at:1.25 },
+  ],
+  t: { echo:0.55, plate:0.34 },     // echo lifetime; plate wipe duration
+};
+/* ====================================================================================== */
+
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const p01=(t,t0,d)=>clamp((t-t0)/d,0,1);
+const outCubic=p=>1-Math.pow(1-p,3);
+const outQuint=p=>1-Math.pow(1-p,5);
+const settle=(p,amp=0.10,f=2.0,decay=5.0)=>p>=1?1:outCubic(p)+amp*Math.sin(2*Math.PI*f*p)*Math.exp(-decay*p);
+const {DUR}=CONFIG;
+const W=1920,H=1080;
+const stage=document.getElementById('stage');
+
+const C=CONFIG.callouts.map((c)=>{
+  const px=c.x*W, py=c.y*H, dir=c.side==='l'?-1:1;
+
+  const dot=document.createElement('div'); dot.className='dot'; dot.innerHTML='<i></i>';
+  dot.style.left=px+'px'; dot.style.top=py+'px'; stage.appendChild(dot);
+
+  const echo=document.createElement('div'); echo.className='echo';
+  echo.style.left=px+'px'; echo.style.top=py+'px'; stage.appendChild(echo);
+
+  const lead=document.createElement('div'); lead.className='lead';
+  lead.style.left=px+'px'; lead.style.top=(py-1)+'px'; lead.style.width=c.len+'px';
+  // a left-running leader is the same element mirrored, so one length/anim path serves both
+  if(dir<0) lead.style.transform='scaleX(-1)';
+  stage.appendChild(lead);
+
+  const plate=document.createElement('div'); plate.className='plate';
+  plate.innerHTML='<b>'+c.label+'</b>'+(c.sub?'<s>'+c.sub+'</s>':'');
+  stage.appendChild(plate);
+  // measure after insert so the right-side plate can be right-aligned to the leader end
+  const pw=plate.getBoundingClientRect().width;
+  const endX=px+dir*c.len;
+  plate.style.left=(dir>0?endX:endX-pw)+'px';
+  plate.style.top=(py-plate.getBoundingClientRect().height-14)+'px';
+  if(dir<0){ plate.style.borderLeft='none'; plate.style.borderRight='3px solid #4DD8FF'; }
+
+  return { ...c, dot, echo, lead, plate, dir };
+});
+
+window.__seek=(t)=>{
+  const fade=1-p01(t,DUR-0.34,0.34);
+  for(const c of C){
+    const lt=t-c.at;
+
+    // 1. the dot lands ON the thing first — the referent is established before the label
+    const ds=settle(p01(lt,0,0.30));
+    c.dot.style.opacity=(clamp(ds,0,1)*fade).toFixed(3);
+    c.dot.style.transform='scale('+(0.4+0.6*ds).toFixed(3)+')';
+
+    // 2. one echo ring expands out and dies — a single "look here", never a loop
+    const ep=p01(lt,0.06,CONFIG.t.echo);
+    c.echo.style.opacity=(ep>0&&ep<1?(1-ep)*0.65*fade:0).toFixed(3);
+    c.echo.style.transform='scale('+(1+ep*2.6).toFixed(3)+')';
+
+    // 3. the leader DRAWS out from the dot — it must grow from the target, not slide in,
+    //    or the eye reads a bar arriving rather than a line being traced to something
+    const ls=outQuint(p01(lt,0.16,0.34));
+    c.lead.style.opacity=(clamp(ls>0?1:0,0,1)*fade).toFixed(3);
+    c.lead.style.transform=(c.dir<0?'scaleX(-1) ':'')+'scaleX('+ls.toFixed(4)+')';
+
+    // 4. the plate wipes on from the leader's end, only once the line has arrived
+    const ps=outQuint(p01(lt,0.40,CONFIG.t.plate));
+    c.plate.style.opacity=(clamp(ps,0,1)*fade).toFixed(3);
+    const hide=((1-ps)*100).toFixed(2);
+    c.plate.style.clipPath=c.dir>0?'inset(0% '+hide+'% 0% 0%)':'inset(0% 0% 0% '+hide+'%)';
+    c.plate.style.transform='translateY('+((1-ps)*8).toFixed(1)+'px)';
+  }
+};
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+  .then(()=>{ window.__seek(0); window.__ready=true; });
+</script></body></html>

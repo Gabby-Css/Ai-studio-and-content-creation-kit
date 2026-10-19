@@ -1,0 +1,5 @@
+PAIRS = [
+    ("const WIDE35=[900,560,.66];", "const WIDE35=[900,470,.66];                               // y0 470: Munch's horns stay inside the frame"),
+    ("tl.set('#mn',{opacity:1,x:3600,y:1640,scale:1.5},L[8]-.5);MN.eyes(L[8]-.5,'happy');MN.m(L[8]-.5,'mSm');\ntl.to('#mn',{x:MUN[0],duration:1.5,ease:'sine.inOut'},L[8]-.45);cycle(['#mnLegL','#mnLegR'],['#mnArmL','#mnArmR'],L[8]-.45,L[8]+1.05,.7,14,8,'#mnSq',14);\n[0,1].forEach(i=>{shake(L[8]-.1+i*.7,10,5);dust(L[8]+.05+i*.7,MUN[0]+420-i*100,1650,3);});\nMN.talk(L[8]+.5,L[8]+DU[8]-.05,'mBg','mSm',.2);MN.eyes(L[8]+.5,'happy');",
+     "tl.set('#mn',{opacity:1,x:3600,y:1640,scale:1.5},L[8]-1.9);MN.eyes(L[8]-1.9,'happy');MN.m(L[8]-1.9,'mSm');   // Munch walks in during the King's line, so he is on screen when HE speaks\ntl.to('#mn',{x:MUN[0],duration:1.7,ease:'sine.inOut'},L[8]-1.85);cycle(['#mnLegL','#mnLegR'],['#mnArmL','#mnArmR'],L[8]-1.85,L[8]-.15,.7,14,8,'#mnSq',14);\n[0,1].forEach(i=>{shake(L[8]-1.5+i*.7,10,5);dust(L[8]-1.35+i*.7,MUN[0]+420-i*100,1650,3);});\nMN.talk(L[8]+.02,L[8]+DU[8]-.05,'mBg','mSm',.2);MN.eyes(L[8]+.02,'happy');"),
+]

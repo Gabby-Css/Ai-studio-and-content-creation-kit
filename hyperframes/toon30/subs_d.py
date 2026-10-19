@@ -1,0 +1,17 @@
+PAIRS = [
+    ("const MUN=[2500,1640];                                     // where Munch stands (scale 1.6)", "const MUN=[2670,1640];                                     // where Munch stands (scale 1.5)"),
+    ("const MHEAD=[2500,565];", "const MHEAD=[2670,630];"),
+    ("const CAM={wide:[1100,-100,.6], mun:[1600,-530,.6], two:[1500,200,.65],", "const CAM={wide:[1200,-100,.6], mun:[1770,-480,.6], two:[1600,200,.65],"),
+    ("gum:[1205,194,.8],", "gum:[1225,194,.8],"),
+    ("zap:camOn(...eyeAt('zp',2020,ROWD,.7),.85,540,780), fin:[900,-200,.55]};", "zap:camOn(...eyeAt('zp',2070,ROWD,.7),.85,540,780), fin:[1000,-200,.55]};"),
+    ("bo:camOn(...eyeAt('bo',1520,ROWD+BOY,.88),.9,540,780),", "bo:camOn(...eyeAt('bo',1580,ROWD+BOY,.88),.9,540,780),"),
+    ("tl.to('#pb',{x:1640,y:2160,duration:W(4,4)-L[4]-.1,ease:'sine.inOut'},L[4]+.1);", "tl.to('#pb',{x:1700,y:2250,duration:W(4,4)-L[4]-.1,ease:'sine.inOut'},L[4]+.1);"),
+    ("hearts(tHug+.1,1487,1480,5,100,260);", "hearts(tHug+.1,1547,1480,5,100,260);"),
+    ("tl.fromTo('#hb',{scale:.2,rotation:-6},{scale:.82,rotation:-2,duration:.45,ease:'back.out(2.2)'},L[10]);", "tl.fromTo('#hb',{scale:.2,rotation:-6},{scale:1.05,rotation:-2,duration:.45,ease:'back.out(2.2)'},L[10]);"),
+    ("arc('#pb',W(7,2)-.2,.9,1745,300,MHEAD[1]);", "arc('#pb',W(7,2)-.2,.9,1745,300,MHEAD[1]);"),
+    ("sparks(W(9,4),2020,1700,8,200);", "sparks(W(9,4),2070,1700,8,200);"),
+    ("[0,.2,.4,.6].forEach((d,i)=>sparks(L[10]+d,1500+i*300,500+(i%2)*250,10,230));", "[0,.2,.4,.6].forEach((d,i)=>sparks(L[10]+d,1500+i*300,700+(i%2)*250,10,230));"),
+    ("hearts(L[8]+.8,1700,1500,6,160,320);", "hearts(L[8]+.8,1800,1500,6,160,320);"),
+    ("confetti(W(7,1),1300,2800,ROWB-1700,ROWJ+160,40,1.0);", "confetti(W(7,1),1300,3000,ROWB-1700,ROWJ+160,40,1.0);"),
+    ("hearts(L[3]+.9,MUN[0]-80,1100,5,120,300);", "hearts(L[3]+.9,MUN[0]-80,1100,5,120,300);"),
+]

@@ -1,0 +1,2 @@
+sfx events 606 -> 459 after merging stacked duplicates
+sfx events placed 459

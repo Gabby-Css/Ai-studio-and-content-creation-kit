@@ -1,0 +1,30 @@
+   16.0s stop     ask     0/2 LOW | the cow                                    | look out
+   20.0s stop     sound   1/1 OK  | moo                                        | moo moo
+   24.0s stop     say     1/1 OK  | moo                                        | moo
+   28.0s stop     ask     0/2 LOW | the duck                                   | no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no
+   32.0s stop     sound   0/1 LOW | quack                                      | work work
+   36.0s stop     say     0/1 LOW | quack                                      | work
+   40.0s stop     ask     2/2 OK  | the pig                                    | the pig
+   44.0s stop     sound   1/1 OK  | oink                                       | oink
+   48.0s stop     say     1/1 OK  | oink                                       | oink
+   52.0s stop     ask     1/2 mid | the sheep                                  | boink the reeeeep
+   56.0s stop     sound   0/1 LOW | baa                                        | bye
+   60.0s stop     say     0/1 LOW | baa                                        | bye
+   72.0s stop     ask     2/2 OK  | the dog                                    | the dog
+   76.0s stop     sound   1/1 OK  | woof                                       | woof woof
+   80.0s stop     say     1/1 OK  | woof                                       | woof
+   84.0s stop     ask     2/2 OK  | the cat                                    | oof the cat
+   88.0s stop     sound   1/1 OK  | meow                                       | meeow
+   92.0s stop     say     1/1 OK  | meow                                       | meow
+   96.0s stop     ask     1/2 mid | the horse                                  | throughout the course
+  100.0s stop     sound   0/1 LOW | neigh                                      | i'm sorry no no no no no no no no no no no no no no no no no no no no no
+  104.0s stop     say     0/1 LOW | neigh                                      | meow
+  108.0s stop     ask     1/2 mid | the lion                                   | the blind
+  112.0s stop     sound   0/1 LOW | roar                                       | run run
+  116.0s stop     say     0/1 LOW | roar                                       | ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+  128.0s dance            0/1 LOW | roar                                       | you
+  138.0s game     a       3/4 mid | yes it's the duck                          | yes it's the dog
+  146.0s game     a       4/4 OK  | yes it's the lion                          | yes it's the lion
+  154.0s game     a       3/4 mid | yes it's the pig                           | yes it's the peg
+TOTAL 27/45 = 60%
+animal sound words: moo 2/2  quack 0/2  oink 2/2  baa 0/2  woof 2/2  meow 2/2  neigh 0/2  roar 0/3

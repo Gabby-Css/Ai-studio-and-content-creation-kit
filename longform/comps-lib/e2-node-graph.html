@@ -1,0 +1,333 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E2 — TEAL NODE GRAPH
+   Traced to reference `videoplayback (1).mp4`, mined 2026-07-20.
+
+   THE SYSTEM (Phase-0 locks):
+     GROUND      black, with a teal radial glow RISING FROM THE BOTTOM EDGE (#0E4F4A -> black).
+                 The glow is a floor, not a vignette — it lights the diagram from below.
+     ACCENT      teal #2DD4BF primary, electric blue #3B82F6 secondary. Blue is used ONLY for
+                 the thing that is already automated — the distinction is semantic, not decorative.
+     TYPE        Inter for node labels; PLAYFAIR ITALIC for step numerals. The italic serif
+                 numeral against UI sans is this system's fingerprint.
+     TEXTURE     none. The glow IS the finish.
+     DEPTH       glassmorphic — translucent dark rounded rects, 1px teal border, icon tile at left.
+
+   WHY IT IS NOT E1: E1 is flat, zero-texture, typographic, acid-green, and has NO depth model.
+   This one is glowing, glassmorphic, diagrammatic, and teal. Same creator in the reference set,
+   deliberately split on depth + accent so they cannot collide.
+
+   OVERLAY / FULL-SCREEN: 7 and 7.
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek.
+   ============================================================================ */
+@font-face{ font-family:'Inter'; src:url('inter.ttf'); }
+@font-face{ font-family:'Play';  src:url('playfair.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.num{ font-family:'Play',serif; font-style:italic; }
+.hl{ font-weight:800; letter-spacing:-.02em; line-height:1.0; }
+.lb{ font-weight:600; letter-spacing:.02em; }
+</style></head><body><div id="stage"></div><script>
+const S = document.getElementById('stage');
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const svg = (parent, w, h) => { const s = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  s.setAttribute('width', w); s.setAttribute('height', h);
+  s.style.cssText = 'position:absolute;left:0;top:0;overflow:visible;'; (parent||S).appendChild(s); return s; };
+const path = (par, d, col, w, dash) => { const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d', d); p.setAttribute('fill','none'); p.setAttribute('stroke', col);
+  p.setAttribute('stroke-width', w); if (dash) p.setAttribute('stroke-dasharray', dash);
+  par.appendChild(p); return p; };
+const px = v => v.toFixed(2) + 'px';
+const clamp = (v,a,b) => v < a ? a : v > b ? b : v;
+const p01 = (lt,d,len) => clamp((lt - d) / len, 0, 1);
+const outCubic = p => 1 - Math.pow(1 - p, 3);
+const outQuint = p => 1 - Math.pow(1 - p, 5);
+
+const C = {
+  FPS_POSTERIZE: 12,
+  TEAL:'#2DD4BF', BLUE:'#3B82F6', INK:'#EAF6F4', DIM:'rgba(234,246,244,0.46)',
+  GLASS:'rgba(12,26,26,0.86)', BORD:'rgba(45,212,191,0.55)',
+  META:'YOUR BRAND / SAMPLE WORKFLOW'
+};
+const STEP = 1 / C.FPS_POSTERIZE;
+
+/* elbow path: orthogonal routing with a single right-angle, the reference's connector logic */
+const elbow = (x1,y1,x2,y2) => {
+  const mx = x1 + (x2 - x1) / 2;
+  return 'M' + x1 + ',' + y1 + ' L' + mx + ',' + y1 + ' L' + mx + ',' + y2 + ' L' + x2 + ',' + y2;
+};
+
+const SCENES = [
+  { kind:'flow',  full:1, at:0.30,  dur:5.35, step:'01', head:'POSTING BY HAND',
+    nodes:[{l:'YOU',s:'MANUAL'},{l:'5–10 POSTS',s:'EVERY 3 DAYS'},{l:'1 CLIENT',s:'CAPPED'}], lit:0 },
+  { kind:'badge', full:0, at:6.20,  dur:1.42, step:'02', big:'A SYSTEM', sub:'EXISTS' },
+  { kind:'hub',   full:1, at:7.80,  dur:3.95, step:'03', core:'300', coreSub:'VIDEOS / MO',
+    sats:['CLIP','CAPTION','RENDER','POST'] },
+  { kind:'node',  full:0, at:12.30, dur:3.40, step:'04', l:'QUALITY GATE', s:'EDITOR REVIEW REQUIRED' },
+  { kind:'flow',  full:1, at:16.10, dur:5.40, step:'05', head:'THE MACHINE',
+    nodes:[{l:'DROP FILE',s:'ONE FOLDER'},{l:'AUTO-EDIT',s:'RUNNING'},{l:'AUTO-CLIP',s:'RUNNING'}], lit:1 },
+  { kind:'badge', full:0, at:22.00, dur:1.25, step:'06', big:'CONFIGURE', sub:'TEST EACH PROJECT' },
+  /* group container wraps the SAME chain — it continues, it does not rebuild */
+  { kind:'group', full:1, at:23.50, dur:5.55, step:'07', head:'THE SYSTEM',
+    nodes:[{l:'DROP FILE',s:'ONE FOLDER'},{l:'AUTO-EDIT',s:'RUNNING'},{l:'AUTO-CLIP',s:'RUNNING'}],
+    outs:['AUTO POST','AUTO CAROUSEL'] },
+  { kind:'count', full:0, at:29.40, dur:5.45, step:'08', target:1000, unit:'VIDEOS / DAY', note:'NOT CLICKBAIT' },
+  { kind:'title', full:1, at:35.20, dur:2.30, step:'09', head:['HOW YOU','ACTUALLY SCALE'] },
+  { kind:'hub',   full:1, at:37.80, dur:5.85, step:'10', core:'ONE', coreSub:'FOLDER',
+    sats:['INSTAGRAM','TIKTOK','FACEBOOK','SNAPCHAT'] },
+  { kind:'chips', full:0, at:44.00, dur:4.55, step:'11', chips:['INSTAGRAM','TIKTOK','FACEBOOK','SNAPCHAT'] },
+  { kind:'title', full:1, at:49.05, dur:5.15, step:'12', head:['THAT IS A','GAME CHANGER'] },
+  { kind:'count', full:0, at:54.60, dur:5.40, step:'13', target:52, unit:'CLIP DROPS / YEAR', note:'1 LONG FORM IN' },
+  { kind:'title', full:1, at:60.30, dur:3.35, step:'14', head:['REVIEW','THEN PUBLISH'] }
+];
+
+/* ---- shared furniture: the floor glow (full beats only) + the italic step numeral (always) ---- */
+function floorGlow(sc){
+  const g = el('', sc);
+  g.style.cssText = 'position:absolute;inset:0;background:' +
+    'radial-gradient(120% 78% at 50% 118%, #0E4F4A 0%, rgba(14,79,74,0.35) 38%, rgba(0,0,0,0) 72%), #000;';
+  return g;
+}
+function stepMark(sc, n){
+  const w = el('', sc);
+  w.style.cssText = 'position:absolute;left:120px;top:96px;display:flex;align-items:baseline;gap:18px;opacity:0;';
+  const num = el('num', w, n);
+  num.style.cssText = 'font-size:74px;color:' + C.TEAL + ';line-height:1;';
+  const bar = el('', w);
+  bar.style.cssText = 'width:0;height:2px;background:' + C.BORD + ';align-self:center;';
+  return { w, bar };
+}
+/* a glass node card — the atom of this whole system */
+function glassNode(parent, x, y, w, h, label, sub, col){
+  const n = el('', parent);
+  n.style.cssText = 'position:absolute;left:' + px(x) + ';top:' + px(y) + ';width:' + px(w) +
+    ';height:' + px(h) + ';background:' + C.GLASS + ';border:2px solid ' + (col || C.BORD) +
+    ';border-radius:16px;display:flex;align-items:center;gap:18px;padding:0 24px;opacity:0;';
+  const tile = el('', n);
+  tile.style.cssText = 'width:44px;height:44px;border-radius:10px;background:' + (col || C.TEAL) +
+    ';flex:0 0 auto;opacity:.9;';
+  const txt = el('', n);
+  const l = el('lb', txt, label);
+  l.style.cssText = 'font-size:27px;color:' + C.INK + ';';
+  if (sub){ const s2 = el('', txt, sub); s2.style.cssText = 'font-size:18px;color:' + C.DIM + ';margin-top:4px;'; }
+  return n;
+}
+
+const built = [];
+SCENES.forEach(Sd => {
+  const sc = el('sc');
+  const o = { S:Sd, sc, parts:{} };
+  if (Sd.full) o.parts.glow = floorGlow(sc);
+  o.parts.step = stepMark(sc, Sd.step);
+
+  if (Sd.kind === 'flow' || Sd.kind === 'group'){
+    const h = el('hl', sc, Sd.head);
+    h.style.cssText = 'position:absolute;left:120px;top:196px;font-size:112px;color:' + C.INK + ';opacity:0;';
+    const NW = 490, NH = 152, y = 430;
+    const gap = (1920 - 240 - NW * Sd.nodes.length) / (Sd.nodes.length - 1);
+    const s = svg(sc, 1920, 1080);
+    const nodes = [], conns = [];
+    Sd.nodes.forEach((nd, i) => {
+      const x = 120 + i * (NW + gap);
+      /* blue marks what is already automated; teal marks what you still touch */
+      const col = (Sd.lit && i > 0) ? C.BLUE : C.TEAL;
+      nodes.push(glassNode(sc, x, y, NW, NH, nd.l, nd.s, col));
+      if (i < Sd.nodes.length - 1){
+        const p = path(s, elbow(x + NW, y + NH/2, x + NW + gap, y + NH/2), C.TEAL, 3, '12 10');
+        p.dataset.len = p.getTotalLength();
+        conns.push(p);
+      }
+    });
+    let box = null, outs = [];
+    if (Sd.kind === 'group'){
+      box = el('', sc);
+      box.style.cssText = 'position:absolute;left:96px;top:' + px(y - 44) + ';width:' + px(1920-192) +
+        ';height:' + px(NH + 88) + ';border:3px dashed ' + C.BORD + ';border-radius:24px;opacity:0;';
+      Sd.outs.forEach((t, i) => {
+        const ox = 420 + i * 620;
+        outs.push(glassNode(sc, ox, 760, 480, 96, t, 'AUTOMATED', C.BLUE));
+        const p = path(s, elbow(ox + 240, y + NH, ox + 240, 760), C.BLUE, 3, '12 10');
+        p.dataset.len = p.getTotalLength(); conns.push(p);
+      });
+    }
+    o.parts = Object.assign(o.parts, { h, nodes, conns, box, outs });
+  }
+
+  if (Sd.kind === 'hub'){
+    const cx = 960, cy = 590;
+    const s = svg(sc, 1920, 1080);
+    const rings = [];
+    [150, 250, 350].forEach(r => {
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', r);
+      c.setAttribute('fill','none'); c.setAttribute('stroke', C.BORD);
+      c.setAttribute('stroke-width', 2); c.setAttribute('stroke-dasharray','8 12');
+      c.style.opacity = 0; s.appendChild(c); rings.push(c);
+    });
+    const core = el('', sc);
+    core.style.cssText = 'position:absolute;left:' + px(cx-150) + ';top:' + px(cy-150) +
+      ';width:300px;height:300px;border-radius:50%;background:' + C.GLASS + ';border:3px solid ' + C.TEAL +
+      ';display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;';
+    const cn = el('hl', core, Sd.core);
+    cn.style.cssText = 'font-size:' + (Sd.core.length > 3 ? '68px' : '96px') + ';color:' + C.INK + ';';
+    const cs = el('lb', core, Sd.coreSub);
+    cs.style.cssText = 'font-size:19px;color:' + C.TEAL + ';margin-top:8px;letter-spacing:.12em;';
+    const sats = [], spokes = [];
+    const R = 430;
+    Sd.sats.forEach((t, i) => {
+      const a = -Math.PI/2 + i * (Math.PI*2 / Sd.sats.length);
+      const sx = cx + Math.cos(a) * R, sy = cy + Math.sin(a) * R;
+      sats.push(glassNode(sc, sx - 170, sy - 48, 340, 96, t, '', C.TEAL));
+      const p = path(s, 'M' + (cx + Math.cos(a)*150) + ',' + (cy + Math.sin(a)*150) +
+        ' L' + (cx + Math.cos(a)*(R-60)) + ',' + (cy + Math.sin(a)*(R-60)), C.TEAL, 3, '10 10');
+      p.dataset.len = p.getTotalLength(); spokes.push(p);
+    });
+    o.parts = Object.assign(o.parts, { rings, core, sats, spokes });
+  }
+
+  if (Sd.kind === 'title'){
+    const l1 = el('hl', sc, Sd.head[0]);
+    l1.style.cssText = 'position:absolute;left:120px;top:400px;font-size:140px;color:' + C.INK + ';opacity:0;';
+    const l2 = el('hl', sc, Sd.head[1]);
+    l2.style.cssText = 'position:absolute;left:120px;top:548px;font-size:140px;color:' + C.TEAL + ';opacity:0;';
+    const s = svg(sc, 1920, 1080);
+    const u = path(s, 'M120,730 L760,730', C.TEAL, 5, '');
+    u.dataset.len = u.getTotalLength();
+    o.parts = Object.assign(o.parts, { l1, l2, u });
+  }
+
+  /* ---- OVERLAY kinds: no ground, graphics ride the footage ---- */
+  if (Sd.kind === 'badge'){
+    /* hexagon badge — the reference's one true lower-third-style element */
+    const wrap = el('', sc);
+    /* the wrap MUST carry its own box — a zero-width right-anchored parent throws its
+       absolutely-positioned children off the right edge of the frame */
+    wrap.style.cssText = 'position:absolute;right:150px;top:300px;width:460px;height:300px;opacity:0;';
+    const s = svg(wrap, 460, 300);
+    const hex = path(s, 'M120,10 L340,10 L440,150 L340,290 L120,290 L20,150 Z', C.TEAL, 4, '');
+    hex.setAttribute('fill', C.GLASS);
+    const t1 = el('hl', wrap, Sd.big);
+    t1.style.cssText = 'position:absolute;left:0;top:104px;width:460px;text-align:center;font-size:52px;color:' + C.INK + ';';
+    const t2 = el('lb', wrap, Sd.sub);
+    t2.style.cssText = 'position:absolute;left:0;top:168px;width:460px;text-align:center;font-size:21px;color:' + C.TEAL + ';letter-spacing:.16em;';
+    o.parts = Object.assign(o.parts, { wrap });
+  }
+
+  if (Sd.kind === 'node'){
+    const n = glassNode(sc, 120, 790, 760, 130, Sd.l, Sd.s, C.TEAL);
+    const s = svg(sc, 1920, 1080);
+    /* a dashed elbow that points UP at him — the graphic references the speaker */
+    const p = path(s, elbow(880, 855, 1230, 520), C.TEAL, 3, '12 10');
+    p.dataset.len = p.getTotalLength();
+    o.parts = Object.assign(o.parts, { n, p });
+  }
+
+  if (Sd.kind === 'count'){
+    const box = el('', sc);
+    box.style.cssText = 'position:absolute;right:150px;top:250px;text-align:right;opacity:0;';
+    const num = el('hl', box, '0');
+    num.style.cssText = 'font-size:200px;color:' + C.INK + ';font-variant-numeric:tabular-nums;';
+    const un = el('lb', box, Sd.unit);
+    un.style.cssText = 'font-size:26px;color:' + C.TEAL + ';letter-spacing:.14em;';
+    const note = el('lb', sc, Sd.note);
+    note.style.cssText = 'position:absolute;right:150px;top:560px;padding:14px 26px;background:' + C.GLASS +
+      ';border:2px solid ' + C.TEAL + ';border-radius:12px;font-size:21px;color:' + C.TEAL + ';opacity:0;';
+    o.parts = Object.assign(o.parts, { box, num, note, target:Sd.target });
+  }
+
+  if (Sd.kind === 'chips'){
+    const items = [];
+    Sd.chips.forEach((t, i) => {
+      items.push(glassNode(sc, 120 + (i % 2) * 470, 690 + Math.floor(i / 2) * 130, 440, 104, t, 'LINKED', C.BLUE));
+    });
+    o.parts = Object.assign(o.parts, { items });
+  }
+
+  built.push(o);
+});
+
+function seek(tRaw){
+  const t = Math.floor(tRaw / STEP) * STEP;   /* LAW 1: posterize to 12fps */
+  built.forEach(o => {
+    const S = o.S, sc = o.sc, lt = t - S.at;
+    const on = lt >= -0.001 && lt <= S.dur;
+    sc.style.opacity = on ? 1 : 0;
+    if (!on) return;
+    const P = o.parts;
+
+    P.step.w.style.opacity = p01(lt, 0.02, 0.12);
+    P.step.bar.style.width = px(210 * outCubic(p01(lt, 0.16, 0.40)));
+
+    const drawIn = (p, d, len) => {
+      const L = parseFloat(p.dataset.len);
+      p.style.strokeDasharray = p.getAttribute('stroke-dasharray') || 'none';
+      p.style.strokeDashoffset = 0;
+      /* marching-ants draw-on via a clip on total length */
+      const prog = outCubic(p01(lt, d, len));
+      p.style.opacity = prog > 0 ? 1 : 0;
+      p.setAttribute('stroke-dasharray', (L * prog) + ' ' + (L * (1 - prog) + 0.001));
+    };
+
+    if (S.kind === 'flow' || S.kind === 'group'){
+      P.h.style.opacity = p01(lt, 0.14, 0.16);
+      if (P.box) P.box.style.opacity = p01(lt, 0.10, 0.20);
+      P.nodes.forEach((n, i) => {
+        /* group beat shows the chain ALREADY BUILT — continuity, never a rebuild */
+        n.style.opacity = S.kind === 'group' ? 1 : p01(lt, 0.36 + i*0.34, 0.16);
+        n.style.transform = 'translateY(' + ((1 - outCubic(p01(lt, 0.36 + i*0.34, 0.34))) * (S.kind==='group'?0:22)).toFixed(1) + 'px)';
+      });
+      P.conns.forEach((p, i) => drawIn(p, (S.kind==='group' ? 0.30 : 0.62) + i*0.30, 0.46));
+      if (P.outs) P.outs.forEach((n, i) => { n.style.opacity = p01(lt, 1.10 + i*0.36, 0.18); });
+    }
+
+    if (S.kind === 'hub'){
+      P.rings.forEach((c, i) => { c.style.opacity = p01(lt, 0.10 + i*0.12, 0.24) * 0.8; });
+      P.core.style.opacity = p01(lt, 0.22, 0.18);
+      P.spokes.forEach((p, i) => drawIn(p, 0.62 + i*0.26, 0.36));
+      P.sats.forEach((n, i) => { n.style.opacity = p01(lt, 0.80 + i*0.26, 0.16); });
+    }
+
+    if (S.kind === 'title'){
+      P.l1.style.opacity = p01(lt, 0.12, 0.14);
+      P.l2.style.opacity = p01(lt, 0.12 + 2*STEP, 0.14);
+      const L = parseFloat(P.u.dataset.len);
+      P.u.setAttribute('stroke-dasharray', (L * outCubic(p01(lt,0.50,0.44))) + ' ' + L);
+    }
+
+    if (S.kind === 'badge'){
+      const p = outCubic(p01(lt, 0.06, 0.26));
+      P.wrap.style.opacity = p;
+      P.wrap.style.transform = 'scale(' + (0.90 + 0.10 * p).toFixed(3) + ')';
+    }
+
+    if (S.kind === 'node'){
+      P.n.style.opacity = p01(lt, 0.10, 0.16);
+      drawIn(P.p, 0.42, 0.44);
+    }
+
+    if (S.kind === 'count'){
+      P.box.style.opacity = p01(lt, 0.12, 0.14);
+      const v = Math.round(outQuint(p01(lt, 0.20, 1.70)) * P.target);
+      P.num.textContent = v >= 1000 ? (v/1000).toFixed(1) + 'K' : v;
+      P.note.style.opacity = p01(lt, 2.20, 0.18);
+    }
+
+    if (S.kind === 'chips'){
+      P.items.forEach((n, i) => {
+        const pr = p01(lt, 0.26 + i*0.40, 0.16);
+        n.style.opacity = pr;
+        n.style.transform = 'translateX(' + ((1 - outCubic(pr)) * -26).toFixed(1) + 'px)';
+      });
+    }
+  });
+}
+
+window.__seek = seek;
+seek(0);
+window.__ready = true;
+</script></body></html>

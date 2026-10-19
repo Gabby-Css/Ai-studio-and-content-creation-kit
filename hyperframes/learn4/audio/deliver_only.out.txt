@@ -1,0 +1,27 @@
+C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn4\audio\deliver_only.py:4: SyntaxWarning: invalid escape sequence '\K'
+  stages.status("FINAL DONE - videos are in Desktop\KiddoVerse_Learn3" if ok else "FINAL STOPPED: deliver failed")
+[2026-10-16 15:30:22] RUN mux 1080p (try 1/1): ffmpeg -y -v error -i C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn4\renders\learn4_picture.mp4 -i C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn4\audio\master.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 256k -ar 48000 -shortest -movflags +faststart C:\Us
+[2026-10-16 15:31:10] EXIT mux 1080p code 0 after 0.8 min
+[2026-10-16 15:31:10] RUN encode 720p (try 1/2): ffmpeg -y -v error -i C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn4\renders\learn4_picture.mp4 -i C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn4\audio\master.wav -map 0:v:0 -map 1:a:0 -vf scale=1280:720:flags=lanczos -c:v libx264 -preset veryfast -crf 20 -pix
+[2026-10-16 15:36:52] EXIT encode 720p code 0 after 5.7 min
+[2026-10-16 15:36:52] RUN mp3 (try 1/1): ffmpeg -y -v error -i C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn4\audio\master.wav -c:a libmp3lame -b:a 320k C:\Users\softenic\Desktop\KiddoVerse_Learn4\KiddoVerse_Learn4_song.mp3
+[2026-10-16 15:37:21] EXIT mp3 code 0 after 0.5 min
+[2026-10-16 15:37:21] RUN short Theme_And_Circle (try 1/2): ffmpeg -y -v error -ss 4.000 -t 22.000 -i C:\Users\softenic\Desktop\KiddoVerse_Learn4\KiddoVerse_Learn4_1080p.mp4 -filter_complex [0:v]split=2[a][b];[a]scale=216:384:force_original_aspect_ratio=increase,crop=216:384,boxblur=6:2,scale=1080:1920,setsar=1[bg];[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/
+[2026-10-16 15:38:36] EXIT short Theme_And_Circle code 0 after 1.2 min
+[2026-10-16 15:38:36] RUN short Triangle_Stop (try 1/2): ffmpeg -y -v error -ss 40.000 -t 14.000 -i C:\Users\softenic\Desktop\KiddoVerse_Learn4\KiddoVerse_Learn4_1080p.mp4 -filter_complex [0:v]split=2[a][b];[a]scale=216:384:force_original_aspect_ratio=increase,crop=216:384,boxblur=6:2,scale=1080:1920,setsar=1[bg];[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)
+[2026-10-16 15:39:15] EXIT short Triangle_Stop code 0 after 0.7 min
+[2026-10-16 15:39:15] RUN short Yoga_And_House (try 1/2): ffmpeg -y -v error -ss 148.000 -t 24.000 -i C:\Users\softenic\Desktop\KiddoVerse_Learn4\KiddoVerse_Learn4_1080p.mp4 -filter_complex [0:v]split=2[a][b];[a]scale=216:384:force_original_aspect_ratio=increase,crop=216:384,boxblur=6:2,scale=1080:1920,setsar=1[bg];[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w
+[2026-10-16 15:40:13] EXIT short Yoga_And_House code 0 after 1.0 min
+[2026-10-16 15:40:21] FINAL CHECK:
+KiddoVerse_Learn4_1080p.mp4: 256 MB, 184.0 s, -13.7 LUFS, true peak -0.8 dBTP
+  PASS  KiddoVerse_Learn4_1080p.mp4  duration: 184.0 s (target 184.0 s +/- 0.5)
+  PASS  KiddoVerse_Learn4_1080p.mp4  loudness: -13.7 LUFS (target -14 +/- 1)
+  PASS  KiddoVerse_Learn4_1080p.mp4  true peak: -0.8 dBTP (must be <= -0.3)
+  NOTE  KiddoVerse_Learn4_1080p.mp4: true peak -0.8 dBTP is acceptable but above -1.0 dBTP (little headroom for YouTube's re-encode)
+KiddoVerse_Learn4_720p.mp4: 63 MB, 184.0 s, -13.7 LUFS, true peak -0.8 dBTP
+  PASS  KiddoVerse_Learn4_720p.mp4  duration: 184.0 s (target 184.0 s +/- 0.5)
+  PASS  KiddoVerse_Learn4_720p.mp4  loudness: -13.7 LUFS (target -14 +/- 1)
+  PASS  KiddoVerse_Learn4_720p.mp4  true peak: -0.8 dBTP (must be <= -0.3)
+  NOTE  KiddoVerse_Learn4_720p.mp4: true peak -0.8 dBTP is acceptable but above -1.0 dBTP (little headroom for YouTube's re-encode)
+OVERALL: ALL CHECKS PASS
+deliver True

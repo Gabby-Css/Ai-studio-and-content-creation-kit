@@ -1,0 +1,14 @@
+   16.0s stop     ask     3/3 OK  | who says moo                               | who says moo moo
+   20.0s stop     sound   2/2 OK  | moo moo                                    | moo moo
+   24.0s stop     say     4/4 OK  | the cow says moo                           | the cow says moo who
+   28.0s stop     ask     2/3 mid | who says quack                             | who says wack wack
+   32.0s stop     sound   2/2 OK  | quack quack                                | quack quack
+   36.0s stop     say     3/4 mid | the duck says quack                        | the dog says quack who
+   40.0s stop     ask     2/3 mid | who says oink                              | who says i i
+   44.0s stop     sound   2/2 OK  | oink oink                                  | oink oink
+   48.0s stop     say     3/4 mid | the pig says oink                          | the pig says like who
+   52.0s stop     ask     2/3 mid | who says baa                               | who says bye bye
+   56.0s stop     sound   0/2 LOW | baa baa                                    | bye bye
+   60.0s stop     say     2/4 mid | the sheep says baa                         | the cheaper says bye moowah
+TOTAL 27/36 = 75%
+animal sound words: moo 4/4  quack 3/4  oink 2/4  baa 0/4

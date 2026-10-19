@@ -1,0 +1,5 @@
+bass     625 events   184.4s  peak  -13.4 dB  rms  -30.4 dB  (13s)
+drums   2538 events   182.4s  peak   -9.1 dB  rms  -31.9 dB  (4s)
+harm    3426 events   185.2s  peak  -11.6 dB  rms  -32.7 dB  (5s)
+mel      354 events   185.7s  peak  -10.3 dB  rms  -37.1 dB  (3s)
+music_stem_cm ok; rms dB per bar (every 4th): [np.float64(-18.9), np.float64(-21.8), np.float64(-26.8), np.float64(-23.5), np.float64(-22.9), np.float64(-24.8), np.float64(-23.4), np.float64(-19.3), np.float64(-17.9), np.float64(-26.3), np.float64(-23.6), np.float64(-23.1), np.float64(-26.3), np.float64(-23.5), np.float64(-21.7), np.float64(-18.7), np.float64(-23.3), np.float64(-25.5), np.float64(-25.2), np.float64(-25.4), np.float64(-19.5), np.float64(-22.0), np.float64(-27.7)]

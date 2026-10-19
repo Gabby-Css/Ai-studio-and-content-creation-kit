@@ -1,0 +1,8 @@
+       72.0 ask    who says woof the dog                  | and who says we've loved the wrong way
+       76.0 sound  woof woof woof                         | moo moo moo
+       80.0 say    the dog says woof woof                 | the doggy says woof
+exp60        any  54% (7/13)  lead  56% (5/9)  kids  50% (2/4)  | woof 2/6
+       72.0 ask    who says woof the dog                  | and who says we've the wrong way
+       76.0 sound  woof woof woof                         | moo moo moo
+       80.0 say    the dog says woof woof                 | the doggy says woof
+exp75        any  54% (7/13)  lead  56% (5/9)  kids  50% (2/4)  | woof 2/6

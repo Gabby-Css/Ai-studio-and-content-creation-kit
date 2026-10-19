@@ -1,0 +1,9 @@
+{
+  "name": "video-studio-hyperframes-starter",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": { "doctor": "node run.cjs doctor", "lint": "node run.cjs lint", "preview": "node run.cjs preview", "render": "node run.cjs render", "test": "node --test run.test.cjs" },
+  "dependencies": { "hyperframes": "0.8.40", "gsap": "3.13.0" }
+}

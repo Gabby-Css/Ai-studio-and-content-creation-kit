@@ -1,0 +1,4949 @@
+{
+ "bpm": 120,
+ "bar": 2.0,
+ "duration": 182.0,
+ "brand": "KiddoVerse",
+ "sections": [
+  {
+   "i": 0,
+   "kind": "intro",
+   "bar0": 0,
+   "bars": 2,
+   "t0": 0.0,
+   "t1": 4.0,
+   "prog": [
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {}
+  },
+  {
+   "i": 1,
+   "kind": "hook",
+   "bar0": 2,
+   "bars": 6,
+   "t0": 4.0,
+   "t1": 16.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "nth": 0
+   }
+  },
+  {
+   "i": 2,
+   "kind": "stop",
+   "bar0": 8,
+   "bars": 6,
+   "t0": 16.0,
+   "t1": 28.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": -2,
+   "meta": {
+    "i": 0,
+    "animal": "cow"
+   }
+  },
+  {
+   "i": 3,
+   "kind": "stop",
+   "bar0": 14,
+   "bars": 6,
+   "t0": 28.0,
+   "t1": 40.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": -2,
+   "meta": {
+    "i": 1,
+    "animal": "duck"
+   }
+  },
+  {
+   "i": 4,
+   "kind": "stop",
+   "bar0": 20,
+   "bars": 6,
+   "t0": 40.0,
+   "t1": 52.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 2,
+    "animal": "pig"
+   }
+  },
+  {
+   "i": 5,
+   "kind": "stop",
+   "bar0": 26,
+   "bars": 6,
+   "t0": 52.0,
+   "t1": 64.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 3,
+    "animal": "sheep"
+   }
+  },
+  {
+   "i": 6,
+   "kind": "midhook",
+   "bar0": 32,
+   "bars": 4,
+   "t0": 64.0,
+   "t1": 72.0,
+   "prog": [
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {}
+  },
+  {
+   "i": 7,
+   "kind": "stop",
+   "bar0": 36,
+   "bars": 6,
+   "t0": 72.0,
+   "t1": 84.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 4,
+    "animal": "dog"
+   }
+  },
+  {
+   "i": 8,
+   "kind": "stop",
+   "bar0": 42,
+   "bars": 6,
+   "t0": 84.0,
+   "t1": 96.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 5,
+    "animal": "cat"
+   }
+  },
+  {
+   "i": 9,
+   "kind": "stop",
+   "bar0": 48,
+   "bars": 6,
+   "t0": 96.0,
+   "t1": 108.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 2,
+   "meta": {
+    "i": 6,
+    "animal": "horse"
+   }
+  },
+  {
+   "i": 10,
+   "kind": "stop",
+   "bar0": 54,
+   "bars": 6,
+   "t0": 108.0,
+   "t1": 120.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 2,
+   "meta": {
+    "i": 7,
+    "animal": "lion"
+   }
+  },
+  {
+   "i": 11,
+   "kind": "dance",
+   "bar0": 60,
+   "bars": 6,
+   "t0": 120.0,
+   "t1": 132.0,
+   "prog": [
+    "C",
+    "C",
+    "F",
+    "F",
+    "G",
+    "C"
+   ],
+   "transpose": 0,
+   "meta": {}
+  },
+  {
+   "i": 12,
+   "kind": "game",
+   "bar0": 66,
+   "bars": 4,
+   "t0": 132.0,
+   "t1": 140.0,
+   "prog": [
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "k": 0,
+    "animal": "duck",
+    "cards": [
+     "cow",
+     "duck",
+     "pig"
+    ]
+   }
+  },
+  {
+   "i": 13,
+   "kind": "game",
+   "bar0": 70,
+   "bars": 4,
+   "t0": 140.0,
+   "t1": 148.0,
+   "prog": [
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "k": 1,
+    "animal": "lion",
+    "cards": [
+     "sheep",
+     "cat",
+     "lion"
+    ]
+   }
+  },
+  {
+   "i": 14,
+   "kind": "game",
+   "bar0": 74,
+   "bars": 4,
+   "t0": 148.0,
+   "t1": 156.0,
+   "prog": [
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "k": 2,
+    "animal": "pig",
+    "cards": [
+     "horse",
+     "dog",
+     "pig"
+    ]
+   }
+  },
+  {
+   "i": 15,
+   "kind": "fin",
+   "bar0": 78,
+   "bars": 8,
+   "t0": 156.0,
+   "t1": 172.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G",
+    "F",
+    "G"
+   ],
+   "transpose": 2,
+   "meta": {}
+  },
+  {
+   "i": 16,
+   "kind": "outro",
+   "bar0": 86,
+   "bars": 5,
+   "t0": 172.0,
+   "t1": 182.0,
+   "prog": [
+    "C",
+    "F",
+    "C",
+    "C",
+    "C"
+   ],
+   "transpose": 0,
+   "meta": {}
+  }
+ ],
+ "lines": [
+  {
+   "sec": 0,
+   "kind": "intro",
+   "voice": "lead",
+   "t0": 0.0,
+   "t1": 2.0,
+   "words": [
+    {
+     "parts": [
+      "Kid",
+      "do"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 0.0,
+       "dur": 0.5
+      },
+      {
+       "note": 67,
+       "t0": 0.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "KiddoVerse!",
+     "text": "Kiddo",
+     "t0": 0.0,
+     "t1": 2.0,
+     "merged": true,
+     "subs": [
+      {
+       "parts": [
+        "Kid",
+        "do"
+       ],
+       "syl": [
+        {
+         "note": 64,
+         "t0": 0.0,
+         "dur": 0.5
+        },
+        {
+         "note": 67,
+         "t0": 0.5,
+         "dur": 0.5
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "Kiddo",
+       "text": "Kiddo",
+       "t0": 0.0,
+       "t1": 1.0
+      },
+      {
+       "parts": [
+        "verse!"
+       ],
+       "syl": [
+        {
+         "note": 72,
+         "t0": 1.0,
+         "dur": 1.0
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "verse!",
+       "text": "verse",
+       "t0": 1.0,
+       "t1": 2.0
+      }
+     ]
+    }
+   ],
+   "meta": {}
+  },
+  {
+   "sec": 1,
+   "kind": "hook",
+   "voice": "lead",
+   "t0": 4.0,
+   "t1": 7.5,
+   "words": [
+    {
+     "parts": [
+      "An",
+      "i",
+      "mals!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 4.0,
+       "dur": 0.5
+      },
+      {
+       "note": 67,
+       "t0": 4.5,
+       "dur": 0.25
+      },
+      {
+       "note": 69,
+       "t0": 4.75,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Animals!",
+     "text": "Animals",
+     "t0": 4.0,
+     "t1": 5.0
+    },
+    {
+     "parts": [
+      "Let's"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 5.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Let's",
+     "text": "Let's",
+     "t0": 5.0,
+     "t1": 5.5
+    },
+    {
+     "parts": [
+      "hear"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 5.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hear",
+     "text": "hear",
+     "t0": 5.5,
+     "t1": 6.0
+    },
+    {
+     "parts": [
+      "them"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 6.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "them",
+     "text": "them",
+     "t0": 6.0,
+     "t1": 6.5
+    },
+    {
+     "parts": [
+      "all!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 6.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "all!",
+     "text": "all",
+     "t0": 6.5,
+     "t1": 7.5
+    }
+   ],
+   "meta": {
+    "li": 0,
+    "nth": 0
+   }
+  },
+  {
+   "sec": 1,
+   "kind": "hook",
+   "voice": "lead",
+   "t0": 8.0,
+   "t1": 12.0,
+   "words": [
+    {
+     "parts": [
+      "Moo,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 8.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Moo,",
+     "text": "Moo",
+     "t0": 8.0,
+     "t1": 8.5
+    },
+    {
+     "parts": [
+      "quack,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 8.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "quack,",
+     "text": "quack",
+     "t0": 8.5,
+     "t1": 9.0
+    },
+    {
+     "parts": [
+      "oink,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 9.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "oink,",
+     "text": "oink",
+     "t0": 9.0,
+     "t1": 9.5
+    },
+    {
+     "parts": [
+      "baa,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 9.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "baa,",
+     "text": "baa",
+     "t0": 9.5,
+     "t1": 10.0
+    },
+    {
+     "parts": [
+      "woof,"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 10.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "woof,",
+     "text": "woof",
+     "t0": 10.0,
+     "t1": 10.5
+    },
+    {
+     "parts": [
+      "meow,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 10.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow,",
+     "text": "meow",
+     "t0": 10.5,
+     "t1": 11.0
+    },
+    {
+     "parts": [
+      "neigh,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 11.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "neigh,",
+     "text": "neigh",
+     "t0": 11.0,
+     "t1": 11.5
+    },
+    {
+     "parts": [
+      "roar!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 11.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "roar!",
+     "text": "roar",
+     "t0": 11.5,
+     "t1": 12.0
+    }
+   ],
+   "meta": {
+    "li": 1,
+    "nth": 0
+   }
+  },
+  {
+   "sec": 1,
+   "kind": "hook",
+   "voice": "lead",
+   "t0": 12.0,
+   "t1": 16.0,
+   "words": [
+    {
+     "parts": [
+      "Come"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 12.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Come",
+     "text": "Come",
+     "t0": 12.0,
+     "t1": 12.5
+    },
+    {
+     "parts": [
+      "on,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 12.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "on,",
+     "text": "on",
+     "t0": 12.5,
+     "t1": 13.0
+    },
+    {
+     "parts": [
+      "sing"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 13.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sing",
+     "text": "sing",
+     "t0": 13.0,
+     "t1": 13.5
+    },
+    {
+     "parts": [
+      "and"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 13.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "and",
+     "text": "and",
+     "t0": 13.5,
+     "t1": 14.0
+    },
+    {
+     "parts": [
+      "dance"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 14.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dance",
+     "text": "dance",
+     "t0": 14.0,
+     "t1": 14.5
+    },
+    {
+     "parts": [
+      "with"
+     ],
+     "syl": [
+      {
+       "note": 62,
+       "t0": 14.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "with",
+     "text": "with",
+     "t0": 14.5,
+     "t1": 15.0
+    },
+    {
+     "parts": [
+      "me!"
+     ],
+     "syl": [
+      {
+       "note": 60,
+       "t0": 15.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "me!",
+     "text": "me",
+     "t0": 15.0,
+     "t1": 16.0
+    }
+   ],
+   "meta": {
+    "li": 2,
+    "nth": 0
+   }
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 16.0,
+   "t1": 20.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 62,
+       "t0": 16.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 16.0,
+     "t1": 16.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 16.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 16.5,
+     "t1": 17.0
+    },
+    {
+     "parts": [
+      "moo?"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 17.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "moo?",
+     "text": "moo",
+     "t0": 17.0,
+     "t1": 18.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 18.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 18.0,
+     "t1": 18.5
+    },
+    {
+     "parts": [
+      "cow!"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 18.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "cow!",
+     "text": "cow",
+     "t0": 18.5,
+     "t1": 20.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 0,
+    "animal": "cow"
+   }
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 20.0,
+   "t1": 23.0,
+   "words": [
+    {
+     "parts": [
+      "moo,"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 20.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Moo,",
+     "text": "moo",
+     "t0": 20.0,
+     "t1": 21.0
+    },
+    {
+     "parts": [
+      "moo,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 21.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "moo,",
+     "text": "moo",
+     "t0": 21.0,
+     "t1": 22.0
+    },
+    {
+     "parts": [
+      "moo!"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 22.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "moo!",
+     "text": "moo",
+     "t0": 22.0,
+     "t1": 23.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 0,
+    "animal": "cow"
+   }
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 24.0,
+   "t1": 28.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 24.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 24.0,
+     "t1": 24.5
+    },
+    {
+     "parts": [
+      "cow"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 24.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cow",
+     "text": "cow",
+     "t0": 24.5,
+     "t1": 25.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 25.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 25.0,
+     "t1": 25.5
+    },
+    {
+     "parts": [
+      "moo!"
+     ],
+     "syl": [
+      {
+       "note": 62,
+       "t0": 25.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "moo!",
+     "text": "moo",
+     "t0": 25.5,
+     "t1": 26.5
+    },
+    {
+     "parts": [
+      "moo!"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 27.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "moo!",
+     "text": "moo",
+     "t0": 27.0,
+     "t1": 28.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 0,
+    "animal": "cow"
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 28.0,
+   "t1": 32.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 62,
+       "t0": 28.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 28.0,
+     "t1": 28.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 28.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 28.5,
+     "t1": 29.0
+    },
+    {
+     "parts": [
+      "quack?"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 29.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "quack?",
+     "text": "quack",
+     "t0": 29.0,
+     "t1": 30.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 30.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 30.0,
+     "t1": 30.5
+    },
+    {
+     "parts": [
+      "duck!"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 30.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "duck!",
+     "text": "duck",
+     "t0": 30.5,
+     "t1": 32.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 1,
+    "animal": "duck"
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 32.0,
+   "t1": 35.0,
+   "words": [
+    {
+     "parts": [
+      "quack,"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 32.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Quack,",
+     "text": "quack",
+     "t0": 32.0,
+     "t1": 33.0
+    },
+    {
+     "parts": [
+      "quack,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 33.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "quack,",
+     "text": "quack",
+     "t0": 33.0,
+     "t1": 34.0
+    },
+    {
+     "parts": [
+      "quack!"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 34.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "quack!",
+     "text": "quack",
+     "t0": 34.0,
+     "t1": 35.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 1,
+    "animal": "duck"
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 36.0,
+   "t1": 40.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 36.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 36.0,
+     "t1": 36.5
+    },
+    {
+     "parts": [
+      "duck"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 36.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "duck",
+     "text": "duck",
+     "t0": 36.5,
+     "t1": 37.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 65,
+       "t0": 37.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 37.0,
+     "t1": 37.5
+    },
+    {
+     "parts": [
+      "quack!"
+     ],
+     "syl": [
+      {
+       "note": 62,
+       "t0": 37.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "quack!",
+     "text": "quack",
+     "t0": 37.5,
+     "t1": 38.5
+    },
+    {
+     "parts": [
+      "quack!"
+     ],
+     "syl": [
+      {
+       "note": 70,
+       "t0": 39.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "quack!",
+     "text": "quack",
+     "t0": 39.0,
+     "t1": 40.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 1,
+    "animal": "duck"
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 40.0,
+   "t1": 44.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 40.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 40.0,
+     "t1": 40.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 40.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 40.5,
+     "t1": 41.0
+    },
+    {
+     "parts": [
+      "oink?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 41.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "oink?",
+     "text": "oink",
+     "t0": 41.0,
+     "t1": 42.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 42.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 42.0,
+     "t1": 42.5
+    },
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 42.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "pig!",
+     "text": "pig",
+     "t0": 42.5,
+     "t1": 44.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 2,
+    "animal": "pig"
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 44.0,
+   "t1": 47.0,
+   "words": [
+    {
+     "parts": [
+      "oink,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 44.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Oink,",
+     "text": "oink",
+     "t0": 44.0,
+     "t1": 45.0
+    },
+    {
+     "parts": [
+      "oink,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 45.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "oink,",
+     "text": "oink",
+     "t0": 45.0,
+     "t1": 46.0
+    },
+    {
+     "parts": [
+      "oink!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 46.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "oink!",
+     "text": "oink",
+     "t0": 46.0,
+     "t1": 47.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 2,
+    "animal": "pig"
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 48.0,
+   "t1": 52.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 48.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 48.0,
+     "t1": 48.5
+    },
+    {
+     "parts": [
+      "pig"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 48.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "pig",
+     "text": "pig",
+     "t0": 48.5,
+     "t1": 49.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 49.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 49.0,
+     "t1": 49.5
+    },
+    {
+     "parts": [
+      "oink!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 49.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "oink!",
+     "text": "oink",
+     "t0": 49.5,
+     "t1": 50.5
+    },
+    {
+     "parts": [
+      "oink!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 51.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "oink!",
+     "text": "oink",
+     "t0": 51.0,
+     "t1": 52.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 2,
+    "animal": "pig"
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 52.0,
+   "t1": 56.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 52.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 52.0,
+     "t1": 52.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 52.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 52.5,
+     "t1": 53.0
+    },
+    {
+     "parts": [
+      "baa?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 53.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "baa?",
+     "text": "baa",
+     "t0": 53.0,
+     "t1": 54.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 54.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 54.0,
+     "t1": 54.5
+    },
+    {
+     "parts": [
+      "sheep!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 54.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "sheep!",
+     "text": "sheep",
+     "t0": 54.5,
+     "t1": 56.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 3,
+    "animal": "sheep"
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 56.0,
+   "t1": 59.0,
+   "words": [
+    {
+     "parts": [
+      "baa,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 56.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Baa,",
+     "text": "baa",
+     "t0": 56.0,
+     "t1": 57.0
+    },
+    {
+     "parts": [
+      "baa,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 57.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "baa,",
+     "text": "baa",
+     "t0": 57.0,
+     "t1": 58.0
+    },
+    {
+     "parts": [
+      "baa!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 58.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "baa!",
+     "text": "baa",
+     "t0": 58.0,
+     "t1": 59.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 3,
+    "animal": "sheep"
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 60.0,
+   "t1": 64.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 60.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 60.0,
+     "t1": 60.5
+    },
+    {
+     "parts": [
+      "sheep"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 60.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sheep",
+     "text": "sheep",
+     "t0": 60.5,
+     "t1": 61.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 61.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 61.0,
+     "t1": 61.5
+    },
+    {
+     "parts": [
+      "baa!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 61.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "baa!",
+     "text": "baa",
+     "t0": 61.5,
+     "t1": 62.5
+    },
+    {
+     "parts": [
+      "baa!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 63.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "baa!",
+     "text": "baa",
+     "t0": 63.0,
+     "t1": 64.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 3,
+    "animal": "sheep"
+   }
+  },
+  {
+   "sec": 6,
+   "kind": "midhook",
+   "voice": "lead",
+   "t0": 64.0,
+   "t1": 68.0,
+   "words": [
+    {
+     "parts": [
+      "Moo,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 64.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Moo,",
+     "text": "Moo",
+     "t0": 64.0,
+     "t1": 64.5
+    },
+    {
+     "parts": [
+      "quack,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 64.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "quack,",
+     "text": "quack",
+     "t0": 64.5,
+     "t1": 65.0
+    },
+    {
+     "parts": [
+      "oink,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 65.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "oink,",
+     "text": "oink",
+     "t0": 65.0,
+     "t1": 65.5
+    },
+    {
+     "parts": [
+      "baa,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 65.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "baa,",
+     "text": "baa",
+     "t0": 65.5,
+     "t1": 66.0
+    },
+    {
+     "parts": [
+      "woof,"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 66.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "woof,",
+     "text": "woof",
+     "t0": 66.0,
+     "t1": 66.5
+    },
+    {
+     "parts": [
+      "meow,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 66.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow,",
+     "text": "meow",
+     "t0": 66.5,
+     "t1": 67.0
+    },
+    {
+     "parts": [
+      "neigh,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 67.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "neigh,",
+     "text": "neigh",
+     "t0": 67.0,
+     "t1": 67.5
+    },
+    {
+     "parts": [
+      "roar!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 67.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "roar!",
+     "text": "roar",
+     "t0": 67.5,
+     "t1": 68.0
+    }
+   ],
+   "meta": {
+    "li": 1
+   }
+  },
+  {
+   "sec": 6,
+   "kind": "midhook",
+   "voice": "lead",
+   "t0": 68.0,
+   "t1": 72.0,
+   "words": [
+    {
+     "parts": [
+      "Come"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 68.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Come",
+     "text": "Come",
+     "t0": 68.0,
+     "t1": 68.5
+    },
+    {
+     "parts": [
+      "on,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 68.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "on,",
+     "text": "on",
+     "t0": 68.5,
+     "t1": 69.0
+    },
+    {
+     "parts": [
+      "sing"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 69.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sing",
+     "text": "sing",
+     "t0": 69.0,
+     "t1": 69.5
+    },
+    {
+     "parts": [
+      "and"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 69.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "and",
+     "text": "and",
+     "t0": 69.5,
+     "t1": 70.0
+    },
+    {
+     "parts": [
+      "dance"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 70.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dance",
+     "text": "dance",
+     "t0": 70.0,
+     "t1": 70.5
+    },
+    {
+     "parts": [
+      "with"
+     ],
+     "syl": [
+      {
+       "note": 62,
+       "t0": 70.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "with",
+     "text": "with",
+     "t0": 70.5,
+     "t1": 71.0
+    },
+    {
+     "parts": [
+      "me!"
+     ],
+     "syl": [
+      {
+       "note": 60,
+       "t0": 71.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "me!",
+     "text": "me",
+     "t0": 71.0,
+     "t1": 72.0
+    }
+   ],
+   "meta": {
+    "li": 2
+   }
+  },
+  {
+   "sec": 7,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 72.0,
+   "t1": 76.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 72.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 72.0,
+     "t1": 72.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 72.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 72.5,
+     "t1": 73.0
+    },
+    {
+     "parts": [
+      "woof?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 73.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "woof?",
+     "text": "woof",
+     "t0": 73.0,
+     "t1": 74.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 74.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 74.0,
+     "t1": 74.5
+    },
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 74.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "dog!",
+     "text": "dog",
+     "t0": 74.5,
+     "t1": 76.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 4,
+    "animal": "dog"
+   }
+  },
+  {
+   "sec": 7,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 76.0,
+   "t1": 79.0,
+   "words": [
+    {
+     "parts": [
+      "woof,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 76.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Woof,",
+     "text": "woof",
+     "t0": 76.0,
+     "t1": 77.0
+    },
+    {
+     "parts": [
+      "woof,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 77.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "woof,",
+     "text": "woof",
+     "t0": 77.0,
+     "t1": 78.0
+    },
+    {
+     "parts": [
+      "woof!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 78.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "woof!",
+     "text": "woof",
+     "t0": 78.0,
+     "t1": 79.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 4,
+    "animal": "dog"
+   }
+  },
+  {
+   "sec": 7,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 80.0,
+   "t1": 84.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 80.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 80.0,
+     "t1": 80.5
+    },
+    {
+     "parts": [
+      "dog"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 80.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dog",
+     "text": "dog",
+     "t0": 80.5,
+     "t1": 81.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 81.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 81.0,
+     "t1": 81.5
+    },
+    {
+     "parts": [
+      "woof!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 81.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "woof!",
+     "text": "woof",
+     "t0": 81.5,
+     "t1": 82.5
+    },
+    {
+     "parts": [
+      "woof!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 83.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "woof!",
+     "text": "woof",
+     "t0": 83.0,
+     "t1": 84.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 4,
+    "animal": "dog"
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 84.0,
+   "t1": 88.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 84.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 84.0,
+     "t1": 84.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 84.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 84.5,
+     "t1": 85.0
+    },
+    {
+     "parts": [
+      "meow?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 85.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow?",
+     "text": "meow",
+     "t0": 85.0,
+     "t1": 86.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 86.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 86.0,
+     "t1": 86.5
+    },
+    {
+     "parts": [
+      "cat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 86.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "cat!",
+     "text": "cat",
+     "t0": 86.5,
+     "t1": 88.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 5,
+    "animal": "cat"
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 88.0,
+   "t1": 91.0,
+   "words": [
+    {
+     "parts": [
+      "meow,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 88.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Meow,",
+     "text": "meow",
+     "t0": 88.0,
+     "t1": 89.0
+    },
+    {
+     "parts": [
+      "meow,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 89.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow,",
+     "text": "meow",
+     "t0": 89.0,
+     "t1": 90.0
+    },
+    {
+     "parts": [
+      "meow!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 90.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "meow!",
+     "text": "meow",
+     "t0": 90.0,
+     "t1": 91.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 5,
+    "animal": "cat"
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 92.0,
+   "t1": 96.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 92.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 92.0,
+     "t1": 92.5
+    },
+    {
+     "parts": [
+      "cat"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 92.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cat",
+     "text": "cat",
+     "t0": 92.5,
+     "t1": 93.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 93.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 93.0,
+     "t1": 93.5
+    },
+    {
+     "parts": [
+      "meow!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 93.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow!",
+     "text": "meow",
+     "t0": 93.5,
+     "t1": 94.5
+    },
+    {
+     "parts": [
+      "meow!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 95.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "meow!",
+     "text": "meow",
+     "t0": 95.0,
+     "t1": 96.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 5,
+    "animal": "cat"
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 96.0,
+   "t1": 100.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 96.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 96.0,
+     "t1": 96.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 96.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 96.5,
+     "t1": 97.0
+    },
+    {
+     "parts": [
+      "neigh?"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 97.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "neigh?",
+     "text": "neigh",
+     "t0": 97.0,
+     "t1": 98.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 98.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 98.0,
+     "t1": 98.5
+    },
+    {
+     "parts": [
+      "horse!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 98.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "horse!",
+     "text": "horse",
+     "t0": 98.5,
+     "t1": 100.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 6,
+    "animal": "horse"
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 100.0,
+   "t1": 103.0,
+   "words": [
+    {
+     "parts": [
+      "neigh,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 100.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Neigh,",
+     "text": "neigh",
+     "t0": 100.0,
+     "t1": 101.0
+    },
+    {
+     "parts": [
+      "neigh,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 101.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "neigh,",
+     "text": "neigh",
+     "t0": 101.0,
+     "t1": 102.0
+    },
+    {
+     "parts": [
+      "neigh!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 102.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "neigh!",
+     "text": "neigh",
+     "t0": 102.0,
+     "t1": 103.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 6,
+    "animal": "horse"
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 104.0,
+   "t1": 108.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 104.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 104.0,
+     "t1": 104.5
+    },
+    {
+     "parts": [
+      "horse"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 104.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "horse",
+     "text": "horse",
+     "t0": 104.5,
+     "t1": 105.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 105.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 105.0,
+     "t1": 105.5
+    },
+    {
+     "parts": [
+      "neigh!"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 105.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "neigh!",
+     "text": "neigh",
+     "t0": 105.5,
+     "t1": 106.5
+    },
+    {
+     "parts": [
+      "neigh!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 107.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "neigh!",
+     "text": "neigh",
+     "t0": 107.0,
+     "t1": 108.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 6,
+    "animal": "horse"
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 108.0,
+   "t1": 112.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 108.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 108.0,
+     "t1": 108.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 108.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 108.5,
+     "t1": 109.0
+    },
+    {
+     "parts": [
+      "roar?"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 109.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "roar?",
+     "text": "roar",
+     "t0": 109.0,
+     "t1": 110.0
+    },
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 110.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 110.0,
+     "t1": 110.5
+    },
+    {
+     "parts": [
+      "lion!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 110.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "lion!",
+     "text": "lion",
+     "t0": 110.5,
+     "t1": 112.0
+    }
+   ],
+   "meta": {
+    "part": "ask",
+    "li": 0,
+    "i": 7,
+    "animal": "lion"
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 112.0,
+   "t1": 115.0,
+   "words": [
+    {
+     "parts": [
+      "roar,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 112.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Roar,",
+     "text": "roar",
+     "t0": 112.0,
+     "t1": 113.0
+    },
+    {
+     "parts": [
+      "roar,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 113.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "roar,",
+     "text": "roar",
+     "t0": 113.0,
+     "t1": 114.0
+    },
+    {
+     "parts": [
+      "roar!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 114.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "roar!",
+     "text": "roar",
+     "t0": 114.0,
+     "t1": 115.0
+    }
+   ],
+   "meta": {
+    "part": "sound",
+    "li": 1,
+    "i": 7,
+    "animal": "lion"
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 116.0,
+   "t1": 120.0,
+   "words": [
+    {
+     "parts": [
+      "The"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 116.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "The",
+     "text": "The",
+     "t0": 116.0,
+     "t1": 116.5
+    },
+    {
+     "parts": [
+      "lion"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 116.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "lion",
+     "text": "lion",
+     "t0": 116.5,
+     "t1": 117.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 117.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 117.0,
+     "t1": 117.5
+    },
+    {
+     "parts": [
+      "roar!"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 117.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "roar!",
+     "text": "roar",
+     "t0": 117.5,
+     "t1": 118.5
+    },
+    {
+     "parts": [
+      "roar!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 119.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "roar!",
+     "text": "roar",
+     "t0": 119.0,
+     "t1": 120.0
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 7,
+    "animal": "lion"
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "dance",
+   "voice": "lead",
+   "t0": 120.0,
+   "t1": 123.5,
+   "words": [
+    {
+     "parts": [
+      "Flap,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 120.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Flap,",
+     "text": "Flap",
+     "t0": 120.0,
+     "t1": 120.5
+    },
+    {
+     "parts": [
+      "flap,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 120.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "flap,",
+     "text": "flap",
+     "t0": 120.5,
+     "t1": 121.0
+    },
+    {
+     "parts": [
+      "like"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 121.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "like",
+     "text": "like",
+     "t0": 121.0,
+     "t1": 121.5
+    },
+    {
+     "parts": [
+      "a"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 121.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "a",
+     "text": "a",
+     "t0": 121.5,
+     "t1": 122.0
+    },
+    {
+     "parts": [
+      "duck!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 122.0,
+       "dur": 1.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "duck!",
+     "text": "duck",
+     "t0": 122.0,
+     "t1": 123.5
+    }
+   ],
+   "meta": {
+    "li": 0
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "dance",
+   "voice": "lead",
+   "t0": 124.0,
+   "t1": 127.5,
+   "words": [
+    {
+     "parts": [
+      "Jump,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 124.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Jump,",
+     "text": "Jump",
+     "t0": 124.0,
+     "t1": 124.5
+    },
+    {
+     "parts": [
+      "jump,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 124.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "jump,",
+     "text": "jump",
+     "t0": 124.5,
+     "t1": 125.0
+    },
+    {
+     "parts": [
+      "like"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 125.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "like",
+     "text": "like",
+     "t0": 125.0,
+     "t1": 125.5
+    },
+    {
+     "parts": [
+      "a"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 125.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "a",
+     "text": "a",
+     "t0": 125.5,
+     "t1": 126.0
+    },
+    {
+     "parts": [
+      "cat!"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 126.0,
+       "dur": 1.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cat!",
+     "text": "cat",
+     "t0": 126.0,
+     "t1": 127.5
+    }
+   ],
+   "meta": {
+    "li": 1
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "dance",
+   "voice": "lead",
+   "t0": 128.0,
+   "t1": 132.0,
+   "words": [
+    {
+     "parts": [
+      "Stomp,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 128.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Stomp,",
+     "text": "Stomp",
+     "t0": 128.0,
+     "t1": 128.5
+    },
+    {
+     "parts": [
+      "stomp,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 128.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "stomp,",
+     "text": "stomp",
+     "t0": 128.5,
+     "t1": 129.0
+    },
+    {
+     "parts": [
+      "like"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 129.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "like",
+     "text": "like",
+     "t0": 129.0,
+     "t1": 129.5
+    },
+    {
+     "parts": [
+      "a"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 129.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "a",
+     "text": "a",
+     "t0": 129.5,
+     "t1": 130.0
+    },
+    {
+     "parts": [
+      "lion!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 130.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "lion!",
+     "text": "lion",
+     "t0": 130.0,
+     "t1": 131.0
+    },
+    {
+     "parts": [
+      "Roar!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 131.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Roar!",
+     "text": "Roar",
+     "t0": 131.0,
+     "t1": 132.0
+    }
+   ],
+   "meta": {
+    "li": 2
+   }
+  },
+  {
+   "sec": 12,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 132.0,
+   "t1": 134.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 132.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 132.0,
+     "t1": 132.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 132.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 132.5,
+     "t1": 133.0
+    },
+    {
+     "parts": [
+      "quack?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 133.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "quack?",
+     "text": "quack",
+     "t0": 133.0,
+     "t1": 134.0
+    }
+   ],
+   "meta": {
+    "part": "q",
+    "k": 0,
+    "animal": "duck",
+    "cards": [
+     "cow",
+     "duck",
+     "pig"
+    ]
+   }
+  },
+  {
+   "sec": 12,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 138.0,
+   "t1": 140.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 138.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 138.0,
+     "t1": 138.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 138.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 138.5,
+     "t1": 139.0
+    },
+    {
+     "parts": [
+      "the"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 139.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "the",
+     "text": "the",
+     "t0": 139.0,
+     "t1": 139.5
+    },
+    {
+     "parts": [
+      "duck!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 139.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "duck!",
+     "text": "duck",
+     "t0": 139.5,
+     "t1": 140.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 0,
+    "animal": "duck",
+    "cards": [
+     "cow",
+     "duck",
+     "pig"
+    ]
+   }
+  },
+  {
+   "sec": 13,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 140.0,
+   "t1": 142.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 140.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 140.0,
+     "t1": 140.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 140.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 140.5,
+     "t1": 141.0
+    },
+    {
+     "parts": [
+      "roar?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 141.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "roar?",
+     "text": "roar",
+     "t0": 141.0,
+     "t1": 142.0
+    }
+   ],
+   "meta": {
+    "part": "q",
+    "k": 1,
+    "animal": "lion",
+    "cards": [
+     "sheep",
+     "cat",
+     "lion"
+    ]
+   }
+  },
+  {
+   "sec": 13,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 146.0,
+   "t1": 148.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 146.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 146.0,
+     "t1": 146.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 146.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 146.5,
+     "t1": 147.0
+    },
+    {
+     "parts": [
+      "the"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 147.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "the",
+     "text": "the",
+     "t0": 147.0,
+     "t1": 147.5
+    },
+    {
+     "parts": [
+      "lion!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 147.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "lion!",
+     "text": "lion",
+     "t0": 147.5,
+     "t1": 148.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 1,
+    "animal": "lion",
+    "cards": [
+     "sheep",
+     "cat",
+     "lion"
+    ]
+   }
+  },
+  {
+   "sec": 14,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 148.0,
+   "t1": 150.0,
+   "words": [
+    {
+     "parts": [
+      "Who"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 148.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Who",
+     "text": "Who",
+     "t0": 148.0,
+     "t1": 148.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 148.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 148.5,
+     "t1": 149.0
+    },
+    {
+     "parts": [
+      "oink?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 149.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "oink?",
+     "text": "oink",
+     "t0": 149.0,
+     "t1": 150.0
+    }
+   ],
+   "meta": {
+    "part": "q",
+    "k": 2,
+    "animal": "pig",
+    "cards": [
+     "horse",
+     "dog",
+     "pig"
+    ]
+   }
+  },
+  {
+   "sec": 14,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 154.0,
+   "t1": 156.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 154.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 154.0,
+     "t1": 154.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 154.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 154.5,
+     "t1": 155.0
+    },
+    {
+     "parts": [
+      "the"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 155.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "the",
+     "text": "the",
+     "t0": 155.0,
+     "t1": 155.5
+    },
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 155.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "pig!",
+     "text": "pig",
+     "t0": 155.5,
+     "t1": 156.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 2,
+    "animal": "pig",
+    "cards": [
+     "horse",
+     "dog",
+     "pig"
+    ]
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "fin",
+   "voice": "lead",
+   "t0": 156.0,
+   "t1": 159.5,
+   "words": [
+    {
+     "parts": [
+      "An",
+      "i",
+      "mals!"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 156.0,
+       "dur": 0.5
+      },
+      {
+       "note": 69,
+       "t0": 156.5,
+       "dur": 0.25
+      },
+      {
+       "note": 71,
+       "t0": 156.75,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Animals!",
+     "text": "Animals",
+     "t0": 156.0,
+     "t1": 157.0
+    },
+    {
+     "parts": [
+      "Let's"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 157.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Let's",
+     "text": "Let's",
+     "t0": 157.0,
+     "t1": 157.5
+    },
+    {
+     "parts": [
+      "hear"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 157.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hear",
+     "text": "hear",
+     "t0": 157.5,
+     "t1": 158.0
+    },
+    {
+     "parts": [
+      "them"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 158.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "them",
+     "text": "them",
+     "t0": 158.0,
+     "t1": 158.5
+    },
+    {
+     "parts": [
+      "all!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 158.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "all!",
+     "text": "all",
+     "t0": 158.5,
+     "t1": 159.5
+    }
+   ],
+   "meta": {
+    "li": 0
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "fin",
+   "voice": "lead",
+   "t0": 160.0,
+   "t1": 164.0,
+   "words": [
+    {
+     "parts": [
+      "Moo,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 160.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Moo,",
+     "text": "Moo",
+     "t0": 160.0,
+     "t1": 160.5
+    },
+    {
+     "parts": [
+      "quack,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 160.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "quack,",
+     "text": "quack",
+     "t0": 160.5,
+     "t1": 161.0
+    },
+    {
+     "parts": [
+      "oink,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 161.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "oink,",
+     "text": "oink",
+     "t0": 161.0,
+     "t1": 161.5
+    },
+    {
+     "parts": [
+      "baa,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 161.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "baa,",
+     "text": "baa",
+     "t0": 161.5,
+     "t1": 162.0
+    },
+    {
+     "parts": [
+      "woof,"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 162.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "woof,",
+     "text": "woof",
+     "t0": 162.0,
+     "t1": 162.5
+    },
+    {
+     "parts": [
+      "meow,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 162.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow,",
+     "text": "meow",
+     "t0": 162.5,
+     "t1": 163.0
+    },
+    {
+     "parts": [
+      "neigh,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 163.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "neigh,",
+     "text": "neigh",
+     "t0": 163.0,
+     "t1": 163.5
+    },
+    {
+     "parts": [
+      "roar!"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 163.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "roar!",
+     "text": "roar",
+     "t0": 163.5,
+     "t1": 164.0
+    }
+   ],
+   "meta": {
+    "li": 1
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "fin",
+   "voice": "lead",
+   "t0": 164.0,
+   "t1": 168.0,
+   "words": [
+    {
+     "parts": [
+      "Come"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 164.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Come",
+     "text": "Come",
+     "t0": 164.0,
+     "t1": 164.5
+    },
+    {
+     "parts": [
+      "on,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 164.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "on,",
+     "text": "on",
+     "t0": 164.5,
+     "t1": 165.0
+    },
+    {
+     "parts": [
+      "sing"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 165.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sing",
+     "text": "sing",
+     "t0": 165.0,
+     "t1": 165.5
+    },
+    {
+     "parts": [
+      "and"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 165.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "and",
+     "text": "and",
+     "t0": 165.5,
+     "t1": 166.0
+    },
+    {
+     "parts": [
+      "dance"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 166.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dance",
+     "text": "dance",
+     "t0": 166.0,
+     "t1": 166.5
+    },
+    {
+     "parts": [
+      "with"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 166.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "with",
+     "text": "with",
+     "t0": 166.5,
+     "t1": 167.0
+    },
+    {
+     "parts": [
+      "me!"
+     ],
+     "syl": [
+      {
+       "note": 62,
+       "t0": 167.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "me!",
+     "text": "me",
+     "t0": 167.0,
+     "t1": 168.0
+    }
+   ],
+   "meta": {
+    "li": 2
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "fin",
+   "voice": "lead",
+   "t0": 168.0,
+   "t1": 172.0,
+   "words": [
+    {
+     "parts": [
+      "Bye"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 168.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Bye",
+     "text": "Bye",
+     "t0": 168.0,
+     "t1": 168.5
+    },
+    {
+     "parts": [
+      "bye,"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 168.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "bye,",
+     "text": "bye",
+     "t0": 168.5,
+     "t1": 169.0
+    },
+    {
+     "parts": [
+      "an",
+      "i",
+      "mals!"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 169.0,
+       "dur": 0.25
+      },
+      {
+       "note": 69,
+       "t0": 169.25,
+       "dur": 0.25
+      },
+      {
+       "note": 74,
+       "t0": 169.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "animals!",
+     "text": "animals",
+     "t0": 169.0,
+     "t1": 170.0
+    },
+    {
+     "parts": [
+      "Kid",
+      "do"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 170.0,
+       "dur": 0.5
+      },
+      {
+       "note": 69,
+       "t0": 170.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "KiddoVerse!",
+     "text": "Kiddo",
+     "t0": 170.0,
+     "t1": 172.0,
+     "merged": true,
+     "subs": [
+      {
+       "parts": [
+        "Kid",
+        "do"
+       ],
+       "syl": [
+        {
+         "note": 66,
+         "t0": 170.0,
+         "dur": 0.5
+        },
+        {
+         "note": 69,
+         "t0": 170.5,
+         "dur": 0.5
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "Kiddo",
+       "text": "Kiddo",
+       "t0": 170.0,
+       "t1": 171.0
+      },
+      {
+       "parts": [
+        "verse!"
+       ],
+       "syl": [
+        {
+         "note": 74,
+         "t0": 171.0,
+         "dur": 1.0
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "verse!",
+       "text": "verse",
+       "t0": 171.0,
+       "t1": 172.0
+      }
+     ]
+    }
+   ],
+   "meta": {
+    "li": 3
+   }
+  },
+  {
+   "sec": 16,
+   "kind": "outro",
+   "voice": "lead",
+   "t0": 172.0,
+   "t1": 174.0,
+   "words": [
+    {
+     "parts": [
+      "Bye"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 172.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Bye",
+     "text": "Bye",
+     "t0": 172.0,
+     "t1": 172.5
+    },
+    {
+     "parts": [
+      "bye,"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 172.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "bye,",
+     "text": "bye",
+     "t0": 172.5,
+     "t1": 173.0
+    },
+    {
+     "parts": [
+      "Kid",
+      "do"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 173.0,
+       "dur": 0.25
+      },
+      {
+       "note": 67,
+       "t0": 173.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "KiddoVerse!",
+     "text": "Kiddo",
+     "t0": 173.0,
+     "t1": 174.0,
+     "merged": true,
+     "subs": [
+      {
+       "parts": [
+        "Kid",
+        "do"
+       ],
+       "syl": [
+        {
+         "note": 64,
+         "t0": 173.0,
+         "dur": 0.25
+        },
+        {
+         "note": 67,
+         "t0": 173.25,
+         "dur": 0.25
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "Kiddo",
+       "text": "Kiddo",
+       "t0": 173.0,
+       "t1": 173.5
+      },
+      {
+       "parts": [
+        "verse!"
+       ],
+       "syl": [
+        {
+         "note": 72,
+         "t0": 173.5,
+         "dur": 0.5
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "verse!",
+       "text": "verse",
+       "t0": 173.5,
+       "t1": 174.0
+      }
+     ]
+    }
+   ],
+   "meta": {}
+  }
+ ],
+ "speech": [
+  {
+   "t": 2.0,
+   "who": "kiko",
+   "text": "Animal party!",
+   "kind": "intro"
+  },
+  {
+   "t": 3.0,
+   "who": "all",
+   "text": "Let's go!",
+   "kind": "intro"
+  },
+  {
+   "t": 174.0,
+   "who": "all",
+   "text": "See you next time!",
+   "kind": "outro"
+  },
+  {
+   "t": 176.0,
+   "who": "luma",
+   "text": "Ask a grown-up to subscribe!",
+   "kind": "outro"
+  }
+ ],
+ "animals": [
+  {
+   "key": "cow",
+   "name": "cow",
+   "sound": "moo",
+   "world": "c_green",
+   "tr": -2,
+   "inst": "tuba"
+  },
+  {
+   "key": "duck",
+   "name": "duck",
+   "sound": "quack",
+   "world": "c_blue",
+   "tr": -2,
+   "inst": "oboe"
+  },
+  {
+   "key": "pig",
+   "name": "pig",
+   "sound": "oink",
+   "world": "c_red",
+   "tr": 0,
+   "inst": "bassoon"
+  },
+  {
+   "key": "sheep",
+   "name": "sheep",
+   "sound": "baa",
+   "world": "c_purple",
+   "tr": 0,
+   "inst": "flute"
+  },
+  {
+   "key": "dog",
+   "name": "dog",
+   "sound": "woof",
+   "world": "c_orange",
+   "tr": 0,
+   "inst": "banjo"
+  },
+  {
+   "key": "cat",
+   "name": "cat",
+   "sound": "meow",
+   "world": "c_yellow",
+   "tr": 0,
+   "inst": "sax"
+  },
+  {
+   "key": "horse",
+   "name": "horse",
+   "sound": "neigh",
+   "world": "c_green",
+   "tr": 2,
+   "inst": "trumpet"
+  },
+  {
+   "key": "lion",
+   "name": "lion",
+   "sound": "roar",
+   "world": "c_orange",
+   "tr": 2,
+   "inst": "brass"
+  }
+ ]
+}

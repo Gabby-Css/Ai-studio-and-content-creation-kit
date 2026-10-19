@@ -1,0 +1,187 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ranked-chips — a row of chips arrives all the SAME SIZE, then resizes itself by rank:
+   the leader swells and takes the accent, everyone else shrinks and goes muted.
+   Derived from ref10 @~336-480s (2026-07-19 motion study): principal in a large red circle,
+   subordinates smaller and teal — "hierarchy without a word of explanation."
+
+   The equal-then-resize order is the whole technique and is NOT decoration. Chips that
+   simply arrive pre-sized state a ranking; chips that arrive equal and then resize enact
+   one, and the viewer feels the gap open. A static chart states a number, a resizing row
+   states what happens TO the number — the same law as regroup-grid.
+
+   Use when the line ranks or compares named things — market share, who actually does the
+   work, where the money goes. Do NOT use it for a quantity that is merely large: that is
+   regroup-grid's job. If nothing is being COMPARED, there is no rank to enact.
+
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   transparent background, pure DOM/CSS, comp-local time from 0. No random at runtime. */
+@font-face{ font-family:'Anton'; src:url('anton.ttf'); }
+@font-face{ font-family:'Mont'; src:url('mont.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#stage{ position:absolute; inset:0; background:#06080E; font-family:'Mont',sans-serif; overflow:hidden; will-change:clip-path; }
+#bg{ position:absolute; inset:0; display:grid; grid-template-columns:repeat(12,1fr); }
+#bg span{ border-left:1px solid rgba(140,180,220,0.05); }
+#glow{ position:absolute; left:8%; top:-24%; width:84%; height:120%;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%, rgba(77,216,255,0.12) 0%, rgba(77,216,255,0) 70%); }
+
+.stamp{ position:absolute; left:104px; top:92px; display:flex; align-items:center; gap:16px; will-change:transform,opacity; }
+.stamp em{ width:11px; height:11px; background:#4DD8FF; font-style:normal; }
+.stamp i{ font-style:normal; font-weight:900; font-size:24px; letter-spacing:9px; color:#33414F; }
+.stamp span{ font-weight:900; font-size:24px; letter-spacing:9px; color:#4DD8FF; text-transform:uppercase; }
+#rule{ position:absolute; left:104px; top:236px; height:4px; width:1712px; background:#4DD8FF; transform-origin:left center; }
+#title{ position:absolute; left:104px; top:272px; font-family:'Anton',sans-serif; font-size:78px;
+  line-height:1; color:#F1F0F5; letter-spacing:-1px; text-transform:uppercase; will-change:transform,opacity,filter; }
+
+/* chips are transform-positioned only — layout never reflows mid-resize, which is what
+   keeps the row from juddering as diameters interpolate every frame */
+#row{ position:absolute; left:0; top:0; width:1920px; height:1080px; }
+.chip{ position:absolute; left:0; top:0; border-radius:50%; will-change:transform,background-color,border-color;
+  border:2px solid; display:flex; align-items:center; justify-content:center; }
+.chip u{ text-decoration:none; font-family:'Anton',sans-serif; color:#06080E; line-height:1; }
+.cap{ position:absolute; left:0; top:0; text-align:center; will-change:transform,opacity;
+  font-weight:900; letter-spacing:3px; color:#8DA0B4; text-transform:uppercase; }
+.cap b{ display:block; margin-top:6px; font-weight:900; color:#4DD8FF; }
+
+#foot{ position:absolute; left:104px; bottom:104px; font-weight:800; font-size:29px; letter-spacing:4px;
+  color:#6C7C8D; text-transform:uppercase; will-change:transform,opacity; }
+#meta{ position:absolute; left:104px; bottom:52px; font-weight:600; font-size:15px; letter-spacing:2px;
+  color:#2C3742; text-transform:uppercase; }
+</style></head>
+<body><div id="stage">
+  <div id="bg"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div id="glow"></div>
+  <div id="rule"></div>
+  <div class="stamp"><em></em><i id="stampNo">01</i><span id="stampTx">THE SPLIT</span></div>
+  <div id="title"></div>
+  <div id="row"></div>
+  <div id="foot"></div>
+  <div id="meta"></div>
+</div>
+<script>
+/* ============================ CONFIG — edit only this block ============================ */
+const CONFIG = {
+  DUR: 5.2,
+  stamp: { no:'01', text:'THE SPLIT' },
+  title: 'WHO DOES THE WORK',
+  // order here is irrelevant — chips are ranked by value, descending
+  items: [
+    { label:'THE SYSTEM', value:94 },
+    { label:'YOU',        value:4  },
+    { label:'EDITOR',     value:1  },
+    { label:'VA',         value:1  },
+  ],
+  unit: '%',
+  foot:  'the split nobody puts on the sales page',
+  meta:  'DEMO DATA · REPLACE WITH VERIFIED PROJECT VALUES',
+  chip:  { maxD:330, minD:112, gap:46, cy:640, equalD:190 },   // equalD = the pre-rank size
+  t: { title:[0.16,0.5], arrive:[0.42,0.9], rank:[1.75,1.35], caps:[2.55,0.55], foot:[1.5,0.5], meta:[1.9,0.6] },
+};
+/* ====================================================================================== */
+
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const p01=(t,t0,d)=>clamp((t-t0)/d,0,1);
+const outCubic=p=>1-Math.pow(1-p,3);
+const outQuint=p=>1-Math.pow(1-p,5);
+const inCubic=p=>p*p*p;
+const settle=(p,amp=0.10,f=2.0,decay=5.0)=>p>=1?1:outCubic(p)+amp*Math.sin(2*Math.PI*f*p)*Math.exp(-decay*p);
+const D=id=>document.getElementById(id);
+const {DUR}=CONFIG, K=CONFIG.chip;
+
+D('stampNo').textContent=CONFIG.stamp.no;
+D('stampTx').textContent=CONFIG.stamp.text;
+D('title').textContent=CONFIG.title;
+D('foot').textContent=CONFIG.foot;
+D('meta').textContent=CONFIG.meta;
+
+const ITEMS=[...CONFIG.items].sort((a,b)=>b.value-a.value);
+const maxV=ITEMS[0].value, minV=ITEMS[ITEMS.length-1].value;
+// size by VALUE, not by rank index — four near-equal values must look near-equal, or the
+// comp lies about the data it was handed
+const spanV=Math.max(1e-6,maxV-minV);
+const row=D('row');
+const CH=ITEMS.map((it,i)=>{
+  const target=K.minD+(K.maxD-K.minD)*((it.value-minV)/spanV);
+  const el=document.createElement('div'); el.className='chip';
+  el.innerHTML='<u></u>'; row.appendChild(el);
+  const cap=document.createElement('div'); cap.className='cap';
+  cap.innerHTML=it.label+'<b>'+it.value+CONFIG.unit+'</b>'; row.appendChild(cap);
+  return { ...it, i, target, el, cap, num:el.querySelector('u'),
+           d:((i*2654435761)%1000)/1000 };   // deterministic stagger — no Math.random
+});
+
+/* diameters interpolate every frame, so x has to be recomputed every frame too — a fixed
+   layout would let the swelling leader overlap its neighbours mid-resize */
+function layout(ds){
+  const total=ds.reduce((s,d)=>s+d,0)+K.gap*(ds.length-1);
+  let x=(1920-total)/2;
+  return ds.map((d)=>{ const c=x+d/2; x+=d+K.gap; return c; });
+}
+
+window.__seek=(t)=>{
+  const wi=outQuint(p01(t,0,0.34));
+  const wo=inCubic(p01(t,DUR-0.30,0.30));
+  D('stage').style.clipPath='inset(0% '+((1-wi)*100).toFixed(2)+'% 0% '+(wo*100).toFixed(2)+'%)';
+
+  const fade=1-p01(t,DUR-0.34,0.34);
+  const exitSlide=outQuint(p01(t,DUR-0.34,0.34))*90;
+
+  D('rule').style.transform='scaleX('+outQuint(p01(t,0.06,0.85)).toFixed(3)+')';
+
+  const [tt0,ttd]=CONFIG.t.title;
+  const ts=settle(p01(t,tt0,ttd));
+  const dt=1/30, ts2=settle(p01(t-dt,tt0,ttd));
+  D('title').style.opacity=(ts*fade).toFixed(3);
+  D('title').style.transform='translateX('+((1-ts)*64-exitSlide).toFixed(1)+'px)';
+  D('title').style.filter='blur('+clamp(Math.abs(ts-ts2)/dt*90*0.020,0,14).toFixed(1)+'px)';
+
+  // rp drives the whole argument: 0 = every chip identical, 1 = every chip at its rank size
+  const [rt0,rtd]=CONFIG.t.rank;
+  const rp=outCubic(p01(t,rt0,rtd));
+  const ds=CH.map(c=>K.equalD+(c.target-K.equalD)*rp);
+  const xs=layout(ds);
+
+  const [at0,atd]=CONFIG.t.arrive;
+  const span=atd*0.55, lead=atd-span;
+  // captions hang off the BIGGEST chip's edge, not each chip's own — offsetting each caption
+  // from its own circle staggers the label row, and the reference never does that
+  const capY=K.cy+Math.max(...ds)/2+30;
+
+  CH.forEach((c,i)=>{
+    const ap=settle(p01(t, at0+lead*c.d, span));
+    const d=ds[i], cx=xs[i];
+    c.el.style.width=d.toFixed(1)+'px'; c.el.style.height=d.toFixed(1)+'px';
+    c.el.style.transform='translate('+(cx-d/2).toFixed(1)+'px,'+(K.cy-d/2+(1-ap)*38).toFixed(1)+'px) scale('+(0.5+0.5*ap).toFixed(3)+')';
+    c.el.style.opacity=(clamp(ap,0,1)*fade).toFixed(3);
+
+    // the leader takes the accent as it swells — colour and size say the same thing at once
+    const lead0=i===0;
+    const mix=lead0?rp:0;
+    c.el.style.background=lead0?'rgba('+Math.round(30+47*mix)+','+Math.round(94+122*mix)+','+Math.round(119+136*mix)+',1)':'#12222B';
+    c.el.style.borderColor=lead0?'#8FEBFF':'#24404E';
+    // the number only earns space once the chip is big enough to hold it
+    const showNum=d>150;
+    c.num.style.fontSize=(d*0.30).toFixed(0)+'px';
+    c.num.textContent=showNum?(c.value+CONFIG.unit):'';
+    c.num.style.color=lead0?'#06080E':'#7FD4EE';
+
+    const cp=outCubic(p01(t,CONFIG.t.caps[0]+i*0.07,CONFIG.t.caps[1]));
+    c.cap.style.fontSize=(lead0?23:19)+'px';
+    c.cap.style.width='320px';
+    c.cap.style.transform='translate('+(cx-160).toFixed(1)+'px,'+(capY+(1-cp)*18).toFixed(1)+'px)';
+    c.cap.style.opacity=(cp*fade).toFixed(3);
+  });
+
+  const fs=outCubic(p01(t,CONFIG.t.foot[0],CONFIG.t.foot[1]));
+  D('foot').style.opacity=(fs*fade).toFixed(3);
+  D('foot').style.transform='translateY('+((1-fs)*16).toFixed(1)+'px)';
+  D('meta').style.opacity=(outCubic(p01(t,CONFIG.t.meta[0],CONFIG.t.meta[1]))*fade).toFixed(3);
+
+  const es=outCubic(p01(t,0.16,0.44));
+  const st=document.querySelector('.stamp');
+  st.style.opacity=(es*fade).toFixed(3);
+  st.style.transform='translateX('+((1-es)*-24).toFixed(1)+'px)';
+};
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+  .then(()=>{ window.__seek(0); window.__ready=true; });
+</script></body></html>

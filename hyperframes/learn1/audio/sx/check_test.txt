@@ -1,0 +1,5 @@
+0393031f78 t=  20.0s  want: Zoom, zoom, Kiddo verse! Let's learn                         | heard: Duppy, you will learn!                                       | words 1/6  pitch med err    3 c  <50c 100%  unvoiced 0/3
+2920ca3d00 t=  30.0s  want: Just one star! two,                                          | heard: It's our boss!                                               | words 0/4  pitch med err    4 c  <50c 100%  unvoiced 0/3
+4d325ce8f2 t=  10.0s  want: Learn with me today! Count                                   | heard: You have fair space!                                         | words 0/5  pitch med err    3 c  <50c 100%  unvoiced 0/3
+557262ca3d t=   0.0s  want: Kiddo verse!                                                 | heard: Here's some fish!                                            | words 0/2  pitch med err    4 c  <50c 100%  unvoiced 0/3
+WORDS 1/17

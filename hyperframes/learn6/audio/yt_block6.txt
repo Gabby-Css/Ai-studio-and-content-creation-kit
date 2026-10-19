@@ -1,0 +1,58 @@
+    txt = f"""KIDDOVERSE LEARN #6 - YOUTUBE PACK (copy and paste)
+=========================================================
+Decide the channel name BEFORE uploading (see README_START_HERE.txt, trademark note). If the name changes, change "KiddoVerse" in the
+title, description, hashtags and tags below as well.
+
+TITLE  (use #1; #2 and #3 are alternatives for YouTube's "Test & compare" title test, if your channel has it.  Keep it under 100 characters;
+search results show about the first 60, so the keywords "Learn to Read" and "Phonics Song" come first)
+1. Learn to Read 3-Letter Words 📖 Phonics Song for Kids | KiddoVerse
+2. Sound It Out! cat, dog, sun, hat, pig 🐱🐶 CVC Words Song for Toddlers | KiddoVerse
+3. Which Word Says Sun? ☀️ Reading Game and Phonics Song for Kids | KiddoVerse
+
+THUMBNAIL: Thumbnails\\ has three pictures; the first ("READ WORDS!" with the c-a-t letter tiles and the cat) is the one to try first.
+
+DESCRIPTION (everything between the lines; the first two lines are what shows in search, so they carry the keywords)
+------------------------------------------
+📖 Learn to read with Gizmo, Kiko and Luma! Sound it out, slide the three letters together and read ten words: cat, dog, sun, hat, pig, bus, cup, red, big and run.
+A phonics song for toddlers and preschoolers, with rhyme time (cat and hat, pig and big, sun and run) and "Which word says ...?" reading games.
+
+At every stop: Gizmo's Word Machine says the three letter sounds ("kuh ... a ... tuh") ... the letters slide together ... "cat!" ... the picture pops out ... and the word is used in a little sentence.
+Then rhyme time (words that end the same), a quiz where you pick the written word, and a "We can read!" recap of all ten words.
+
+👨‍👩‍👧 For grown-ups: sing along, point at each letter as it is sounded, and pause at the quiz so your child can read the word before the answer appears.
+What your child practices: letter sounds, blending three sounds into a word (c-a-t = cat), rhyming word families (-at, -ig, -un), reading simple words, listening and answering, moving to a steady beat.
+(The letter sounds are made by an AI voice: stop sounds like "kuh" and "tuh" are said with a short "uh", the way many teachers say them. Please check them against the way your child is taught at school.)
+
+⏱ Chapters
+{chapters}
+
+🎵 The songs, lyrics, melodies, characters and music are original (c) KiddoVerse.
+Made with animation and AI: the characters are animated, and the voices and music are AI-generated.
+
+#PhonicsSong #LearnToRead #KidsSongs #ToddlerLearning #KiddoVerse
+------------------------------------------
+HASHTAGS: YouTube's own help page says that of the hashtags in the description "up to three hashtags that are considered most engaging will appear by your video title",
+so put the 3 most important first (as above) and keep the total small (3 to 5).  It also says a video with more than 60 hashtags has ALL of them ignored.
+
+SUGGESTED TAGS (comma separated, 8-12 specific ones are enough; tags matter little for search, the title and description matter more)
+phonics song, learn to read, cvc words, three letter words, blending sounds for kids, reading for preschool, rhyming words for kids,
+kids learning songs, toddler learning videos, sound it out, KiddoVerse
+
+SHORTS (the three clips in Shorts\\): post each as its own Short with a title like
+  "Sound it out! c-a-t = cat 🐱 Phonics for kids"  /  "Cat and hat rhyme! 🐱🎩 Rhyming words for kids"  /  "We can read! 📖 10 easy words"
+and the hashtags #LearnToRead #PhonicsSong #Shorts.   Pick "made for kids" for them as well.
+
+AUDIENCE SETTING
+Choose "Yes, it's made for kids". On made-for-kids videos YouTube turns off comments, end screens and cards, so the video ends with a clean
+outro instead of "watch next" elements.
+
+ALTERED / SYNTHETIC CONTENT QUESTION
+The facts: the characters are animated; the singing and spoken voices and the music are AI-generated (the lead, double, harmony and children's-choir
+voices are made from the Kokoro text-to-speech voices, re-timed and tuned to the melody; the band is a SoundFont orchestra). Read the question exactly
+as YouTube words it in Studio and answer it honestly. The sentence "Made with animation and AI: the characters are animated, and the voices and music
+are AI-generated." in the description is a safe extra.
+
+CAPTIONS
+The captions are already burned into the picture. The SRT file ({NAME}.srt) would show the same words a second time, so upload it only if
+you want it for search or translation.
+"""

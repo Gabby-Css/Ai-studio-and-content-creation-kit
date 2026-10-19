@@ -1,0 +1,58 @@
+[
+ {
+  "index": "test_F_ff",
+  "language": "English",
+  "time": [
+   0,
+   2250
+  ],
+  "duration": "0.500 0.750 0.750 0.250",
+  "text": "EH1F F FIH1SH <SP>",
+  "phoneme": "en_EH1-F en_F en_F-IH1-SH <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "test_F_word",
+  "language": "English",
+  "time": [
+   10000,
+   12250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EH1F FIH1SH FIH1SH <SP>",
+  "phoneme": "en_EH1-F en_F-IH1-SH en_F-IH1-SH <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "test_W_long",
+  "language": "English",
+  "time": [
+   20000,
+   22750
+  ],
+  "duration": "1.000 0.500 1.000 0.250",
+  "text": "DAH1BAH0LYUW0 WAH1 WER1M <SP>",
+  "phoneme": "en_D-AH1-B-AH0-L-Y-UW0 en_W-AH1 en_W-ER1-M <SP>",
+  "note_pitch": "69 69 74 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "test_X_ksuh",
+  "language": "English",
+  "time": [
+   30000,
+   32250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EH1KS KSAH0 BAA1KS <SP>",
+  "phoneme": "en_EH1-K-S en_K-S-AH0 en_B-AA1-K-S <SP>",
+  "note_pitch": "72 72 76 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ }
+]

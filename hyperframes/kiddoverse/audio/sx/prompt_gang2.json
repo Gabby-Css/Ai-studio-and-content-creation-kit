@@ -1,0 +1,16 @@
+[
+ {
+  "index": "prompt_gang2",
+  "language": "English",
+  "time": [
+   0,
+   8200
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.500 0.250 0.250 0.500 0.250 0.250 0.500 0.500 0.500 0.200",
+  "text": "Z-UW1-M Z-UW1-M K-IH1-D-OW0 K-IH1-D-OW0 V-ER1-S HH-AA1-P AA1-N B-AO1-R-D L-EH1-T-S G-OW1 Z-UW1-M Z-UW1-M K-IH1-D-OW0 K-IH1-D-OW0 V-ER1-S K-L-AE1-P K-L-AE1-P HH-IY1-R W-IY1 G-OW1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_HH-AA1-P en_AA1-N en_B-AO1-R-D en_L-EH1-T-S en_G-OW1 en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_K-L-AE1-P en_K-L-AE1-P en_HH-IY1-R en_W-IY1 en_G-OW1 <SP>",
+  "note_pitch": "67 67 64 67 72 69 67 64 62 64 69 69 64 69 72 69 69 67 69 72 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 1",
+  "f0": ""
+ }
+]

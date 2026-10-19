@@ -1,0 +1,6 @@
+MIX F BUILT
+F_estoi: mean ESTOI 0.692 over 13 sections
+F           63%   per segment: 24s:62%  72s:69%  104s:77%  136s:76%  152s:58%  168s:45%
+OVERALL master_v2.wav: recognised 223/319 = 70%
+OVERALL master_v3_F.wav: recognised 237/319 = 74%
+FINAL CHECK DONE

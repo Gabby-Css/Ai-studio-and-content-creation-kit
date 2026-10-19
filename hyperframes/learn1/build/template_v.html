@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<title>KiddoVerse Short - __NAME__</title>
+<script src="vendor/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Fredoka';src:url('assets/fonts/fredoka-latin-700-normal.woff2') format('woff2');font-weight:700}
+@font-face{font-family:'Baloo 2';src:url('assets/fonts/baloo-2-latin-800-normal.woff2') format('woff2');font-weight:800}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#1F1650}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#1F1650;font-family:'Fredoka',sans-serif;font-weight:700}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px}
+#scrim{position:absolute;left:0;right:0;bottom:0;height:640px;background:linear-gradient(180deg,rgba(31,22,80,0),rgba(31,22,80,.5));pointer-events:none}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 60%,rgba(24,14,66,.38) 100%);pointer-events:none}
+#caps{position:absolute;left:0;right:0;bottom:0;height:0;pointer-events:none}
+.cap{position:absolute;left:0;right:0;margin:0 auto;bottom:330px;width:940px;text-align:center;font-size:76px;line-height:1.12;color:#fff;opacity:0}
+.cap .w{display:inline-block;color:#fff;-webkit-text-stroke:15px #2B1B5E;paint-order:stroke fill;text-shadow:0 7px 0 rgba(43,27,94,.55);margin:0 4px}
+#brand{position:absolute;left:0;right:0;top:150px;display:flex;justify-content:center;pointer-events:none;opacity:0}
+#brand .logo{--fs:74px}
+.logo{display:flex;align-items:center;gap:calc(var(--fs)*.1);font-size:var(--fs);line-height:1}
+.logo .planet{width:calc(var(--fs)*1.6);height:calc(var(--fs)*1.6);overflow:visible;margin-right:calc(var(--fs)*.04)}
+.logo .lw b{display:inline-block;font-weight:700;-webkit-text-stroke:calc(var(--fs)*.13) #2B1B5E;paint-order:stroke fill;text-shadow:0 calc(var(--fs)*.07) 0 rgba(43,27,94,.55);letter-spacing:calc(var(--fs)*.01)}
+#follow{position:absolute;left:0;right:0;margin:0 auto;top:285px;width:620px;display:flex;justify-content:center;align-items:center;gap:16px;padding:20px 30px;border-radius:70px;background:linear-gradient(180deg,#FF7A8A,#FF3B5C);border:9px solid #2B1B5E;box-shadow:0 10px 0 rgba(43,27,94,.6);font-size:54px;color:#fff;-webkit-text-stroke:10px #2B1B5E;paint-order:stroke fill;opacity:0;pointer-events:none}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="__DURATION__" data-width="1080" data-height="1920" data-fps="30">
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg"></svg>
+<div id="scrim"></div><div id="vig"></div>
+<div id="caps"></div>
+<div id="brand">__LOGO_SMALL__</div>
+<div id="follow"><span>FOLLOW FOR MORE!</span><span style="font-size:48px">★</span></div>
+<div id="flash"></div>
+<audio id="a-master" src="audio/short.wav" data-start="0" data-duration="__DURATION__" data-track-index="1" data-volume="1"></audio>
+</div>
+<script>window.KV_CFG={W:1080,H:1920,v:true};window.SONG=__SONG__;</script>
+<script>__CHARS__</script>
+<script>__WORLDS__</script>
+<script>__PROPS__</script>
+<script>__LOGO__</script>
+<script>__STORY__</script>
+<script>__ENGINE__</script>
+</body></html>

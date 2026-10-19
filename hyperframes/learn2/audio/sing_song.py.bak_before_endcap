@@ -1,0 +1,72 @@
+"""Render the vocal STEMS of the song from song.build():  lead, double, harmony, kids A/B/C   (24 kHz mono each, whole song length).
+usage:  python sing_song.py [stem ...]      stems: lead double harm kidsA kidsB kidsC     (default: all)
+Every stem is built word by word (singer.sing_syllables) and placed on the song time line; nothing is mixed here."""
+import os, sys, re, hashlib, time, json
+import numpy as np, soundfile as sf
+import song, singer
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(HERE, "stems"); os.makedirs(OUT, exist_ok=True)
+SR = singer.SR
+D = song.build()
+DUR = D["duration"] + 4
+
+# stem -> (voice, who it sings, formant, detune cents, timing offset s, gain dB, speed, which section kinds / mode)
+STEMS = {
+    "lead":   dict(voice="af_heart",   who="lead", formant=1.04, cents=0,   off=0.000, gain=0.0,  speed=1.0),
+    "double": dict(voice="af_nicole",  who="lead", formant=1.04, cents=7,   off=0.012, gain=-3.0, speed=1.0),
+    "harm":   dict(voice="af_sarah",     who="lead", formant=1.00, cents=-4,  off=0.006, gain=-2.0, speed=1.0, harmony=True),
+    "kidsA":  dict(voice="af_nova",    who="kids", formant=1.00, cents=0,   off=0.000, gain=0.0,  speed=1.0),
+    "kidsB":  dict(voice="af_river",   who="kids", formant=1.04, cents=-9,  off=0.010, gain=0.0,  speed=1.0),
+    "kidsC":  dict(voice="af_nova",    who="kids", formant=1.10, cents=11,  off=0.020, gain=0.0,  speed=1.0),
+}
+SPLIT = {"purple": ("purr", "pul")}          # "purple" sung as two words: one synthesis of the whole word loses its r-vowel when it is stretched
+HARM_KINDS = {"chorus", "fin", "fin2", "rainbow", "story"}
+DOUBLE_SKIP = set()                                  # the double thickens every lead line; the mix decides how loud
+
+C_MAJ = [0, 2, 4, 5, 7, 9, 11]
+def third_below(note, tr):
+    """diatonic third below (C major shifted by tr)"""
+    r = (note - tr) % 12
+    if r not in C_MAJ: return note - 3
+    i = C_MAJ.index(r); j = i - 2
+    low = C_MAJ[j] if j >= 0 else C_MAJ[j % 7] - 12
+    return note - (C_MAJ[i] - low)
+
+def render(stem):
+    cfg = STEMS[stem]; n = int(DUR * SR); out = np.zeros(n, np.float32); t0 = time.time(); count = 0
+    rng_ = os.environ.get("SING_RANGE"); lo, hi = (float(v) for v in rng_.split(",")) if rng_ else (0, 1e9)
+    tag = ("_" + os.environ.get("SING_TAG", "x")) if rng_ else ""
+    for ln in D["lines"]:
+        if not (lo <= ln["t0"] < hi): continue
+        sec = D["sections"][ln["sec"]]
+        if cfg.get("harmony") and sec["kind"] not in HARM_KINDS: continue
+        for w in ln["words"]:
+            for x in (w.get("subs") or [w]):
+                if x["who"] != cfg["who"]: continue
+                word = re.sub(r"[^A-Za-z']", "", x["text"]);
+                if not word: continue
+                tr = sec["transpose"]
+                notes = []
+                for s in x["syl"]:
+                    m = s["note"]
+                    if cfg.get("harmony"): m = third_below(m, tr)
+                    notes.append((m + cfg["cents"] / 100.0, s["t0"] + cfg["off"], s["dur"]))
+                seed = int(hashlib.md5(f"{stem}|{word}|{x['t0']:.3f}".encode()).hexdigest()[:8], 16)
+                parts = [(SPLIT[word.lower()][k], [notes[k]]) for k in range(2)] if (word.lower() in SPLIT and len(notes) == 2) else [(word, notes)]
+                for pw_, pn_ in parts:
+                    try:
+                        y, ts = singer.sing_syllables(pw_, cfg["voice"], pn_, speed=cfg["speed"], formant=cfg["formant"], rng=np.random.default_rng(seed), gain_db=cfg["gain"])
+                    except Exception as ex:
+                        print("FAILED", stem, pw_, ex, flush=True); continue
+                    a = int(round(ts * SR))
+                    if a < 0: y = y[-a:]; a = 0
+                    m_ = min(len(y), n - a)
+                    if m_ > 0: out[a:a + m_] += y[:m_]
+                count += 1
+        print(f"  {stem}: line t={ln['t0']:7.2f}s done ({count} words, {time.time() - t0:.0f}s)", flush=True)
+    sf.write(os.path.join(OUT, stem + tag + ".wav"), out, SR)
+    print(f"{stem}: {count} words -> stems/{stem}{tag}.wav  peak {np.abs(out).max():.2f}", flush=True)
+
+if __name__ == "__main__":
+    for st in (sys.argv[1:] or list(STEMS)): render(st)

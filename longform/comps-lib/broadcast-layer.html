@@ -1,0 +1,445 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* broadcast-layer — the full-length graphics layer, built from the reference study
+   (assets/motion/video references/REFERENCE-STUDY-2026-07-19.md) at broadcast grade.
+
+   ONE comp drives every variant: CONFIG.SCENES selects which beats render, so four
+   Hyperframes cuts are four SCENE LISTS, not four hand-authored comps.
+
+   THE FIVE LAWS (comps-lib/README.md § BROADCAST GRADE) — all applied here:
+     1. graphics posterize to 12fps inside a 30fps render
+     2. morphs stagger by DESTINATION, never by hash
+     3. reveals are jagged; type lags its plate 2 comp-frames (see the retiming note below)
+     4. every comp gets a lens pass, vignette clear-zone held out past the type
+     5. real marks, one treatment
+
+   WHAT THE REFERENCES DO THAT THE OLD HOUSE LAYER DID NOT (study §"What this changes"):
+   the house vocabulary was panel / scorecard / couplet / chip / CTA — every one of them a
+   BOX THAT SITS NEXT TO THE FOOTAGE. The references point at the footage, mark it up, or
+   replace it entirely. So the scene types here are only: point at it (callout), mark it up
+   (sweep), or replace it (volume/ranked/chart). No boxes beside the frame.
+
+   Also consistent across every reference, and enforced here:
+     - near-black ground, ONE accent (never two competing)
+     - tiny tracked-out uppercase labels carry ALL secondary info, so primary can stay huge
+     - grid/coordinate scaffolding as decoration — implies rigour
+     - type is either VERY large or VERY small; nothing in between
+     - furniture is always on: metadata citation line + date/stamp tick (techniques 6+7)
+
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   TRANSPARENT background (scenes draw their own plate), pure DOM/CSS, comp-local time. */
+@font-face{ font-family:'Anton'; src:url('anton.ttf'); }
+@font-face{ font-family:'Mont'; src:url('mont.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Mont',system-ui,sans-serif; }
+
+#root{ position:absolute; inset:0; }
+/* every full-frame scene lives on this plate; alpha scenes leave it transparent */
+.plate{ position:absolute; inset:0; background:#0A0C10; opacity:0; will-change:opacity; }
+.scene{ position:absolute; inset:0; opacity:0; will-change:opacity; }
+
+/* ---- lens pass (law 4) — one stack over everything, gated to when a scene is up ---- */
+#lens{ position:absolute; inset:0; pointer-events:none; opacity:0; will-change:opacity; }
+.ca{ position:absolute; inset:0; mix-blend-mode:screen; will-change:transform; }
+#vig{ position:absolute; inset:0;
+  background:radial-gradient(ellipse 78% 78% at 50% 47%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.62) 100%); }
+#grain{ position:absolute; inset:-50%; opacity:0.10; will-change:transform;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>"); }
+
+.grid12{ position:absolute; inset:0; display:grid; grid-template-columns:repeat(12,1fr); opacity:0.5; }
+.grid12 span{ border-left:1px solid rgba(150,170,190,0.055); }
+
+/* ---- furniture: always on, alpha, over footage AND over scenes (techniques 6+7) ---- */
+#meta{ position:absolute; left:96px; bottom:52px; font-weight:600; font-size:13px; letter-spacing:2.5px;
+  color:rgba(215,225,235,0.42); text-transform:uppercase; text-shadow:0 2px 12px rgba(0,0,0,0.9);
+  will-change:opacity,clip-path; }
+#stamp{ position:absolute; right:96px; top:64px; display:flex; align-items:center; gap:11px;
+  will-change:opacity; }
+#stamp em{ width:8px; height:8px; background:#D63A30; font-style:normal; }
+#stamp i{ font-style:normal; font-weight:800; font-size:16px; letter-spacing:6px;
+  color:rgba(230,238,246,0.72); text-transform:uppercase; text-shadow:0 2px 12px rgba(0,0,0,0.9); }
+
+/* ---- shared scene furniture ---- */
+/* alpha scenes sit over live footage, so every text element carries its own shadow —
+   without it a white headline dies against a bright wall. Harmless over a plate. */
+.kicker{ position:absolute; left:96px; top:150px; display:flex; align-items:center; gap:13px; }
+.kicker em{ width:9px; height:9px; background:#D63A30; font-style:normal; }
+.kicker i{ font-style:normal; font-weight:800; font-size:19px; letter-spacing:7px; color:#D63A30;
+  text-transform:uppercase; text-shadow:0 2px 16px rgba(0,0,0,0.95); }
+.head{ position:absolute; left:96px; top:190px; font-family:'Anton',sans-serif; font-size:56px;
+  color:#F4F2EE; text-transform:uppercase; white-space:nowrap; will-change:clip-path;
+  text-shadow:0 4px 26px rgba(0,0,0,0.92), 0 1px 4px rgba(0,0,0,0.8); }
+.spine{ position:absolute; left:96px; right:96px; top:286px; height:1px; background:rgba(214,58,48,0.55);
+  transform-origin:left center; will-change:transform; }
+.tick{ position:absolute; top:286px; width:1px; height:9px; background:rgba(214,58,48,0.8); will-change:opacity; }
+.src{ position:absolute; left:96px; bottom:78px; font-weight:600; font-size:13px; letter-spacing:2.5px;
+  color:#8A949E; text-transform:uppercase; will-change:opacity; text-shadow:0 2px 12px rgba(0,0,0,0.95); }
+.lt{ position:absolute; left:96px; bottom:118px; background:#D63A30; padding:15px 30px 17px; will-change:clip-path; }
+.lt u{ display:block; text-decoration:none; font-family:'Anton',sans-serif; font-size:40px;
+  color:#0A0C10; line-height:1; white-space:nowrap; will-change:clip-path; }
+
+/* ---- volume scene (techniques 1 + 9) ---- */
+.big{ position:absolute; left:96px; top:330px; font-family:'Anton',sans-serif; font-size:150px;
+  line-height:0.86; color:#F4F2EE; will-change:transform; }
+.bigsub{ position:absolute; left:100px; top:482px; font-weight:800; font-size:17px; letter-spacing:6px;
+  color:#9AA5B1; text-transform:uppercase; will-change:opacity; }
+.field b{ position:absolute; left:0; top:0; width:15px; height:15px; background:#1B222C;
+  will-change:transform,background-color; }
+.pile{ position:absolute; will-change:opacity,transform; }
+.pile img{ position:absolute; left:50%; width:52px; height:52px; margin-left:-26px; object-fit:contain; opacity:0.92; }
+.pile s{ position:absolute; left:50%; width:220px; margin-left:-110px; top:66px; text-align:center;
+  text-decoration:none; font-family:'Anton',sans-serif; font-size:34px; color:#F4F2EE; }
+
+/* ---- sweep scene (techniques 2 + 10) ---- */
+.body{ position:absolute; left:96px; right:400px; top:360px; font-family:'Anton',sans-serif;
+  font-size:76px; line-height:1.16; color:#4A545F; text-transform:uppercase; }
+.bodyhot{ position:absolute; left:96px; right:400px; top:360px; font-family:'Anton',sans-serif;
+  font-size:76px; line-height:1.16; color:#F4F2EE; text-transform:uppercase; will-change:clip-path; }
+.swbar{ position:absolute; background:#D63A30; transform-origin:left center; will-change:transform; }
+
+/* ---- callout scene (techniques 3 + 11) — ALPHA, points into the footage ---- */
+.dot{ position:absolute; width:15px; height:15px; margin:-7.5px 0 0 -7.5px; background:#D63A30;
+  border-radius:50%; will-change:transform; }
+.ring{ position:absolute; width:15px; height:15px; margin:-7.5px 0 0 -7.5px; border:2px solid #D63A30;
+  border-radius:50%; will-change:transform,opacity; }
+.lead{ position:absolute; width:1px; height:2px; background:#D63A30; transform-origin:left center; will-change:transform; }
+.cplate{ position:absolute; background:#D63A30; padding:10px 20px 12px; will-change:clip-path; }
+.cplate u{ display:block; text-decoration:none; font-family:'Anton',sans-serif; font-size:30px;
+  color:#0A0C10; line-height:1; white-space:nowrap; will-change:clip-path; }
+
+/* ---- ranked scene (technique 12) ---- */
+.chip{ position:absolute; border-radius:50%; will-change:transform,width,height,background-color; }
+.chiplab{ position:absolute; width:260px; margin-left:-130px; text-align:center; font-weight:800;
+  font-size:16px; letter-spacing:4px; color:#9AA5B1; text-transform:uppercase; will-change:opacity; }
+
+/* ---- chart scene (technique 4) — thin, quiet, factual. never a fat 3D bar ---- */
+.axis{ position:absolute; background:rgba(150,170,190,0.16); }
+.axlab{ position:absolute; font-weight:700; font-size:14px; letter-spacing:3px; color:#59636E; text-transform:uppercase; }
+#chartsvg{ position:absolute; overflow:visible; }
+#chartline{ fill:none; stroke:#D63A30; stroke-width:3; will-change:stroke-dashoffset; }
+</style></head>
+<body><div id="root">
+  <div class="plate" id="plate"></div>
+  <div id="scenes"></div>
+  <div id="lens"><div class="ca" id="ca0"></div><div class="ca" id="ca1"></div><div id="vig"></div><div id="grain"></div></div>
+  <div id="stamp"><em></em><i></i></div>
+  <div id="meta"></div>
+</div>
+<script>
+/* ============================ CONFIG — edit only this block ============================ */
+const CONFIG = {
+  DUR: 63.9,
+  FPS_POSTERIZE: 12,
+  ACCENT: '#D63A30',
+  // furniture (techniques 6 + 7) — always on, the cheapest possible "this is researched" signal
+  meta:  'YOUR BRAND · SAMPLE WORKFLOW · DEMO COPY',
+  stamp: 'REC · 01',
+
+  // Each scene is {kind, at, dur, ...}. A variant is a SUBSET of this list — that is the
+  // whole point of the file. Kinds: volume | sweep | callout | ranked | chart | title
+  SCENES: [
+    { kind:'title', at:1.0, dur:5.6, kicker:'THE PROBLEM', head:'STILL POSTING BY HAND',
+      lower:'ONE VIDEO. ONE PLATFORM. ONE POST.', src:'OPERATOR WALKTHROUGH · RECORDED THIS SESSION' },
+
+    { kind:'volume', at:8.2, dur:5.4, kicker:'THE VOLUME', head:'CLIPPED FOR YOU',
+      n:300, bigsub:'VIDEOS PER CYCLE', lower:'1 FOLDER → EVERY PLATFORM',
+      src:'DEMO DATA · REPLACE WITH VERIFIED PROJECT VALUES',
+      piles:[{img:'ig-w.png',n:75,x:700},{img:'tt-w.png',n:75,x:1000},
+             {img:'sc-w.png',n:75,x:1300},{img:'fb-w.png',n:75,x:1600}] },
+
+    { kind:'sweep', at:16.6, dur:5.2, kicker:'THE CLAIM',
+      body:'IT CLIPS, IT CAPTIONS, IT SCHEDULES AND IT <mark>POSTS THEM EVERYWHERE</mark> WITHOUT YOU',
+      src:'DEMO COPY · REPLACE BEFORE PUBLISHING' },
+
+    { kind:'chart', at:23.0, dur:6.4, kicker:'THE MATH', head:'OUTPUT PER WEEK',
+      ylab:'CLIPS SHIPPED', xlab:'WEEK 1 → WEEK 8',
+      points:[6,9,14,26,48,95,180,300], src:'ILLUSTRATIVE SERIES · NOT MEASURED RESULTS' },
+
+    { kind:'sweep', at:30.8, dur:4.0, kicker:'THE LINE',
+      body:'REPLACE THIS SAMPLE WITH A <mark>SOURCED PROJECT STATEMENT</mark>',
+      src:'DEMO COPY · REPLACE BEFORE PUBLISHING' },
+
+    { kind:'title', at:35.3, dur:2.5, kicker:'THE METHOD', head:'HOW YOU ACTUALLY SCALE',
+      lower:'DROP THE FILE. WALK AWAY.', src:'' },
+
+    // 38.0-42.0 and 43.6-47.8 are photoreal cutaway windows in the Higgsfield variants.
+    // This beat MUST stay live across ~44.2-47.6 — v9's whole argument was that the card
+    // lands on the wafer desk. Do not move it without re-timing that variant's broll.
+    //
+    // WHY THIS IS A TITLE AND NOT A CALLOUT. It was a callout first, aimed at [0.50,0.62].
+    // In the Hyperframes-only cuts there is no photoreal desk under it — the leader landed on
+    // the speaker's chest and the plate sat across his mouth, pointing at nothing. That is
+    // precisely the failure comps-lib/README.md warns about: "never point at an empty plate —
+    // a leader aimed at nothing promises a referent the frame does not have." The callout
+    // lives on in bl-hf.html, where a wafer desk actually exists to point INTO.
+    { kind:'title', at:43.9, dur:3.9, kicker:'THE PAYOFF', head:'ONE DROP, EVERY FEED',
+      lower:'1 INPUT → SELECTED CHANNELS', src:'DEMO WORKFLOW · VERIFY DESTINATIONS' },
+
+    { kind:'ranked', at:50.2, dur:4.6, kicker:'THE SHIFT', head:'WHERE THE WORK GOES',
+      items:[{lab:'THE MACHINE',v:94},{lab:'YOU',v:6}],
+      lower:'COMPARE THE TWO STATES', src:'ILLUSTRATIVE SPLIT · REPLACE VALUES' },
+
+    { kind:'title', at:60.4, dur:3.3, kicker:'THE CLOSE', head:'REVIEW THEN PUBLISH',
+      lower:'VERIFY EACH OUTPUT FIRST.', src:'' },
+  ],
+};
+/* ====================================================================================== */
+
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const p01=(t,t0,d)=>clamp((t-t0)/d,0,1);
+const outCubic=p=>1-Math.pow(1-p,3);
+const outQuint=p=>1-Math.pow(1-p,5);
+const outExpo=p=>p>=1?1:1-Math.pow(2,-10*p);
+const D=id=>document.getElementById(id);
+const {DUR}=CONFIG;
+const STEP=1/CONFIG.FPS_POSTERIZE;
+const Q=t=>Math.floor(t/STEP)*STEP;                       // law 1
+const hash=n=>{ let x=Math.sin(n*127.1)*43758.5453; return x-Math.floor(x); };
+/* law 3 — quantise a wipe to a few uneven stops so it never reads as a smooth CSS ramp */
+function jagged(p,steps){
+  if(p<=0) return 0; if(p>=1) return 1;
+  const s=steps||5, idx=Math.floor(p*s);
+  return clamp(idx/s+(hash(idx*7.3)-0.5)*0.13+0.06,0,1);
+}
+const el=(cls,parent,html)=>{ const d=document.createElement('div'); if(cls)d.className=cls;
+  if(html!=null)d.innerHTML=html; (parent||D('scenes')).appendChild(d); return d; };
+
+D('meta').textContent=CONFIG.meta;
+D('stamp').querySelector('i').textContent=CONFIG.stamp;
+
+/* every scene builds its DOM ONCE here and exposes seek(localT, sceneProgress) */
+const BUILT=CONFIG.SCENES.map((S)=>{
+  const root=el('scene');
+  // REPLACE THE FRAME ONLY WHEN THE GRAPHIC *IS* THE CONTENT. The data scenes earn an opaque
+  // plate because they are what you are meant to be looking at. A title is a LABEL ON the
+  // footage, and a callout points INTO it — both composite. First build made titles opaque
+  // too and the result covered the entire 6.6s hook with a near-empty dark card; the viewer
+  // never saw the speaker. Opaque coverage went from 58% of the runtime to ~33% with this
+  // one line, which is much closer to how the references actually spend their runtime.
+  const opaque=(S.kind!=='callout' && S.kind!=='title');
+  const B={ S, root, opaque, seek:null };
+
+  let head,spine,ticks=[],srcEl,ltEl;
+  const hasFurniture=(S.kind!=='callout');
+  if(hasFurniture){
+    // the 12-col scaffold is decoration for a plate; over live footage it reads as dirt
+    if(opaque) el('grid12',root,'<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>');
+    if(S.kicker) el('kicker',root,'<em></em><i>'+S.kicker+'</i>');
+    if(S.head){ head=el('head',root); head.textContent=S.head; }
+    spine=el('spine',root);
+    for(let i=0;i<=12;i++){ const k=el('tick',root); k.style.left=(96+i*(1728/12))+'px'; ticks.push(k); }
+    if(S.src){ srcEl=el('src',root); srcEl.textContent=S.src; }
+    if(S.lower){ ltEl=el('lt',root,'<u>'+S.lower+'</u>'); }
+  }
+  const furniture=(t)=>{
+    const sp=outExpo(p01(t,0,0.5));
+    if(spine) spine.style.transform='scaleX('+sp.toFixed(3)+')';
+    ticks.forEach((k,i)=>{ k.style.opacity=(sp*12>i?0.9:0).toFixed(2); });
+    if(head) head.style.clipPath='inset(0 '+((1-jagged(p01(t,0.28,0.42),6))*100).toFixed(1)+'% 0 0)';
+    if(ltEl){
+      ltEl.style.clipPath='inset(0 '+((1-jagged(p01(t,1.2,0.5),5))*100).toFixed(1)+'% 0 0)';
+      ltEl.querySelector('u').style.clipPath='inset(0 '+((1-jagged(p01(t,1.2+2*STEP,0.5),5))*100).toFixed(1)+'% 0 0)';
+    }
+    if(srcEl) srcEl.style.opacity=outCubic(p01(t,1.7,0.5)).toFixed(2);
+  };
+
+  if(S.kind==='title'){ B.seek=furniture; }
+
+  if(S.kind==='volume'){
+    const big=el('big',root), sub=el('bigsub',root); sub.textContent=S.bigsub||'';
+    const field=el('field',root);
+    const N=S.n, K=S.piles.length, g={cols:30,pitch:21,rowPitch:22,cx:1180,cy:560};
+    const c={cols:15,pitch:14,rowPitch:15,cy:590,iconY:700,endScale:0.60};
+    const gRows=Math.ceil(N/g.cols), gx0=g.cx-(g.cols-1)*g.pitch/2, gy0=g.cy-(gRows-1)*g.rowPitch/2;
+    const per=Math.ceil(N/K), cRows=Math.ceil(per/c.cols);
+    const MARK=[],POS=[];
+    for(let i=0;i<N;i++){
+      const b=document.createElement('b'); field.appendChild(b); MARK.push(b);
+      const gr=Math.floor(i/g.cols), gc=i%g.cols, k=i%K, j=Math.floor(i/K);
+      const cr=Math.floor(j/c.cols), cc=j%c.cols;
+      const cx0=S.piles[k].x-(c.cols-1)*c.pitch/2, cy0=c.cy-(cRows-1)*c.rowPitch/2;
+      // law 2 — delay is a function of DESTINATION. A hash stagger renders the midpoint
+      // as a swarm of noise; grouped, the midpoint still reads as sorting.
+      POS.push({x0:gx0+gc*g.pitch,y0:gy0+gr*g.rowPitch,x1:cx0+cc*c.pitch,y1:cy0+cr*c.rowPitch,
+                d:k/K+(j/per)*(0.85/K)});
+    }
+    const PILE=S.piles.map(p=>{ const d=el('pile',root,'<img src="'+p.img+'"><s>'+p.n+'</s>');
+      d.style.left=p.x+'px'; d.style.top=c.iconY+'px'; d.style.width='0px'; return d; });
+    B.seek=(t)=>{
+      furniture(t);
+      const fp=outQuint(p01(t,0.5,1.15)), lit=Math.round(N*fp);
+      big.textContent=String(lit);
+      big.style.transform='translateY('+((1-outExpo(p01(t,0.42,0.5)))*26).toFixed(1)+'px)';
+      sub.style.opacity=outCubic(p01(t,0.8,0.4)).toFixed(2);
+      const rt0=1.85, rtd=1.45, span=rtd*0.42, lead=rtd-span;
+      for(let i=0;i<N;i++){
+        const p=POS[i], m=MARK[i], rp=outCubic(p01(t,rt0+lead*p.d,span));
+        m.style.transform='translate('+(p.x0+(p.x1-p.x0)*rp).toFixed(1)+'px,'+(p.y0+(p.y1-p.y0)*rp).toFixed(1)+'px) scale('+(1-(1-c.endScale)*rp).toFixed(3)+')';
+        const on=i<lit, moving=rp>0.001&&rp<0.999;
+        const col=(on&&((i>=lit-24&&lit<N)||moving))?CONFIG.ACCENT:(on?'#46525F':'#1B222C');
+        if(m.dataset.c!==col){ m.style.background=col; m.dataset.c=col; }
+      }
+      PILE.forEach((d,i)=>{ const s=outExpo(p01(t,3.0+i*0.08,0.5));
+        d.style.opacity=s.toFixed(2); d.style.transform='translateY('+((1-s)*16).toFixed(1)+'px)'; });
+    };
+  }
+
+  if(S.kind==='sweep'){
+    // Z-ORDER IS THE TECHNIQUE. First build appended the marker bars last, so they painted
+    // OVER the phrase and the words vanished under a red slab. The marker goes UNDER the
+    // type: dim paragraph, then bars, then the burn copy on top. Three layers, in that order.
+    const dim=el('body',root,S.body);
+    const barLayer=el('',root); barLayer.style.cssText='position:absolute;inset:0;';
+    const burnLayer=el('',root); burnLayer.style.cssText='position:absolute;inset:0;';
+    let MARKS=[],TOTAL=0;
+    B.build=()=>{
+      const pr=dim.getBoundingClientRect();
+      const rects=[...dim.querySelectorAll('mark')].flatMap(m=>
+        [...m.getClientRects()].map(r=>({ x:r.x-pr.x, y:r.y-pr.y, w:r.width, h:r.height })));
+      let acc=0;
+      MARKS=rects.map(r=>{
+        const bar=document.createElement('div'); bar.className='swbar';
+        bar.style.left=(96+r.x)+'px'; bar.style.top=(360+r.y)+'px';
+        bar.style.width=r.w+'px'; bar.style.height=r.h+'px'; bar.style.transform='scaleX(0)';
+        barLayer.appendChild(bar);
+        // the bright layer is a DUPLICATE of the whole paragraph clipped to this rect, never
+        // re-typeset text — re-typesetting drifts a pixel and reads as a double-exposure
+        const burn=document.createElement('div'); burn.className='bodyhot'; burn.innerHTML=S.body;
+        burn.style.clipPath='inset(0 100% 0 0)'; burnLayer.appendChild(burn);
+        const o={ r, bar, burn, c0:acc, pw:pr.width, ph:pr.height }; acc+=r.w; return o;
+      });
+      TOTAL=acc;
+      root.querySelectorAll('mark').forEach(m=>{ m.style.background='none'; m.style.color='inherit'; });
+    };
+    B.seek=(t)=>{
+      furniture(t);
+      // ONE constant-speed sweep across every marked rect, measured in PIXELS not rects,
+      // so a two-word last line does not linger as long as a full first line
+      const swept=outCubic(p01(t,0.9,1.5))*TOTAL;
+      for(const m of MARKS){
+        const local=clamp((swept-m.c0)/m.r.w,0,1);
+        m.bar.style.transform='scaleX('+local.toFixed(4)+')';
+        const right=Math.max(0,m.pw-(m.r.x+m.r.w*local));
+        const bottom=Math.max(0,m.ph-(m.r.y+m.r.h));
+        m.burn.style.clipPath='inset('+m.r.y.toFixed(1)+'px '+right.toFixed(1)+'px '+bottom.toFixed(1)+'px '+m.r.x.toFixed(1)+'px)';
+      }
+    };
+  }
+
+  if(S.kind==='callout'){
+    // technique 3/11 — ORDER IS LOAD-BEARING: dot lands, ONE echo ring dies, the leader
+    // GROWS from the dot, then the plate wipes on from the leader's end. Never point at an
+    // empty plate — a leader aimed at nothing is worse than no graphic at all.
+    const [tx,ty]=S.target, X=tx*1920, Y=ty*1080;
+    const up=S.dir!=='down', LEN=190;
+    const dot=el('dot',root), ring=el('ring',root), lead=el('lead',root);
+    const plate=el('cplate',root,'<u>'+S.label+'</u>');
+    dot.style.left=X+'px'; dot.style.top=Y+'px';
+    ring.style.left=X+'px'; ring.style.top=Y+'px';
+    lead.style.left=X+'px'; lead.style.top=Y+'px';
+    lead.style.transform='rotate('+(up?-90:90)+'deg) scaleX(0)';
+    plate.style.left=(X-30)+'px'; plate.style.top=(up?Y-LEN-62:Y+LEN+14)+'px';
+    B.seek=(t)=>{
+      const dp=outExpo(p01(t,0,0.3));
+      dot.style.transform='scale('+dp.toFixed(3)+')';
+      const rp=p01(t,0.12,0.55);
+      ring.style.transform='scale('+(1+rp*4.2).toFixed(2)+')';
+      ring.style.opacity=(1-rp).toFixed(2);
+      const lp=outCubic(p01(t,0.42,0.42));
+      lead.style.transform='rotate('+(up?-90:90)+'deg) scaleX('+(lp*LEN).toFixed(1)+')';
+      const pp=jagged(p01(t,0.78,0.42),5), tp=jagged(p01(t,0.78+2*STEP,0.42),5);
+      plate.style.clipPath='inset(0 '+((1-pp)*100).toFixed(1)+'% 0 0)';
+      plate.querySelector('u').style.clipPath='inset(0 '+((1-tp)*100).toFixed(1)+'% 0 0)';
+    };
+  }
+
+  if(S.kind==='ranked'){
+    // technique 12 — chips arrive EQUAL then resize by value. Arriving pre-sized STATES a
+    // ranking; arriving equal and resizing ENACTS one, and the viewer feels the gap open.
+    const items=S.items, mx=Math.max(...items.map(i=>i.v));
+    const CY=640, START=150;
+    const xs=items.map((_,i)=>1920/2+(i-(items.length-1)/2)*430);
+    const chips=items.map((it,i)=>{ const d=el('chip',root); d.style.left=xs[i]+'px'; d.style.top=CY+'px'; return d; });
+    const labs=items.map((it,i)=>{ const d=el('chiplab',root,it.lab+'<br><span style="font-family:Anton,sans-serif;font-size:40px;color:#F4F2EE;letter-spacing:0">'+it.v+'%</span>');
+      d.style.left=xs[i]+'px'; return d; });
+    const ds=items.map(it=>START+ (it.v/mx)*230);
+    B.seek=(t)=>{
+      furniture(t);
+      const ap=outExpo(p01(t,0.35,0.5)), rp=outCubic(p01(t,1.25,0.9));
+      items.forEach((it,i)=>{
+        const d=START+(ds[i]-START)*rp, c=chips[i];
+        c.style.width=d+'px'; c.style.height=d+'px';
+        c.style.marginLeft=(-d/2)+'px'; c.style.marginTop=(-d/2)+'px';
+        c.style.transform='scale('+ap.toFixed(3)+')';
+        c.style.background=(it.v===mx?CONFIG.ACCENT:'#2C3742');
+        // captions hang off the BIGGEST chip's edge, never each chip's own, or the row staggers
+        labs[i].style.top=(CY+Math.max(...ds)/2+34)+'px';
+        labs[i].style.opacity=outCubic(p01(t,1.9,0.5)).toFixed(2);
+      });
+    };
+  }
+
+  if(S.kind==='chart'){
+    // technique 4 — hairline gridlines, tiny axis labels, source credit under the title, and
+    // the line DRAWS left to right. Thin, quiet, factual. Never a fat 3D bar chart.
+    // chart appears where the eye already is (study §"the graphic and the footage are one
+    // image") — pinned right leaves half the frame dead, so it runs most of the width
+    const X0=560, Y0=760, W=1264, H=380;
+    const pts=S.points, mx=Math.max(...pts);
+    for(let i=0;i<=4;i++){ const a=el('axis',root); a.style.left=X0+'px'; a.style.top=(Y0-H*i/4)+'px';
+      a.style.width=W+'px'; a.style.height='1px'; }
+    const yl=el('axlab',root); yl.textContent=S.ylab; yl.style.left=X0+'px'; yl.style.top=(Y0-H-38)+'px';
+    const xl=el('axlab',root); xl.textContent=S.xlab; xl.style.left=X0+'px'; xl.style.top=(Y0+22)+'px';
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('id','chartsvg'); svg.style.left='0px'; svg.style.top='0px';
+    svg.setAttribute('width','1920'); svg.setAttribute('height','1080');
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('id','chartline');
+    let dstr='';
+    pts.forEach((v,i)=>{ const x=X0+W*i/(pts.length-1), y=Y0-H*(v/mx);
+      dstr+=(i?' L ':'M ')+x.toFixed(1)+' '+y.toFixed(1); });
+    path.setAttribute('d',dstr); svg.appendChild(path); root.appendChild(svg);
+    B.build=()=>{ const L=path.getTotalLength();
+      path.style.strokeDasharray=L; path.style.strokeDashoffset=L; path.dataset.len=L; };
+    B.seek=(t)=>{
+      furniture(t);
+      const L=+path.dataset.len||0;
+      path.style.strokeDashoffset=(L*(1-outCubic(p01(t,0.9,2.2)))).toFixed(1);
+    };
+  }
+
+  return B;
+});
+
+const CA0=D('ca0'), CA1=D('ca1');
+CA0.style.background='rgba(255,40,40,1)'; CA0.style.opacity='0.055';
+CA1.style.background='rgba(40,140,255,1)'; CA1.style.opacity='0.055';
+
+window.__seek=(tRaw)=>{
+  const t=Q(tRaw);                                        // law 1 — posterize, then never touch tRaw
+  const frame=Math.round(t*CONFIG.FPS_POSTERIZE);
+
+  // furniture rides the whole cut (techniques 6 + 7), fading at the very top and tail
+  const fOn=outCubic(p01(t,0.6,0.8))*(1-p01(t,DUR-0.8,0.8));
+  D('meta').style.opacity=(fOn*0.9).toFixed(2);
+  D('stamp').style.opacity=(fOn*0.9).toFixed(2);
+
+  let plateA=0, lensA=0;
+  BUILT.forEach(B=>{
+    const {at,dur}=B.S;
+    const inA=p01(t,at,0.28), outA=1-p01(t,at+dur-0.32,0.32);
+    const a=Math.min(outCubic(inA),outA);
+    B.root.style.opacity=a.toFixed(3);
+    if(a>0.002){ B.seek(t-at); if(B.opaque){ plateA=Math.max(plateA,a); lensA=Math.max(lensA,a); } }
+  });
+  D('plate').style.opacity=plateA.toFixed(3);
+  D('lens').style.opacity=lensA.toFixed(3);
+
+  CA0.style.transform='translate('+(-1.3-Math.sin(frame*0.7)*0.4).toFixed(2)+'px,0)';
+  CA1.style.transform='translate('+( 1.3+Math.sin(frame*0.7)*0.4).toFixed(2)+'px,0)';
+  D('grain').style.transform='translate('+(hash(frame)*90-45).toFixed(1)+'px,'+(hash(frame+9)*90-45).toFixed(1)+'px)';
+};
+/* fonts MUST resolve before any scene measures text, or the sweep bars land out of register */
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+  .then(()=>{ BUILT.forEach(B=>{ if(B.build) B.build(); }); window.__seek(0); window.__ready=true; });
+</script></body></html>

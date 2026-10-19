@@ -1,0 +1,5 @@
+MIX CM BUILT
+CM_estoi: mean ESTOI 0.662 over 13 sections
+CM          64%   per segment: 24s:92%  72s:62%  104s:38%  136s:72%  152s:61%  168s:55%
+OVERALL master_v3_CM.wav: recognised 234/319 = 73%
+CM CHECK DONE

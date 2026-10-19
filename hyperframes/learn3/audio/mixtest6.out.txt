@@ -1,0 +1,16 @@
+       72.0 ask    who says woof the dog                  | and who says we've loved the wrong way
+       76.0 sound  woof woof woof                         | moo moo moo
+       80.0 say    the dog says woof woof                 | the doggy says woof
+base         any  54% (7/13)  lead  56% (5/9)  kids  50% (2/4)  | woof 2/6
+       72.0 ask    who says woof the dog                  | and who says weaves the dog weaves the dog
+       76.0 sound  woof woof woof                         | we've we've we've
+       80.0 say    the dog says woof woof                 | the doggy says woof
+nosfx        any  62% (8/13)  lead  56% (5/9)  kids  75% (3/4)  | woof 2/6
+       72.0 ask    who says woof the dog                  | coaches weaves the dog weaves
+       76.0 sound  woof woof woof                         | moo moo moo
+       80.0 say    the dog says woof woof                 | the doggy says woof
+nomusic      any  46% (6/13)  lead  33% (3/9)  kids  75% (3/4)  | woof 2/6
+       72.0 ask    who says woof the dog                  | and who says we've the wrong way
+       76.0 sound  woof woof woof                         | moo moo moo
+       80.0 say    the dog says woof woof                 | the doggy says wooves
+nolift       any  38% (5/13)  lead  44% (4/9)  kids  25% (1/4)  | woof 0/6

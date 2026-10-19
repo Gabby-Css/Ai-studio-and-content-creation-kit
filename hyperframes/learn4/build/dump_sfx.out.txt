@@ -1,0 +1,1 @@
+545 events {"burst":35,"sparkle":66,"whoosh":2,"boing":176,"text":56,"chip":99,"confetti":16,"thud":20,"tile":17,"objpop":25,"ding":12,"hearts":5,"tada":3,"tick":9,"firework":4}

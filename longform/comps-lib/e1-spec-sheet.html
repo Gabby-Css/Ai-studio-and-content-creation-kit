@@ -1,0 +1,519 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E1 — SPEC SHEET
+   Traced to reference `videoplayback.mp4` (AIS agents explainer), mined 2026-07-20.
+
+   THE SYSTEM (Phase-0 locks — motion-graphics-full-workflow.md):
+     GROUND      dual-mode: near-black #06090A and warm cream #F5F3EF, SAME layout inverted.
+                 The inversion is an event, not a decoration — it fires once, on the stat.
+     ACCENT      acid green #C6F24E. ONE accent. Nothing else is coloured, ever.
+     TYPE        Inter (tight grotesk) for headlines; Space Mono, uppercase, +0.18em for every
+                 label. Two classes, no third.
+     TEXTURE     ZERO. No grain, no glow, no bloom, no shadow. This lock is the whole identity —
+                 every other edit in the nine emits or textures; this one is pure vector.
+     DEPTH       NONE. Flat. Hierarchy comes from scale and rule-weight only.
+
+   WHY IT IS NOT THE OTHERS: it is the only flat/typographic instrument-panel in the set.
+   E2 is glassmorphic and diagrammatic, E3 is analog paper, E4-E6 all emit light.
+
+   OVERLAY / FULL-SCREEN: 7 and 7. Overlay beats paint NO ground — footage shows through.
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   transparent background, pure DOM/CSS/SVG, comp-local time from 0, no runtime randomness.
+   ============================================================================ */
+@font-face{ font-family:'Inter'; src:url('inter.ttf'); }
+@font-face{ font-family:'Mono';  src:url('spacemono.ttf'); }
+@font-face{ font-family:'MonoB'; src:url('spacemono-bold.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.ground{ position:absolute; inset:0; }
+.lbl{ font-family:'Mono',monospace; text-transform:uppercase; letter-spacing:.18em; }
+.lblb{ font-family:'MonoB',monospace; text-transform:uppercase; letter-spacing:.18em; }
+.hl{ font-weight:800; letter-spacing:-.025em; line-height:.96; }
+.rule{ position:absolute; height:1px; }
+</style></head><body><div id="stage"></div><script>
+/* ---------------- helpers ---------------- */
+const S = document.getElementById('stage');
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const px = v => v.toFixed(2) + 'px';
+const clamp = (v,a,b) => v < a ? a : v > b ? b : v;
+/* progress of a sub-animation starting at `d` lasting `len`, within scene-local time lt */
+const p01 = (lt,d,len) => clamp((lt - d) / len, 0, 1);
+const outCubic = p => 1 - Math.pow(1 - p, 3);
+const outQuint = p => 1 - Math.pow(1 - p, 5);
+const hash = i => { const x = Math.sin(i * 127.1) * 43758.5453; return x - Math.floor(x); };
+
+const C = {
+  FPS_POSTERIZE: 12,
+  DARK:'#06090A', CREAM:'#F5F3EF', ACCENT:'#C6F24E',
+  DIMD:'rgba(245,243,239,0.42)', DIMC:'rgba(6,9,10,0.42)',
+  RULED:'rgba(245,243,239,0.16)', RULEC:'rgba(6,9,10,0.16)',
+  META:'YOUR BRAND / SAMPLE WORKFLOW',
+  MARGIN: 150
+};
+const STEP = 1 / C.FPS_POSTERIZE;
+
+/* mode helpers: a scene is either on cream or on dark, and every colour follows from that */
+const inkOf  = m => m === 'cream' ? C.DARK  : C.CREAM;
+const dimOf  = m => m === 'cream' ? C.DIMC  : C.DIMD;
+const ruleOf = m => m === 'cream' ? C.RULEC : C.RULED;
+const bgOf   = m => m === 'cream' ? C.CREAM : C.DARK;
+
+/* ---------------- the beat sheet ----------------
+   Timed to the transcript. `over` = graphics ride the footage (no ground painted).
+   `full` = graphics replace the frame. Alternating by construction, 7 and 7. */
+const SCENES = [
+  { kind:'bench', mode:'dark',  at:0.30,  dur:5.35, eyebrow:'THE GRIND', head:['POSTING','BY HAND'],
+    rows:[ {l:'POSTS PER CYCLE', v:10, max:10, n:'5–10'},
+           {l:'CYCLE LENGTH',    v:7,  max:10, n:'3 DAYS'},
+           {l:'CLIENTS COVERED', v:2,  max:10, n:'1'},
+           {l:'HOURS RECLAIMED', v:0,  max:10, n:'0'} ], foot:'MANUAL BASELINE' },
+
+  { kind:'lower', mode:'dark',  at:6.20,  dur:1.42, eyebrow:'THE FIX', head:['THERE IS','A SYSTEM'] },
+
+  /* the inversion fires HERE and only here — cream, once, on the number */
+  { kind:'stat',  mode:'cream', at:7.80,  dur:3.95, eyebrow:'THE MATH', target:300,
+    unit:'VIDEOS CLIPPED', foot:'PER MONTH / ZERO EDITORS HIRED', chips:12 },
+
+  { kind:'chip',  mode:'dark',  at:12.30, dur:3.40, eyebrow:'THE EFFORT', chip:'HANDS OFF',
+    strip:['INPUT READY','EDIT REVIEW','EXPORT CHECK','APPROVAL'] },
+
+  { kind:'pipe',  mode:'dark',  at:16.10, dur:5.40, eyebrow:'THE METHOD', stage:1,
+    cols:['INGEST','AUTO-EDIT','CLIP','POST'], status:'COORDINATING' },
+
+  { kind:'lower', mode:'dark',  at:22.00, dur:1.25, eyebrow:'', head:['CONFIGURE.','TEST EACH RUN.'] },
+
+  /* stage 2 CONTINUES stage 1 — same columns stay filled, only the new row animates.
+     Restarting the build is the defect that made an earlier edit read as running backwards. */
+  { kind:'pipe',  mode:'dark',  at:23.50, dur:5.55, eyebrow:'THE SYSTEM', stage:2,
+    cols:['INGEST','AUTO-EDIT','CLIP','POST'], status:'RUNNING',
+    sub:['AUTO POST','AUTO CAROUSEL','AUTO CLIP'] },
+
+  { kind:'slate', mode:'dark',  at:29.40, dur:5.45, eyebrow:'THE VOLUME', target:1000,
+    unit:'VIDEOS / DAY', note:'NOT CLICKBAIT' },
+
+  { kind:'card',  mode:'dark',  at:35.20, dur:2.30, eyebrow:'THE SHIFT', head:['HOW YOU','ACTUALLY SCALE'] },
+
+  { kind:'fan',   mode:'dark',  at:37.80, dur:5.85, eyebrow:'THE PIPELINE', head:'ONE FOLDER',
+    outs:['INSTAGRAM','TIKTOK','FACEBOOK','SNAPCHAT'] },
+
+  { kind:'strip', mode:'dark',  at:44.00, dur:4.55, eyebrow:'THE OUTPUT',
+    strip:['INSTAGRAM','TIKTOK','FACEBOOK','SNAPCHAT'], tag:'ALL LINKED' },
+
+  { kind:'card',  mode:'cream', at:49.05, dur:5.15, eyebrow:'THE CLAIM', head:['THAT IS A','GAME CHANGER'] },
+
+  { kind:'delta', mode:'dark',  at:54.60, dur:5.40, eyebrow:'THE LEVERAGE', from:'1 LONG FORM',
+    to:'SAMPLE OUTPUT', delta:'REPLACE WITH VERIFIED DATA' },
+
+  { kind:'card',  mode:'dark',  at:60.30, dur:3.35, eyebrow:'THE CLOSE', head:['REVIEW.','THEN PUBLISH.'] }
+];
+
+/* ---------------- shared furniture ---------------- */
+/* the FIXED FRAME ELEMENT (the blocking anchor): a mono eyebrow top-left with a leading square,
+   and a hairline that runs under it. Present in every beat, overlay and full alike, so the
+   system has one thing that never moves. */
+function anchor(sc, m, eyebrow){
+  const ink = inkOf(m);
+  const wrap = el('', sc);
+  wrap.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:104px;opacity:0;';
+  const row = el('', wrap);
+  row.style.cssText = 'display:flex;align-items:center;gap:14px;';
+  const sq = el('', row);
+  sq.style.cssText = 'width:11px;height:11px;background:' + C.ACCENT + ';';
+  const k = el('lbl', row, eyebrow || C.META);
+  k.style.cssText = 'font-size:21px;color:' + (eyebrow ? ink : dimOf(m)) + ';';
+  const r = el('rule', wrap);
+  r.style.cssText = 'left:0;top:52px;width:' + px(1920 - C.MARGIN*2) + ';background:' + ruleOf(m) + ';transform:scaleX(0);transform-origin:0 50%;';
+  return { wrap, r };
+}
+
+/* bottom-left disclosure slate — mono metadata, the reference's signature furniture */
+function slate(sc, m){
+  const s = el('lbl', sc, C.META);
+  s.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';bottom:76px;font-size:17px;color:' +
+    dimOf(m) + ';opacity:0;';
+  return s;
+}
+
+const built = [];
+SCENES.forEach(Sd => {
+  const sc = el('sc');
+  const m = Sd.mode, ink = inkOf(m), dim = dimOf(m), rule = ruleOf(m);
+  const o = { S:Sd, sc, parts:{} };
+  const isFull = ['bench','stat','pipe','card','fan','delta'].includes(Sd.kind);
+
+  /* FULL beats paint the ground. OVERLAY beats never do — that is the whole distinction. */
+  if (isFull){
+    const g = el('ground', sc);
+    g.style.cssText = 'background:' + bgOf(m) + ';';
+    o.parts.g = g;
+  }
+  o.parts.anchor = anchor(sc, m, Sd.eyebrow);
+  o.parts.slate  = slate(sc, m);
+
+  /* ---- BENCH (full): benchmark bar rows. label left, thin track, accent fill, value right ---- */
+  if (Sd.kind === 'bench'){
+    const h = el('hl', sc, Sd.head.join('\n'));
+    h.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:210px;font-size:104px;color:' +
+      ink + ';white-space:pre;opacity:0;';
+    const rows = [];
+    Sd.rows.forEach((r, i) => {
+      const y = 470 + i * 104;
+      const lab = el('lbl', sc, r.l);
+      lab.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:' + px(y) +
+        ';font-size:20px;color:' + dim + ';opacity:0;';
+      const trackX = C.MARGIN + 420, trackW = 900;
+      const tr = el('', sc);
+      tr.style.cssText = 'position:absolute;left:' + px(trackX) + ';top:' + px(y + 4) +
+        ';width:' + px(trackW) + ';height:10px;background:' + rule + ';opacity:0;';
+      const fill = el('', tr);
+      fill.style.cssText = 'position:absolute;left:0;top:0;height:10px;background:' + C.ACCENT +
+        ';width:0;';
+      const val = el('lblb', sc, r.n);
+      val.style.cssText = 'position:absolute;left:' + px(trackX + trackW + 40) + ';top:' + px(y - 2) +
+        ';font-size:26px;color:' + ink + ';opacity:0;';
+      rows.push({ lab, tr, fill, val, r, trackW });
+    });
+    const ft = el('lbl', sc, Sd.foot);
+    ft.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:' + px(470 + Sd.rows.length*104 + 34) +
+      ';font-size:19px;color:' + C.ACCENT + ';opacity:0;';
+    o.parts = Object.assign(o.parts, { h, rows, ft });
+  }
+
+  /* ---- LOWER (overlay): mono eyebrow + hairline + two-tone headline, bottom-left ---- */
+  if (Sd.kind === 'lower'){
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';bottom:150px;';
+    /* a solid plate behind the type so it survives a bright frame — overlay's one concession */
+    const plate = el('', wrap);
+    plate.style.cssText = 'position:absolute;left:-30px;top:-26px;width:0;height:100%;' +
+      'background:' + bgOf(m) + ';';
+    const l1 = el('hl', wrap, Sd.head[0]);
+    l1.style.cssText = 'position:relative;font-size:78px;color:' + ink + ';opacity:0;';
+    const l2 = el('hl', wrap, Sd.head[1]);
+    l2.style.cssText = 'position:relative;font-size:78px;color:' + C.ACCENT + ';opacity:0;';
+    o.parts = Object.assign(o.parts, { plate, l1, l2, wrap });
+  }
+
+  /* ---- STAT (full, CREAM — the inversion beat): count-up + numbered chip strip ---- */
+  if (Sd.kind === 'stat'){
+    const num = el('hl', sc, '0');
+    num.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:280px;font-size:340px;color:' +
+      ink + ';opacity:0;font-variant-numeric:tabular-nums;';
+    const un = el('lblb', sc, Sd.unit);
+    un.style.cssText = 'position:absolute;left:' + px(C.MARGIN + 8) + ';top:660px;font-size:30px;color:' +
+      ink + ';opacity:0;';
+    const ft = el('lbl', sc, Sd.foot);
+    ft.style.cssText = 'position:absolute;left:' + px(C.MARGIN + 8) + ';top:712px;font-size:20px;color:' +
+      dim + ';opacity:0;';
+    /* chips 01..12 light in sequence — the reference's "evidence strip" */
+    const chips = [];
+    for (let i = 0; i < Sd.chips; i++){
+      const cx = 1180 + (i % 4) * 120, cy = 300 + Math.floor(i / 4) * 120;
+      const c = el('lblb', sc, String(i + 1).padStart(2, '0'));
+      c.style.cssText = 'position:absolute;left:' + px(cx) + ';top:' + px(cy) +
+        ';width:96px;height:96px;display:flex;align-items:center;justify-content:center;' +
+        'font-size:24px;border:2px solid ' + rule + ';color:' + dim + ';opacity:0;';
+      chips.push(c);
+    }
+    o.parts = Object.assign(o.parts, { num, un, ft, chips, target:Sd.target });
+  }
+
+  /* ---- CHIP (overlay): corner chip + a bottom strip of mono negatives ---- */
+  if (Sd.kind === 'chip'){
+    const c = el('', sc);
+    c.style.cssText = 'position:absolute;right:' + px(C.MARGIN) + ';top:210px;padding:26px 38px;' +
+      'background:' + C.ACCENT + ';opacity:0;';
+    const ct = el('hl', c, Sd.chip);
+    ct.style.cssText = 'font-size:64px;color:' + C.DARK + ';';
+    const items = [];
+    Sd.strip.forEach((s, i) => {
+      const it = el('', sc);
+      it.style.cssText = 'position:absolute;left:' + px(C.MARGIN + i * 380) + ';bottom:210px;' +
+        'display:flex;align-items:center;gap:12px;opacity:0;';
+      const d = el('', it);
+      d.style.cssText = 'width:9px;height:9px;background:' + C.ACCENT + ';';
+      const t = el('lbl', it, s);
+      t.style.cssText = 'font-size:22px;color:' + C.CREAM + ';';
+      items.push(it);
+    });
+    o.parts = Object.assign(o.parts, { c, items });
+  }
+
+  /* ---- PIPE (full): schematic columns with underscores that fill + a status pill ----
+     stage 2 renders the SAME columns already filled and only animates the sub-row. */
+  if (Sd.kind === 'pipe'){
+    const cols = [];
+    const n = Sd.cols.length, cw = 340, gap = 46;
+    const totalW = n * cw + (n - 1) * gap, x0 = (1920 - totalW) / 2;
+    Sd.cols.forEach((cname, i) => {
+      const x = x0 + i * (cw + gap);
+      const box = el('', sc);
+      box.style.cssText = 'position:absolute;left:' + px(x) + ';top:330px;width:' + px(cw) +
+        ';opacity:0;';
+      const t = el('lblb', box, cname);
+      t.style.cssText = 'font-size:26px;color:' + ink + ';';
+      const track = el('', box);
+      track.style.cssText = 'position:relative;margin-top:22px;width:100%;height:6px;background:' + rule + ';';
+      const fill = el('', track);
+      fill.style.cssText = 'position:absolute;left:0;top:0;height:6px;width:0;background:' + C.ACCENT + ';';
+      cols.push({ box, fill });
+      if (i < n - 1){
+        const arrow = el('', sc);
+        arrow.style.cssText = 'position:absolute;left:' + px(x + cw + 12) + ';top:342px;width:' +
+          px(gap - 24) + ';height:2px;background:' + rule + ';opacity:0;';
+        cols[i].arrow = arrow;
+      }
+    });
+    const pill = el('', sc);
+    pill.style.cssText = 'position:absolute;left:50%;transform:translateX(-50%);top:470px;' +
+      'display:flex;align-items:center;gap:12px;padding:14px 26px;border:2px solid ' + C.ACCENT + ';opacity:0;';
+    const pd = el('', pill);
+    pd.style.cssText = 'width:10px;height:10px;background:' + C.ACCENT + ';';
+    const pt = el('lbl', pill, Sd.status);
+    pt.style.cssText = 'font-size:20px;color:' + C.ACCENT + ';';
+    const subs = [];
+    if (Sd.sub){
+      Sd.sub.forEach((s, i) => {
+        const sx = x0 + i * ((totalW - 300) / Math.max(1, Sd.sub.length - 1));
+        const b = el('', sc);
+        b.style.cssText = 'position:absolute;left:' + px(sx) + ';top:610px;width:300px;padding:20px 0;' +
+          'border-top:2px solid ' + rule + ';opacity:0;';
+        const t2 = el('lbl', b, s);
+        t2.style.cssText = 'font-size:21px;color:' + dim + ';';
+        subs.push(b);
+      });
+    }
+    o.parts = Object.assign(o.parts, { cols, pill, subs });
+  }
+
+  /* ---- CARD (full): two-tone headline, line 1 ink, line 2 accent ---- */
+  if (Sd.kind === 'card'){
+    const l1 = el('hl', sc, Sd.head[0]);
+    l1.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:380px;font-size:132px;color:' +
+      ink + ';opacity:0;';
+    const l2 = el('hl', sc, Sd.head[1]);
+    l2.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:520px;font-size:132px;color:' +
+      C.ACCENT + ';opacity:0;';
+    const r = el('rule', sc);
+    r.style.cssText = 'left:' + px(C.MARGIN) + ';top:690px;width:520px;background:' + C.ACCENT +
+      ';height:5px;transform:scaleX(0);transform-origin:0 50%;';
+    o.parts = Object.assign(o.parts, { l1, l2, r });
+  }
+
+  /* ---- FAN (full): one source, four output rows, each with its own fill ---- */
+  if (Sd.kind === 'fan'){
+    const src = el('', sc);
+    src.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:330px;padding:26px 36px;' +
+      'border:3px solid ' + C.ACCENT + ';opacity:0;';
+    const st = el('hl', src, Sd.head);
+    st.style.cssText = 'font-size:66px;color:' + ink + ';';
+    const outs = [];
+    Sd.outs.forEach((oname, i) => {
+      const y = 520 + i * 96;
+      const row = el('', sc);
+      row.style.cssText = 'position:absolute;left:' + px(C.MARGIN + 60) + ';top:' + px(y) +
+        ';display:flex;align-items:center;gap:24px;opacity:0;';
+      const conn = el('', row);
+      conn.style.cssText = 'width:70px;height:2px;background:' + C.ACCENT + ';';
+      const t = el('lblb', row, oname);
+      t.style.cssText = 'font-size:28px;color:' + ink + ';min-width:280px;';
+      const tr = el('', row);
+      tr.style.cssText = 'position:relative;width:620px;height:8px;background:' + rule + ';';
+      const fl = el('', tr);
+      fl.style.cssText = 'position:absolute;left:0;top:0;height:8px;width:0;background:' + C.ACCENT + ';';
+      outs.push({ row, fl });
+    });
+    o.parts = Object.assign(o.parts, { src, outs });
+  }
+
+  /* ---- STRIP (overlay): platform chips light left to right along the bottom ---- */
+  if (Sd.kind === 'strip'){
+    const items = [];
+    Sd.strip.forEach((s, i) => {
+      const it = el('', sc);
+      it.style.cssText = 'position:absolute;left:' + px(C.MARGIN + i * 400) + ';bottom:190px;' +
+        'padding:18px 30px;border:2px solid ' + C.CREAM + ';opacity:0;';
+      const t = el('lblb', it, s);
+      t.style.cssText = 'font-size:24px;color:' + C.CREAM + ';';
+      items.push(it);
+    });
+    const tag = el('lbl', sc, Sd.tag);
+    tag.style.cssText = 'position:absolute;right:' + px(C.MARGIN) + ';bottom:200px;font-size:22px;color:' +
+      C.ACCENT + ';opacity:0;';
+    o.parts = Object.assign(o.parts, { items, tag });
+  }
+
+  /* ---- SLATE (overlay): corner count-up + a note chip ---- */
+  if (Sd.kind === 'slate'){
+    const box = el('', sc);
+    box.style.cssText = 'position:absolute;right:' + px(C.MARGIN) + ';top:250px;text-align:right;opacity:0;';
+    const num = el('hl', box, '0');
+    num.style.cssText = 'font-size:190px;color:' + C.CREAM + ';font-variant-numeric:tabular-nums;';
+    const un = el('lblb', box, Sd.unit);
+    un.style.cssText = 'font-size:26px;color:' + C.ACCENT + ';';
+    const note = el('', sc);
+    note.style.cssText = 'position:absolute;right:' + px(C.MARGIN) + ';top:560px;padding:14px 24px;' +
+      'background:' + C.ACCENT + ';opacity:0;';
+    const nt = el('lblb', note, Sd.note);
+    nt.style.cssText = 'font-size:22px;color:' + C.DARK + ';';
+    o.parts = Object.assign(o.parts, { box, num, un, note, target:Sd.target });
+  }
+
+  /* ---- DELTA (full): from -> to with a delta chip, the reference's benchmark move ---- */
+  if (Sd.kind === 'delta'){
+    const a = el('hl', sc, Sd.from);
+    a.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:400px;font-size:96px;color:' +
+      dim + ';opacity:0;';
+    const arrow = el('', sc);
+    arrow.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:530px;width:0;height:5px;background:' +
+      C.ACCENT + ';';
+    const b = el('hl', sc, Sd.to);
+    b.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:580px;font-size:96px;color:' +
+      ink + ';opacity:0;';
+    const chip = el('', sc);
+    chip.style.cssText = 'position:absolute;left:' + px(C.MARGIN) + ';top:730px;padding:14px 26px;' +
+      'border:2px solid ' + C.ACCENT + ';opacity:0;';
+    const ct = el('lblb', chip, Sd.delta);
+    ct.style.cssText = 'font-size:24px;color:' + C.ACCENT + ';';
+    o.parts = Object.assign(o.parts, { a, arrow, b, chip });
+  }
+
+  built.push(o);
+});
+
+/* ---------------- seek ---------------- */
+function seek(tRaw){
+  /* LAW 1: posterize graphics to 12fps inside a 30fps render — the single change that makes
+     DOM motion read as broadcast rather than as a web page. */
+  const t = Math.floor(tRaw / STEP) * STEP;
+
+  built.forEach(o => {
+    const S = o.S, sc = o.sc;
+    const lt = t - S.at;
+    const on = lt >= -0.001 && lt <= S.dur;
+    sc.style.opacity = on ? 1 : 0;
+    if (!on) return;
+    const P = o.parts;
+    const isFull = ['bench','stat','pipe','card','fan','delta'].includes(S.kind);
+
+    /* full beats hard-cut their ground in and out — no fades anywhere in this system */
+    if (P.g) P.g.style.opacity = 1;
+
+    /* the anchor: eyebrow lands first, rule draws under it. Every beat, same ritual. */
+    P.anchor.wrap.style.opacity = p01(lt, 0.02, 0.10);
+    P.anchor.r.style.transform = 'scaleX(' + outCubic(p01(lt, 0.14, 0.40)).toFixed(4) + ')';
+    P.slate.style.opacity = p01(lt, 0.30, 0.30) * (isFull ? 1 : 0.85);
+
+    if (S.kind === 'bench'){
+      P.h.style.opacity = p01(lt, 0.16, 0.18);
+      P.rows.forEach((R, i) => {
+        const d = 0.52 + i * 0.16;
+        R.lab.style.opacity = p01(lt, d, 0.16);
+        R.tr.style.opacity  = p01(lt, d, 0.16);
+        /* fill eases to the row's own value — a bar that always fills full is decoration */
+        const fp = outCubic(p01(lt, d + 0.10, 0.70));
+        R.fill.style.width = px(R.trackW * (R.r.v / R.r.max) * fp);
+        R.val.style.opacity = p01(lt, d + 0.42, 0.18);
+      });
+      P.ft.style.opacity = p01(lt, 1.60, 0.24);
+    }
+
+    if (S.kind === 'lower'){
+      /* the plate wipes open, then type lands — type lags the plate, never leads it */
+      const w = outCubic(p01(lt, 0.06, 0.30));
+      P.plate.style.width = px((P.wrap.offsetWidth + 60) * w);
+      P.l1.style.opacity = p01(lt, 0.20, 0.12);
+      P.l2.style.opacity = p01(lt, 0.20 + 2*STEP, 0.12);
+    }
+
+    if (S.kind === 'stat'){
+      P.num.style.opacity = p01(lt, 0.14, 0.12);
+      const cp = outQuint(p01(lt, 0.20, 1.40));
+      P.num.textContent = Math.round(cp * P.target);
+      P.un.style.opacity = p01(lt, 1.40, 0.20);
+      P.ft.style.opacity = p01(lt, 1.62, 0.20);
+      P.chips.forEach((c, i) => {
+        const d = 0.60 + i * 0.075;
+        const lit = p01(lt, d, 0.10);
+        c.style.opacity = lit;
+        /* they light to accent as they land — sequence reads as accumulation */
+        if (lit > 0.9){ c.style.borderColor = C.ACCENT; c.style.color = C.DARK; c.style.background = C.ACCENT; }
+        else { c.style.borderColor = C.RULEC; c.style.color = C.DIMC; c.style.background = 'transparent'; }
+      });
+    }
+
+    if (S.kind === 'chip'){
+      P.c.style.opacity = p01(lt, 0.12, 0.10);
+      P.items.forEach((it, i) => { it.style.opacity = p01(lt, 0.44 + i*0.17, 0.12); });
+    }
+
+    if (S.kind === 'pipe'){
+      const st2 = S.stage === 2;
+      P.cols.forEach((Cc, i) => {
+        /* stage 2 shows the chain ALREADY BUILT and holds it — it continues, never restarts */
+        if (st2){
+          Cc.box.style.opacity = 1;
+          Cc.fill.style.width = '100%';
+          if (Cc.arrow) Cc.arrow.style.opacity = 1;
+        } else {
+          const d = 0.30 + i * 0.30;
+          Cc.box.style.opacity = p01(lt, d, 0.14);
+          Cc.fill.style.width = px(340 * outCubic(p01(lt, d + 0.08, 0.42)));
+          if (Cc.arrow) Cc.arrow.style.opacity = p01(lt, d + 0.30, 0.12);
+        }
+      });
+      P.pill.style.opacity = st2 ? 1 : p01(lt, 1.70, 0.20);
+      P.subs.forEach((b, i) => { b.style.opacity = p01(lt, 0.55 + i*0.30, 0.16); });
+    }
+
+    if (S.kind === 'card'){
+      P.l1.style.opacity = p01(lt, 0.12, 0.14);
+      P.l2.style.opacity = p01(lt, 0.12 + 2*STEP, 0.14);
+      P.r.style.transform = 'scaleX(' + outCubic(p01(lt, 0.52, 0.46)).toFixed(4) + ')';
+    }
+
+    if (S.kind === 'fan'){
+      P.src.style.opacity = p01(lt, 0.14, 0.14);
+      P.outs.forEach((R, i) => {
+        const d = 0.60 + i * 0.34;
+        R.row.style.opacity = p01(lt, d, 0.14);
+        R.fl.style.width = px(620 * outCubic(p01(lt, d + 0.10, 0.62)));
+      });
+    }
+
+    if (S.kind === 'strip'){
+      P.items.forEach((it, i) => {
+        const lit = p01(lt, 0.30 + i*0.42, 0.14);
+        it.style.opacity = lit;
+        if (lit > 0.9){ it.style.borderColor = C.ACCENT; it.style.background = C.ACCENT; it.firstChild.style.color = C.DARK; }
+        else { it.style.borderColor = C.CREAM; it.style.background = 'transparent'; it.firstChild.style.color = C.CREAM; }
+      });
+      P.tag.style.opacity = p01(lt, 2.10, 0.24);
+    }
+
+    if (S.kind === 'slate'){
+      P.box.style.opacity = p01(lt, 0.14, 0.14);
+      const cp = outQuint(p01(lt, 0.22, 1.80));
+      const v = Math.round(cp * P.target);
+      P.num.textContent = v >= 1000 ? (v/1000).toFixed(1) + 'K' : v;
+      P.note.style.opacity = p01(lt, 2.40, 0.16);
+    }
+
+    if (S.kind === 'delta'){
+      P.a.style.opacity = p01(lt, 0.14, 0.14);
+      P.arrow.style.width = px(760 * outCubic(p01(lt, 0.52, 0.52)));
+      P.b.style.opacity = p01(lt, 0.86, 0.14);
+      P.chip.style.opacity = p01(lt, 1.50, 0.18);
+    }
+  });
+}
+
+window.__seek = seek;
+seek(0);
+window.__ready = true;
+</script></body></html>

@@ -1,0 +1,35 @@
+{
+  "arsenal_version": 2,
+  "release_inventory_date": "2026-09-11",
+  "purpose": "Portable inventory for the samples bundled with this kit.",
+  "bundled_samples": {
+    "logical_assets": 6,
+    "files": 22,
+    "bytes": 50416163,
+    "hdris": [
+      "samples/hdris/abandoned_tiled_room_2k.hdr",
+      "samples/hdris/aft_lounge_2k.hdr"
+    ],
+    "textures": [
+      "samples/textures/brick_wall_04/",
+      "samples/textures/concrete_tiles_02/"
+    ],
+    "props": [
+      "samples/props/cardboard_box_01/",
+      "samples/props/classic_laptop/"
+    ]
+  },
+  "source": {
+    "name": "Poly Haven",
+    "url": "https://polyhaven.com/",
+    "license_recorded_for_bundled_samples": "CC0"
+  },
+  "license_note": "Keep source records and confirm current metadata before redistribution. Assets added later may use different licenses or attribution rules.",
+  "fetcher": {
+    "script": "assets/arsenal-fetch.cjs",
+    "output": "assets/samples/",
+    "catalog": "assets/samples/_INDEX-assets.json",
+    "requirements": ["network access", "curl", "sufficient disk space"],
+    "boundary": "The fetcher only handles Poly Haven assets. Other providers require separate setup and license review."
+  }
+}

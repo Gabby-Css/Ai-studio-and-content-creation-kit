@@ -1,0 +1,1374 @@
+[
+ {
+  "index": "lead_0",
+  "language": "English",
+  "time": [
+   0,
+   2250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "KIH1DOW0 KIH1DOW0 VER1S <SP>",
+  "phoneme": "en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S <SP>",
+  "note_pitch": "64 67 72 0",
+  "note_type": "2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_8000",
+  "language": "English",
+  "time": [
+   8000,
+   12000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.250 0.250 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S LER1N WIH1DH MIY1 TAH0DEY1 TAH0DEY1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_L-ER1-N en_W-IH1-DH en_M-IY1 en_T-AH0-D-EY1 en_T-AH0-D-EY1 <SP>",
+  "note_pitch": "67 67 64 67 72 69 67 64 62 60 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_12000",
+  "language": "English",
+  "time": [
+   12000,
+   16000
+  ],
+  "duration": "0.500 0.250 0.250 0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.020",
+  "text": "KAW1NT AH0ND SIH1NG AH0ND SEY1 EY1 BIY1 SIY1 HHUH0REY1 HHUH0REY1 <SP>",
+  "phoneme": "en_K-AW1-N-T en_AH0-N-D en_S-IH1-NG en_AH0-N-D en_S-EY1 en_EY1 en_B-IY1 en_S-IY1 en_HH-UH0-R-EY1 en_HH-UH0-R-EY1 <SP>",
+  "note_pitch": "64 67 69 67 64 64 67 69 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_16000",
+  "language": "English",
+  "time": [
+   16000,
+   20000
+  ],
+  "duration": "0.250 0.250 0.250 0.250 0.500 0.500 0.500 0.250 0.250 0.500 0.250 0.250 0.020",
+  "text": "NAH1MBER0Z NAH1MBER0Z LEH1TER0Z LEH1TER0Z WER1DZ TUW1 NOW1 LER1NIH0NG LER1NIH0NG MAO1R IY1CH DEY1 <SP>",
+  "phoneme": "en_N-AH1-M-B-ER0-Z en_N-AH1-M-B-ER0-Z en_L-EH1-T-ER0-Z en_L-EH1-T-ER0-Z en_W-ER1-D-Z en_T-UW1 en_N-OW1 en_L-ER1-N-IH0-NG en_L-ER1-N-IH0-NG en_M-AO1-R en_IY1-CH en_D-EY1 <SP>",
+  "note_pitch": "64 67 69 67 64 62 64 67 67 69 67 72 0",
+  "note_type": "2 3 2 3 2 2 2 2 3 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_20000",
+  "language": "English",
+  "time": [
+   20000,
+   24000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.500 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S LEH1TS LER1N AH0ND PLEY1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_L-EH1-T-S en_L-ER1-N en_AH0-N-D en_P-L-EY1 <SP>",
+  "note_pitch": "69 69 64 69 72 67 64 67 72 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_24000",
+  "language": "English",
+  "time": [
+   24000,
+   28000
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.020",
+  "text": "LEH1TS KAW1NT TUW1 TEH1N REH1DIY0 REH1DIY0 SEH1T KAW1NT <SP>",
+  "phoneme": "en_L-EH1-T-S en_K-AW1-N-T en_T-UW1 en_T-EH1-N en_R-EH1-D-IY0 en_R-EH1-D-IY0 en_S-EH1-T en_K-AW1-N-T <SP>",
+  "note_pitch": "64 67 69 67 64 64 67 72 0",
+  "note_type": "2 2 2 2 2 3 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_28000",
+  "language": "English",
+  "time": [
+   28000,
+   30000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.020",
+  "text": "WAH1N WAH1N LIH1TAH0L LIH1TAH0L STAA1R <SP>",
+  "phoneme": "en_W-AH1-N en_W-AH1-N en_L-IH1-T-AH0-L en_L-IH1-T-AH0-L en_S-T-AA1-R <SP>",
+  "note_pitch": "60 60 64 64 67 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_30000",
+  "language": "English",
+  "time": [
+   30000,
+   32000
+  ],
+  "duration": "0.500 1.000 0.500 0.020",
+  "text": "JHAH1ST WAH1N STAA1R <SP>",
+  "phoneme": "en_JH-AH1-S-T en_W-AH1-N en_S-T-AA1-R <SP>",
+  "note_pitch": "64 60 67 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_32000",
+  "language": "English",
+  "time": [
+   32000,
+   34000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.020",
+  "text": "TUW1 TUW1 BAW1NSIY0 BAW1NSIY0 BAO1LZ <SP>",
+  "phoneme": "en_T-UW1 en_T-UW1 en_B-AW1-N-S-IY0 en_B-AW1-N-S-IY0 en_B-AO1-L-Z <SP>",
+  "note_pitch": "62 62 65 65 69 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_34000",
+  "language": "English",
+  "time": [
+   34000,
+   35750
+  ],
+  "duration": "0.500 1.000 0.250",
+  "text": "WAH1N TUW1 <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 <SP>",
+  "note_pitch": "60 62 0",
+  "note_type": "2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_36000",
+  "language": "English",
+  "time": [
+   36000,
+   38000
+  ],
+  "duration": "0.500 0.500 0.500 0.250 0.250 0.020",
+  "text": "THRIY1 THRIY1 RAW1ND AE1PAH0LZ AE1PAH0LZ <SP>",
+  "phoneme": "en_TH-R-IY1 en_TH-R-IY1 en_R-AW1-N-D en_AE1-P-AH0-L-Z en_AE1-P-AH0-L-Z <SP>",
+  "note_pitch": "64 64 67 69 67 0",
+  "note_type": "2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_38000",
+  "language": "English",
+  "time": [
+   38000,
+   40000
+  ],
+  "duration": "0.500 0.500 1.000 0.020",
+  "text": "WAH1N TUW1 THRIY1 <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 <SP>",
+  "note_pitch": "60 62 64 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_40000",
+  "language": "English",
+  "time": [
+   40000,
+   42000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.020",
+  "text": "FAO1R FAO1R TAY1NIY0 TAY1NIY0 FIH1SH <SP>",
+  "phoneme": "en_F-AO1-R en_F-AO1-R en_T-AY1-N-IY0 en_T-AY1-N-IY0 en_F-IH1-SH <SP>",
+  "note_pitch": "65 65 69 69 72 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_42000",
+  "language": "English",
+  "time": [
+   42000,
+   44000
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.020",
+  "text": "WAH1N TUW1 THRIY1 FAO1R <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R <SP>",
+  "note_pitch": "60 62 64 65 0",
+  "note_type": "2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_44000",
+  "language": "English",
+  "time": [
+   44000,
+   46000
+  ],
+  "duration": "0.500 0.500 0.500 0.250 0.250 0.020",
+  "text": "FAY1V FAY1V BRAY1T FLAW1ER0Z FLAW1ER0Z <SP>",
+  "phoneme": "en_F-AY1-V en_F-AY1-V en_B-R-AY1-T en_F-L-AW1-ER0-Z en_F-L-AW1-ER0-Z <SP>",
+  "note_pitch": "67 67 71 69 67 0",
+  "note_type": "2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_46000",
+  "language": "English",
+  "time": [
+   46000,
+   48000
+  ],
+  "duration": "0.250 0.250 0.500 0.500 0.500 0.020",
+  "text": "WAH1N TUW1 THRIY1 FAO1R FAY1V <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R en_F-AY1-V <SP>",
+  "note_pitch": "60 62 64 65 67 0",
+  "note_type": "2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_48000",
+  "language": "English",
+  "time": [
+   48000,
+   50000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.020",
+  "text": "SIH1KS SIH1KS BIH1ZIY0 BIH1ZIY0 BIY1Z <SP>",
+  "phoneme": "en_S-IH1-K-S en_S-IH1-K-S en_B-IH1-Z-IY0 en_B-IH1-Z-IY0 en_B-IY1-Z <SP>",
+  "note_pitch": "69 69 72 72 74 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_50000",
+  "language": "English",
+  "time": [
+   50000,
+   53750
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 1.000 0.250",
+  "text": "WAH1N TUW1 THRIY1 FAO1R FAY1V SIH1KS <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R en_F-AY1-V en_S-IH1-K-S <SP>",
+  "note_pitch": "60 62 64 65 67 69 0",
+  "note_type": "2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_54000",
+  "language": "English",
+  "time": [
+   54000,
+   56000
+  ],
+  "duration": "0.250 0.250 0.250 0.250 0.500 0.500 0.020",
+  "text": "SEH1VAH0N SEH1VAH0N SEH1VAH0N SEH1VAH0N REH1D HHAA1RTS <SP>",
+  "phoneme": "en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N en_R-EH1-D en_HH-AA1-R-T-S <SP>",
+  "note_pitch": "71 71 71 71 74 71 0",
+  "note_type": "2 3 2 3 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_56000",
+  "language": "English",
+  "time": [
+   56000,
+   60000
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.250 0.750 0.020",
+  "text": "WAH1N TUW1 THRIY1 FAO1R FAY1V SIH1KS SEH1VAH0N SEH1VAH0N <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R en_F-AY1-V en_S-IH1-K-S en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N <SP>",
+  "note_pitch": "60 62 64 65 67 69 71 71 0",
+  "note_type": "2 2 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_60000",
+  "language": "English",
+  "time": [
+   60000,
+   62000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.250 0.250 0.020",
+  "text": "EY1T EY1T YAH1MIY0 YAH1MIY0 KUH1KIY0Z KUH1KIY0Z <SP>",
+  "phoneme": "en_EY1-T en_EY1-T en_Y-AH1-M-IY0 en_Y-AH1-M-IY0 en_K-UH1-K-IY0-Z en_K-UH1-K-IY0-Z <SP>",
+  "note_pitch": "72 72 76 74 72 69 0",
+  "note_type": "2 2 2 3 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_62000",
+  "language": "English",
+  "time": [
+   62000,
+   66750
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.250 0.250 1.000 0.250",
+  "text": "WAH1N TUW1 THRIY1 FAO1R FAY1V SIH1KS SEH1VAH0N SEH1VAH0N EY1T <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R en_F-AY1-V en_S-IH1-K-S en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N en_EY1-T <SP>",
+  "note_pitch": "60 62 64 65 67 69 71 71 72 0",
+  "note_type": "2 2 2 2 2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_68000",
+  "language": "English",
+  "time": [
+   68000,
+   70000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.020",
+  "text": "NAY1N NAY1N HHAE1PIY0 HHAE1PIY0 DAH1KS <SP>",
+  "phoneme": "en_N-AY1-N en_N-AY1-N en_HH-AE1-P-IY0 en_HH-AE1-P-IY0 en_D-AH1-K-S <SP>",
+  "note_pitch": "74 74 71 71 67 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_70000",
+  "language": "English",
+  "time": [
+   70000,
+   74000
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.250 0.250 0.500 0.020",
+  "text": "WAH1N TUW1 THRIY1 FAO1R FAY1V SIH1KS SEH1VAH0N SEH1VAH0N EY1T <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R en_F-AY1-V en_S-IH1-K-S en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N en_EY1-T <SP>",
+  "note_pitch": "60 62 64 65 67 69 71 71 72 0",
+  "note_type": "2 2 2 2 2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_74000",
+  "language": "English",
+  "time": [
+   74000,
+   75250
+  ],
+  "duration": "1.000 0.250",
+  "text": "NAY1N <SP>",
+  "phoneme": "en_N-AY1-N <SP>",
+  "note_pitch": "74 0",
+  "note_type": "2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_76000",
+  "language": "English",
+  "time": [
+   76000,
+   78000
+  ],
+  "duration": "0.500 0.500 0.500 0.250 0.250 0.020",
+  "text": "TEH1N TEH1N BIH1G BAH0LUW1NZ BAH0LUW1NZ <SP>",
+  "phoneme": "en_T-EH1-N en_T-EH1-N en_B-IH1-G en_B-AH0-L-UW1-N-Z en_B-AH0-L-UW1-N-Z <SP>",
+  "note_pitch": "76 76 72 69 67 0",
+  "note_type": "2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_78000",
+  "language": "English",
+  "time": [
+   78000,
+   82500
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.250 0.250 0.500 0.500 0.020",
+  "text": "WAH1N TUW1 THRIY1 FAO1R FAY1V SIH1KS SEH1VAH0N SEH1VAH0N EY1T NAY1N <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R en_F-AY1-V en_S-IH1-K-S en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N en_EY1-T en_N-AY1-N <SP>",
+  "note_pitch": "60 62 64 65 67 69 71 71 72 74 0",
+  "note_type": "2 2 2 2 2 2 2 3 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_82500",
+  "language": "English",
+  "time": [
+   82500,
+   83750
+  ],
+  "duration": "1.000 0.250",
+  "text": "TEH1N <SP>",
+  "phoneme": "en_T-EH1-N <SP>",
+  "note_pitch": "76 0",
+  "note_type": "2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_84000",
+  "language": "English",
+  "time": [
+   84000,
+   88500
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.250 0.250 0.500 0.500 0.020",
+  "text": "WAH1N TUW1 THRIY1 FAO1R FAY1V SIH1KS SEH1VAH0N SEH1VAH0N EY1T NAY1N <SP>",
+  "phoneme": "en_W-AH1-N en_T-UW1 en_TH-R-IY1 en_F-AO1-R en_F-AY1-V en_S-IH1-K-S en_S-EH1-V-AH0-N en_S-EH1-V-AH0-N en_EY1-T en_N-AY1-N <SP>",
+  "note_pitch": "60 62 64 65 67 69 71 71 72 74 0",
+  "note_type": "2 2 2 2 2 2 2 3 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_88500",
+  "language": "English",
+  "time": [
+   88500,
+   91250
+  ],
+  "duration": "1.000 0.500 1.000 0.250",
+  "text": "TEH1N HHUH0REY1 HHUH0REY1 <SP>",
+  "phoneme": "en_T-EH1-N en_HH-UH0-R-EY1 en_HH-UH0-R-EY1 <SP>",
+  "note_pitch": "76 67 72 0",
+  "note_type": "2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_92000",
+  "language": "English",
+  "time": [
+   92000,
+   96000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.250 0.250 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S LER1N WIH1DH MIY1 TAH0DEY1 TAH0DEY1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_L-ER1-N en_W-IH1-DH en_M-IY1 en_T-AH0-D-EY1 en_T-AH0-D-EY1 <SP>",
+  "note_pitch": "67 67 64 67 72 69 67 64 62 60 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_96000",
+  "language": "English",
+  "time": [
+   96000,
+   100000
+  ],
+  "duration": "0.500 0.250 0.250 0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.020",
+  "text": "KAW1NT AH0ND SIH1NG AH0ND SEY1 EY1 BIY1 SIY1 HHUH0REY1 HHUH0REY1 <SP>",
+  "phoneme": "en_K-AW1-N-T en_AH0-N-D en_S-IH1-NG en_AH0-N-D en_S-EY1 en_EY1 en_B-IY1 en_S-IY1 en_HH-UH0-R-EY1 en_HH-UH0-R-EY1 <SP>",
+  "note_pitch": "64 67 69 67 64 64 67 69 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_100000",
+  "language": "English",
+  "time": [
+   100000,
+   104000
+  ],
+  "duration": "0.250 0.250 0.250 0.250 0.500 0.500 0.500 0.250 0.250 0.500 0.250 0.250 0.020",
+  "text": "NAH1MBER0Z NAH1MBER0Z LEH1TER0Z LEH1TER0Z WER1DZ TUW1 NOW1 LER1NIH0NG LER1NIH0NG MAO1R IY1CH DEY1 <SP>",
+  "phoneme": "en_N-AH1-M-B-ER0-Z en_N-AH1-M-B-ER0-Z en_L-EH1-T-ER0-Z en_L-EH1-T-ER0-Z en_W-ER1-D-Z en_T-UW1 en_N-OW1 en_L-ER1-N-IH0-NG en_L-ER1-N-IH0-NG en_M-AO1-R en_IY1-CH en_D-EY1 <SP>",
+  "note_pitch": "64 67 69 67 64 62 64 67 67 69 67 72 0",
+  "note_type": "2 3 2 3 2 2 2 2 3 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_104000",
+  "language": "English",
+  "time": [
+   104000,
+   108000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.500 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S LEH1TS LER1N AH0ND PLEY1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_L-EH1-T-S en_L-ER1-N en_AH0-N-D en_P-L-EY1 <SP>",
+  "note_pitch": "69 69 64 69 72 67 64 67 72 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_108000",
+  "language": "English",
+  "time": [
+   108000,
+   112000
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.020",
+  "text": "LEH1TS LER1N DHAH0 EY1BIY1SIY1Z LEH1TER0 LEH1TER0 SAW1ND WER1D <SP>",
+  "phoneme": "en_L-EH1-T-S en_L-ER1-N en_DH-AH0 en_EY1-B-IY1-S-IY1-Z en_L-EH1-T-ER0 en_L-EH1-T-ER0 en_S-AW1-N-D en_W-ER1-D <SP>",
+  "note_pitch": "64 67 69 67 64 67 69 72 0",
+  "note_type": "2 2 2 2 2 3 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_112000",
+  "language": "English",
+  "time": [
+   112000,
+   114250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "EY1 AE1 AE1PAH0L AE1PAH0L <SP>",
+  "phoneme": "en_EY1 en_AE1 en_AE1-P-AH0-L en_AE1-P-AH0-L <SP>",
+  "note_pitch": "64 64 67 64 0",
+  "note_type": "2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_115000",
+  "language": "English",
+  "time": [
+   115000,
+   117250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "BIY1 BAH1 BAO1L <SP>",
+  "phoneme": "en_B-IY1 en_B-AH1 en_B-AO1-L <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_118000",
+  "language": "English",
+  "time": [
+   118000,
+   120250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "SIY1 KAH1 KAE1T <SP>",
+  "phoneme": "en_S-IY1 en_K-AH1 en_K-AE1-T <SP>",
+  "note_pitch": "69 69 74 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_121000",
+  "language": "English",
+  "time": [
+   121000,
+   123250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "DIY1 DAH1 DAO1G <SP>",
+  "phoneme": "en_D-IY1 en_D-AH1 en_D-AO1-G <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_124000",
+  "language": "English",
+  "time": [
+   124000,
+   126250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "IY1 EH1 EH1G <SP>",
+  "phoneme": "en_IY1 en_EH1 en_EH1-G <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_127000",
+  "language": "English",
+  "time": [
+   127000,
+   129250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EH1F FAH1 FIH1SH <SP>",
+  "phoneme": "en_EH1-F en_F-AH1 en_F-IH1-SH <SP>",
+  "note_pitch": "69 69 74 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_130000",
+  "language": "English",
+  "time": [
+   130000,
+   132250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "JHIY1 GAH1 GREY1PS <SP>",
+  "phoneme": "en_JH-IY1 en_G-AH1 en_G-R-EY1-P-S <SP>",
+  "note_pitch": "72 72 76 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_133000",
+  "language": "English",
+  "time": [
+   133000,
+   135250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EY1CH HHAH1 HHAE1T <SP>",
+  "phoneme": "en_EY1-CH en_HH-AH1 en_HH-AE1-T <SP>",
+  "note_pitch": "69 69 74 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_136000",
+  "language": "English",
+  "time": [
+   136000,
+   138250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "AY1 IH1 IH1GLUW0 IH1GLUW0 <SP>",
+  "phoneme": "en_AY1 en_IH1 en_IH1-G-L-UW0 en_IH1-G-L-UW0 <SP>",
+  "note_pitch": "69 69 72 69 0",
+  "note_type": "2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_139000",
+  "language": "English",
+  "time": [
+   139000,
+   141250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "JHEY1 JHAH1 JHAE1M <SP>",
+  "phoneme": "en_JH-EY1 en_JH-AH1 en_JH-AE1-M <SP>",
+  "note_pitch": "72 72 76 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_142000",
+  "language": "English",
+  "time": [
+   142000,
+   144250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "KEY1 KAH1 KAY1T <SP>",
+  "phoneme": "en_K-EY1 en_K-AH1 en_K-AY1-T <SP>",
+  "note_pitch": "74 74 76 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_145000",
+  "language": "English",
+  "time": [
+   145000,
+   147250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "EH1L LAH1 LEH1MAH0N LEH1MAH0N <SP>",
+  "phoneme": "en_EH1-L en_L-AH1 en_L-EH1-M-AH0-N en_L-EH1-M-AH0-N <SP>",
+  "note_pitch": "72 72 74 72 0",
+  "note_type": "2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_148000",
+  "language": "English",
+  "time": [
+   148000,
+   150250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EH1M MAH1 MUW1N <SP>",
+  "phoneme": "en_EH1-M en_M-AH1 en_M-UW1-N <SP>",
+  "note_pitch": "64 64 69 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_151000",
+  "language": "English",
+  "time": [
+   151000,
+   153250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EH1N NAH1 NEH1ST <SP>",
+  "phoneme": "en_EH1-N en_N-AH1 en_N-EH1-S-T <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_154000",
+  "language": "English",
+  "time": [
+   154000,
+   156250
+  ],
+  "duration": "0.500 0.500 0.500 0.250 0.250 0.250",
+  "text": "OW1 AA1 AA1KTAH0PUH2S AA1KTAH0PUH2S AA1KTAH0PUH2S <SP>",
+  "phoneme": "en_OW1 en_AA1 en_AA1-K-T-AH0-P-UH2-S en_AA1-K-T-AH0-P-UH2-S en_AA1-K-T-AH0-P-UH2-S <SP>",
+  "note_pitch": "69 69 72 74 69 0",
+  "note_type": "2 2 2 3 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_157000",
+  "language": "English",
+  "time": [
+   157000,
+   159250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "PIY1 PAH1 PIY1TSAH0 PIY1TSAH0 <SP>",
+  "phoneme": "en_P-IY1 en_P-AH1 en_P-IY1-T-S-AH0 en_P-IY1-T-S-AH0 <SP>",
+  "note_pitch": "72 72 74 72 0",
+  "note_type": "2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_160000",
+  "language": "English",
+  "time": [
+   160000,
+   162250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "KYUW1 KWAH1 KWIH1LT <SP>",
+  "phoneme": "en_K-Y-UW1 en_K-W-AH1 en_K-W-IH1-L-T <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_163000",
+  "language": "English",
+  "time": [
+   163000,
+   165250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "AA1R RAH1 REY1NBOW2 REY1NBOW2 <SP>",
+  "phoneme": "en_AA1-R en_R-AH1 en_R-EY1-N-B-OW2 en_R-EY1-N-B-OW2 <SP>",
+  "note_pitch": "69 69 72 69 0",
+  "note_type": "2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_166000",
+  "language": "English",
+  "time": [
+   166000,
+   168250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EH1S SAH1 SAH1N <SP>",
+  "phoneme": "en_EH1-S en_S-AH1 en_S-AH1-N <SP>",
+  "note_pitch": "72 72 76 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_169000",
+  "language": "English",
+  "time": [
+   169000,
+   171250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "TIY1 TAH1 TRIY1 <SP>",
+  "phoneme": "en_T-IY1 en_T-AH1 en_T-R-IY1 <SP>",
+  "note_pitch": "74 74 76 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_172000",
+  "language": "English",
+  "time": [
+   172000,
+   174250
+  ],
+  "duration": "0.500 0.500 0.500 0.250 0.250 0.250",
+  "text": "YUW1 AH1 AH0MBREH1LAH0 AH0MBREH1LAH0 AH0MBREH1LAH0 <SP>",
+  "phoneme": "en_Y-UW1 en_AH1 en_AH0-M-B-R-EH1-L-AH0 en_AH0-M-B-R-EH1-L-AH0 en_AH0-M-B-R-EH1-L-AH0 <SP>",
+  "note_pitch": "72 72 74 76 72 0",
+  "note_type": "2 2 2 3 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_175000",
+  "language": "English",
+  "time": [
+   175000,
+   177250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "VIY1 VAH1 VEY1S <SP>",
+  "phoneme": "en_V-IY1 en_V-AH1 en_V-EY1-S <SP>",
+  "note_pitch": "69 69 74 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_178000",
+  "language": "English",
+  "time": [
+   178000,
+   180750
+  ],
+  "duration": "1.000 0.500 1.000 0.250",
+  "text": "DAH1BAH0LYUW0 WAH1 WER1M <SP>",
+  "phoneme": "en_D-AH1-B-AH0-L-Y-UW0 en_W-AH1 en_W-ER1-M <SP>",
+  "note_pitch": "67 67 72 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_181000",
+  "language": "English",
+  "time": [
+   181000,
+   183250
+  ],
+  "duration": "0.500 0.500 1.000 0.250",
+  "text": "EH1KS KS BAA1KS <SP>",
+  "phoneme": "en_EH1-K-S en_K-S en_B-AA1-K-S <SP>",
+  "note_pitch": "64 64 69 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_184000",
+  "language": "English",
+  "time": [
+   184000,
+   186250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "WAY1 YAH1 YOW1YOW1 YOW1YOW1 <SP>",
+  "phoneme": "en_W-AY1 en_Y-AH1 en_Y-OW1-Y-OW1 en_Y-OW1-Y-OW1 <SP>",
+  "note_pitch": "69 69 72 69 0",
+  "note_type": "2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_187000",
+  "language": "English",
+  "time": [
+   187000,
+   189250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "ZIY1 ZAH1 ZIY1BRAH0 ZIY1BRAH0 <SP>",
+  "phoneme": "en_Z-IY1 en_Z-AH1 en_Z-IY1-B-R-AH0 en_Z-IY1-B-R-AH0 <SP>",
+  "note_pitch": "72 72 74 72 0",
+  "note_type": "2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_190000",
+  "language": "English",
+  "time": [
+   190000,
+   193750
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.250",
+  "text": "EY1 BIY1 SIY1 DIY1 IY1 EH1F JHIY1 <SP>",
+  "phoneme": "en_EY1 en_B-IY1 en_S-IY1 en_D-IY1 en_IY1 en_EH1-F en_JH-IY1 <SP>",
+  "note_pitch": "64 67 69 72 69 67 64 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_194000",
+  "language": "English",
+  "time": [
+   194000,
+   197750
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.250",
+  "text": "EY1CH AY1 JHEY1 KEY1 EH1L EH1M EH1N <SP>",
+  "phoneme": "en_EY1-CH en_AY1 en_JH-EY1 en_K-EY1 en_EH1-L en_EH1-M en_EH1-N <SP>",
+  "note_pitch": "67 69 72 74 72 69 67 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_198000",
+  "language": "English",
+  "time": [
+   198000,
+   201750
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.250",
+  "text": "OW1 PIY1 KYUW1 AA1R EH1S TIY1 YUW1 <SP>",
+  "phoneme": "en_OW1 en_P-IY1 en_K-Y-UW1 en_AA1-R en_EH1-S en_T-IY1 en_Y-UW1 <SP>",
+  "note_pitch": "69 72 74 76 74 72 69 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_202000",
+  "language": "English",
+  "time": [
+   202000,
+   205750
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 1.000 0.250",
+  "text": "VIY1 DAH1BAH0LYUW0 EH1KS WAY1 AH0ND ZIY1 <SP>",
+  "phoneme": "en_V-IY1 en_D-AH1-B-AH0-L-Y-UW0 en_EH1-K-S en_W-AY1 en_AH0-N-D en_Z-IY1 <SP>",
+  "note_pitch": "67 69 72 69 67 72 0",
+  "note_type": "2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_206000",
+  "language": "English",
+  "time": [
+   206000,
+   209750
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250 0.250 1.000 0.250",
+  "text": "NAW1 AY1 NOW1 MAY1 EY1BIY1SIY1Z EY1BIY1SIY1Z EY1BIY1SIY1Z <SP>",
+  "phoneme": "en_N-AW1 en_AY1 en_N-OW1 en_M-AY1 en_EY1-B-IY1-S-IY1-Z en_EY1-B-IY1-S-IY1-Z en_EY1-B-IY1-S-IY1-Z <SP>",
+  "note_pitch": "64 67 69 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 3 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_212000",
+  "language": "English",
+  "time": [
+   212000,
+   216000
+  ],
+  "duration": "0.250 0.250 0.250 0.250 1.000 0.250 0.250 0.250 0.250 1.000 0.020",
+  "text": "KLAE1P KLAE1P EY1 BIY1 SIY1 STAA1MP STAA1MP WAH1N TUW1 THRIY1 <SP>",
+  "phoneme": "en_K-L-AE1-P en_K-L-AE1-P en_EY1 en_B-IY1 en_S-IY1 en_S-T-AA1-M-P en_S-T-AA1-M-P en_W-AH1-N en_T-UW1 en_TH-R-IY1 <SP>",
+  "note_pitch": "67 67 69 69 72 64 64 67 67 69 0",
+  "note_type": "2 2 2 2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_216000",
+  "language": "English",
+  "time": [
+   216000,
+   220000
+  ],
+  "duration": "0.250 0.250 0.250 0.250 1.000 0.250 0.250 0.500 0.500 0.500 0.020",
+  "text": "JHAH1MP JHAH1MP AH1P AH1P AH1P SPIH1N ER0AW1ND ER0AW1ND AH0ND SHEY1K <SP>",
+  "phoneme": "en_JH-AH1-M-P en_JH-AH1-M-P en_AH1-P en_AH1-P en_AH1-P en_S-P-IH1-N en_ER0-AW1-N-D en_ER0-AW1-N-D en_AH0-N-D en_SH-EY1-K <SP>",
+  "note_pitch": "69 69 72 72 76 72 69 67 64 67 0",
+  "note_type": "2 2 2 2 2 2 2 3 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_220000",
+  "language": "English",
+  "time": [
+   220000,
+   224250
+  ],
+  "duration": "0.250 0.250 0.250 0.250 0.250 0.500 0.250 0.500 0.500 0.500 0.500 0.250",
+  "text": "WIH1GAH0L WIH1GAH0L LEH1FT WIH1GAH0L WIH1GAH0L RAY1T <SP> KAW1NT TUW1 TEH1N DHEH1N <SP>",
+  "phoneme": "en_W-IH1-G-AH0-L en_W-IH1-G-AH0-L en_L-EH1-F-T en_W-IH1-G-AH0-L en_W-IH1-G-AH0-L en_R-AY1-T <SP> en_K-AW1-N-T en_T-UW1 en_T-EH1-N en_DH-EH1-N <SP>",
+  "note_pitch": "67 67 64 69 69 67 0 64 67 69 67 0",
+  "note_type": "2 3 2 2 3 2 1 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_226000",
+  "language": "English",
+  "time": [
+   226000,
+   230000
+  ],
+  "duration": "0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.250 0.250 0.500 0.020",
+  "text": "TUW1 LEH1TER0 LEH1TER0 WER1DZ LEH1TS REH1D DHEH1M TAH0GEH1DHER0 TAH0GEH1DHER0 TAH0GEH1DHER0 <SP>",
+  "phoneme": "en_T-UW1 en_L-EH1-T-ER0 en_L-EH1-T-ER0 en_W-ER1-D-Z en_L-EH1-T-S en_R-EH1-D en_DH-EH1-M en_T-AH0-G-EH1-DH-ER0 en_T-AH0-G-EH1-DH-ER0 en_T-AH0-G-EH1-DH-ER0 <SP>",
+  "note_pitch": "64 67 67 69 67 64 67 69 67 72 0",
+  "note_type": "2 2 3 2 2 2 2 2 3 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_230000",
+  "language": "English",
+  "time": [
+   230000,
+   234000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "EY1 TIY1 AE1T LUH1K AE1T DHAH0 STAA1RZ <SP>",
+  "phoneme": "en_EY1 en_T-IY1 en_AE1-T en_L-UH1-K en_AE1-T en_DH-AH0 en_S-T-AA1-R-Z <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_234000",
+  "language": "English",
+  "time": [
+   234000,
+   238000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "AY1 EH1N IH0N HHAA1P IH0N DHAH0 BAA1KS <SP>",
+  "phoneme": "en_AY1 en_EH1-N en_IH0-N en_HH-AA1-P en_IH0-N en_DH-AH0 en_B-AA1-K-S <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_238000",
+  "language": "English",
+  "time": [
+   238000,
+   242000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "OW1 EH1N AA1N HHAE1T AA1N MAY1 HHEH1D <SP>",
+  "phoneme": "en_OW1 en_EH1-N en_AA1-N en_HH-AE1-T en_AA1-N en_M-AY1 en_HH-EH1-D <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_242000",
+  "language": "English",
+  "time": [
+   242000,
+   246000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "YUW1 PIY1 AH1P JHAH1MP AH1P AH1P AH1P <SP>",
+  "phoneme": "en_Y-UW1 en_P-IY1 en_AH1-P en_JH-AH1-M-P en_AH1-P en_AH1-P en_AH1-P <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_246000",
+  "language": "English",
+  "time": [
+   246000,
+   250000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "JHIY1 OW1 GOW1 ZUW1M GOW1 GOW1 GOW1 <SP>",
+  "phoneme": "en_JH-IY1 en_OW1 en_G-OW1 en_Z-UW1-M en_G-OW1 en_G-OW1 en_G-OW1 <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_250000",
+  "language": "English",
+  "time": [
+   250000,
+   254000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "EH1N OW1 NOW1 SHEY1K NOW1 NOW1 NOW1 <SP>",
+  "phoneme": "en_EH1-N en_OW1 en_N-OW1 en_SH-EY1-K en_N-OW1 en_N-OW1 en_N-OW1 <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_254000",
+  "language": "English",
+  "time": [
+   254000,
+   258000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "EH1M IY1 MIY1 MIY1 MIY1 DHAE1TS MIY1 <SP>",
+  "phoneme": "en_EH1-M en_IY1 en_M-IY1 en_M-IY1 en_M-IY1 en_DH-AE1-T-S en_M-IY1 <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_258000",
+  "language": "English",
+  "time": [
+   258000,
+   262000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "BIY1 IY1 BIY1 BIY1 KAY1ND BIY1 BREY1V <SP>",
+  "phoneme": "en_B-IY1 en_IY1 en_B-IY1 en_B-IY1 en_K-AY1-N-D en_B-IY1 en_B-R-EY1-V <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_262000",
+  "language": "English",
+  "time": [
+   262000,
+   266000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "AY1 TIY1 IH1T FAY1ND IH1T GAA1T IH1T <SP>",
+  "phoneme": "en_AY1 en_T-IY1 en_IH1-T en_F-AY1-N-D en_IH1-T en_G-AA1-T en_IH1-T <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_266000",
+  "language": "English",
+  "time": [
+   266000,
+   270000
+  ],
+  "duration": "0.500 0.500 1.000 0.500 0.500 0.500 0.500 0.020",
+  "text": "EH1M WAY1 MAY1 MAY1 HHAE1T MAY1 BAO1L <SP>",
+  "phoneme": "en_EH1-M en_W-AY1 en_M-AY1 en_M-AY1 en_HH-AE1-T en_M-AY1 en_B-AO1-L <SP>",
+  "note_pitch": "64 67 72 67 64 67 72 0",
+  "note_type": "2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_270000",
+  "language": "English",
+  "time": [
+   270000,
+   274500
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.020",
+  "text": "AE1T IH0N AA1N AH1P GOW1 NOW1 MIY1 BIY1 IH1T <SP>",
+  "phoneme": "en_AE1-T en_IH0-N en_AA1-N en_AH1-P en_G-OW1 en_N-OW1 en_M-IY1 en_B-IY1 en_IH1-T <SP>",
+  "note_pitch": "64 67 69 67 64 67 69 67 69 0",
+  "note_type": "2 2 2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_274500",
+  "language": "English",
+  "time": [
+   274500,
+   277250
+  ],
+  "duration": "0.500 0.500 0.500 1.000 0.250",
+  "text": "MAY1 WIY1 KAE1N REH1D <SP>",
+  "phoneme": "en_M-AY1 en_W-IY1 en_K-AE1-N en_R-EH1-D <SP>",
+  "note_pitch": "72 67 69 72 0",
+  "note_type": "2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_278000",
+  "language": "English",
+  "time": [
+   278000,
+   282000
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.500 0.020",
+  "text": "LEH1TS PLEY1 AH0 GEY1M KAE1N YUW1 FAY1ND IH1T <SP>",
+  "phoneme": "en_L-EH1-T-S en_P-L-EY1 en_AH0 en_G-EY1-M en_K-AE1-N en_Y-UW1 en_F-AY1-N-D en_IH1-T <SP>",
+  "note_pitch": "64 67 69 72 64 67 69 72 0",
+  "note_type": "2 2 2 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_282000",
+  "language": "English",
+  "time": [
+   282000,
+   284250
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.250",
+  "text": "WEH1R IH1Z NAH1MBER0 NAH1MBER0 FAY1V <SP>",
+  "phoneme": "en_W-EH1-R en_IH1-Z en_N-AH1-M-B-ER0 en_N-AH1-M-B-ER0 en_F-AY1-V <SP>",
+  "note_pitch": "64 67 69 69 72 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_288000",
+  "language": "English",
+  "time": [
+   288000,
+   290000
+  ],
+  "duration": "0.500 0.500 1.000 0.020",
+  "text": "YEH1S IH1TS FAY1V <SP>",
+  "phoneme": "en_Y-EH1-S en_IH1-T-S en_F-AY1-V <SP>",
+  "note_pitch": "72 69 67 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_290000",
+  "language": "English",
+  "time": [
+   290000,
+   292250
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.250",
+  "text": "WEH1R IH1Z LEH1TER0 LEH1TER0 EH1M <SP>",
+  "phoneme": "en_W-EH1-R en_IH1-Z en_L-EH1-T-ER0 en_L-EH1-T-ER0 en_EH1-M <SP>",
+  "note_pitch": "64 67 69 69 72 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_296000",
+  "language": "English",
+  "time": [
+   296000,
+   298000
+  ],
+  "duration": "0.500 0.500 1.000 0.020",
+  "text": "YEH1S IH1TS EH1M <SP>",
+  "phoneme": "en_Y-EH1-S en_IH1-T-S en_EH1-M <SP>",
+  "note_pitch": "72 69 67 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_298000",
+  "language": "English",
+  "time": [
+   298000,
+   300250
+  ],
+  "duration": "0.500 0.500 0.500 0.500 0.250",
+  "text": "WIH1CH WER1D SEH1Z GOW1 <SP>",
+  "phoneme": "en_W-IH1-CH en_W-ER1-D en_S-EH1-Z en_G-OW1 <SP>",
+  "note_pitch": "64 67 69 72 0",
+  "note_type": "2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_304000",
+  "language": "English",
+  "time": [
+   304000,
+   306000
+  ],
+  "duration": "0.500 0.500 1.000 0.020",
+  "text": "YEH1S IH1TS GOW1 <SP>",
+  "phoneme": "en_Y-EH1-S en_IH1-T-S en_G-OW1 <SP>",
+  "note_pitch": "72 69 67 0",
+  "note_type": "2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_306000",
+  "language": "English",
+  "time": [
+   306000,
+   310000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.250 0.250 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S LER1N WIH1DH MIY1 TAH0DEY1 TAH0DEY1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_L-ER1-N en_W-IH1-DH en_M-IY1 en_T-AH0-D-EY1 en_T-AH0-D-EY1 <SP>",
+  "note_pitch": "69 69 66 69 74 71 69 66 64 62 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_310000",
+  "language": "English",
+  "time": [
+   310000,
+   314000
+  ],
+  "duration": "0.500 0.250 0.250 0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.020",
+  "text": "KAW1NT AH0ND SIH1NG AH0ND SEY1 EY1 BIY1 SIY1 HHUH0REY1 HHUH0REY1 <SP>",
+  "phoneme": "en_K-AW1-N-T en_AH0-N-D en_S-IH1-NG en_AH0-N-D en_S-EY1 en_EY1 en_B-IY1 en_S-IY1 en_HH-UH0-R-EY1 en_HH-UH0-R-EY1 <SP>",
+  "note_pitch": "66 69 71 69 66 66 69 71 69 74 0",
+  "note_type": "2 2 2 2 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_314000",
+  "language": "English",
+  "time": [
+   314000,
+   318000
+  ],
+  "duration": "0.250 0.250 0.250 0.250 0.500 0.500 0.500 0.250 0.250 0.500 0.250 0.250 0.020",
+  "text": "NAH1MBER0Z NAH1MBER0Z LEH1TER0Z LEH1TER0Z WER1DZ TUW1 NOW1 LER1NIH0NG LER1NIH0NG MAO1R IY1CH DEY1 <SP>",
+  "phoneme": "en_N-AH1-M-B-ER0-Z en_N-AH1-M-B-ER0-Z en_L-EH1-T-ER0-Z en_L-EH1-T-ER0-Z en_W-ER1-D-Z en_T-UW1 en_N-OW1 en_L-ER1-N-IH0-NG en_L-ER1-N-IH0-NG en_M-AO1-R en_IY1-CH en_D-EY1 <SP>",
+  "note_pitch": "66 69 71 69 66 64 66 69 69 71 69 74 0",
+  "note_type": "2 3 2 3 2 2 2 2 3 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_318000",
+  "language": "English",
+  "time": [
+   318000,
+   322000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.500 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S LEH1TS LER1N AH0ND PLEY1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_L-EH1-T-S en_L-ER1-N en_AH0-N-D en_P-L-EY1 <SP>",
+  "note_pitch": "71 71 66 71 74 69 66 69 74 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_322000",
+  "language": "English",
+  "time": [
+   322000,
+   326000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.500 0.250 0.250 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S LER1N WIH1DH MIY1 TAH0DEY1 TAH0DEY1 <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_L-ER1-N en_W-IH1-DH en_M-IY1 en_T-AH0-D-EY1 en_T-AH0-D-EY1 <SP>",
+  "note_pitch": "69 69 66 69 74 71 69 66 64 62 0",
+  "note_type": "2 2 2 3 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_326000",
+  "language": "English",
+  "time": [
+   326000,
+   330000
+  ],
+  "duration": "0.500 0.250 0.250 0.500 0.500 0.250 0.250 0.500 0.500 0.500 0.020",
+  "text": "KAW1NT AH0ND SIH1NG AH0ND SEY1 EY1 BIY1 SIY1 HHUH0REY1 HHUH0REY1 <SP>",
+  "phoneme": "en_K-AW1-N-T en_AH0-N-D en_S-IH1-NG en_AH0-N-D en_S-EY1 en_EY1 en_B-IY1 en_S-IY1 en_HH-UH0-R-EY1 en_HH-UH0-R-EY1 <SP>",
+  "note_pitch": "66 69 71 69 66 66 69 71 69 74 0",
+  "note_type": "2 2 2 2 2 2 2 2 2 3 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_330000",
+  "language": "English",
+  "time": [
+   330000,
+   334000
+  ],
+  "duration": "0.250 0.250 0.250 0.250 0.500 0.500 0.500 0.250 0.250 0.500 0.250 0.250 0.020",
+  "text": "NAH1MBER0Z NAH1MBER0Z LEH1TER0Z LEH1TER0Z WER1DZ TUW1 NOW1 LER1NIH0NG LER1NIH0NG MAO1R IY1CH DEY1 <SP>",
+  "phoneme": "en_N-AH1-M-B-ER0-Z en_N-AH1-M-B-ER0-Z en_L-EH1-T-ER0-Z en_L-EH1-T-ER0-Z en_W-ER1-D-Z en_T-UW1 en_N-OW1 en_L-ER1-N-IH0-NG en_L-ER1-N-IH0-NG en_M-AO1-R en_IY1-CH en_D-EY1 <SP>",
+  "note_pitch": "66 69 71 69 66 64 66 69 69 71 69 74 0",
+  "note_type": "2 3 2 3 2 2 2 2 3 2 2 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_334000",
+  "language": "English",
+  "time": [
+   334000,
+   338000
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.500 0.500 1.000 0.020",
+  "text": "ZUW1M ZUW1M KIH1DOW0 KIH1DOW0 VER1S KIH1DOW0 KIH1DOW0 VER1S <SP>",
+  "phoneme": "en_Z-UW1-M en_Z-UW1-M en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S <SP>",
+  "note_pitch": "71 71 66 71 74 66 69 74 0",
+  "note_type": "2 2 2 3 2 2 3 2 1",
+  "f0": ""
+ },
+ {
+  "index": "lead_338000",
+  "language": "English",
+  "time": [
+   338000,
+   340250
+  ],
+  "duration": "0.500 0.500 0.250 0.250 0.500 0.250",
+  "text": "BAY1 BAY1 KIH1DOW0 KIH1DOW0 VER1S <SP>",
+  "phoneme": "en_B-AY1 en_B-AY1 en_K-IH1-D-OW0 en_K-IH1-D-OW0 en_V-ER1-S <SP>",
+  "note_pitch": "67 64 64 67 72 0",
+  "note_type": "2 2 2 3 2 1",
+  "f0": ""
+ }
+]

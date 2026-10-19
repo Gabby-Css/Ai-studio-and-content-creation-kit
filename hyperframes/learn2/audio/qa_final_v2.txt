@@ -1,0 +1,66 @@
+    0.0s intro            0/2 LOW | kiddo verse                                | gliddoverse all aboard the color
+    8.9s chorus           6/6 OK  | toot toot here comes the train             | toot toot here comes the train ringboo
+   13.3s chorus           5/5 OK  | rainbow colors big and bright              | rainbow colors big and bright red and
+   17.8s chorus           5/6 mid | red and blue and yellow too                | red and blue and yellow to let's find
+   22.2s chorus           6/6 OK  | let's find the colors with me              | let's find the colors with me
+   26.7s story            5/5 OK  | oh no the rainbow's gray                   | oh no the rainbow's gray where it d
+   31.1s story            5/5 OK  | where did the colors go                    | where did the colors go let's ro
+   35.6s story            7/7 OK  | let's ride the train and find them         | let's ride the train and find them
+   40.0s story            3/4 mid | all aboard toot toot                       | as a board toot toot toot toot
+   44.4s stop     arrive  4/6 mid | toot toot stop stop here's red             | toot toot stop stop ears rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+   48.9s stop     echo    5/5 OK  | red red red red red                        | red red red red red
+   53.3s stop     obj1    4/4 OK  | apples are red red                         | apples are red red hearts are
+   57.8s stop     obj2    4/4 OK  | hearts are red red                         | hearts are red red cherry
+   62.2s stop     obj3    4/4 OK  | cherries are red red                       | cherries are red red what c
+   66.7s stop     qa      4/5 mid | what color is it red                       | what color is it toosh to
+   71.1s stop     arrive  6/6 OK  | toot toot stop stop here's orange          | toot toot stop stop here's orange orange
+   75.6s stop     echo    3/3 OK  | orange orange orange                       | orange orange orange yum
+   80.0s stop     obj1    4/4 OK  | oranges are orange orange                  | oranges are orange orange carrots
+   84.4s stop     obj2    4/4 OK  | carrots are orange orange                  | carrots are orange orange fish
+   88.9s stop     obj3    2/4 mid | fish are orange orange                     | there's our orange what
+   93.3s stop     qa      5/5 OK  | what color is it orange                    | what color is it orange too too
+   97.8s stop     arrive  5/6 mid | toot toot stop stop here's yellow          | toot toot stop stop ears yellow yellow
+  102.2s stop     echo    3/3 OK  | yellow yellow yellow                       | yellow yellow yellow
+  106.7s stop     obj1    3/4 mid | suns are yellow yellow                     | thumbs are yellow dogs are
+  111.1s stop     obj2    3/4 mid | ducks are yellow yellow                    | dogs are yellow stars are
+  115.6s stop     obj3    4/4 OK  | stars are yellow yellow                    | stars are yellow what
+  120.0s stop     qa      5/5 OK  | what color is it yellow                    | what color is it yellow toosh toosh
+  124.4s stop     arrive  6/6 OK  | toot toot stop stop here's green           | toot toot stop stop here's green
+  128.9s stop     echo    0/5 LOW | green green green green green              | in grunt grunt grunt grunt grunt
+  133.3s stop     obj1    4/4 OK  | trees are green green                      | trees are green gray frogs are
+  137.8s stop     obj2    4/4 OK  | frogs are green green                      | frogs are green gray leaves are
+  142.2s stop     obj3    4/4 OK  | leaves are green green                     | leaves are green gray what
+  146.7s stop     qa      4/5 mid | what color is it green                     | what color is it grime tush tush
+  151.1s stop     arrive  4/6 mid | toot toot stop stop here's blue            | toot toot stop stop ears pliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+  155.6s stop     echo    0/5 LOW | blue blue blue blue blue                   | bloop bloop bloop bloop bloop bloop
+  160.0s stop     obj1    4/4 OK  | whales are blue blue                       | whales are blue
+  164.4s stop     obj2    2/4 mid | balloons are blue blue                     | blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue blue
+  168.9s stop     obj3    3/4 mid | balls are blue blue                        | both are blue blue what
+  173.3s stop     qa      5/5 OK  | what color is it blue                      | what color is it blue tush tush
+  177.8s stop     arrive  6/6 OK  | toot toot stop stop here's purple          | toot toot stop stop here's purple
+  182.2s stop     echo    3/3 OK  | purple purple purple                       | it's purple purple purple
+  186.7s stop     obj1    4/4 OK  | grapes are purple purple                   | grapes are purple purple flowers
+  191.1s stop     obj2    4/4 OK  | flowers are purple purple                  | flowers are purple purple hats are
+  195.6s stop     obj3    4/4 OK  | hats are purple purple                     | hats are purple purple what co
+  200.0s stop     qa      5/5 OK  | what color is it purple                    | what color is it purple red
+  204.4s rainbow          3/3 OK  | red orange yellow                          | red orange yellow green
+  208.9s rainbow          3/3 OK  | green blue purple                          | green blue purple
+  213.3s rainbow          0/4 LOW | a rainbow a rainbow                        | and we go and we go look out
+  217.8s rainbow          4/5 mid | look at the rainbow hooray                 | look at the rainbow parade let's play
+  222.2s gameintro         7/7 OK  | let's play a game find the color           | let's play a game find the color where it
+  226.7s game     q       3/3 OK  | where is blue                              | where is blue
+  233.3s game     a       2/3 mid | yes it's blue                              | look it's blue where it
+  235.6s game     q       3/3 OK  | where is green                             | where is green
+  242.2s game     a       0/3 LOW | yes it's green                             | you're good great where is
+  244.4s game     q       3/3 OK  | where is orange                            | where is orange
+  251.1s game     a       1/3 LOW | yes it's orange                            | yup it's
+  253.3s fin              6/6 OK  | toot toot here comes the train             | toot toot here comes the train rainbow
+  257.8s fin              5/5 OK  | rainbow colors big and bright              | rainbow colors big and bright red and
+  262.2s fin              5/6 mid | red and blue and yellow too                | red and blue and yellow to let's find
+  266.7s fin              6/6 OK  | let's find the colors with me              | let's find the colors with me
+  271.1s fin2             6/6 OK  | toot toot here comes the train             | toot toot here comes the train rainbow
+  275.6s fin2             5/5 OK  | rainbow colors big and bright              | rainbow colors big and bright red and
+  280.0s fin2             5/6 mid | red and blue and yellow too                | red and blue and yellow two colors
+  284.4s fin2             5/5 OK  | colors colors we love colors               | colors colors we love colors bye bye
+  288.9s outro            2/4 mid | bye bye kiddo verse                        | bye bye kidoverse see you next time
+TOTAL 254/297 = 86%

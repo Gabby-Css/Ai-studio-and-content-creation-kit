@@ -1,0 +1,28 @@
+      132.0 q      who says quack                         | who does work
+      138.0 a      yes it's the duck                      | shout with the dog hootay
+      140.0 q      who says roar                          | who says roar
+      146.0 a      yes it's the lion                      | she is the lion's hoot
+      148.0 q      who says oink                          | i am who says i ain't
+      154.0 a      yes it's the pig                       | this is nothing
+kbase        any  43% (9/21)  lead  67% (6/9)  kids  25% (3/12)  | quack 0/1 roar 1/1 oink 0/1
+      132.0 q      who says quack                         | who does work
+      138.0 a      yes it's the duck                      | stuck with the dog hoothoo
+      140.0 q      who says roar                          | who says roar
+      146.0 a      yes it's the lion                      | yes it's the lion's hootay
+      148.0 q      who says oink                          | i am who says i ain't
+      154.0 a      yes it's the pig                       | yes it's nothing
+kg0          any  62% (13/21)  lead  67% (6/9)  kids  58% (7/12)  | quack 0/1 roar 1/1 oink 0/1
+      132.0 q      who says quack                         | who does work
+      138.0 a      yes it's the duck                      | shout with the dog who did
+      140.0 q      who says roar                          | who says roar
+      146.0 a      yes it's the lion                      | stuck in the lion's poo tent
+      148.0 q      who says oink                          | who says i
+      154.0 a      yes it's the pig                       | stuck in the face
+kA           any  48% (10/21)  lead  67% (6/9)  kids  33% (4/12)  | quack 0/1 roar 1/1 oink 0/1
+      132.0 q      who says quack                         | who does work
+      138.0 a      yes it's the duck                      | shout with the dog who did
+      140.0 q      who says roar                          | who says roar
+      146.0 a      yes it's the lion                      | yeah it's the lion's hootay
+      148.0 q      who says oink                          | i am who it is i ain't
+      154.0 a      yes it's the pig                       | get in the face
+kg0A         any  48% (10/21)  lead  56% (5/9)  kids  42% (5/12)  | quack 0/1 roar 1/1 oink 0/1

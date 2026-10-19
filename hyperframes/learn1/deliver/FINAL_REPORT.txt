@@ -1,0 +1,11 @@
+KiddoVerse_Learn1_1080p.mp4: 490 MB, 354.0 s, -13.9 LUFS, true peak -0.6 dBTP
+  PASS  KiddoVerse_Learn1_1080p.mp4  duration: 354.0 s (target 354 s +/- 0.5)
+  PASS  KiddoVerse_Learn1_1080p.mp4  loudness: -13.9 LUFS (target -14 +/- 1)
+  PASS  KiddoVerse_Learn1_1080p.mp4  true peak: -0.6 dBTP (must be <= -0.3)
+  NOTE  KiddoVerse_Learn1_1080p.mp4: true peak -0.6 dBTP is acceptable but above -1.0 dBTP (little headroom for YouTube's re-encode)
+KiddoVerse_Learn1_720p.mp4: 111 MB, 354.0 s, -13.9 LUFS, true peak -0.6 dBTP
+  PASS  KiddoVerse_Learn1_720p.mp4  duration: 354.0 s (target 354 s +/- 0.5)
+  PASS  KiddoVerse_Learn1_720p.mp4  loudness: -13.9 LUFS (target -14 +/- 1)
+  PASS  KiddoVerse_Learn1_720p.mp4  true peak: -0.6 dBTP (must be <= -0.3)
+  NOTE  KiddoVerse_Learn1_720p.mp4: true peak -0.6 dBTP is acceptable but above -1.0 dBTP (little headroom for YouTube's re-encode)
+OVERALL: ALL CHECKS PASS

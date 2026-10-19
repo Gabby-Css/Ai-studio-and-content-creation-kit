@@ -1,0 +1,14 @@
+intro   t=    0s  words   2  recognised   1 ( 50%)   heard: kiddo iverse zoom
+chorus  t=    8s  words  37  recognised  33 ( 89%)   heard: zoom kiddo iverse hop on board let's go zoom zoom kiddo iverse clap clap here we go round the stars 
+v1      t=   24s  words  24  recognised  23 ( 96%)   heard: rainbow hills what do we see red balloons floating free yellow sun and night deep blue a sea a green
+chorus  t=   40s  words  37  recognised  36 ( 97%)   heard: zoom kiddo verse hop on board let's go zoom zoom kiddo verse clap clap here we go round the stars an
+v2      t=   56s  words  23  recognised  23 (100%)   heard: you rumble the dino goes stomp stomp stomp counting the eggs pop pop pop one two three four five fiv
+chorus  t=   72s  words  37  recognised  34 ( 92%)   heard: zoom kiddo first hop on board let's go zoom zoom kiddo first clap clap here we go round the stars an
+v3      t=   88s  words  27  recognised  24 ( 89%)   heard: i'm happy shining bright sometimes i'm sad and i rain at night take my deep breath count to two hug 
+dance   t=  104s  words  13  recognised  13 (100%)   heard: wiggle left wiggle right wiggle left wiggle right i jump up high i spin around i jump up high i spin
+v4      t=  120s  words  22  recognised  20 ( 91%)   heard: circle a circle we all go around a square a square he blocks on the ground triangle triangle roofs u
+bridge  t=  136s  words  23  recognised  14 ( 61%)   heard: or small near or far and everyone you've met us it's nice to different friends from everywhere kidov
+fin     t=  152s  words  37  recognised  27 ( 73%)   heard: zoom zoom kidoverse not gone forward let's go zoom zoom kidoverse clap clap here we go around the st
+fin2    t=  168s  words  33  recognised  33 (100%)   heard: zoom zoom kiddo verse hop on board let's go zoom zoom kiddo verse clap clap here we go round the sta
+outro   t=  184s  words   4  recognised   4 (100%)   heard: bye bye kiddo verse
+OVERALL vocals_sung.wav: recognised 285/319 = 89%

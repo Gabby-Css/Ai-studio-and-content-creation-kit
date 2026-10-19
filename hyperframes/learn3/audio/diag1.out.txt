@@ -1,0 +1,9 @@
+raw stem               peak   -8.9 dB |  woof woof the doggy zap
+expander               peak   -8.9 dB |  woof woof the doggy zap
++EQ                    peak   -7.0 dB |  wove wove the dog is a
++air                   peak   -7.0 dB |  wove wove the dogget za
++HF presence           peak   -5.8 dB |  wove wove  the dog is a
++cvr                   peak   -2.8 dB |  wove wove the dogget zept
++deess                 peak   -2.3 dB |  wove wove the dogget sev
++comp1                 peak   -3.2 dB |  wove wove the dogget sev
++comp2                 peak   -1.9 dB |  wove wove the dogget sef

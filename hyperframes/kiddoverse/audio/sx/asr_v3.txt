@@ -1,0 +1,14 @@
+intro   t=    0s  words   2  recognised   0 (  0%)   heard: keto first all aboard the zoomy ready ready three two one zoom
+chorus  t=    8s  words  37  recognised  24 ( 65%)   heard: keto first hop on board let's go zoom zoom keto first clap clap here we go from the stars a heck of 
+v1      t=   24s  words  24  recognised  20 ( 83%)   heard: rainbow heels what do we see red blue moons floating free yellow sun and a deep we'll see green gree
+chorus  t=   40s  words  37  recognised  30 ( 81%)   heard: zoom zoom kiddo first hop on board let's go zoom zoom kiddo first come come here we'll go round the 
+v2      t=   56s  words  23  recognised  19 ( 83%)   heard: rumble the dino go stomp stomp stomp can the eggs pop pop pop one two three four five burn the dino 
+chorus  t=   72s  words  37  recognised  22 ( 59%)   heard: soon soon kiddo first hop on board let's go soon soon kiddo first clap clap here we go from the star
+v3      t=   88s  words  27  recognised  15 ( 56%)   heard: so sun sun sun happy be shining bright sun sun sun sun and every dead night take a deep deep breath 
+dance   t=  104s  words  13  recognised   9 ( 69%)   heard: time for the kiddo wiggle wiggle left wiggle right then wiggle right wiggle right jump up high spin 
+v4      t=  120s  words  22  recognised   0 (  0%)   heard: 
+bridge  t=  136s  words  23  recognised   9 ( 39%)   heard: this year's a star giver grins friends from everywhere keto first has room to spare tum
+fin     t=  152s  words  37  recognised  20 ( 54%)   heard: tum tum keto first hop on board let's go tum tum keto first clap clap here we go from the stars step
+fin2    t=  168s  words  33  recognised  17 ( 52%)   heard: tum keto first hop on board let's go tsum tsum kiddo birds clap clap here we go run the stars step b
+outro   t=  184s  words   4  recognised   3 ( 75%)   heard: bye bye kiddo birds see you next time
+OVERALL master_v3.wav: recognised 188/319 = 59%

@@ -1,0 +1,8 @@
+PAIRS = [
+    ("const bx=(x)=>chPos('bo',x-6-52,0)[0];                     // Bo's character x for a kart at x",
+     "const bx=(x)=>chPos('bo',x-6,0)[0];                         // Bo's character x for a kart centred at x (same offset as place())"),
+    ("function driveBo(t0,dur,x1,ease='sine.inOut',y1){ // kart + Bo + Pebble together\n tl.to('#kboW',{x:x1,duration:dur,ease},t0);tl.to('#bo',{x:bx(x1),duration:dur,ease},t0);tl.to('#pb',{x:x1+PK[0],duration:dur,ease},t0);\n if(y1!==undefined){tl.to('#kboW',{y:y1+KRC.bo.b,duration:dur,ease},t0);tl.to('#bo',{y:chPos('bo',0,y1-34)[1],duration:dur,ease},t0);tl.to('#pb',{y:y1-34+PK[1],duration:dur,ease},t0);}}",
+     "function driveBo(t0,dur,x1,ease='sine.inOut',y1){ // kart + Bo + Pebble together (y1 = new lane, optional)\n const ky=y1===undefined?KY('bo'):y1+KRC.bo.b, by=y1===undefined?chPos('bo',0,FEET('bo'))[1]:chPos('bo',0,y1-34)[1];\n tl.to('#kboW',{x:x1,duration:dur,ease},t0);tl.to('#bo',{x:bx(x1),duration:dur,ease},t0);tl.to('#pb',{x:x1+PK[0],duration:dur,ease},t0);\n if(y1!==undefined){tl.to('#kboW',{y:ky,duration:dur,ease},t0);tl.to('#bo',{y:by,duration:dur,ease},t0);tl.to('#pb',{y:ky+PK[1],duration:dur,ease},t0);}}"),
+    ("(function(){const ease=p=>{const t=p*TS,tE=TS-.9;return t<tE?V0*t/DS:(V0*tE+ (V0*.9/2)*(1-Math.pow(1-(t-tE)/.9,2))*1)/DS;};\n const lay=[['#rsDash',300,1],['#rsFence',600,1],['#rsMid',1200,.5],['#rsFar',1800,.22],['#rsCloud',2400,.1]];\n lay.forEach(([id,P,m])=>tl.to(id,{x:-DS*m,duration:TS,ease,modifiers:{x:wrapPx(P)}},0));})();",
+     "const LAY=[['#rsDash',300,1],['#rsFence',600,1],['#rsMid',1200,.5],['#rsFar',1800,.22],['#rsCloud',2400,.1]];\nLAY.forEach(([id,P,m])=>tl.to(id,{x:-DS*m,duration:TS,ease:'power1.out',modifiers:{x:wrapPx(P)}},0));"),
+]

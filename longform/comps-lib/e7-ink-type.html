@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E7 — INK  (Higgsfield plate + composited type)
+   Plate: hf-plates/ink.mp4 — white ink/smoke plume on pure black (broll, full beats).
+   This file is the TRANSPARENT TYPE LAYER only; the plate is composited underneath by
+   lf-assemble on the full-beat windows. Overlay beats ride the presenter footage.
+
+   TYPE SYSTEM (distinct from all other edits):
+     DISPLAY  Bebas Neue — tall, narrow, cinematic caps, centred
+     BODY     Inter, wide-tracked, thin
+     COLOUR   white on black; a single hairline rule. No accent hue at all — the ink IS the image
+     MOTION   DISSOLVE: every element resolves out of a blur as it fades up and drifts, matching
+              the diffuse physics of smoke. Nothing snaps here. This is the ONLY edit that dissolves.
+   ============================================================================ */
+@font-face{ font-family:'Bebas'; src:url('bebas.ttf'); }
+@font-face{ font-family:'Inter'; src:url('inter.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.beb{ font-family:'Bebas',sans-serif; letter-spacing:.02em; }
+.inr{ font-family:'Inter',sans-serif; }
+</style></head><body><div id="stage"></div><script>
+const S = document.getElementById('stage');
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const clamp = (v,a,b)=>v<a?a:v>b?b:v;
+const p01 = (lt,d,len)=>clamp((lt-d)/len,0,1);
+const outCubic = p => 1 - Math.pow(1-p,3);
+
+const FPS_POSTERIZE = 12, STEP = 1/FPS_POSTERIZE;
+const WHITE='#F3F1EC', DIM='rgba(243,241,236,0.60)';
+
+/* full = type sits over the ink plate; scrim helps it read against bright smoke.
+   overlay = lower-third on the presenter. */
+const SCENES = [
+  { full:1, at:0.30,  dur:5.35, kind:'hero',  k:'THE GRIND',   a:'POSTING',   b:'BY HAND' },
+  { full:0, at:6.20,  dur:1.42, kind:'lower',  l:'There is a system' },
+  { full:1, at:7.80,  dur:3.95, kind:'stat',  k:'THE MATH',    big:'300', sub:'VIDEOS CLIPPED / MONTH' },
+  { full:0, at:12.30, dur:3.40, kind:'lower',  l:'Quality gate — editor review required' },
+  { full:1, at:16.10, dur:5.40, kind:'hero',  k:'THE METHOD',  a:'THE',       b:'MACHINE' },
+  { full:0, at:22.00, dur:1.25, kind:'lower',  l:'Configure once. Test each project.' },
+  { full:1, at:23.50, dur:5.55, kind:'list',  k:'THE SYSTEM',  items:['DROP THE FILE','IT EDITS','IT CLIPS','IT POSTS'] },
+  { full:0, at:29.40, dur:5.45, kind:'lower',  l:'A thousand videos a day — not clickbait' },
+  { full:1, at:35.20, dur:2.30, kind:'hero',  k:'THE SHIFT',   a:'HOW YOU',   b:'ACTUALLY SCALE' },
+  { full:1, at:37.80, dur:5.85, kind:'stat',  k:'THE PIPELINE',big:'ONE', sub:'FOLDER FEEDS EVERY PLATFORM' },
+  { full:0, at:44.00, dur:4.55, kind:'lower',  l:'Every platform you already have' },
+  { full:1, at:49.05, dur:5.15, kind:'hero',  k:'THE CLAIM',   a:'THAT IS A', b:'GAME CHANGER' },
+  { full:0, at:54.60, dur:5.40, kind:'lower',  l:'One long form in — a year of clips out' },
+  { full:1, at:60.30, dur:3.35, kind:'hero',  k:'THE CLOSE',   a:'REVIEW',   b:'THEN PUBLISH' }
+];
+
+const built = [];
+SCENES.forEach(Sd => {
+  const sc = el('sc');
+  const o = { S:Sd, sc, parts:{} };
+  if (Sd.full){
+    /* soft vertical scrim so white type holds over bright smoke crests — NOT a full ground */
+    const scrim = el('', sc);
+    scrim.style.cssText = 'position:absolute;inset:0;background:' +
+      'linear-gradient(180deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.10) 40%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0.50) 100%);';
+    o.parts.scrim = scrim;
+  }
+  if (Sd.kind === 'hero'){
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:0;right:0;top:400px;text-align:center;';
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText = 'font-size:22px;letter-spacing:.55em;color:'+DIM+';text-transform:uppercase;margin-bottom:26px;';
+    const a = el('beb', wrap, Sd.a);
+    a.style.cssText = 'font-size:176px;line-height:.92;color:'+WHITE+';';
+    const b = el('beb', wrap, Sd.b);
+    b.style.cssText = 'font-size:176px;line-height:.92;color:'+WHITE+';';
+    const rule = el('', wrap);
+    rule.style.cssText = 'height:1px;width:0;background:'+DIM+';margin:34px auto 0;';
+    o.parts = Object.assign(o.parts,{ wrap, k, a, b, rule });
+  }
+  if (Sd.kind === 'stat'){
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:0;right:0;top:330px;text-align:center;';
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText = 'font-size:22px;letter-spacing:.55em;color:'+DIM+';text-transform:uppercase;margin-bottom:20px;';
+    const big = el('beb', wrap, Sd.big);
+    big.style.cssText = 'font-size:'+(Sd.big.length>3?'240px':'320px')+';line-height:.84;color:'+WHITE+';';
+    const sub = el('inr', wrap, Sd.sub);
+    sub.style.cssText = 'font-size:24px;letter-spacing:.28em;color:'+DIM+';text-transform:uppercase;margin-top:26px;';
+    o.parts = Object.assign(o.parts,{ wrap, k, big, sub });
+  }
+  if (Sd.kind === 'list'){
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:0;right:0;top:300px;text-align:center;';
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText = 'font-size:22px;letter-spacing:.55em;color:'+DIM+';text-transform:uppercase;margin-bottom:40px;';
+    const rows = Sd.items.map(t => { const r = el('beb', wrap, t);
+      r.style.cssText = 'font-size:104px;line-height:1.02;color:'+WHITE+';opacity:0;'; return r; });
+    o.parts = Object.assign(o.parts,{ wrap, k, rows });
+  }
+  if (Sd.kind === 'lower'){
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:130px;bottom:150px;';
+    const bar = el('', wrap);
+    bar.style.cssText = 'height:2px;width:0;background:'+WHITE+';margin-bottom:22px;';
+    const l = el('beb', wrap, Sd.l);
+    l.style.cssText = 'font-size:76px;line-height:1.0;color:'+WHITE+';text-shadow:0 2px 24px rgba(0,0,0,0.8);';
+    o.parts = Object.assign(o.parts,{ wrap, bar, l });
+  }
+  built.push(o);
+});
+
+/* dissolve: opacity + a blur that resolves + a small upward drift. the ink signature. */
+function diss(node, pr, drift){
+  const b = (1 - pr) * 16;
+  node.style.opacity = pr;
+  node.style.filter = 'blur(' + b.toFixed(2) + 'px)';
+  node.style.transform = 'translateY(' + ((1 - outCubic(pr)) * (drift || 22)).toFixed(1) + 'px)';
+}
+
+function seek(tRaw){
+  const t = Math.floor(tRaw/STEP)*STEP;
+  built.forEach(o => {
+    const S = o.S, lt = t - S.at, on = lt >= -0.001 && lt <= S.dur;
+    o.sc.style.opacity = on ? 1 : 0;
+    if (!on) return;
+    const P = o.parts;
+    if (P.scrim) P.scrim.style.opacity = p01(lt,0.0,0.5);
+    if (S.kind === 'hero'){
+      P.k.style.opacity = p01(lt,0.10,0.4);
+      diss(P.a, p01(lt,0.24,0.5));
+      diss(P.b, p01(lt,0.40,0.5));
+      P.rule.style.width = (420 * outCubic(p01(lt,0.9,0.5))) + 'px';
+    }
+    if (S.kind === 'stat'){
+      P.k.style.opacity = p01(lt,0.10,0.4);
+      diss(P.big, p01(lt,0.22,0.55), 30);
+      diss(P.sub, p01(lt,0.6,0.5));
+    }
+    if (S.kind === 'list'){
+      P.k.style.opacity = p01(lt,0.10,0.4);
+      P.rows.forEach((r,i)=>diss(r, p01(lt,0.30+i*0.34,0.5)));
+    }
+    if (S.kind === 'lower'){
+      P.bar.style.width = (300 * outCubic(p01(lt,0.06,0.4))) + 'px';
+      diss(P.l, p01(lt,0.18,0.5), 16);
+    }
+  });
+}
+window.__seek = seek; seek(0); window.__ready = true;
+</script></body></html>

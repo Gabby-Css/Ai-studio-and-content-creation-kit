@@ -1,0 +1,4 @@
+bass     625 events   184.4s  peak  -13.4 dB  rms  -30.4 dB  (144s)
+drums   2538 events   182.4s  peak   -9.1 dB  rms  -31.9 dB  (51s)
+harm    3426 events   185.2s  peak  -11.6 dB  rms  -32.1 dB  (56s)
+mel      354 events   185.7s  peak  -10.3 dB  rms  -35.5 dB  (88s)

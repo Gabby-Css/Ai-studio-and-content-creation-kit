@@ -1,0 +1,9 @@
+MIX NG1 BUILT
+NG1_estoi: mean ESTOI 0.672 over 13 sections
+MIX NG2 BUILT
+NG2_estoi: mean ESTOI 0.688 over 13 sections
+NG1         57%   per segment: 24s:94%  72s:73%  104s:38%  136s:17%  152s:47%  168s:61%
+NG2         58%   per segment: 24s:94%  72s:74%  104s:38%  136s:17%  152s:46%  168s:62%
+OVERALL master_v3_NG1.wav: recognised 222/319 = 70%
+OVERALL master_v3_NG2.wav: recognised 221/319 = 69%
+NG CHECK DONE

@@ -1,0 +1,27 @@
+with open(os.path.join(out, "KiddoVerse_Learn4.srt"), "w", encoding="utf8") as f:
+    for k, (a, b, txt) in enumerate(cues, 1): f.write(f"{k}\n{ts(a)} --> {ts(b)}\n{txt}\n\n")
+
+# ---- script with timestamps, by section
+NAME = {"intro": "INTRO", "hook": "THEME SONG - Beep boop, shapes!", "stop": "SHAPE STOP", "game": "QUIZ ROUND", "yoga": "SHAPE YOGA (brain break)", "house": "BUILD A HOUSE (key up)", "fin": "BYE BYE", "outro": "OUTRO"}
+with open(os.path.join(out, "KiddoVerse_Learn4_script.txt"), "w", encoding="utf8") as f:
+    f.write("KiddoVerse Learn #4  -  The Shape Workshop: Learn 8 Shapes\nOriginal songs, lyrics and melodies (c) KiddoVerse. 120 BPM, C major (the shape stops change key, the house finale is a tone higher).\n\n")
+    for s_ in S["sections"]:
+        head = f"[{mmss(s_['t0'])}] {NAME.get(s_['kind'], s_['kind'].upper())}"
+        if s_["kind"] == "stop": head += f"  {s_['meta']['i'] + 1}: {s_['meta']['shape'].upper()}"
+        if s_["kind"] == "game": head += f"  {s_['meta']['k'] + 1}: where is the {s_['meta']['shape']}?"
+        f.write("\n" + head + "\n")
+        for ln in S["lines"]:
+            if ln["sec"] == s_["i"]: f.write("   " + join(ln["words"]) + "\n")
+        for sp in S["speech"]:
+            if s_["t0"] <= sp["t"] < s_["t1"]: f.write(f"   ({sp['who'].upper()}: {sp['text']})\n")
+
+# ---- YouTube chapters (first must be 0:00; each chapter >= 10 s, at least 3)
+first = lambda kind: next(x for x in S["sections"] if x["kind"] == kind)
+CH = [(S["sections"][0], "Shape Workshop Theme Song")]
+CH += [(x, f"Shape {x['meta']['i'] + 1}: {x['meta']['shape'].capitalize()}") for x in S["sections"] if x["kind"] == "stop"]
+CH += [(first("game"), "Quiz: Where Is the Shape?"), (first("yoga"), "Shape Yoga"), (first("house"), "Build a House with Shapes"), (first("fin"), "Bye Bye")]
+for (a, ta), (b, tb) in zip(CH, CH[1:] + [(dict(t0=S["duration"]), "")]):
+    assert b["t0"] - a["t0"] >= 10 - 1e-6, ("chapter shorter than 10 s", ta, b["t0"] - a["t0"])
+with open(os.path.join(out, "KiddoVerse_Learn4_chapters.txt"), "w", encoding="utf8") as f:
+    for sec, title in CH: f.write(f"{mmss(sec['t0'])} {title}\n")
+print("cues", len(cues), "-> SRT, script, chapters in", os.path.abspath(out))

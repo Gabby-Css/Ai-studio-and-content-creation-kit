@@ -1,0 +1,171 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E8 — BROADCAST SHATTER  (Higgsfield 3D chrome-shield shatter scenes + chyron type)
+   Replaces the old flat "chrome plate" E8. Reference: 8.mp4 "Tabloid TV Doc / Shatter" —
+   a 3D emblem that CRACKS then SHATTERS into shards, glossy cards parallaxing in 3D, a
+   brushed-metal title plate rising. The 3D SCENES are the hero (broll, full beats);
+   this file is the TRANSPARENT TYPE LAYER only.
+
+   TYPE SYSTEM (distinct from every other edit):
+     DISPLAY  Oswald bold caps — a BROADCAST CHYRON lower-third, never a centred slab: the
+              3D shatter owns the centre/upper frame, so all type lives in the lower third
+              and never fights the shield or the rising title plate.
+     DATA     Space Mono — a station bug (● LIVE) + running timecode, the broadcast signature.
+     COLOUR   cold — icy cyan #7FE9FF + ice-white #EAF6FF on a brushed-STEEL bar; transparent.
+     MOTION   SLAM: the steel bar hard-wipes in on an outQuint, a cyan scanline sweeps across
+              it once, the headline clip-reveals from the left. Nothing pops/overshoots (E7)
+              and nothing dissolves (E7-ink, retired). This edit HITS.
+   ============================================================================ */
+@font-face{ font-family:'Oswald'; src:url('oswald.ttf'); }
+@font-face{ font-family:'Inter'; src:url('inter.ttf'); }
+@font-face{ font-family:'Mono'; src:url('spacemono.ttf'); }
+@font-face{ font-family:'MonoB'; src:url('spacemono-bold.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.osw{ font-family:'Oswald',sans-serif; }
+.mono{ font-family:'Mono',monospace; }
+.monob{ font-family:'MonoB',monospace; }
+</style></head><body><div id="stage"></div><script>
+const S = document.getElementById('stage');
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const clamp = (v,a,b)=>v<a?a:v>b?b:v;
+const p01 = (lt,d,len)=>clamp((lt-d)/len,0,1);
+const outQuint = p => 1 - Math.pow(1-p,5);
+const outCubic = p => 1 - Math.pow(1-p,3);
+
+const FPS_POSTERIZE = 12, STEP = 1/FPS_POSTERIZE;
+const CYAN='#7FE9FF', ICE='#EAF6FF', DIM='rgba(234,246,255,0.60)';
+const STEEL='linear-gradient(180deg,#2b333b 0%,#171c22 48%,#0c0f13 100%)';
+
+/* full = broadcast chyron riding the 3D shatter scene, anchored to the LOWER THIRD so it
+   never covers the centred shield or the rising title plate.
+   overlay = a compact "breaking-news strap" on the presenter. */
+const SCENES = [
+  { full:1, at:0.30,  dur:5.35, kind:'label', k:'THE GRIND',    h:'POSTING BY HAND',   s:'the old way, one at a time' },
+  { full:0, at:6.20,  dur:1.42, kind:'tip',   l:'THERE IS A SYSTEM' },
+  { full:1, at:7.80,  dur:3.95, kind:'label', k:'THE NUMBERS',  h:'300 A MONTH',       s:'fully hands off' },
+  { full:0, at:12.30, dur:3.40, kind:'tip',   l:'EDITOR REVIEW REQUIRED' },
+  { full:1, at:16.10, dur:5.40, kind:'label', k:'THE METHOD',   h:'SAMPLE WORKFLOW',   s:'configure and test' },
+  { full:0, at:22.00, dur:1.25, kind:'tip',   l:'TEST EACH PROJECT' },
+  { full:1, at:23.50, dur:5.55, kind:'steps', k:'THE SYSTEM',   items:['DROP THE FILE','IT EDITS','IT CLIPS','IT POSTS'] },
+  { full:0, at:29.40, dur:5.45, kind:'tip',   l:'A THOUSAND A DAY — NOT CLICKBAIT' },
+  { full:1, at:35.20, dur:2.30, kind:'label', k:'THE SHIFT',    h:'ACTUALLY SCALE',    s:'how you finally' },
+  { full:1, at:37.80, dur:5.85, kind:'label', k:'THE PIPELINE', h:'EVERY PLATFORM',    s:'one folder feeds them all' },
+  { full:0, at:44.00, dur:4.55, kind:'tip',   l:'EVERY PLATFORM YOU ALREADY HAVE' },
+  { full:1, at:49.05, dur:5.15, kind:'label', k:'THE VERDICT',  h:'GAME CHANGER',      s:'and that is a' },
+  { full:0, at:54.60, dur:5.40, kind:'tip',   l:'ONE LONG FORM IN — A YEAR OF CLIPS OUT' },
+  { full:1, at:60.30, dur:3.35, kind:'label', k:'THE CLOSE',    h:'REVIEW THEN PUBLISH', s:'final check' }
+];
+
+/* a corner station bug — ● LIVE + running timecode, the recurring broadcast motif.
+   bottom-right, clear of the top-corner float cards. */
+const bug = (()=>{ const b = el('mono');
+  b.style.cssText = 'position:absolute;right:96px;bottom:70px;display:flex;align-items:center;gap:12px;'+
+    'font-size:24px;letter-spacing:.14em;color:'+DIM+';opacity:0;';
+  const dot = el('', b); dot.style.cssText='width:13px;height:13px;border-radius:50%;background:#ff3b30;box-shadow:0 0 12px rgba(255,59,48,0.9);';
+  const lab = el('monob', b, 'LIVE'); lab.style.color=ICE; lab.style.letterSpacing='.18em';
+  const tc = el('mono', b, '00:00:00'); tc.style.marginLeft='4px'; tc.style.color=CYAN;
+  return { b, dot, tc };
+})();
+
+const built = [];
+SCENES.forEach(Sd => {
+  const sc = el('sc');
+  const o = { S:Sd, sc, parts:{} };
+
+  if (Sd.kind === 'label'){
+    /* lower-third chyron: steel bar + cyan flag tab (kicker) + Oswald headline + mono dek + scanline */
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:120px;bottom:132px;';
+    const flag = el('monob', wrap, Sd.k);
+    flag.style.cssText = 'display:inline-block;background:'+CYAN+';color:#06121a;font-size:20px;letter-spacing:.2em;'+
+      'padding:8px 18px;transform-origin:left center;box-shadow:0 0 22px rgba(127,233,255,0.45);opacity:0;';
+    const bar = el('', wrap);
+    bar.style.cssText = 'position:relative;margin-top:0;height:104px;width:0;background:'+STEEL+';overflow:hidden;'+
+      'border-left:4px solid '+CYAN+';box-shadow:0 18px 50px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.08);';
+    const h = el('osw', bar, Sd.h);
+    h.style.cssText = 'position:absolute;left:30px;top:50%;transform:translateY(-50%);white-space:nowrap;'+
+      'font-size:74px;line-height:1;color:'+ICE+';font-weight:700;letter-spacing:.01em;text-shadow:0 2px 18px rgba(0,0,0,0.6);opacity:0;';
+    const scan = el('', bar);
+    scan.style.cssText = 'position:absolute;top:0;bottom:0;width:120px;left:-140px;pointer-events:none;'+
+      'background:linear-gradient(90deg,transparent,rgba(127,233,255,0.55),transparent);';
+    const dek = el('mono', wrap, Sd.s);
+    dek.style.cssText = 'margin-top:14px;font-size:26px;letter-spacing:.06em;color:'+DIM+';text-transform:uppercase;opacity:0;';
+    o.parts = { wrap, flag, bar, h, scan, dek };
+  }
+  if (Sd.kind === 'steps'){
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:120px;bottom:120px;';
+    const flag = el('monob', wrap, Sd.k);
+    flag.style.cssText = 'display:inline-block;background:'+CYAN+';color:#06121a;font-size:20px;letter-spacing:.2em;'+
+      'padding:8px 18px;box-shadow:0 0 22px rgba(127,233,255,0.45);opacity:0;margin-bottom:16px;';
+    const rows = Sd.items.map(t => {
+      const r = el('', wrap); r.style.cssText='height:66px;width:0;background:'+STEEL+';border-left:4px solid '+CYAN+';'+
+        'margin:9px 0;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.5);';
+      const tx = el('osw', r, t); tx.style.cssText='position:absolute;left:26px;top:50%;transform:translateY(-50%);white-space:nowrap;'+
+        'font-size:46px;line-height:1;color:'+ICE+';font-weight:600;letter-spacing:.02em;opacity:0;';
+      return { r, tx };
+    });
+    o.parts = { wrap, flag, rows };
+  }
+  if (Sd.kind === 'tip'){
+    /* compact breaking-news strap on the presenter — cyan-edged steel with a red LIVE pip */
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:130px;bottom:150px;display:flex;align-items:stretch;box-shadow:0 14px 40px rgba(0,0,0,0.6);opacity:0;';
+    const pip = el('monob', wrap, 'LIVE');
+    pip.style.cssText = 'display:flex;align-items:center;background:#ff3b30;color:#fff;font-size:22px;letter-spacing:.14em;padding:0 16px;';
+    const strap = el('', wrap);
+    strap.style.cssText = 'background:'+STEEL+';border-left:3px solid '+CYAN+';padding:18px 30px;position:relative;overflow:hidden;';
+    const l = el('osw', strap, Sd.l);
+    l.style.cssText = 'font-size:46px;line-height:1;color:'+ICE+';font-weight:600;letter-spacing:.01em;white-space:nowrap;';
+    o.parts = { wrap, l, strap };
+  }
+  built.push(o);
+});
+
+function fmtTC(t){ const f=Math.floor((t%1)*30); const s=Math.floor(t)%60; const m=Math.floor(t/60);
+  const z=n=>String(n).padStart(2,'0'); return z(m)+':'+z(s)+':'+z(f); }
+
+/* SLAM: bar hard-wipes to full width on outQuint; a cyan scanline crosses once; text clip-reveals */
+function seek(tRaw){
+  const t = Math.floor(tRaw/STEP)*STEP;
+  bug.tc.textContent = fmtTC(t);
+  built.forEach(o => {
+    const Sd = o.S, lt = t - Sd.at, on = lt >= -0.001 && lt <= Sd.dur;
+    o.sc.style.opacity = on ? 1 : 0;
+    if (!on) return;
+    const P = o.parts;
+    if (Sd.kind === 'label'){
+      P.flag.style.opacity = p01(lt,0.04,0.16);
+      P.flag.style.transform = 'scaleX('+outQuint(p01(lt,0.04,0.18)).toFixed(3)+')';
+      const bw = outQuint(p01(lt,0.14,0.34)); P.bar.style.width = (760*bw).toFixed(0)+'px';
+      P.h.style.opacity = clamp((p01(lt,0.30,0.10))*1.2,0,1);
+      P.h.style.transform = 'translateY(-50%) translateX('+((1-outQuint(p01(lt,0.28,0.22)))*-26).toFixed(1)+'px)';
+      const sp = p01(lt,0.24,0.30); P.scan.style.left = (-140 + sp*940).toFixed(0)+'px'; P.scan.style.opacity = sp<1?1:0;
+      P.dek.style.opacity = p01(lt,0.46,0.30);
+    }
+    if (Sd.kind === 'steps'){
+      P.flag.style.opacity = p01(lt,0.04,0.18);
+      P.rows.forEach((row,i)=>{ const d=0.20+i*0.17;
+        row.r.style.width = (560*outQuint(p01(lt,d,0.26))).toFixed(0)+'px';
+        row.tx.style.opacity = clamp(p01(lt,d+0.08,0.12)*1.2,0,1);
+        row.tx.style.transform = 'translateY(-50%) translateX('+((1-outQuint(p01(lt,d+0.06,0.18)))*-22).toFixed(1)+'px)';
+      });
+    }
+    if (Sd.kind === 'tip'){
+      const cp = p01(lt,0.05,0.20);
+      P.wrap.style.opacity = clamp(cp*1.3,0,1);
+      P.wrap.style.transform = 'translateX('+((1-outQuint(cp))*-30).toFixed(1)+'px)';
+    }
+  });
+  /* station bug rides only during full beats (chyron active), fades out on presenter-only tips */
+  const anyFull = built.some(o=>{ const lt=t-o.S.at; return o.S.full && lt>=-0.001 && lt<=o.S.dur; });
+  bug.b.style.opacity = anyFull ? clamp((t%1<0.5?1:0.55),0.55,1) : 0;
+}
+window.__seek = seek; seek(0); window.__ready = true;
+</script></body></html>

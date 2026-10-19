@@ -1,0 +1,14 @@
+intro   t=    0s  words   2  recognised   1 ( 50%)   heard: kiddo first all aboard the zoomy ready ready three two one zoom
+chorus  t=    8s  words  37  recognised  32 ( 86%)   heard: zoom zoom kiddo first hop on board let's go zoom zoom kiddo first back clap here we go round the sta
+v1      t=   24s  words  24  recognised  23 ( 96%)   heard: rainbow heels what do we see red balloons floating free yellow sun and a deep blue sea green green g
+chorus  t=   40s  words  37  recognised  26 ( 70%)   heard: soon soon kiddo first hop on board let's go soon soon kiddo first clap clap here we go round the sta
+v2      t=   56s  words  23  recognised  20 ( 87%)   heard: rumble the dino go stomp stomp stomp can the eggs pop pop pop one two three four five bartlet's litt
+chorus  t=   72s  words  37  recognised  25 ( 68%)   heard: tune soon kiddo first hop on board let's go tune soon kiddo first clap clap here we go round the sta
+v3      t=   88s  words  27  recognised  25 ( 93%)   heard: i'm happy be shining bright sometimes i'm sad and i rain at night take a deep deep breath count to t
+dance   t=  104s  words  13  recognised   8 ( 62%)   heard: time for the kiddo wiggle wiggle left wiggle right wiggle left wiggle right jump a high spin around 
+v4      t=  120s  words  22  recognised  20 ( 91%)   heard: circle wheels go round square square blocks on the ground triangle triangle roofs up high star star 
+bridge  t=  136s  words  23  recognised  15 ( 65%)   heard: or small near or far everyone now us is years have scarred different friends from everywhere kido fi
+fin     t=  152s  words  37  recognised  21 ( 57%)   heard: tsum tsum kido first hop on board let's go tsum tsum kido first clap clap here we go from the stars 
+fin2    t=  168s  words  33  recognised  16 ( 48%)   heard: soon soon keto first hop on board let's go soon soon keto first clap clap here we go from the stars 
+outro   t=  184s  words   4  recognised   2 ( 50%)   heard: bye bye keto first see you next time
+OVERALL master_v3_CM.wav: recognised 234/319 = 73%

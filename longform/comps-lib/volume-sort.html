@@ -1,0 +1,243 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* scene-volume — editorial data-animation example with replaceable sample values.
+   Built from the researched Vox/editorial-doc craft rather than from house habit:
+
+     1. POSTERIZE 12 — graphics run at 12fps inside a 30fps render. This is THE signature
+        and the single biggest reason the old layer read as "web page" instead of "broadcast".
+        Every animated value is driven by quantised time, never raw t.
+     2. THE MORPH MOVES IN GROUPS, NOT AT RANDOM. First build staggered every mark by a hash
+        and the midpoint rendered as a swarm of noise. The references morph a dot field in
+        LEGIBLE GROUPS — pile 0 leaves, then pile 1 — so the middle of the move still reads
+        as sorting. A random stagger animates; a grouped one argues.
+     3. JAGGED REVEALS — lower thirds wipe on an irregular, stepped mask path, never a smooth
+        ramp. Smoothness is what makes CSS look like CSS.
+     4. TEXT LAGS ITS PLATE by several frames — the background reveals, the type follows.
+     5. LENS PASS — chromatic aberration, vignette and grain over the whole comp. Real cameras
+        have these; graphics that lack them sit ON the video instead of IN it.
+     6. REAL IMAGERY, ONE TREATMENT — the piles are labelled with the actual brand marks, all
+        rendered as white glyphs. Four full-colour app tiles (gradient IG, yellow SC, blue FB)
+        read as four things PASTED ON; one monochrome treatment makes them part of the system.
+
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   pure DOM/CSS, comp-local time from 0. No random at runtime. */
+@font-face{ font-family:'Anton'; src:url('anton.ttf'); }
+@font-face{ font-family:'Mont'; src:url('mont.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+
+#stage{ position:absolute; inset:0; background:#0A0C10; overflow:hidden; }
+#plate{ position:absolute; inset:0; }
+/* chromatic aberration — two tinted copies of the whole plate, offset a pixel and screened */
+.ca{ position:absolute; inset:0; mix-blend-mode:screen; pointer-events:none; will-change:transform; }
+/* vignette must darken the EDGES only. Pulling the inner stop in to 42% crushed the headline
+   and the count to mid-grey — a lens pass that dims the message is a worse graphic, not a
+   more filmic one. Hold the clear zone out past the type. */
+#vig{ position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 78% 78% at 50% 47%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.62) 100%); }
+#grain{ position:absolute; inset:-50%; pointer-events:none; opacity:0.10; will-change:transform;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>"); }
+
+#grid{ position:absolute; inset:0; display:grid; grid-template-columns:repeat(12,1fr); opacity:0.5; }
+#grid span{ border-left:1px solid rgba(150,170,190,0.055); }
+
+/* ---- persistent scaffold: a spine that PERSISTS, the way the reference timeline does ---- */
+#spine{ position:absolute; left:96px; right:96px; top:286px; height:1px; background:rgba(214,58,48,0.55);
+  transform-origin:left center; will-change:transform; }
+.tick{ position:absolute; top:286px; width:1px; height:9px; background:rgba(214,58,48,0.8); will-change:opacity; }
+
+.stamp{ position:absolute; left:96px; top:150px; display:flex; align-items:center; gap:13px; will-change:opacity,transform; }
+.stamp em{ width:9px; height:9px; background:#D63A30; font-style:normal; }
+.stamp i{ font-style:normal; font-weight:800; font-size:19px; letter-spacing:7px; color:#D63A30; text-transform:uppercase; }
+
+#kick{ position:absolute; left:96px; top:190px; font-family:'Anton',sans-serif; font-size:56px;
+  color:#F4F2EE; letter-spacing:0; text-transform:uppercase; white-space:nowrap; will-change:clip-path; }
+
+/* the count is set ON the frame — no plate behind it, per the references */
+#num{ position:absolute; left:96px; top:330px; font-family:'Anton',sans-serif; font-size:150px;
+  line-height:0.86; color:#F4F2EE; will-change:transform; }
+#numsub{ position:absolute; left:100px; top:482px; font-weight:800; font-size:17px; letter-spacing:6px;
+  color:#9AA5B1; text-transform:uppercase; will-change:opacity; }
+
+#field{ position:absolute; inset:0; }
+#field b{ position:absolute; left:0; top:0; width:15px; height:15px; background:#1B222C;
+  will-change:transform,background-color; }
+
+.pile{ position:absolute; will-change:opacity,transform; }
+.pile img{ position:absolute; left:50%; width:52px; height:52px; margin-left:-26px; object-fit:contain; opacity:0.92; }
+.pile s{ position:absolute; left:50%; width:220px; margin-left:-110px; top:66px; text-align:center;
+  text-decoration:none; font-family:'Anton',sans-serif; font-size:34px; color:#F4F2EE; }
+
+/* lower third — plate wipes on jagged, type lags it */
+#lt{ position:absolute; left:96px; bottom:118px; background:#D63A30; padding:15px 30px 17px;
+  will-change:clip-path; }
+#lt u{ display:block; text-decoration:none; font-family:'Anton',sans-serif; font-size:40px;
+  color:#0A0C10; line-height:1; white-space:nowrap; will-change:clip-path; }
+#src{ position:absolute; left:96px; bottom:78px; font-weight:600; font-size:13px; letter-spacing:2.5px;
+  color:#59636E; text-transform:uppercase; will-change:opacity; }
+</style></head>
+<body><div id="stage">
+  <div id="plate">
+    <div id="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div id="spine"></div>
+    <div class="stamp"><em></em><i>THE VOLUME</i></div>
+    <div id="kick"></div>
+    <div id="num">0</div>
+    <div id="numsub"></div>
+    <div id="field"></div>
+    <div id="lt"><u></u></div>
+    <div id="src"></div>
+  </div>
+  <div id="vig"></div>
+  <div id="grain"></div>
+</div>
+<script>
+/* ============================ CONFIG — edit only this block ============================ */
+const CONFIG = {
+  DUR: 4.6,
+  FPS_POSTERIZE: 12,             // graphics cadence. 12 in a 30fps render = the Vox stutter.
+  N: 300,
+  kick:   'CLIPPED FOR YOU',
+  numsub: 'VIDEOS PER CYCLE',
+  lower:  '1 FOLDER → EVERY PLATFORM',
+  src:    'DEMO DATA · REPLACE WITH VERIFIED PROJECT VALUES',
+  grid:   { cols:30, pitch:21, rowPitch:22, cx:1180, cy:560 },
+  piles:  [
+    { img:'ig-w.png', n:75, x:700  },
+    { img:'tt-w.png', n:75, x:1000 },
+    { img:'sc-w.png', n:75, x:1300 },
+    { img:'fb-w.png', n:75, x:1600 },
+  ],
+  // cols must DIVIDE n evenly or the last row renders as a ragged stub that reads as a bug
+  pile:   { cols:15, pitch:14, rowPitch:15, cy:590, iconY:700, endScale:0.60 },
+  t: { spine:[0.0,0.5], kick:[0.28,0.42], fill:[0.5,1.15], regroup:[1.85,1.45], icons:[3.0,0.5], lower:[1.2,0.5] },
+};
+/* ====================================================================================== */
+
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const p01=(t,t0,d)=>clamp((t-t0)/d,0,1);
+const outCubic=p=>1-Math.pow(1-p,3);
+const outQuint=p=>1-Math.pow(1-p,5);
+const outExpo=p=>p>=1?1:1-Math.pow(2,-10*p);
+const D=id=>document.getElementById(id);
+const {DUR,N}=CONFIG;
+
+/* ---- 1. POSTERIZE. Everything downstream reads Q, never t. ---- */
+const STEP=1/CONFIG.FPS_POSTERIZE;
+const Q=t=>Math.floor(t/STEP)*STEP;
+/* deterministic hash — drives grain + jagged reveals without Math.random */
+const hash=n=>{ let x=Math.sin(n*127.1)*43758.5453; return x-Math.floor(x); };
+
+/* ---- 3. JAGGED REVEAL. A smooth ramp is what makes CSS look like CSS; the references
+        wipe lower thirds on an irregular stepped path. Quantise progress to a few uneven
+        stops keyed off the step index so it stutters identically every render. ---- */
+function jagged(p,steps){
+  if(p<=0) return 0; if(p>=1) return 1;
+  const s=steps||5;
+  const idx=Math.floor(p*s);
+  const jit=(hash(idx*7.3)-0.5)*0.13;
+  return clamp(idx/s+jit+0.06,0,1);
+}
+
+D('kick').textContent=CONFIG.kick;
+D('numsub').textContent=CONFIG.numsub;
+D('lt').querySelector('u').textContent=CONFIG.lower;
+D('src').textContent=CONFIG.src;
+
+const g=CONFIG.grid, c=CONFIG.pile, K=CONFIG.piles.length;
+const gRows=Math.ceil(N/g.cols);
+const gx0=g.cx-(g.cols-1)*g.pitch/2, gy0=g.cy-(gRows-1)*g.rowPitch/2;
+const perPile=Math.ceil(N/K), cRows=Math.ceil(perPile/c.cols);
+
+const field=D('field'), MARK=[], POS=[];
+for(let i=0;i<N;i++){
+  const b=document.createElement('b'); field.appendChild(b); MARK.push(b);
+  const gr=Math.floor(i/g.cols), gc=i%g.cols;
+  const k=i%K, j=Math.floor(i/K);
+  const cr=Math.floor(j/c.cols), cc=j%c.cols;
+  const cx0=CONFIG.piles[k].x-(c.cols-1)*c.pitch/2, cy0=c.cy-(cRows-1)*c.rowPitch/2;
+  // 2. delay is a function of DESTINATION, not of a hash. Marks bound for the same pile
+  // travel together; the small within-group term only softens the group's own leading edge.
+  POS.push({ x0:gx0+gc*g.pitch, y0:gy0+gr*g.rowPitch,
+             x1:cx0+cc*c.pitch, y1:cy0+cr*c.rowPitch,
+             d: k/K + (j/perPile)*(0.85/K) });
+}
+
+/* ticks on the spine — scaffold detail; the references imply rigour with hairlines */
+for(let i=0;i<=12;i++){
+  const el=document.createElement('div'); el.className='tick';
+  el.style.left=(96+i*(1728/12))+'px'; D('plate').appendChild(el);
+}
+const TICKS=[...document.querySelectorAll('.tick')];
+
+/* piles get REAL brand marks — the references never draw a mark they could photograph */
+const PILE=CONFIG.piles.map((p)=>{
+  const el=document.createElement('div'); el.className='pile';
+  el.innerHTML='<img src="'+p.img+'"><s>'+p.n+'</s>';
+  el.style.left=p.x+'px'; el.style.top=c.iconY+'px'; el.style.width='0px';
+  D('plate').appendChild(el); return el;
+});
+
+const CA=[];
+for(const tint of ['rgba(255,40,40,1)','rgba(40,140,255,1)']){
+  const d=document.createElement('div'); d.className='ca';
+  d.style.background=tint; d.style.opacity='0.055'; D('stage').appendChild(d); CA.push(d);
+}
+
+window.__seek=(tRaw)=>{
+  const t=Q(tRaw);                       // <-- every value below is posterized
+  const frame=Math.round(t*CONFIG.FPS_POSTERIZE);
+  const fade=1-p01(t,DUR-0.3,0.3);
+
+  const sp=outExpo(p01(t,CONFIG.t.spine[0],CONFIG.t.spine[1]));
+  D('spine').style.transform='scaleX('+sp.toFixed(3)+')';
+  TICKS.forEach((el,i)=>{ el.style.opacity=((sp*12>i?1:0)*0.9*fade).toFixed(2); });
+
+  // kicker wipes on jagged, not smooth
+  const kp=jagged(p01(t,CONFIG.t.kick[0],CONFIG.t.kick[1]),6);
+  D('kick').style.clipPath='inset(0 '+((1-kp)*100).toFixed(1)+'% 0 0)';
+
+  const fp=outQuint(p01(t,CONFIG.t.fill[0],CONFIG.t.fill[1]));
+  const lit=Math.round(N*fp);
+  D('num').textContent=String(lit);
+  D('num').style.transform='translateY('+((1-outExpo(p01(t,0.42,0.5)))*26).toFixed(1)+'px)';
+  D('numsub').style.opacity=(outCubic(p01(t,0.8,0.4))*fade).toFixed(2);
+
+  const [rt0,rtd]=CONFIG.t.regroup;
+  const span=rtd*0.42, lead=rtd-span;   // each GROUP's own move is short; the groups queue up
+  for(let i=0;i<N;i++){
+    const p=POS[i], m=MARK[i];
+    const rp=outCubic(p01(t, rt0+lead*p.d, span));
+    const x=p.x0+(p.x1-p.x0)*rp, y=p.y0+(p.y1-p.y0)*rp;
+    const s=(1-(1-c.endScale)*rp);
+    m.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px) scale('+s.toFixed(3)+')';
+    const on=i<lit;
+    // marks in flight take the accent — the eye follows the group that is currently moving
+    const moving=rp>0.001&&rp<0.999;
+    const edge=on && ((i>=lit-24 && lit<N) || moving);
+    const col=edge?'#D63A30':(on?'#46525F':'#1B222C');
+    if(m.dataset.c!==col){ m.style.background=col; m.dataset.c=col; }
+  }
+
+  const [it0,itd]=CONFIG.t.icons;
+  PILE.forEach((el,i)=>{
+    const s=outExpo(p01(t,it0+i*0.08,itd));
+    el.style.opacity=(s*fade).toFixed(2);
+    el.style.transform='translateY('+((1-s)*16).toFixed(1)+'px)';
+  });
+
+  // lower third: plate wipes jagged, TYPE LAGS IT by ~4 frames of comp cadence
+  const [lt0,ltd]=CONFIG.t.lower;
+  D('lt').style.clipPath='inset(0 '+((1-jagged(p01(t,lt0,ltd),5))*100).toFixed(1)+'% 0 0)';
+  D('lt').querySelector('u').style.clipPath='inset(0 '+((1-jagged(p01(t,lt0+4*STEP,ltd),5))*100).toFixed(1)+'% 0 0)';
+  D('src').style.opacity=(outCubic(p01(t,lt0+0.5,0.5))*fade).toFixed(2);
+
+  // lens: aberration breathes a sub-pixel, grain re-seeds every posterized frame
+  CA[0].style.transform='translate('+(-1.3-Math.sin(frame*0.7)*0.4).toFixed(2)+'px,0)';
+  CA[1].style.transform='translate('+( 1.3+Math.sin(frame*0.7)*0.4).toFixed(2)+'px,0)';
+  D('grain').style.transform='translate('+(hash(frame)*90-45).toFixed(1)+'px,'+(hash(frame+9)*90-45).toFixed(1)+'px)';
+
+  D('stage').style.opacity=fade.toFixed(2);
+};
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve())
+  .then(()=>{ window.__seek(0); window.__ready=true; });
+</script></body></html>

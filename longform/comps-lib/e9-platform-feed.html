@@ -1,0 +1,169 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E9 — PLATFORM FEED  (Higgsfield 3D platform-tile-wall scenes + platform-UI type)
+   Replaces the old flat "gold plate" E9. Reference: 13.mp4 "Platform Feed 3D" —
+   platform UI recreated as glossy 3D cards that MULTIPLY into a wall of app-tiles
+   (IG/TT/YT/FB/SC) parallaxing in a blue-charcoal void, a counter pill ticking up.
+   The 3D SCENES are the hero (broll, full beats); this file is the TRANSPARENT TYPE
+   LAYER only.
+
+   TYPE SYSTEM (distinct from every other edit):
+     DISPLAY  Archivo geometric sans — a modern PLATFORM-UI card, NOT a broadcast chyron
+              (E8) and NOT a warm tooltip (E7). E7/E8 are Oswald condensed; E9 is Archivo.
+     DATA     Space Mono odometer — metric digits ROLL up (the platform-counter signature).
+     COLOUR   electric-blue #2E6BFF + graphite ink on WHITE frosted glass cards; transparent.
+              (E8 was ice-cyan on dark steel — opposite value + hue-shift keeps them apart.)
+     MOTION   FEED-RISE: rounded cards spring UP from below and stack like a loading feed;
+              counters odometer-roll. Nothing pops/overshoots hard (E7), nothing hard-wipes
+              sideways (E8), nothing dissolves (E7-ink). This edit RISES.
+   Anchored LOWER-LEFT so it never covers the centre-right 3D tile wall or the pill.
+   ============================================================================ */
+@font-face{ font-family:'Archivo'; src:url('archivo.ttf'); }
+@font-face{ font-family:'Inter'; src:url('inter.ttf'); }
+@font-face{ font-family:'Mono'; src:url('spacemono.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.arc{ font-family:'Archivo',sans-serif; }
+.inr{ font-family:'Inter',sans-serif; }
+.mono{ font-family:'Mono',monospace; }
+</style></head><body><div id="stage"></div><script>
+const S = document.getElementById('stage');
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const clamp = (v,a,b)=>v<a?a:v>b?b:v;
+const p01 = (lt,d,len)=>clamp((lt-d)/len,0,1);
+const outCubic = p => 1 - Math.pow(1-p,3);
+const outBack  = (p,s=0.9)=>{ const q=p-1; return 1 + (s+1)*q*q*q + s*q*q; }; // gentle spring settle
+
+const FPS_POSTERIZE = 12, STEP = 1/FPS_POSTERIZE;
+const BLUE='#2E6BFF', INK='#0F1626', CARD='rgba(255,255,255,0.94)', SUB='rgba(15,22,38,0.55)';
+
+/* full = a platform-UI post card in the lower-left riding the 3D tile wall.
+   overlay = a floating engagement pill on the presenter.
+   m = an optional metric that odometer-rolls to `m` (units in mu). */
+const SCENES = [
+  { full:1, at:0.30,  dur:5.35, kind:'card', k:'THE OLD WAY',   h:'POSTING BY HAND',  s:'one upload at a time', m:1,     mu:'platform' },
+  { full:0, at:6.20,  dur:1.42, kind:'pill', l:'There is a system', ic:'▶' },
+  { full:1, at:7.80,  dur:3.95, kind:'card', k:'THE NUMBERS',   h:'A MONTH',          s:'fully hands off', m:300,   mu:'posts / mo', pre:1 },
+  { full:0, at:12.30, dur:3.40, kind:'pill', l:'Editor review required', ic:'✔' },
+  { full:1, at:16.10, dur:5.40, kind:'card', k:'THE METHOD',    h:'SAMPLE WORKFLOW',  s:'configure and test' },
+  { full:0, at:22.00, dur:1.25, kind:'pill', l:'Test each project', ic:'✓' },
+  { full:1, at:23.50, dur:5.55, kind:'feed', k:'THE SYSTEM',    items:['drop the file','it edits','it clips','it posts'] },
+  { full:0, at:29.40, dur:5.45, kind:'pill', l:'A thousand a day', ic:'▲' },
+  { full:1, at:35.20, dur:2.30, kind:'card', k:'THE SHIFT',     h:'ACTUALLY SCALE',   s:'how you finally' },
+  { full:1, at:37.80, dur:5.85, kind:'card', k:'THE PIPELINE',  h:'EVERY PLATFORM',   s:'one folder feeds them all', m:5, mu:'platforms' },
+  { full:0, at:44.00, dur:4.55, kind:'pill', l:'Every platform you have', ic:'◉' },
+  { full:1, at:49.05, dur:5.15, kind:'card', k:'THE VERDICT',   h:'GAME CHANGER',     s:'and that is a' },
+  { full:0, at:54.60, dur:5.40, kind:'pill', l:'A year of clips out', ic:'▶' },
+  { full:1, at:60.30, dur:3.35, kind:'card', k:'THE CLOSE',     h:'REVIEW THEN PUBLISH', s:'final check' }
+];
+
+/* five platform accent dots — the recurring motif echoing the 3D tile wall */
+const PLAT = ['#E1306C','#00F2EA','#FF0000','#1877F2','#FFFC00']; // IG TT YT FB SC
+function dotRow(parent){
+  const row = el('', parent); row.style.cssText='display:flex;gap:9px;margin-bottom:16px;';
+  return PLAT.map((c,i)=>{ const d=el('',row);
+    d.style.cssText='width:14px;height:14px;border-radius:50%;background:'+c+';box-shadow:0 0 10px '+c+'88;opacity:0;transform:scale(.4);';
+    return d; });
+}
+
+const built = [];
+SCENES.forEach(Sd => {
+  const sc = el('sc');
+  const o = { S:Sd, sc, parts:{} };
+
+  if (Sd.kind === 'card'){
+    /* white frosted platform post-card, lower-left: dot row + kicker + Archivo headline + sub + optional counter */
+    const card = el('', sc);
+    card.style.cssText = 'position:absolute;left:118px;bottom:130px;min-width:520px;background:'+CARD+';border-radius:26px;'+
+      'padding:34px 40px 32px;box-shadow:0 26px 70px rgba(6,14,34,0.55),inset 0 1px 0 rgba(255,255,255,0.9);'+
+      'border:1px solid rgba(46,107,255,0.14);backdrop-filter:blur(6px);opacity:0;transform-origin:left bottom;';
+    const dots = dotRow(card);
+    const k = el('inr', card, Sd.k);
+    k.style.cssText='font-size:19px;letter-spacing:.24em;color:'+BLUE+';font-weight:700;text-transform:uppercase;margin-bottom:8px;opacity:0;';
+    const h = el('arc', card, Sd.h);
+    h.style.cssText='font-size:82px;line-height:.98;color:'+INK+';font-weight:800;letter-spacing:-.01em;opacity:0;';
+    const s = el('inr', card, Sd.s);
+    s.style.cssText='font-size:26px;color:'+SUB+';margin-top:10px;font-weight:500;opacity:0;';
+    let counter=null;
+    if (Sd.m !== undefined){
+      const row = el('', card); row.style.cssText='display:flex;align-items:baseline;gap:12px;margin-top:18px;opacity:0;';
+      const num = el('mono', row, '0'); num.style.cssText='font-size:52px;color:'+BLUE+';font-weight:700;line-height:1;';
+      const unit = el('inr', row, Sd.mu); unit.style.cssText='font-size:24px;color:'+SUB+';font-weight:600;letter-spacing:.02em;';
+      counter={ row, num };
+    }
+    const rule = el('', card);
+    rule.style.cssText='height:4px;width:0;background:'+BLUE+';border-radius:2px;margin-top:20px;box-shadow:0 0 14px rgba(46,107,255,0.6);';
+    o.parts = { card, dots, k, h, s, counter, rule };
+  }
+  if (Sd.kind === 'feed'){
+    /* a stack of feed rows that rise one after another like a loading feed */
+    const wrap = el('', sc);
+    wrap.style.cssText='position:absolute;left:118px;bottom:118px;';
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText='font-size:19px;letter-spacing:.24em;color:'+BLUE+';font-weight:700;text-transform:uppercase;margin-bottom:18px;opacity:0;';
+    const rows = Sd.items.map((t,i)=>{
+      const r = el('', wrap);
+      r.style.cssText='display:flex;align-items:center;gap:18px;background:'+CARD+';border-radius:18px;padding:16px 26px;'+
+        'margin:10px 0;min-width:440px;box-shadow:0 16px 40px rgba(6,14,34,0.4);border:1px solid rgba(46,107,255,0.12);'+
+        'opacity:0;transform-origin:left bottom;';
+      const dot = el('', r); dot.style.cssText='width:16px;height:16px;border-radius:50%;background:'+PLAT[i%PLAT.length]+';box-shadow:0 0 10px '+PLAT[i%PLAT.length]+'99;flex:0 0 auto;';
+      const tx = el('arc', r, t); tx.style.cssText='font-size:44px;color:'+INK+';font-weight:700;letter-spacing:-.005em;text-transform:lowercase;';
+      return r;
+    });
+    o.parts = { wrap, k, rows };
+  }
+  if (Sd.kind === 'pill'){
+    /* floating engagement pill on the presenter — electric-blue, white text, small glyph */
+    const pill = el('', sc);
+    pill.style.cssText='position:absolute;left:132px;bottom:158px;display:flex;align-items:center;gap:16px;'+
+      'background:'+BLUE+';border-radius:999px;padding:18px 34px 18px 26px;'+
+      'box-shadow:0 18px 46px rgba(46,107,255,0.42),inset 0 1px 0 rgba(255,255,255,0.35);opacity:0;transform-origin:left center;';
+    const ic = el('inr', pill, Sd.ic); ic.style.cssText='font-size:34px;color:#fff;line-height:1;';
+    const l = el('arc', pill, Sd.l); l.style.cssText='font-size:44px;color:#fff;font-weight:700;letter-spacing:-.005em;line-height:1;';
+    o.parts = { pill };
+  }
+  built.push(o);
+});
+
+function seek(tRaw){
+  const t = Math.floor(tRaw/STEP)*STEP;
+  built.forEach(o => {
+    const Sd = o.S, lt = t - Sd.at, on = lt >= -0.001 && lt <= Sd.dur;
+    o.sc.style.opacity = on ? 1 : 0;
+    if (!on) return;
+    const P = o.parts;
+    if (Sd.kind === 'card'){
+      const rp = p01(lt,0.02,0.34);              // card rises + springs
+      P.card.style.opacity = clamp(rp*1.5,0,1);
+      P.card.style.transform = 'translateY('+((1-outBack(clamp(rp,0,1)))*46).toFixed(1)+'px)';
+      P.dots.forEach((d,i)=>{ const dp=p01(lt,0.16+i*0.05,0.24);
+        d.style.opacity=dp; d.style.transform='scale('+(0.4+0.6*outBack(clamp(dp,0,1))).toFixed(3)+')'; });
+      P.k.style.opacity = p01(lt,0.22,0.24);
+      const hp=p01(lt,0.28,0.30); P.h.style.opacity=clamp(hp*1.3,0,1);
+      P.h.style.transform='translateY('+((1-outCubic(hp))*14).toFixed(1)+'px)';
+      P.s.style.opacity = p01(lt,0.44,0.30);
+      if (P.counter){ const cp=p01(lt,0.42,0.46); P.counter.row.style.opacity=clamp(cp*1.4,0,1);
+        const val = Math.round((Sd.pre?Sd.m:Sd.m) * outCubic(cp));
+        P.counter.num.textContent = (Sd.pre?'':'') + val.toLocaleString('en-US'); }
+      P.rule.style.width = (240*outCubic(p01(lt,0.52,0.34)))+'px';
+    }
+    if (Sd.kind === 'feed'){
+      P.k.style.opacity = p01(lt,0.06,0.22);
+      P.rows.forEach((r,i)=>{ const d=0.20+i*0.16; const rp=p01(lt,d,0.28);
+        r.style.opacity=clamp(rp*1.5,0,1);
+        r.style.transform='translateY('+((1-outBack(clamp(rp,0,1)))*34).toFixed(1)+'px) scale('+(0.96+0.04*outCubic(rp)).toFixed(3)+')'; });
+    }
+    if (Sd.kind === 'pill'){
+      const pp=p01(lt,0.04,0.26);
+      P.pill.style.opacity=clamp(pp*1.4,0,1);
+      P.pill.style.transform='translateY('+((1-outBack(clamp(pp,0,1)))*26).toFixed(1)+'px) scale('+(0.9+0.1*outBack(clamp(pp,0,1))).toFixed(3)+')';
+    }
+  });
+}
+window.__seek = seek; seek(0); window.__ready = true;
+</script></body></html>

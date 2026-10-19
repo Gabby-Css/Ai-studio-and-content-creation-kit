@@ -1,0 +1,10 @@
+  harm: line t=   4.00s done (5 words, 379s)
+  harm: line t=   8.00s done (13 words, 477s)
+  harm: line t=  12.00s done (20 words, 552s)
+  harm: line t=  64.00s done (28 words, 553s)
+  harm: line t=  68.00s done (35 words, 553s)
+  harm: line t= 156.00s done (40 words, 554s)
+  harm: line t= 160.00s done (48 words, 555s)
+  harm: line t= 164.00s done (55 words, 555s)
+  harm: line t= 168.00s done (60 words, 570s)
+harm: 60 words -> stems/harm.wav  peak 0.36

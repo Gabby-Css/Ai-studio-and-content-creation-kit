@@ -1,0 +1,13 @@
+  lead: line t=  16.00s done (3 words, 0s)
+  lead: line t=  20.00s done (5 words, 1s)
+  lead: line t=  24.00s done (9 words, 1s)
+  lead: line t=  28.00s done (12 words, 1s)
+  lead: line t=  32.00s done (14 words, 1s)
+  lead: line t=  36.00s done (18 words, 2s)
+  lead: line t=  40.00s done (21 words, 2s)
+  lead: line t=  44.00s done (23 words, 2s)
+  lead: line t=  48.00s done (27 words, 3s)
+  lead: line t=  52.00s done (30 words, 3s)
+  lead: line t=  56.00s done (32 words, 3s)
+  lead: line t=  60.00s done (36 words, 3s)
+lead: 36 words -> stems/lead_ec.wav  peak 0.47

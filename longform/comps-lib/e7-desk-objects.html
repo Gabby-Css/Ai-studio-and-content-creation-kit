@@ -1,0 +1,163 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E7 — DESK / 3D OBJECTS  (Higgsfield 3D hero scenes + composited type)
+   Replaces the old "ink plate" E7. Reference: 5.mp4 "Warm Room / Desk Objects" —
+   real rendered 3D app-object props (folder icon, cursor, clip-cards) in an amber-lit
+   void, cursor clicks, objects multiply. The 3D SCENES are the hero (broll, full beats);
+   this file is the TRANSPARENT TYPE LAYER only.
+
+   TYPE SYSTEM (distinct from every other edit):
+     DISPLAY  Oswald medium caps — but SMALL and cornered, never a full-screen slab: the
+              3D render is the star, type is a tooltip/label riding it (matches the ref).
+     BODY     Inter; plus a handwritten-script accent word (cursive) echoing the baked arcs
+     COLOUR   warm amber #FFA53C + cream #FFF3DC on transparent; a lit-frame corner bracket
+     MOTION   TOOLTIP POP: chips scale up from .9 with a soft overshoot like an OS tooltip
+              appearing under a cursor; the amber underline wipes; script draws on. Nothing
+              dissolves (that's E7-ink, retired) and nothing slams (E8). This edit POPS.
+   ============================================================================ */
+@font-face{ font-family:'Oswald'; src:url('oswald.ttf'); }
+@font-face{ font-family:'Inter'; src:url('inter.ttf'); }
+@font-face{ font-family:'Playfair'; src:url('playfair.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.osw{ font-family:'Oswald',sans-serif; }
+.inr{ font-family:'Inter',sans-serif; }
+.scr{ font-family:'Playfair',serif; font-style:italic; }
+</style></head><body><div id="stage"></div><script>
+const S = document.getElementById('stage');
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const clamp = (v,a,b)=>v<a?a:v>b?b:v;
+const p01 = (lt,d,len)=>clamp((lt-d)/len,0,1);
+const outCubic = p => 1 - Math.pow(1-p,3);
+const backOut = (p,s=1.70158)=>{ const q=p-1; return 1 + (s+1)*q*q*q + s*q*q; };
+
+const FPS_POSTERIZE = 12, STEP = 1/FPS_POSTERIZE;
+const AMBER='#FFA53C', CREAM='#FFF3DC', DIMC='rgba(255,243,220,0.62)';
+
+/* full = a small tooltip label rides the 3D scene (kept in the upper-left safe zone so it
+   never covers the folder/cards/baked-script which sit centre + lower).
+   overlay = a warm tooltip lower-third on the presenter. */
+const SCENES = [
+  { full:1, at:0.30,  dur:5.35, kind:'label', k:'THE GRIND',    h:'POSTING BY HAND',        s:'the old way' },
+  { full:0, at:6.20,  dur:1.42, kind:'tip',   l:'There is a system' },
+  { full:1, at:7.80,  dur:3.95, kind:'label', k:'THE MATH',     h:'300 A MONTH',            s:'hands off' },
+  { full:0, at:12.30, dur:3.40, kind:'tip',   l:'Editor review required' },
+  { full:1, at:16.10, dur:5.40, kind:'label', k:'THE METHOD',   h:'THE MACHINE',            s:'built once' },
+  { full:0, at:22.00, dur:1.25, kind:'tip',   l:'Test each project' },
+  { full:1, at:23.50, dur:5.55, kind:'steps', k:'THE SYSTEM',   items:['drop the file','it edits','it clips','it posts'] },
+  { full:0, at:29.40, dur:5.45, kind:'tip',   l:'A thousand a day — not clickbait' },
+  { full:1, at:35.20, dur:2.30, kind:'label', k:'THE SHIFT',    h:'ACTUALLY SCALE',         s:'how you' },
+  { full:1, at:37.80, dur:5.85, kind:'label', k:'THE PIPELINE', h:'EVERY PLATFORM',         s:'one folder feeds' },
+  { full:0, at:44.00, dur:4.55, kind:'tip',   l:'Every platform you already have' },
+  { full:1, at:49.05, dur:5.15, kind:'label', k:'THE CLAIM',    h:'GAME CHANGER',           s:'that is a' },
+  { full:0, at:54.60, dur:5.40, kind:'tip',   l:'One long form in — a year of clips out' },
+  { full:1, at:60.30, dur:3.35, kind:'label', k:'THE CLOSE',    h:'REVIEW THEN PUBLISH',      s:'final check' }
+];
+
+/* a small lit-frame corner bracket — the edit's recurring motif, echoing the 3D lit-frame */
+function bracket(parent){
+  const b = el('', parent);
+  b.style.cssText = 'position:absolute;left:-26px;top:-20px;width:24px;height:24px;'+
+    'border-left:3px solid '+AMBER+';border-top:3px solid '+AMBER+';'+
+    'box-shadow:0 0 14px rgba(255,165,60,0.6);opacity:0;';
+  return b;
+}
+
+const built = [];
+SCENES.forEach(Sd => {
+  const sc = el('sc');
+  const o = { S:Sd, sc, parts:{} };
+
+  if (Sd.kind === 'label'){
+    /* upper-left tooltip block: script prefix + Oswald headline + amber underline + kicker.
+       kept in 60..760 X / 96..300 Y — clear of the centred folder + lower baked script. */
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:104px;top:120px;';
+    const br = bracket(wrap);
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText = 'font-size:19px;letter-spacing:.42em;color:'+AMBER+';text-transform:uppercase;margin-bottom:14px;opacity:0;';
+    const s = el('scr', wrap, Sd.s);
+    s.style.cssText = 'font-size:40px;color:'+DIMC+';margin-bottom:2px;opacity:0;transform:translateY(8px);';
+    const h = el('osw', wrap, Sd.h);
+    h.style.cssText = 'font-size:96px;line-height:.96;color:'+CREAM+';font-weight:600;letter-spacing:.005em;'+
+      'text-shadow:0 3px 30px rgba(0,0,0,0.7);opacity:0;transform:scale(.92);transform-origin:left center;';
+    const rule = el('', wrap);
+    rule.style.cssText = 'height:3px;width:0;background:'+AMBER+';margin-top:20px;box-shadow:0 0 12px rgba(255,165,60,0.7);';
+    o.parts = { wrap, br, k, s, h, rule };
+  }
+  if (Sd.kind === 'steps'){
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:104px;top:120px;';
+    const br = bracket(wrap);
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText = 'font-size:19px;letter-spacing:.42em;color:'+AMBER+';text-transform:uppercase;margin-bottom:22px;opacity:0;';
+    const rows = Sd.items.map(t => {
+      const r = el('', wrap); r.style.cssText = 'display:flex;align-items:center;gap:16px;margin:10px 0;opacity:0;transform:translateX(-14px);';
+      const dot = el('', r); dot.style.cssText='width:11px;height:11px;border-radius:50%;background:'+AMBER+';box-shadow:0 0 10px rgba(255,165,60,0.8);flex:0 0 auto;';
+      const tx = el('osw', r, t); tx.style.cssText='font-size:58px;line-height:1;color:'+CREAM+';text-transform:lowercase;font-weight:500;';
+      return r;
+    });
+    o.parts = { wrap, br, k, rows };
+  }
+  if (Sd.kind === 'tip'){
+    /* warm tooltip lower-third on the presenter — a dark amber-edged chip with a cursor glyph */
+    const wrap = el('', sc);
+    wrap.style.cssText = 'position:absolute;left:130px;bottom:150px;display:flex;align-items:flex-end;gap:16px;';
+    const chip = el('', wrap);
+    chip.style.cssText = 'background:rgba(14,10,7,0.82);border:1.5px solid rgba(255,165,60,0.55);border-radius:14px;'+
+      'padding:20px 30px;box-shadow:0 10px 40px rgba(0,0,0,0.6),0 0 22px rgba(255,165,60,0.18);opacity:0;transform:translateY(16px) scale(.96);transform-origin:left bottom;';
+    const l = el('osw', chip, Sd.l);
+    l.style.cssText = 'font-size:52px;line-height:1.0;color:'+CREAM+';font-weight:500;letter-spacing:.005em;';
+    const cur = el('', wrap);
+    cur.style.cssText = 'width:0;height:0;border-left:16px solid '+CREAM+';border-top:11px solid transparent;border-bottom:11px solid transparent;'+
+      'filter:drop-shadow(0 0 6px rgba(255,165,60,0.7));margin-bottom:16px;opacity:0;transform:translate(-10px,-6px);';
+    o.parts = { wrap, chip, l, cur };
+  }
+  built.push(o);
+});
+
+/* tooltip pop: scale from .9 with a soft backOut overshoot + fade */
+function pop(node, pr, fromScale){
+  const sc = fromScale + (1-fromScale)*backOut(clamp(pr,0,1));
+  node.style.opacity = clamp(pr*1.4,0,1);
+  node.style.transform = 'scale(' + sc.toFixed(3) + ')';
+}
+
+function seek(tRaw){
+  const t = Math.floor(tRaw/STEP)*STEP;
+  built.forEach(o => {
+    const Sd = o.S, lt = t - Sd.at, on = lt >= -0.001 && lt <= Sd.dur;
+    o.sc.style.opacity = on ? 1 : 0;
+    if (!on) return;
+    const P = o.parts;
+    if (Sd.kind === 'label'){
+      P.br.style.opacity = p01(lt,0.05,0.3);
+      P.k.style.opacity = p01(lt,0.12,0.3);
+      const sp = p01(lt,0.20,0.4); P.s.style.opacity = sp; P.s.style.transform = 'translateY('+((1-outCubic(sp))*8).toFixed(1)+'px)';
+      const hp = p01(lt,0.30,0.45);
+      P.h.style.opacity = clamp(hp*1.4,0,1);
+      P.h.style.transform = 'scale('+(0.92+0.08*backOut(clamp(hp,0,1))).toFixed(3)+')';
+      P.rule.style.width = (250*outCubic(p01(lt,0.55,0.4))) + 'px';
+    }
+    if (Sd.kind === 'steps'){
+      P.br.style.opacity = p01(lt,0.05,0.3);
+      P.k.style.opacity = p01(lt,0.12,0.3);
+      P.rows.forEach((r,i)=>{ const rp=p01(lt,0.28+i*0.16,0.4);
+        r.style.opacity = rp; r.style.transform = 'translateX('+((1-outCubic(rp))*-14).toFixed(1)+'px)'; });
+    }
+    if (Sd.kind === 'tip'){
+      const cp = p01(lt,0.06,0.34);
+      P.chip.style.opacity = clamp(cp*1.4,0,1);
+      P.chip.style.transform = 'translateY('+((1-backOut(clamp(cp,0,1)))*16).toFixed(1)+'px) scale('+(0.96+0.04*backOut(clamp(cp,0,1))).toFixed(3)+')';
+      const up = p01(lt,0.02,0.26);
+      P.cur.style.opacity = up; P.cur.style.transform = 'translate('+(-10+10*outCubic(up)).toFixed(1)+'px,'+(-6+6*outCubic(up)).toFixed(1)+'px)';
+    }
+  });
+}
+window.__seek = seek; seek(0); window.__ready = true;
+</script></body></html>

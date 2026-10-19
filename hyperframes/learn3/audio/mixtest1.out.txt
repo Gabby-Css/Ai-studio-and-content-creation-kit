@@ -1,0 +1,48 @@
+       20.0 sound  moo moo moo                            | moo moo moo
+       24.0 say    the cow says moo moo                   | the count has moved moo counted
+       28.0 ask    who says quack the duck                | who does wax the dog quack
+       32.0 sound  quack quack quack                      | quack quack quack
+       36.0 say    the duck says quack quack              | the duck that's quacked one two three
+       40.0 ask    who says oink the pig                  | filters i hate the way i
+       44.0 sound  oink oink oink                         | ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh
+       48.0 say    the pig says oink oink                 | there's a pig that's white oink filth
+       52.0 ask    who says baa the sheep                 | who says bye no please bye
+       56.0 sound  baa baa baa                            | bye bye bye
+       60.0 say    the sheep says baa baa                 | the cheaper fizz bye
+base         any  62% (29/47)  lead  61% (20/33)  kids  64% (9/14)  | moo 5/5 quack 6/6 oink 2/6 baa 6/6
+       20.0 sound  moo moo moo                            | moo moo moo
+       24.0 say    the cow says moo moo                   | the count has moved moo counted
+       28.0 ask    who says quack the duck                | who says quacks the dog quack
+       32.0 sound  quack quack quack                      | quack quack quack
+       36.0 say    the duck says quack quack              | the duck that's quacked one two thi
+       40.0 ask    who says oink the pig                  | who does i
+       44.0 sound  oink oink oink                         | oi oi oi oi
+       48.0 say    the pig says oink oink                 | the pig says i ate all through the
+       52.0 ask    who says baa the sheep                 | who says bye the people bye
+       56.0 sound  baa baa baa                            | bye bye bye
+       60.0 say    the sheep says baa baa                 | the cheaper fizz bye
+nosfx        any  66% (31/47)  lead  70% (23/33)  kids  57% (8/14)  | moo 5/5 quack 6/6 oink 0/6 baa 6/6
+       20.0 sound  moo moo moo                            | moo moo moo
+       24.0 say    the cow says moo moo                   | the count has moved moohoo cootah
+       28.0 ask    who says quack the duck                | who just whacks the dog quack
+       32.0 sound  quack quack quack                      | quack quack quack
+       36.0 say    the duck says quack quack              | the duck that's quacked or killed thi
+       40.0 ask    who says oink the pig                  | filters i love who i
+       44.0 sound  oink oink oink                         | fight fight fight
+       48.0 say    the pig says oink oink                 | the pig says oiiiight ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh
+       52.0 ask    who says baa the sheep                 | don't testify no plea bye
+       56.0 sound  baa baa baa                            | bye bye bye
+       60.0 say    the sheep says baa baa                 | the cheapest is buy
+nomusic      any  49% (23/47)  lead  55% (18/33)  kids  36% (5/14)  | moo 3/5 quack 6/6 oink 0/6 baa 4/6
+       20.0 sound  moo moo moo                            | moo moo moo moo moo moo
+       24.0 say    the cow says moo moo                   | the count is moo moo count a
+       28.0 ask    who says quack the duck                | who just whacks the dog quack
+       32.0 sound  quack quack quack                      | quack quack quack
+       36.0 say    the duck says quack quack              | the duck that's quacked more food than
+       40.0 ask    who says oink the pig                  | filters i hate the way i
+       44.0 sound  oink oink oink                         | ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh ooh
+       48.0 say    the pig says oink oink                 | the pig says oiiiight oiiiight filth a
+       52.0 ask    who says baa the sheep                 | who says bye no please bye
+       56.0 sound  baa baa baa                            | bye bye bye
+       60.0 say    the sheep says baa baa                 | the cheaper fizz bye
+vmr17        any  62% (29/47)  lead  64% (21/33)  kids  57% (8/14)  | moo 5/5 quack 6/6 oink 0/6 baa 6/6

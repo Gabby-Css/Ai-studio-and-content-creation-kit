@@ -1,0 +1,69 @@
+KIDDOVERSE LEARN #3 - YOUTUBE PACK (copy and paste)
+=========================================================
+Decide the channel name BEFORE uploading (see README_START_HERE.txt, trademark note). If the name changes, change "KiddoVerse" in the
+title, description, hashtags and tags below as well.
+
+TITLE  (use #1; #2 and #3 are alternatives for YouTube's "Test & compare" title test, if your channel has it.  Keep it under 100 characters;
+search results show about the first 60, so the keyword "Animal Sounds Song" comes first)
+1. Animal Sounds Song for Kids 🐮🦆🐷 Learn 8 Animals & Dance! | KiddoVerse
+2. Moo Quack Oink! 🐮🦆🐷 Animal Sounds Dance Party | Toddler Learning Song
+3. Who Says Moo? 🐮 Animal Sounds Song & Quiz for Toddlers | KiddoVerse
+
+THUMBNAIL: Thumbnails\ has three pictures; the first (big cow, duck and pig faces, "ANIMAL SOUNDS") is the one to try first.
+
+DESCRIPTION (everything between the lines; the first two lines are what shows in search, so they carry the keywords)
+------------------------------------------
+🐮 Moo! 🦆 Quack! 🐷 Oink! Dance and sing the animal sounds with Kiko and Luma: cow, duck, pig, sheep, dog, cat, horse and lion!
+An animal sounds song for toddlers and preschoolers, with a dance break and a "Who says it?" quiz.
+
+At every stop: "Who says moo?" ... the animal pops out ... sing the sound three times ... "The cow says moo!"
+Then flap like a duck, jump like a cat, stomp like a lion, and guess who says it in the quiz!
+
+👨‍👩‍👧 For grown-ups: sing along, make each sound together and pause at the quiz so your child can answer before the animal does.
+What your child practices: animal names, animal sounds, listening and answering, matching sounds to pictures, dancing to a steady beat.
+
+⏱ Chapters
+0:00 Animal Party Theme Song
+0:16 Moo! The Cow
+0:28 Quack! The Duck
+0:40 Oink! The Pig
+0:52 Baa! The Sheep
+1:12 Woof! The Dog
+1:24 Meow! The Cat
+1:36 Neigh! The Horse
+1:48 Roar! The Lion
+2:00 Dance Like the Animals
+2:12 Quiz: Who Says It?
+2:36 Final Party Song
+2:52 Bye Bye
+
+🎵 The songs, lyrics, melodies, characters and music are original (c) KiddoVerse.
+Made with animation and AI: the characters are animated, and the voices and music are AI-generated.
+
+#AnimalSounds #KidsSongs #LearnAnimals #ToddlerLearning #KiddoVerse
+------------------------------------------
+HASHTAGS: YouTube's own help page says that of the hashtags in the description "up to three hashtags that are considered most engaging will appear by your video title",
+so put the 3 most important first (as above) and keep the total small (3 to 5).  It also says a video with more than 60 hashtags has ALL of them ignored.
+A very long hashtag list also looks like spam, so 5 is plenty.
+
+SUGGESTED TAGS (comma separated, 8-12 specific ones are enough; tags matter little for search, the title and description matter more)
+animal sounds song, animal sounds for kids, animal sounds for toddlers, farm animals song, learn animal sounds, moo quack oink, kids dance song,
+toddler learning videos, preschool songs, kids songs, KiddoVerse
+
+SHORTS (the three clips in Shorts\): post each as its own Short with a title like
+  "Moo! Quack! Oink! 🐮🦆🐷 Animal sounds dance"  /  "Dance like a duck, jump like a cat, stomp like a lion! 🦁"  /  "Who says ROAR? 🦁 Animal sounds quiz"
+and the hashtags #AnimalSounds #KidsSongs #Shorts.   Pick "made for kids" for them as well.
+
+AUDIENCE SETTING
+Choose "Yes, it's made for kids". On made-for-kids videos YouTube turns off comments, end screens and cards, so the video ends with a clean
+outro instead of "watch next" elements.
+
+ALTERED / SYNTHETIC CONTENT QUESTION
+The facts: the characters are animated; the singing and spoken voices and the music are AI-generated (the lead, double, harmony and children's-choir
+voices are made from the Kokoro text-to-speech voices, re-timed and tuned to the melody; the band is a SoundFont orchestra). Read the question exactly
+as YouTube words it in Studio and answer it honestly. The sentence "Made with animation and AI: the characters are animated, and the voices and music
+are AI-generated." in the description is a safe extra.
+
+CAPTIONS
+The captions are already burned into the picture. The SRT file (KiddoVerse_Learn3.srt) would show the same words a second time, so upload it only if
+you want it for search or translation.

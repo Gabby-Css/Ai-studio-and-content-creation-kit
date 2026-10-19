@@ -1,0 +1,46 @@
+    0.0s intro            1/2 mid | kiddo verse                                | it'll verse and the party
+    4.0s hook             4/5 mid | animals let's hear them all                | animals let's tear them all
+    8.0s hook             1/8 LOW | moo quack oink baa woof meow neigh roar    | oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink oink
+   12.0s hook             7/7 OK  | come on sing and dance with me             | come on sing and dance with me
+   16.0s stop     ask     3/5 mid | who says moo the cow                       | who says moo no moo
+   20.0s stop     sound   3/3 OK  | moo moo moo                                | moo moo moo
+   24.0s stop     say     4/5 mid | the cow says moo moo                       | the count says moo moo count says
+   28.0s stop     ask     4/5 mid | who says quack the duck                    | who says quacks the dog quacks
+   32.0s stop     sound   3/3 OK  | quack quack quack                          | quack quack quack
+   36.0s stop     say     4/5 mid | the duck says quack quack                  | the duck that's quacked or filmed
+   40.0s stop     ask     2/5 LOW | who says oink the pig                      | the film says i ain't the only one
+   44.0s stop     sound   3/3 OK  | oink oink oink                             | oink oink oink
+   48.0s stop     say     5/5 OK  | the pig says oink oink                     | the pig says oink oink film says oink
+   52.0s stop     ask     2/5 LOW | who says baa the sheep                     | who says bye don't be bye
+   56.0s stop     sound   0/3 LOW | baa baa baa                                | bye bye bye
+   60.0s stop     say     2/5 LOW | the sheep says baa baa                     | the cheaper says bye
+   64.0s midhook          6/8 mid | moo quack oink baa woof meow neigh roar    | moon quacks oink bye woofs meow nay roar cum i
+   68.0s midhook          7/7 OK  | come on sing and dance with me             | come on sing and dance with me
+   72.0s stop     ask     4/5 mid | who says woof the dog                      | and who stays with the dog
+   76.0s stop     sound   0/3 LOW | woof woof woof                             | moo moo moo
+   80.0s stop     say     2/5 LOW | the dog says woof woof                     | the doggy says wooves wooves who says
+   84.0s stop     ask     4/5 mid | who says meow the cat                      | who says meow the wolf meow
+   88.0s stop     sound   3/3 OK  | meow meow meow                             | meow meow meow meow
+   92.0s stop     say     5/5 OK  | the cat says meow meow                     | the cat says meow
+   96.0s stop     ask     3/5 mid | who says neigh the horse                   | who says nay who says nay
+  100.0s stop     sound   0/3 LOW | neigh neigh neigh                          | snake snake
+  104.0s stop     say     5/5 OK  | the horse says neigh neigh                 | the horse says nay who says nay
+  108.0s stop     ask     4/5 mid | who says roar the lion                     | who says roar the white roar
+  112.0s stop     sound   3/3 OK  | roar roar roar                             | roar roar roar
+  116.0s stop     say     4/5 mid | the lion says roar roar                    | the lint says roar roar flap flap
+  120.0s dance            4/5 mid | flap flap like a duck                      | flap flap like and duck jump
+  124.0s dance            5/5 OK  | jump jump like a cat                       | jump jump like a cat
+  128.0s dance            4/6 mid | stomp stomp like a lion roar               | stomp stomp like an lion or who says
+  132.0s game     q       1/3 LOW | who says quack                             | who does work
+  138.0s game     a       1/4 LOW | yes it's the duck                          | shout with the dog hootah
+  140.0s game     q       3/3 OK  | who says roar                              | who says roar
+  146.0s game     a       3/4 mid | yes it's the lion                          | yeah it's the lion's hootay
+  148.0s game     q       2/3 mid | who says oink                              | i am who says i ain't
+  154.0s game     a       1/4 LOW | yes it's the pig                           | just as the first anim
+  156.0s fin              4/5 mid | animals let's hear them all                | of animals let's tear them all
+  160.0s fin              4/8 mid | moo quack oink baa woof meow neigh roar    | ooh wags oink bye woos meow nay roar come on
+  164.0s fin              7/7 OK  | come on sing and dance with me             | come on sing and dance with me
+  168.0s fin              4/5 mid | bye bye animals kiddo verse                | bye bye animals kiddo furs bye bye
+  172.0s outro            2/4 mid | bye bye kiddo verse                        | bye bye kidoverse see you next time
+TOTAL 143/207 = 69%
+animal sound words: moo 6/9  quack 7/10  oink 8/10  baa 0/9  woof 1/9  meow 8/9  neigh 5/9  roar 9/11

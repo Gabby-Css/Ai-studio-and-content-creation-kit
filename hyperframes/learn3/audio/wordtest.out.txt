@@ -1,0 +1,31 @@
+=== baa
+  None         4/9  | who says bye  //  bye  //  the cheaper says bye
+  bˈɑː         4/9  | who says bye  //  bye  //  the cheaper says bye
+  bˈæ          3/9  | who says that  //  daaah daaah  //  the cheapest is bad
+  bˈæː         4/9  | who says bye  //  bye bye  //  the cheaper says bye
+  bˈɑ          4/9  | who says bye  //  bye bye  //  the cheaper says bye
+  bɑːɑː        4/9  | who says byeyyy  //  bye bye bye  //  the cheaper says bye
+  -> best for baa: None  (4)
+=== oink
+  None         7/9  | who says oink  //  i ain't i ain't  //  the pig says oink
+  ˈɔɪŋk        7/9  | who says oink  //  i ain't i ain't  //  the pig says oink
+  ˈɔɪnk        6/9  | who says hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii  //  i ain't i ain't  //  the pig says oink
+  ɔɪŋk         7/9  | who says oink  //  i ain't i ain't  //  the pig says oink
+  ˈɔɪŋ         5/9  | who says hiing  //  oing oing  //  the pig says oing
+  ˈɔːɪŋk       4/9  | too says hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii  //  aint aint  //  the pig says aren't
+  ˈoɪŋk        8/9  | who says like  //  oink oink  //  the pig says oink
+  -> best for oink: ˈoɪŋk  (8)
+=== who
+  None         7/9  | who says moo  //  two says worked  //  who says oink
+  hˈuː         7/9  | who says moo  //  two says worked  //  who says oink
+  hˈu          8/9  | who says moo  //  who says worked  //  who says oink
+  hu           5/9  | who says moo  //  your plans worked  //  who says hiink
+  hˈʊ          8/9  | who says moo  //  who says worked  //  who says oink
+  -> best for who: hˈu  (8)
+=== hop
+  None         3/5  | not not like a cat
+  hˈɑp         3/5  | happy happy like a cat
+  hˈɑːp        3/5  | not not like a cat
+  hˈɔp         3/5  | hub hub like a cat
+  hˈɒp         3/5  | i'll be i'll be like a cat
+  -> best for hop: None  (3)

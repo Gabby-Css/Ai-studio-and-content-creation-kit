@@ -1,0 +1,147 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* ============================================================================
+   E9 — GOLD  (Higgsfield plate + composited type)
+   Plate: hf-plates/gold.mp4 — molten amber/gold rivers on deep black, top-down,
+   two-thirds dark (broll, full beats). Transparent type layer only.
+
+   TYPE SYSTEM (distinct from every other edit):
+     DISPLAY  Playfair Display — high-contrast serif, the only LUXE voice in the set
+     BODY     Inter, wide-tracked small caps
+     COLOUR   warm cream #F6EBD6 + a champagne-gold accent #E7B96A; one thin gold rule
+     MOTION   RISE + BLOOM: lines rise and warm into focus behind a soft gold glow that
+              swells then settles — embers catching. This is the ONLY edit that blooms warm.
+   ============================================================================ */
+@font-face{ font-family:'Play'; src:url('playfair.ttf'); }
+@font-face{ font-family:'Inter'; src:url('inter.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+body{ font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#stage{ position:absolute; inset:0; }
+.sc{ position:absolute; inset:0; opacity:0; }
+.pl{ font-family:'Play',serif; }
+.pli{ font-family:'Play',serif; font-style:italic; }
+.inr{ font-family:'Inter',sans-serif; }
+</style></head><body><div id="stage"></div><script>
+const S = document.getElementById('stage');
+const el = (cls, parent, txt) => { const d = document.createElement('div');
+  if (cls) d.className = cls; if (txt !== undefined) d.textContent = txt;
+  (parent || S).appendChild(d); return d; };
+const clamp=(v,a,b)=>v<a?a:v>b?b:v;
+const p01=(lt,d,len)=>clamp((lt-d)/len,0,1);
+const outCubic=p=>1-Math.pow(1-p,3);
+
+const FPS_POSTERIZE=12, STEP=1/FPS_POSTERIZE;
+const CREAM='#F6EBD6', GOLD='#E7B96A', DIM='rgba(246,235,214,0.58)';
+
+const SCENES = [
+  { full:1, at:0.30,  dur:5.35, kind:'hero', k:'THE GRIND',    a:'Posting',   b:'by hand' },
+  { full:0, at:6.20,  dur:1.42, kind:'lower', l:'There is a system' },
+  { full:1, at:7.80,  dur:3.95, kind:'stat', k:'THE MATH',     big:'300', sub:'videos clipped every month' },
+  { full:0, at:12.30, dur:3.40, kind:'lower', l:'Quality gate — editor review required' },
+  { full:1, at:16.10, dur:5.40, kind:'hero', k:'THE METHOD',   a:'The',       b:'machine' },
+  { full:0, at:22.00, dur:1.25, kind:'lower', l:'Configure once. Test each project.' },
+  { full:1, at:23.50, dur:5.55, kind:'list', k:'THE SYSTEM',   items:['it edits','it clips','it posts','it scales'] },
+  { full:0, at:29.40, dur:5.45, kind:'lower', l:'A thousand a day — not clickbait' },
+  { full:1, at:35.20, dur:2.30, kind:'hero', k:'THE SHIFT',    a:'How you',   b:'actually scale' },
+  { full:1, at:37.80, dur:5.85, kind:'stat', k:'THE PIPELINE', big:'One', sub:'folder feeds every platform' },
+  { full:0, at:44.00, dur:4.55, kind:'lower', l:'Every platform you already have' },
+  { full:1, at:49.05, dur:5.15, kind:'hero', k:'THE CLAIM',    a:'That is a', b:'game changer' },
+  { full:0, at:54.60, dur:5.40, kind:'lower', l:'One long form in — a year of clips out' },
+  { full:1, at:60.30, dur:3.35, kind:'hero', k:'THE CLOSE',    a:'Review',   b:'then publish' }
+];
+
+const built = [];
+SCENES.forEach(Sd=>{
+  const sc = el('sc');
+  const o = { S:Sd, sc, parts:{} };
+  if (Sd.full){
+    const scrim = el('', sc);
+    scrim.style.cssText='position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 52%, rgba(0,0,0,0) 40%, rgba(8,4,0,0.5) 100%);';
+    o.parts.scrim=scrim;
+  }
+  const mkGlow = (host,x,y,w) => { const g = el('', host);
+    g.style.cssText='position:absolute;left:'+x+';top:'+y+';width:'+w+';height:200px;pointer-events:none;opacity:0;'+
+      'background:radial-gradient(closest-side, rgba(231,185,106,0.55), rgba(231,185,106,0) 72%);filter:blur(8px);'; return g; };
+
+  if (Sd.kind==='hero'){
+    const wrap = el('', sc);
+    wrap.style.cssText='position:absolute;left:0;right:0;top:400px;text-align:center;';
+    const glow = mkGlow(wrap,'50%','40px','900px'); glow.style.transform='translateX(-50%)';
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText='font-size:22px;letter-spacing:.55em;color:'+GOLD+';text-transform:uppercase;margin-bottom:28px;position:relative;';
+    const a = el('pl', wrap, Sd.a);
+    a.style.cssText='font-size:158px;line-height:.96;color:'+CREAM+';position:relative;';
+    const b = el('pli', wrap, Sd.b);
+    b.style.cssText='font-size:158px;line-height:.96;color:'+GOLD+';position:relative;';
+    const rule = el('', wrap); rule.style.cssText='height:1px;width:0;background:'+GOLD+';margin:34px auto 0;';
+    o.parts=Object.assign(o.parts,{ wrap,glow,k,a,b,rule });
+  }
+  if (Sd.kind==='stat'){
+    const wrap = el('', sc);
+    wrap.style.cssText='position:absolute;left:0;right:0;top:340px;text-align:center;';
+    const glow = mkGlow(wrap,'50%','60px','700px'); glow.style.transform='translateX(-50%)';
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText='font-size:22px;letter-spacing:.55em;color:'+GOLD+';text-transform:uppercase;margin-bottom:18px;position:relative;';
+    const big = el('pl', wrap, Sd.big);
+    big.style.cssText='font-size:'+(Sd.big.length>3?'230px':'300px')+';line-height:.86;color:'+CREAM+';position:relative;';
+    const sub = el('pli', wrap, Sd.sub);
+    sub.style.cssText='font-size:40px;color:'+GOLD+';margin-top:20px;position:relative;';
+    o.parts=Object.assign(o.parts,{ wrap,glow,k,big,sub });
+  }
+  if (Sd.kind==='list'){
+    const wrap = el('', sc);
+    wrap.style.cssText='position:absolute;left:0;right:0;top:300px;text-align:center;';
+    const k = el('inr', wrap, Sd.k);
+    k.style.cssText='font-size:22px;letter-spacing:.55em;color:'+GOLD+';text-transform:uppercase;margin-bottom:40px;';
+    const rows = Sd.items.map(t=>{ const r=el('pli', wrap, t);
+      r.style.cssText='font-size:100px;line-height:1.08;color:'+CREAM+';opacity:0;'; return r; });
+    o.parts=Object.assign(o.parts,{ wrap,k,rows });
+  }
+  if (Sd.kind==='lower'){
+    const wrap = el('', sc);
+    wrap.style.cssText='position:absolute;left:130px;bottom:150px;';
+    const bar = el('', wrap); bar.style.cssText='height:1px;width:0;background:'+GOLD+';margin-bottom:22px;';
+    const l = el('pli', wrap, Sd.l);
+    l.style.cssText='font-size:72px;line-height:1.0;color:'+CREAM+';text-shadow:0 2px 26px rgba(0,0,0,0.85);';
+    o.parts=Object.assign(o.parts,{ wrap,bar,l });
+  }
+  built.push(o);
+});
+
+/* rise + bloom: line rises, warms in; a gold glow swells then settles behind it. */
+function rise(node, pr){ node.style.opacity=pr;
+  node.style.transform='translateY('+((1-outCubic(pr))*40).toFixed(1)+'px)'; }
+function bloom(node, pr){ const s=Math.sin(clamp(pr,0,1)*Math.PI);
+  node.style.opacity=(s*0.9).toFixed(3); }
+
+function seek(tRaw){
+  const t=Math.floor(tRaw/STEP)*STEP;
+  built.forEach(o=>{
+    const S=o.S, lt=t-S.at, on=lt>=-0.001&&lt<=S.dur;
+    o.sc.style.opacity=on?1:0;
+    if(!on) return;
+    const P=o.parts;
+    if(P.scrim) P.scrim.style.opacity=p01(lt,0,0.4);
+    if(S.kind==='hero'){
+      if(P.glow) bloom(P.glow, p01(lt,0.16,0.7));
+      P.k.style.opacity=p01(lt,0.10,0.4);
+      rise(P.a, p01(lt,0.24,0.5)); rise(P.b, p01(lt,0.40,0.5));
+      P.rule.style.width=(420*outCubic(p01(lt,0.9,0.5)))+'px';
+    }
+    if(S.kind==='stat'){
+      if(P.glow) bloom(P.glow, p01(lt,0.14,0.7));
+      P.k.style.opacity=p01(lt,0.10,0.4);
+      rise(P.big, p01(lt,0.22,0.55)); rise(P.sub, p01(lt,0.6,0.5));
+    }
+    if(S.kind==='list'){
+      P.k.style.opacity=p01(lt,0.10,0.4);
+      P.rows.forEach((r,i)=>rise(r, p01(lt,0.30+i*0.34,0.5)));
+    }
+    if(S.kind==='lower'){
+      P.bar.style.width=(300*outCubic(p01(lt,0.06,0.4)))+'px';
+      rise(P.l, p01(lt,0.18,0.5));
+    }
+  });
+}
+window.__seek=seek; seek(0); window.__ready=true;
+</script></body></html>

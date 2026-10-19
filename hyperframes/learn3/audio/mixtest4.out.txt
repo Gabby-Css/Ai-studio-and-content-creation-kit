@@ -1,0 +1,5 @@
+d16          any  56% (18/32)  lead  79% (15/19)  kids  23% (3/13)  | roar 1/2 quack 0/1 oink 0/1
+h8           any  75% (15/20)  lead  75% (15/20)  kids   0% (0/0)  | moo 0/1 quack 0/1 oink 1/1 baa 0/1 woof 0/1 meow 1/1 neigh 1/1 roar 1/1
+h60          any  85% (17/20)  lead  85% (17/20)  kids   0% (0/0)  | moo 1/1 quack 1/1 oink 1/1 baa 0/1 woof 0/1 meow 1/1 neigh 1/1 roar 1/1
+f8           any  84% (21/25)  lead  84% (21/25)  kids   0% (0/0)  | moo 1/1 quack 0/1 oink 1/1 baa 0/1 woof 0/1 meow 1/1 neigh 1/1 roar 1/1
+f60          any  84% (21/25)  lead  84% (21/25)  kids   0% (0/0)  | moo 1/1 quack 0/1 oink 1/1 baa 1/1 woof 0/1 meow 1/1 neigh 1/1 roar 1/1

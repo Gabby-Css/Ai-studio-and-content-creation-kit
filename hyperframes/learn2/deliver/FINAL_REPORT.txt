@@ -1,0 +1,9 @@
+KiddoVerse_Learn2_1080p.mp4: 417 MB, 302.2 s, -13.6 LUFS, true peak -1.2 dBTP
+  PASS  KiddoVerse_Learn2_1080p.mp4  duration: 302.2 s (target 302.2 s +/- 0.5)
+  PASS  KiddoVerse_Learn2_1080p.mp4  loudness: -13.6 LUFS (target -14 +/- 1)
+  PASS  KiddoVerse_Learn2_1080p.mp4  true peak: -1.2 dBTP (must be <= -0.3)
+KiddoVerse_Learn2_720p.mp4: 88 MB, 302.2 s, -13.6 LUFS, true peak -1.2 dBTP
+  PASS  KiddoVerse_Learn2_720p.mp4  duration: 302.2 s (target 302.2 s +/- 0.5)
+  PASS  KiddoVerse_Learn2_720p.mp4  loudness: -13.6 LUFS (target -14 +/- 1)
+  PASS  KiddoVerse_Learn2_720p.mp4  true peak: -1.2 dBTP (must be <= -0.3)
+OVERALL: ALL CHECKS PASS

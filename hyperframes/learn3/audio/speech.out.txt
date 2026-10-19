@@ -1,0 +1,5 @@
+synth 0 kiko Animal party!
+synth 1 all Let's go!
+synth 2 all See you next time!
+synth 3 luma Ask a grown-up to subscribe!
+vocals_speech.wav written (8202600, 2)

@@ -1,0 +1,70 @@
+KIDDOVERSE LEARN #5 - YOUTUBE PACK (copy and paste)
+=========================================================
+Decide the channel name BEFORE uploading (see README_START_HERE.txt, trademark note). If the name changes, change "KiddoVerse" in the
+title, description, hashtags and tags below as well.
+
+TITLE  (use #1; #2 and #3 are alternatives for YouTube's "Test & compare" title test, if your channel has it.  Keep it under 100 characters;
+search results show about the first 60, so the keywords "Learn to Count" and "Counting Song" come first)
+1. Learn to Count to 20 for Kids 🔢 Counting Song for Toddlers | KiddoVerse
+2. Counting Song 11 to 20 + Count by 2s, 5s, 10s! 🔢 Number Song for Kids | KiddoVerse
+3. What Comes After 14? 🔢 Counting Game and Song for Kids | KiddoVerse
+
+THUMBNAIL: Thumbnails\ has three pictures; the first ("COUNT TO 20!" with the ten-frames and Gizmo's number display) is the one to try first.
+
+DESCRIPTION (everything between the lines; the first two lines are what shows in search, so they carry the keywords)
+------------------------------------------
+🔢 Learn to count to 20 with Gizmo, Kiko and Luma! Gizmo's counting machine has a full ten-frame, so we count on from ten: 11, 12, 13 ... 20, then count by 2s, 5s and 10s!
+A counting song for toddlers and preschoolers, with ten-frames to see "ten and some more", a "What comes after 14?" quiz and a "How many stars?" game.
+
+At every stop: "Ten and three more!" ... the number lights up on Gizmo's display ... we count on ("eleven, twelve, thirteen!") ... and see what the machine counted.
+Then count by twos with socks, by fives with fingers on a hand, and by tens with a ten-frame train!
+
+👨‍👩‍👧 For grown-ups: sing along, count real things at home (socks, fingers, stairs), and pause at the quiz so your child can answer before the number appears.
+What your child practices: counting from 11 to 20, "ten and some more" (tens and ones), the number order, skip counting by 2s, 5s and 10s, listening and answering, moving to a steady beat.
+
+⏱ Chapters
+0:00 Counting Machine Theme Song
+0:12 Number 11: Eleven
+0:22 Number 12: Twelve
+0:32 Number 13: Thirteen
+0:42 Number 14: Fourteen
+0:52 Number 15: Fifteen and Quiz: What Comes After 14?
+1:10 Number 16: Sixteen
+1:20 Number 17: Seventeen
+1:30 Number 18: Eighteen
+1:40 Number 19: Nineteen
+1:50 Number 20: Twenty and Quiz: How Many Stars?
+2:08 Count by Twos
+2:20 Count by Fives
+2:32 Count by Tens
+2:44 Quiz: What Comes Next? and Bye Bye
+
+🎵 The songs, lyrics, melodies, characters and music are original (c) KiddoVerse.
+Made with animation and AI: the characters are animated, and the voices and music are AI-generated.
+
+#CountingSong #LearnToCount #KidsSongs #ToddlerLearning #KiddoVerse
+------------------------------------------
+HASHTAGS: YouTube's own help page says that of the hashtags in the description "up to three hashtags that are considered most engaging will appear by your video title",
+so put the 3 most important first (as above) and keep the total small (3 to 5).  It also says a video with more than 60 hashtags has ALL of them ignored.
+
+SUGGESTED TAGS (comma separated, 8-12 specific ones are enough; tags matter little for search, the title and description matter more)
+counting song, learn to count, count to 20 for kids, numbers 11 to 20, skip counting for kids, count by 2s 5s 10s, number song for toddlers, counting for preschool,
+kids learning songs, toddler learning videos, counting game, KiddoVerse
+
+SHORTS (the three clips in Shorts\): post each as its own Short with a title like
+  "Count to 20! 🔢 Ten and some more"  /  "Count by 2s, 5s and 10s! 🧦✋🚂 Skip counting song"  /  "How many stars? ⭐ Counting quiz for kids"
+and the hashtags #LearnToCount #KidsSongs #Shorts.   Pick "made for kids" for them as well.
+
+AUDIENCE SETTING
+Choose "Yes, it's made for kids". On made-for-kids videos YouTube turns off comments, end screens and cards, so the video ends with a clean
+outro instead of "watch next" elements.
+
+ALTERED / SYNTHETIC CONTENT QUESTION
+The facts: the characters are animated; the singing and spoken voices and the music are AI-generated (the lead, double, harmony and children's-choir
+voices are made from the Kokoro text-to-speech voices, re-timed and tuned to the melody; the band is a SoundFont orchestra). Read the question exactly
+as YouTube words it in Studio and answer it honestly. The sentence "Made with animation and AI: the characters are animated, and the voices and music
+are AI-generated." in the description is a safe extra.
+
+CAPTIONS
+The captions are already burned into the picture. The SRT file (KiddoVerse_Learn5.srt) would show the same words a second time, so upload it only if
+you want it for search or translation.

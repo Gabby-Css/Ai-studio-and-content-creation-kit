@@ -1,0 +1,6 @@
+[2026-10-16 08:45:43] RUN mix4 (try 1/2): C:\Users\softenic\AppData\Local\Programs\Python\Python312\python.exe mix4.py 13
+[2026-10-16 08:51:21] EXIT mix4 code 0 after 5.6 min
+[2026-10-16 08:51:21] RUN aac_safe (try 1/2): C:\Users\softenic\AppData\Local\Programs\Python\Python312\python.exe aac_safe.py C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn3\audio\master_l3_L3.wav C:\Users\softenic\Downloads\ai-video-studio-kit\hyperframes\learn3\audio\master_L3_safe.wav 0.89
+[2026-10-16 08:52:23] EXIT aac_safe code 0 after 1.0 min
+[2026-10-16 08:52:26] master after aac_safe: -13.6 LUFS, true peak -0.6 dBTP
+mix ok: True

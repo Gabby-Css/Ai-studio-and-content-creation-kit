@@ -1,0 +1,14 @@
+intro   t=    0s  words   2  recognised   1 ( 50%)   heard: kiddo first all aboard the zoomy ready ready three two one zoom
+chorus  t=    8s  words  37  recognised  33 ( 89%)   heard: zoom zoom zoom kiddo first hop on board let's go zoom zoom kiddo first clap clap here we go round fr
+v1      t=   24s  words  24  recognised  23 ( 96%)   heard: rainbow hills what do we see red balloons floating free yellow sun and night deep blue a sea green g
+chorus  t=   40s  words  37  recognised  29 ( 78%)   heard: zoom kiddo first not gone bored let's go zoom zoom kiddo first clap clap here we go round five stars
+v2      t=   56s  words  23  recognised  19 ( 83%)   heard: you're around both sides dino goes you stomp you stomp you stomp counting the eggs pop pop pop one t
+chorus  t=   72s  words  37  recognised  30 ( 81%)   heard: zoom zoom kiddo first not going forward let's go zoom zoom kiddo first clap clap here we go around t
+v3      t=   88s  words  27  recognised  21 ( 78%)   heard: i'm happy shining bright sometimes i'm sad and my brain at night take my deep breath count the two h
+dance   t=  104s  words  13  recognised  12 ( 92%)   heard: for the kiddo wiggle wiggle left wiggle right wiggle left wiggle right jump up high jump around jump
+v4      t=  120s  words  22  recognised  20 ( 91%)   heard: a circle a circle we all go around a square a square blocks on the ground triangle triangle roofs up
+bridge  t=  136s  words  23  recognised  19 ( 83%)   heard: big or small near or far and every one of you because it's not a star different friends from everywh
+fin     t=  152s  words  37  recognised  25 ( 68%)   heard: zoom zoom kidoverse not going bored let's go zoom zoom kidoverse let's let here we go round stars an
+fin2    t=  168s  words  33  recognised  25 ( 76%)   heard: zoom zoom kiddo first not going bored let's go zoom zoom kiddo first clap clap here we go round five
+outro   t=  184s  words   4  recognised   3 ( 75%)   heard: bye bye kiddo first see you next time
+OVERALL master_v2_cvr5.wav: recognised 260/319 = 82%

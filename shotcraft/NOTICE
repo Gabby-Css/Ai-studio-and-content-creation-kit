@@ -1,0 +1,49 @@
+video-shotcraft
+Copyright 2026 Yihao (https://github.com/Vincentwei1021)
+
+This product includes software developed as part of the video-shotcraft project:
+  https://github.com/Vincentwei1021/video-shotcraft
+
+Licensed under the Apache License, Version 2.0. The full licence text is in the
+LICENSE file alongside this notice.
+
+This is a MODIFIED redistribution. The changes made to the original files are
+listed in MODIFICATIONS.md, as required by Apache License 2.0 section 4(b).
+
+--------------------------------------------------------------------------------
+TRADEMARKS
+
+Apache License 2.0 section 6 grants no rights to the trade names, trademarks,
+service marks, or product names of the licensor. The upstream project's brand
+assets (assets/brand/ — logo marks, lockups, and brand board) are therefore NOT
+included in this redistribution, and the upstream project's name and logo are
+not used to endorse or promote this studio.
+
+"video-shotcraft" is referred to here only to give the required attribution.
+
+--------------------------------------------------------------------------------
+AUDIO IS NOT INCLUDED
+
+The upstream project vendors 149 sound effects and 5 background music tracks
+(assets/audio/) sourced from Mixkit, plus a second copy of 11 of them under
+template/public/audio/. None of that audio is redistributed here.
+
+Two reasons:
+
+  1. The Mixkit Free License permits using the files in a project. It does not
+     permit redistributing them as a downloadable asset pack, which is exactly
+     what bundling them into this kit would be.
+
+  2. Upstream's own assets/audio/ATTRIBUTION.md records that six of the files
+     cannot be traced back to a source entry, and flags them as requiring
+     verification before commercial use. Passing along audio whose provenance
+     the original author could not establish would pass along that risk.
+
+Run `node shotcraft/fetch-audio.cjs` to download the audio from upstream onto
+your own machine, under whatever licence Mixkit grants you directly. The script
+prints the attribution table and the untraceable-file warning before it fetches
+anything.
+
+Everything else in the shot library — the 104 shot recipe cards, the reference
+docs, the Remotion demos, and the template — works without audio. Audio only
+affects the sound design pass.

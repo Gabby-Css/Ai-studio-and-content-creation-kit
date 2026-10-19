@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=1280, height=720">
+<title>Video Studio — original starter</title>
+<script src="vendor/gsap.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0}html,body{width:1280px;height:720px;overflow:hidden;background:#101728;color:#f5f7fc;font-family:Arial,sans-serif}
+#main{width:1280px;height:720px;padding:80px;position:relative}.label{font-size:22px;letter-spacing:5px;color:#6ee7cc}h1{font-size:82px;line-height:1.08;max-width:1000px;margin-top:55px}.sub{font-size:29px;color:#b9c7dc;margin-top:30px}.line{position:absolute;left:80px;bottom:100px;width:1120px;height:7px;background:#6ee7cc;transform-origin:left}.note{position:absolute;bottom:55px;font-size:18px;color:#a4b2c9}
+</style></head><body>
+<main data-hf-id="hf-fhck" id="main" data-composition-id="main" data-start="0" data-duration="4" data-width="1280" data-height="720" data-fps="30">
+<p data-hf-id="hf-qrjp" class="label">VIDEO STUDIO / HYPERFRAMES</p><h1 data-hf-id="hf-gizj">Build a beat.<br data-hf-id="hf-x5px">Make it move.</h1><p data-hf-id="hf-63xa" class="sub">Your words. Your layout. A local render.</p><div data-hf-id="hf-np12" class="line"></div><p data-hf-id="hf-p243" class="note">Original silent starter • Replace the copy and author your own scene</p>
+</main><script>
+gsap.set('h1',{opacity:0,y:25});gsap.set('.sub',{opacity:0,y:15});gsap.set('.line',{scaleX:0});
+const timeline=gsap.timeline({paused:true});
+timeline.to('h1',{opacity:1,y:0,duration:0.7,ease:'power2.out'},0.2).to('.sub',{opacity:1,y:0,duration:0.6},0.8).to('.line',{scaleX:1,duration:2.5,ease:'none'},0.5).to({}, {duration:1},3);
+window.__timelines=window.__timelines||{};window.__timelines.main=timeline;timeline.seek(0);
+</script></body></html>

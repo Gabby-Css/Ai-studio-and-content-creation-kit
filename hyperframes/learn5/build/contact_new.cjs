@@ -1,0 +1,8 @@
+// node contact_new.cjs <out.png> [kinds...]  -> grid of the shape characters + new objects (visual check); default = all shape art
+const puppeteer = require('../../../node_modules/puppeteer');
+global.window = global; require('./edu_objects.js'); require('./color_objects.js'); require('./shape_art.js'); const O = global.KVOBJ;
+const kinds = process.argv.slice(3).length ? process.argv.slice(3) : O.kinds.filter((k) => k.startsWith('sh_') || ['window', 'gift', 'tent', 'sail', 'door', 'book', 'flag', 'starfish', 'badge', 'sticker', 'card', 'heartballoon', 'heartcookie', 'gem', 'sign'].includes(k));
+const cell = 240, cols = 6, rows = Math.ceil(kinds.length / cols);
+const items = kinds.map((k, i) => `<g transform="translate(${(i % cols) * cell + cell / 2},${Math.floor(i / cols) * (cell + 24) + cell / 2 - 6}) scale(.8)">${O.draw(k)}</g><text x="${(i % cols) * cell + cell / 2}" y="${Math.floor(i / cols) * (cell + 24) + cell + 12}" fill="#fff" font-size="20" text-anchor="middle">${k}</text>`).join('');
+const html = `<html><body style="margin:0;background:#3a2a8a"><svg xmlns="http://www.w3.org/2000/svg" width="${cols * cell}" height="${rows * (cell + 24)}" style="font-family:Arial">${items}</svg></body></html>`;
+(async () => { const b = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-gpu'] }); const p = await b.newPage(); await p.setViewport({ width: cols * cell, height: rows * (cell + 24) }); await p.setContent(html); await new Promise((r) => setTimeout(r, 300)); await p.screenshot({ path: process.argv[2] || 'new.png' }); await b.close(); console.log('saved', kinds.length); })();

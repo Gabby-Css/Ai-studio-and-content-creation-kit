@@ -1,0 +1,6737 @@
+{
+ "bpm": 120,
+ "bar": 2.0,
+ "duration": 184.0,
+ "brand": "KiddoVerse",
+ "sections": [
+  {
+   "i": 0,
+   "kind": "intro",
+   "bar0": 0,
+   "bars": 2,
+   "t0": 0.0,
+   "t1": 4.0,
+   "prog": [
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {}
+  },
+  {
+   "i": 1,
+   "kind": "hook",
+   "bar0": 2,
+   "bars": 4,
+   "t0": 4.0,
+   "t1": 12.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F"
+   ],
+   "transpose": 0,
+   "meta": {}
+  },
+  {
+   "i": 2,
+   "kind": "stop",
+   "bar0": 6,
+   "bars": 5,
+   "t0": 12.0,
+   "t1": 22.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 0,
+    "w": "cat",
+    "tr": 0
+   }
+  },
+  {
+   "i": 3,
+   "kind": "stop",
+   "bar0": 11,
+   "bars": 5,
+   "t0": 22.0,
+   "t1": 32.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 1,
+    "w": "dog",
+    "tr": 0
+   }
+  },
+  {
+   "i": 4,
+   "kind": "stop",
+   "bar0": 16,
+   "bars": 5,
+   "t0": 32.0,
+   "t1": 42.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 2,
+    "w": "sun",
+    "tr": 0
+   }
+  },
+  {
+   "i": 5,
+   "kind": "stop",
+   "bar0": 21,
+   "bars": 5,
+   "t0": 42.0,
+   "t1": 52.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 0,
+   "meta": {
+    "i": 3,
+    "w": "hat",
+    "tr": 0
+   }
+  },
+  {
+   "i": 6,
+   "kind": "rhyme",
+   "bar0": 26,
+   "bars": 4,
+   "t0": 52.0,
+   "t1": 60.0,
+   "prog": [
+    "C",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "r": 0,
+    "pair": [
+     "cat",
+     "hat"
+    ],
+    "end": "at",
+    "tr": 0
+   }
+  },
+  {
+   "i": 7,
+   "kind": "game",
+   "bar0": 30,
+   "bars": 4,
+   "t0": 60.0,
+   "t1": 68.0,
+   "prog": [
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 0,
+   "meta": {
+    "k": 0,
+    "w": "sun",
+    "cards": [
+     "bus",
+     "sun",
+     "cup"
+    ],
+    "tr": 0
+   }
+  },
+  {
+   "i": 8,
+   "kind": "stop",
+   "bar0": 34,
+   "bars": 5,
+   "t0": 68.0,
+   "t1": 78.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 2,
+   "meta": {
+    "i": 4,
+    "w": "pig",
+    "tr": 2
+   }
+  },
+  {
+   "i": 9,
+   "kind": "stop",
+   "bar0": 39,
+   "bars": 5,
+   "t0": 78.0,
+   "t1": 88.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 2,
+   "meta": {
+    "i": 5,
+    "w": "bus",
+    "tr": 2
+   }
+  },
+  {
+   "i": 10,
+   "kind": "stop",
+   "bar0": 44,
+   "bars": 5,
+   "t0": 88.0,
+   "t1": 98.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 2,
+   "meta": {
+    "i": 6,
+    "w": "cup",
+    "tr": 2
+   }
+  },
+  {
+   "i": 11,
+   "kind": "stop",
+   "bar0": 49,
+   "bars": 5,
+   "t0": 98.0,
+   "t1": 108.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 2,
+   "meta": {
+    "i": 7,
+    "w": "red",
+    "tr": 2
+   }
+  },
+  {
+   "i": 12,
+   "kind": "stop",
+   "bar0": 54,
+   "bars": 5,
+   "t0": 108.0,
+   "t1": 118.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 2,
+   "meta": {
+    "i": 8,
+    "w": "big",
+    "tr": 2
+   }
+  },
+  {
+   "i": 13,
+   "kind": "rhyme",
+   "bar0": 59,
+   "bars": 4,
+   "t0": 118.0,
+   "t1": 126.0,
+   "prog": [
+    "C",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 2,
+   "meta": {
+    "r": 1,
+    "pair": [
+     "pig",
+     "big"
+    ],
+    "end": "ig",
+    "tr": 2
+   }
+  },
+  {
+   "i": 14,
+   "kind": "game",
+   "bar0": 63,
+   "bars": 4,
+   "t0": 126.0,
+   "t1": 134.0,
+   "prog": [
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 2,
+   "meta": {
+    "k": 1,
+    "w": "red",
+    "cards": [
+     "big",
+     "run",
+     "red"
+    ],
+    "tr": 2
+   }
+  },
+  {
+   "i": 15,
+   "kind": "stop",
+   "bar0": 67,
+   "bars": 5,
+   "t0": 134.0,
+   "t1": 144.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C"
+   ],
+   "transpose": 4,
+   "meta": {
+    "i": 9,
+    "w": "run",
+    "tr": 4
+   }
+  },
+  {
+   "i": 16,
+   "kind": "rhyme",
+   "bar0": 72,
+   "bars": 4,
+   "t0": 144.0,
+   "t1": 152.0,
+   "prog": [
+    "C",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 4,
+   "meta": {
+    "r": 2,
+    "pair": [
+     "sun",
+     "run"
+    ],
+    "end": "un",
+    "tr": 4
+   }
+  },
+  {
+   "i": 17,
+   "kind": "game",
+   "bar0": 76,
+   "bars": 4,
+   "t0": 152.0,
+   "t1": 160.0,
+   "prog": [
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 4,
+   "meta": {
+    "k": 2,
+    "w": "dog",
+    "cards": [
+     "dog",
+     "cat",
+     "pig"
+    ],
+    "tr": 4
+   }
+  },
+  {
+   "i": 18,
+   "kind": "recap",
+   "bar0": 80,
+   "bars": 6,
+   "t0": 160.0,
+   "t1": 172.0,
+   "prog": [
+    "C",
+    "G",
+    "Am",
+    "F",
+    "C",
+    "G"
+   ],
+   "transpose": 4,
+   "meta": {}
+  },
+  {
+   "i": 19,
+   "kind": "fin",
+   "bar0": 86,
+   "bars": 2,
+   "t0": 172.0,
+   "t1": 176.0,
+   "prog": [
+    "G",
+    "C"
+   ],
+   "transpose": 4,
+   "meta": {}
+  },
+  {
+   "i": 20,
+   "kind": "outro",
+   "bar0": 88,
+   "bars": 4,
+   "t0": 176.0,
+   "t1": 184.0,
+   "prog": [
+    "C",
+    "F",
+    "C",
+    "C"
+   ],
+   "transpose": 0,
+   "meta": {}
+  }
+ ],
+ "lines": [
+  {
+   "sec": 0,
+   "kind": "intro",
+   "voice": "lead",
+   "t0": 0.0,
+   "t1": 2.0,
+   "words": [
+    {
+     "parts": [
+      "Kid",
+      "do"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 0.0,
+       "dur": 0.5
+      },
+      {
+       "note": 67,
+       "t0": 0.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "KiddoVerse!",
+     "text": "Kiddo",
+     "t0": 0.0,
+     "t1": 2.0,
+     "merged": true,
+     "subs": [
+      {
+       "parts": [
+        "Kid",
+        "do"
+       ],
+       "syl": [
+        {
+         "note": 64,
+         "t0": 0.0,
+         "dur": 0.5
+        },
+        {
+         "note": 67,
+         "t0": 0.5,
+         "dur": 0.5
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "Kiddo",
+       "text": "Kiddo",
+       "t0": 0.0,
+       "t1": 1.0
+      },
+      {
+       "parts": [
+        "verse!"
+       ],
+       "syl": [
+        {
+         "note": 72,
+         "t0": 1.0,
+         "dur": 1.0
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "verse!",
+       "text": "verse",
+       "t0": 1.0,
+       "t1": 2.0
+      }
+     ]
+    }
+   ],
+   "meta": {}
+  },
+  {
+   "sec": 1,
+   "kind": "hook",
+   "voice": "lead",
+   "t0": 4.0,
+   "t1": 7.0,
+   "words": [
+    {
+     "parts": [
+      "Beep"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 4.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Beep",
+     "text": "Beep",
+     "t0": 4.0,
+     "t1": 4.5
+    },
+    {
+     "parts": [
+      "boop!"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 4.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "boop!",
+     "text": "boop",
+     "t0": 4.5,
+     "t1": 5.0
+    },
+    {
+     "parts": [
+      "Sound"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 5.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Sound",
+     "text": "Sound",
+     "t0": 5.0,
+     "t1": 5.5
+    },
+    {
+     "parts": [
+      "it"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 5.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "it",
+     "text": "it",
+     "t0": 5.5,
+     "t1": 6.0
+    },
+    {
+     "parts": [
+      "out!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 6.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "out!",
+     "text": "out",
+     "t0": 6.0,
+     "t1": 7.0
+    }
+   ],
+   "meta": {
+    "li": 0
+   }
+  },
+  {
+   "sec": 1,
+   "kind": "hook",
+   "voice": "lead",
+   "t0": 8.0,
+   "t1": 11.5,
+   "words": [
+    {
+     "parts": [
+      "Slide"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 8.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Slide",
+     "text": "Slide",
+     "t0": 8.0,
+     "t1": 8.5
+    },
+    {
+     "parts": [
+      "it,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 8.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "it,",
+     "text": "it",
+     "t0": 8.5,
+     "t1": 9.0
+    },
+    {
+     "parts": [
+      "say"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 9.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "say",
+     "text": "say",
+     "t0": 9.0,
+     "t1": 9.5
+    },
+    {
+     "parts": [
+      "it,"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 9.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "it,",
+     "text": "it",
+     "t0": 9.5,
+     "t1": 10.0
+    },
+    {
+     "parts": [
+      "read"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 10.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "read",
+     "text": "read",
+     "t0": 10.0,
+     "t1": 10.5
+    },
+    {
+     "parts": [
+      "it!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 10.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "it!",
+     "text": "it",
+     "t0": 10.5,
+     "t1": 11.5
+    }
+   ],
+   "meta": {
+    "li": 1
+   }
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 12.0,
+   "t1": 13.5,
+   "words": [
+    {
+     "parts": [
+      "c"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 12.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "k",
+     "disp": "C",
+     "text": "c",
+     "t0": 12.0,
+     "t1": 12.5
+    },
+    {
+     "parts": [
+      "a"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 12.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "a",
+     "disp": "a",
+     "text": "a",
+     "t0": 12.5,
+     "t1": 13.0
+    },
+    {
+     "parts": [
+      "t"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 13.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "t",
+     "disp": "t",
+     "text": "t",
+     "t0": 13.0,
+     "t1": 13.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 0,
+    "w": "cat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 14.0,
+   "t1": 16.0,
+   "words": [
+    {
+     "parts": [
+      "c"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 14.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "k",
+     "disp": "C",
+     "text": "c",
+     "t0": 14.0,
+     "t1": 14.25
+    },
+    {
+     "parts": [
+      "a"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 14.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "a",
+     "disp": "a",
+     "text": "a",
+     "t0": 14.25,
+     "t1": 14.5
+    },
+    {
+     "parts": [
+      "t"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 14.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "t",
+     "disp": "t",
+     "text": "t",
+     "t0": 14.5,
+     "t1": 14.75
+    },
+    {
+     "parts": [
+      "cat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 15.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cat!",
+     "text": "cat",
+     "t0": 15.0,
+     "t1": 16.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 0,
+    "w": "cat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 16.0,
+   "t1": 17.75,
+   "words": [
+    {
+     "parts": [
+      "cat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 16.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Cat!",
+     "text": "cat",
+     "t0": 16.0,
+     "t1": 16.75
+    },
+    {
+     "parts": [
+      "cat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 17.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "cat!",
+     "text": "cat",
+     "t0": 17.0,
+     "t1": 17.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 0,
+    "w": "cat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 18.0,
+   "t1": 21.0,
+   "words": [
+    {
+     "parts": [
+      "Cat"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 18.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Cat",
+     "text": "Cat",
+     "t0": 18.0,
+     "t1": 18.5
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 18.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 18.5,
+     "t1": 19.0
+    },
+    {
+     "parts": [
+      "meow,"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 19.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow,",
+     "text": "meow",
+     "t0": 19.0,
+     "t1": 19.5
+    },
+    {
+     "parts": [
+      "meow,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 19.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow,",
+     "text": "meow",
+     "t0": 19.5,
+     "t1": 20.0
+    },
+    {
+     "parts": [
+      "meow!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 20.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "meow!",
+     "text": "meow",
+     "t0": 20.0,
+     "t1": 21.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 0,
+    "w": "cat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 22.0,
+   "t1": 23.5,
+   "words": [
+    {
+     "parts": [
+      "d"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 22.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "d",
+     "disp": "D",
+     "text": "d",
+     "t0": 22.0,
+     "t1": 22.5
+    },
+    {
+     "parts": [
+      "o"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 22.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "o",
+     "disp": "o",
+     "text": "o",
+     "t0": 22.5,
+     "t1": 23.0
+    },
+    {
+     "parts": [
+      "g"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 23.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "g",
+     "disp": "g",
+     "text": "g",
+     "t0": 23.0,
+     "t1": 23.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 1,
+    "w": "dog",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 24.0,
+   "t1": 26.0,
+   "words": [
+    {
+     "parts": [
+      "d"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 24.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "d",
+     "disp": "D",
+     "text": "d",
+     "t0": 24.0,
+     "t1": 24.25
+    },
+    {
+     "parts": [
+      "o"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 24.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "o",
+     "disp": "o",
+     "text": "o",
+     "t0": 24.25,
+     "t1": 24.5
+    },
+    {
+     "parts": [
+      "g"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 24.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "g",
+     "disp": "g",
+     "text": "g",
+     "t0": 24.5,
+     "t1": 24.75
+    },
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 25.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dog!",
+     "text": "dog",
+     "t0": 25.0,
+     "t1": 26.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 1,
+    "w": "dog",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 26.0,
+   "t1": 27.75,
+   "words": [
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 26.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Dog!",
+     "text": "dog",
+     "t0": 26.0,
+     "t1": 26.75
+    },
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 27.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "dog!",
+     "text": "dog",
+     "t0": 27.0,
+     "t1": 27.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 1,
+    "w": "dog",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 28.0,
+   "t1": 31.0,
+   "words": [
+    {
+     "parts": [
+      "Dog"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 28.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Dog",
+     "text": "Dog",
+     "t0": 28.0,
+     "t1": 28.5
+    },
+    {
+     "parts": [
+      "can"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 28.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "can",
+     "text": "can",
+     "t0": 28.5,
+     "t1": 29.0
+    },
+    {
+     "parts": [
+      "wag,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 29.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "wag,",
+     "text": "wag",
+     "t0": 29.0,
+     "t1": 29.5
+    },
+    {
+     "parts": [
+      "wag,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 29.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "wag,",
+     "text": "wag",
+     "t0": 29.5,
+     "t1": 30.0
+    },
+    {
+     "parts": [
+      "wag!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 30.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "wag!",
+     "text": "wag",
+     "t0": 30.0,
+     "t1": 31.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 1,
+    "w": "dog",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 32.0,
+   "t1": 33.5,
+   "words": [
+    {
+     "parts": [
+      "s"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 32.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "s",
+     "disp": "S",
+     "text": "s",
+     "t0": 32.0,
+     "t1": 32.5
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 32.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 32.5,
+     "t1": 33.0
+    },
+    {
+     "parts": [
+      "n"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 33.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "n",
+     "disp": "n",
+     "text": "n",
+     "t0": 33.0,
+     "t1": 33.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 2,
+    "w": "sun",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 34.0,
+   "t1": 36.0,
+   "words": [
+    {
+     "parts": [
+      "s"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 34.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "s",
+     "disp": "S",
+     "text": "s",
+     "t0": 34.0,
+     "t1": 34.25
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 34.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 34.25,
+     "t1": 34.5
+    },
+    {
+     "parts": [
+      "n"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 34.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "n",
+     "disp": "n",
+     "text": "n",
+     "t0": 34.5,
+     "t1": 34.75
+    },
+    {
+     "parts": [
+      "sun!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 35.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sun!",
+     "text": "sun",
+     "t0": 35.0,
+     "t1": 36.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 2,
+    "w": "sun",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 36.0,
+   "t1": 37.75,
+   "words": [
+    {
+     "parts": [
+      "sun!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 36.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Sun!",
+     "text": "sun",
+     "t0": 36.0,
+     "t1": 36.75
+    },
+    {
+     "parts": [
+      "sun!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 37.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "sun!",
+     "text": "sun",
+     "t0": 37.0,
+     "t1": 37.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 2,
+    "w": "sun",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 38.0,
+   "t1": 41.0,
+   "words": [
+    {
+     "parts": [
+      "Sun"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 38.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Sun",
+     "text": "Sun",
+     "t0": 38.0,
+     "t1": 38.5
+    },
+    {
+     "parts": [
+      "is"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 38.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "is",
+     "text": "is",
+     "t0": 38.5,
+     "t1": 39.0
+    },
+    {
+     "parts": [
+      "hot,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 39.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hot,",
+     "text": "hot",
+     "t0": 39.0,
+     "t1": 39.5
+    },
+    {
+     "parts": [
+      "hot,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 39.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hot,",
+     "text": "hot",
+     "t0": 39.5,
+     "t1": 40.0
+    },
+    {
+     "parts": [
+      "hot!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 40.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hot!",
+     "text": "hot",
+     "t0": 40.0,
+     "t1": 41.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 2,
+    "w": "sun",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 42.0,
+   "t1": 43.5,
+   "words": [
+    {
+     "parts": [
+      "h"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 42.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "h",
+     "disp": "H",
+     "text": "h",
+     "t0": 42.0,
+     "t1": 42.5
+    },
+    {
+     "parts": [
+      "a"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 42.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "a",
+     "disp": "a",
+     "text": "a",
+     "t0": 42.5,
+     "t1": 43.0
+    },
+    {
+     "parts": [
+      "t"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 43.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "t",
+     "disp": "t",
+     "text": "t",
+     "t0": 43.0,
+     "t1": 43.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 3,
+    "w": "hat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 44.0,
+   "t1": 46.0,
+   "words": [
+    {
+     "parts": [
+      "h"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 44.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "h",
+     "disp": "H",
+     "text": "h",
+     "t0": 44.0,
+     "t1": 44.25
+    },
+    {
+     "parts": [
+      "a"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 44.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "a",
+     "disp": "a",
+     "text": "a",
+     "t0": 44.25,
+     "t1": 44.5
+    },
+    {
+     "parts": [
+      "t"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 44.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "t",
+     "disp": "t",
+     "text": "t",
+     "t0": 44.5,
+     "t1": 44.75
+    },
+    {
+     "parts": [
+      "hat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 45.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat!",
+     "text": "hat",
+     "t0": 45.0,
+     "t1": 46.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 3,
+    "w": "hat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 46.0,
+   "t1": 47.75,
+   "words": [
+    {
+     "parts": [
+      "hat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 46.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Hat!",
+     "text": "hat",
+     "t0": 46.0,
+     "t1": 46.75
+    },
+    {
+     "parts": [
+      "hat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 47.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "hat!",
+     "text": "hat",
+     "t0": 47.0,
+     "t1": 47.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 3,
+    "w": "hat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 48.0,
+   "t1": 51.5,
+   "words": [
+    {
+     "parts": [
+      "Hat"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 48.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Hat",
+     "text": "Hat",
+     "t0": 48.0,
+     "t1": 48.5
+    },
+    {
+     "parts": [
+      "on,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 48.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "on,",
+     "text": "on",
+     "t0": 48.5,
+     "t1": 49.0
+    },
+    {
+     "parts": [
+      "hat"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 49.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat",
+     "text": "hat",
+     "t0": 49.0,
+     "t1": 49.5
+    },
+    {
+     "parts": [
+      "on,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 49.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "on,",
+     "text": "on",
+     "t0": 49.5,
+     "t1": 50.0
+    },
+    {
+     "parts": [
+      "hat"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 50.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat",
+     "text": "hat",
+     "t0": 50.0,
+     "t1": 50.25
+    },
+    {
+     "parts": [
+      "on"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 50.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "on",
+     "text": "on",
+     "t0": 50.25,
+     "t1": 50.5
+    },
+    {
+     "parts": [
+      "my"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 50.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "my",
+     "text": "my",
+     "t0": 50.5,
+     "t1": 50.75
+    },
+    {
+     "parts": [
+      "head!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 50.75,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "head!",
+     "text": "head",
+     "t0": 50.75,
+     "t1": 51.5
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 3,
+    "w": "hat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 6,
+   "kind": "rhyme",
+   "voice": "lead",
+   "t0": 52.0,
+   "t1": 55.5,
+   "words": [
+    {
+     "parts": [
+      "cat"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 52.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Cat",
+     "text": "cat",
+     "t0": 52.0,
+     "t1": 52.5
+    },
+    {
+     "parts": [
+      "hat!"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 52.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat!",
+     "text": "hat",
+     "t0": 52.5,
+     "t1": 53.0
+    },
+    {
+     "parts": [
+      "cat"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 53.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cat",
+     "text": "cat",
+     "t0": 53.0,
+     "t1": 53.5
+    },
+    {
+     "parts": [
+      "hat!"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 53.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat!",
+     "text": "hat",
+     "t0": 53.5,
+     "t1": 54.0
+    },
+    {
+     "parts": [
+      "They"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 54.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "They",
+     "text": "They",
+     "t0": 54.0,
+     "t1": 54.5
+    },
+    {
+     "parts": [
+      "rhyme!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 54.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "rhyme!",
+     "text": "rhyme",
+     "t0": 54.5,
+     "t1": 55.5
+    }
+   ],
+   "meta": {
+    "part": "pair",
+    "li": 0,
+    "r": 0,
+    "pair": [
+     "cat",
+     "hat"
+    ],
+    "end": "at",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 6,
+   "kind": "rhyme",
+   "voice": "lead",
+   "t0": 56.0,
+   "t1": 58.5,
+   "words": [
+    {
+     "parts": [
+      "at"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 56.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "At",
+     "text": "at",
+     "t0": 56.0,
+     "t1": 56.5
+    },
+    {
+     "parts": [
+      "at"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 56.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "at",
+     "text": "at",
+     "t0": 56.5,
+     "t1": 57.0
+    },
+    {
+     "parts": [
+      "at"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 57.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "at",
+     "text": "at",
+     "t0": 57.0,
+     "t1": 57.5
+    },
+    {
+     "parts": [
+      "at!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 57.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "at!",
+     "text": "at",
+     "t0": 57.5,
+     "t1": 58.5
+    }
+   ],
+   "meta": {
+    "part": "end",
+    "li": 1,
+    "r": 0,
+    "pair": [
+     "cat",
+     "hat"
+    ],
+    "end": "at",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 7,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 60.0,
+   "t1": 62.0,
+   "words": [
+    {
+     "parts": [
+      "Which"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 60.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Which",
+     "text": "Which",
+     "t0": 60.0,
+     "t1": 60.5
+    },
+    {
+     "parts": [
+      "word"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 60.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "word",
+     "text": "word",
+     "t0": 60.5,
+     "t1": 61.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 61.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 61.0,
+     "t1": 61.5
+    },
+    {
+     "parts": [
+      "sun?"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 61.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sun?",
+     "text": "sun",
+     "t0": 61.5,
+     "t1": 62.0
+    }
+   ],
+   "meta": {
+    "part": "q",
+    "k": 0,
+    "w": "sun",
+    "cards": [
+     "bus",
+     "sun",
+     "cup"
+    ],
+    "tr": 0
+   }
+  },
+  {
+   "sec": 7,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 66.0,
+   "t1": 68.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 66.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 66.0,
+     "t1": 66.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 66.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 66.5,
+     "t1": 67.0
+    },
+    {
+     "parts": [
+      "sun!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 67.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "sun!",
+     "text": "sun",
+     "t0": 67.0,
+     "t1": 68.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 0,
+    "w": "sun",
+    "cards": [
+     "bus",
+     "sun",
+     "cup"
+    ],
+    "tr": 0
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 68.0,
+   "t1": 69.5,
+   "words": [
+    {
+     "parts": [
+      "p"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 68.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "p",
+     "disp": "P",
+     "text": "p",
+     "t0": 68.0,
+     "t1": 68.5
+    },
+    {
+     "parts": [
+      "i"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 68.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "i",
+     "disp": "i",
+     "text": "i",
+     "t0": 68.5,
+     "t1": 69.0
+    },
+    {
+     "parts": [
+      "g"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 69.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "g",
+     "disp": "g",
+     "text": "g",
+     "t0": 69.0,
+     "t1": 69.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 4,
+    "w": "pig",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 70.0,
+   "t1": 72.0,
+   "words": [
+    {
+     "parts": [
+      "p"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 70.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "p",
+     "disp": "P",
+     "text": "p",
+     "t0": 70.0,
+     "t1": 70.25
+    },
+    {
+     "parts": [
+      "i"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 70.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "i",
+     "disp": "i",
+     "text": "i",
+     "t0": 70.25,
+     "t1": 70.5
+    },
+    {
+     "parts": [
+      "g"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 70.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "g",
+     "disp": "g",
+     "text": "g",
+     "t0": 70.5,
+     "t1": 70.75
+    },
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 71.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "pig!",
+     "text": "pig",
+     "t0": 71.0,
+     "t1": 72.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 4,
+    "w": "pig",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 72.0,
+   "t1": 73.75,
+   "words": [
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 72.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Pig!",
+     "text": "pig",
+     "t0": 72.0,
+     "t1": 72.75
+    },
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 73.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "pig!",
+     "text": "pig",
+     "t0": 73.0,
+     "t1": 73.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 4,
+    "w": "pig",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 74.0,
+   "t1": 77.0,
+   "words": [
+    {
+     "parts": [
+      "Pig"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 74.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Pig",
+     "text": "Pig",
+     "t0": 74.0,
+     "t1": 74.5
+    },
+    {
+     "parts": [
+      "can"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 74.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "can",
+     "text": "can",
+     "t0": 74.5,
+     "t1": 75.0
+    },
+    {
+     "parts": [
+      "dig,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 75.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dig,",
+     "text": "dig",
+     "t0": 75.0,
+     "t1": 75.5
+    },
+    {
+     "parts": [
+      "dig,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 75.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dig,",
+     "text": "dig",
+     "t0": 75.5,
+     "t1": 76.0
+    },
+    {
+     "parts": [
+      "dig!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 76.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dig!",
+     "text": "dig",
+     "t0": 76.0,
+     "t1": 77.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 4,
+    "w": "pig",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 78.0,
+   "t1": 79.5,
+   "words": [
+    {
+     "parts": [
+      "b"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 78.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "b",
+     "disp": "B",
+     "text": "b",
+     "t0": 78.0,
+     "t1": 78.5
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 78.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 78.5,
+     "t1": 79.0
+    },
+    {
+     "parts": [
+      "s"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 79.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "s",
+     "disp": "s",
+     "text": "s",
+     "t0": 79.0,
+     "t1": 79.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 5,
+    "w": "bus",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 80.0,
+   "t1": 82.0,
+   "words": [
+    {
+     "parts": [
+      "b"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 80.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "b",
+     "disp": "B",
+     "text": "b",
+     "t0": 80.0,
+     "t1": 80.25
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 80.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 80.25,
+     "t1": 80.5
+    },
+    {
+     "parts": [
+      "s"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 80.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "s",
+     "disp": "s",
+     "text": "s",
+     "t0": 80.5,
+     "t1": 80.75
+    },
+    {
+     "parts": [
+      "bus!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 81.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "bus!",
+     "text": "bus",
+     "t0": 81.0,
+     "t1": 82.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 5,
+    "w": "bus",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 82.0,
+   "t1": 83.75,
+   "words": [
+    {
+     "parts": [
+      "bus!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 82.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Bus!",
+     "text": "bus",
+     "t0": 82.0,
+     "t1": 82.75
+    },
+    {
+     "parts": [
+      "bus!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 83.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "bus!",
+     "text": "bus",
+     "t0": 83.0,
+     "t1": 83.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 5,
+    "w": "bus",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 84.0,
+   "t1": 87.0,
+   "words": [
+    {
+     "parts": [
+      "Bus"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 84.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Bus",
+     "text": "Bus",
+     "t0": 84.0,
+     "t1": 84.5
+    },
+    {
+     "parts": [
+      "goes"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 84.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "goes",
+     "text": "goes",
+     "t0": 84.5,
+     "t1": 85.0
+    },
+    {
+     "parts": [
+      "beep,"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 85.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "beep,",
+     "text": "beep",
+     "t0": 85.0,
+     "t1": 85.5
+    },
+    {
+     "parts": [
+      "beep,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 85.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "beep,",
+     "text": "beep",
+     "t0": 85.5,
+     "t1": 86.0
+    },
+    {
+     "parts": [
+      "beep!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 86.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "beep!",
+     "text": "beep",
+     "t0": 86.0,
+     "t1": 87.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 5,
+    "w": "bus",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 88.0,
+   "t1": 89.5,
+   "words": [
+    {
+     "parts": [
+      "c"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 88.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "k",
+     "disp": "C",
+     "text": "c",
+     "t0": 88.0,
+     "t1": 88.5
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 88.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 88.5,
+     "t1": 89.0
+    },
+    {
+     "parts": [
+      "p"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 89.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "p",
+     "disp": "p",
+     "text": "p",
+     "t0": 89.0,
+     "t1": 89.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 6,
+    "w": "cup",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 90.0,
+   "t1": 92.0,
+   "words": [
+    {
+     "parts": [
+      "c"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 90.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "k",
+     "disp": "C",
+     "text": "c",
+     "t0": 90.0,
+     "t1": 90.25
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 90.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 90.25,
+     "t1": 90.5
+    },
+    {
+     "parts": [
+      "p"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 90.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "p",
+     "disp": "p",
+     "text": "p",
+     "t0": 90.5,
+     "t1": 90.75
+    },
+    {
+     "parts": [
+      "cup!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 91.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cup!",
+     "text": "cup",
+     "t0": 91.0,
+     "t1": 92.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 6,
+    "w": "cup",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 92.0,
+   "t1": 93.75,
+   "words": [
+    {
+     "parts": [
+      "cup!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 92.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Cup!",
+     "text": "cup",
+     "t0": 92.0,
+     "t1": 92.75
+    },
+    {
+     "parts": [
+      "cup!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 93.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "cup!",
+     "text": "cup",
+     "t0": 93.0,
+     "t1": 93.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 6,
+    "w": "cup",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 94.0,
+   "t1": 97.0,
+   "words": [
+    {
+     "parts": [
+      "Cup"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 94.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Cup",
+     "text": "Cup",
+     "t0": 94.0,
+     "t1": 94.5
+    },
+    {
+     "parts": [
+      "of"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 94.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "of",
+     "text": "of",
+     "t0": 94.5,
+     "t1": 95.0
+    },
+    {
+     "parts": [
+      "milk,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 95.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "milk,",
+     "text": "milk",
+     "t0": 95.0,
+     "t1": 95.5
+    },
+    {
+     "parts": [
+      "yum,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 95.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "yum,",
+     "text": "yum",
+     "t0": 95.5,
+     "t1": 96.0
+    },
+    {
+     "parts": [
+      "yum!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 96.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "yum!",
+     "text": "yum",
+     "t0": 96.0,
+     "t1": 97.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 6,
+    "w": "cup",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 98.0,
+   "t1": 99.5,
+   "words": [
+    {
+     "parts": [
+      "r"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 98.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "r",
+     "disp": "R",
+     "text": "r",
+     "t0": 98.0,
+     "t1": 98.5
+    },
+    {
+     "parts": [
+      "e"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 98.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "e",
+     "disp": "e",
+     "text": "e",
+     "t0": 98.5,
+     "t1": 99.0
+    },
+    {
+     "parts": [
+      "d"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 99.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "d",
+     "disp": "d",
+     "text": "d",
+     "t0": 99.0,
+     "t1": 99.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 7,
+    "w": "red",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 100.0,
+   "t1": 102.0,
+   "words": [
+    {
+     "parts": [
+      "r"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 100.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "r",
+     "disp": "R",
+     "text": "r",
+     "t0": 100.0,
+     "t1": 100.25
+    },
+    {
+     "parts": [
+      "e"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 100.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "e",
+     "disp": "e",
+     "text": "e",
+     "t0": 100.25,
+     "t1": 100.5
+    },
+    {
+     "parts": [
+      "d"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 100.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "d",
+     "disp": "d",
+     "text": "d",
+     "t0": 100.5,
+     "t1": 100.75
+    },
+    {
+     "parts": [
+      "red!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 101.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red!",
+     "text": "red",
+     "t0": 101.0,
+     "t1": 102.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 7,
+    "w": "red",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 102.0,
+   "t1": 103.75,
+   "words": [
+    {
+     "parts": [
+      "red!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 102.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Red!",
+     "text": "red",
+     "t0": 102.0,
+     "t1": 102.75
+    },
+    {
+     "parts": [
+      "red!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 103.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "red!",
+     "text": "red",
+     "t0": 103.0,
+     "t1": 103.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 7,
+    "w": "red",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 104.0,
+   "t1": 107.0,
+   "words": [
+    {
+     "parts": [
+      "Red,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 104.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Red,",
+     "text": "Red",
+     "t0": 104.0,
+     "t1": 104.5
+    },
+    {
+     "parts": [
+      "red,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 104.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red,",
+     "text": "red",
+     "t0": 104.5,
+     "t1": 105.0
+    },
+    {
+     "parts": [
+      "red"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 105.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red",
+     "text": "red",
+     "t0": 105.0,
+     "t1": 105.5
+    },
+    {
+     "parts": [
+      "ap",
+      "ple!"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 105.5,
+       "dur": 0.5
+      },
+      {
+       "note": 74,
+       "t0": 106.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "apple!",
+     "text": "apple",
+     "t0": 105.5,
+     "t1": 107.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 7,
+    "w": "red",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 12,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 108.0,
+   "t1": 109.5,
+   "words": [
+    {
+     "parts": [
+      "b"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 108.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "b",
+     "disp": "B",
+     "text": "b",
+     "t0": 108.0,
+     "t1": 108.5
+    },
+    {
+     "parts": [
+      "i"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 108.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "i",
+     "disp": "i",
+     "text": "i",
+     "t0": 108.5,
+     "t1": 109.0
+    },
+    {
+     "parts": [
+      "g"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 109.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "g",
+     "disp": "g",
+     "text": "g",
+     "t0": 109.0,
+     "t1": 109.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 8,
+    "w": "big",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 12,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 110.0,
+   "t1": 112.0,
+   "words": [
+    {
+     "parts": [
+      "b"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 110.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "b",
+     "disp": "B",
+     "text": "b",
+     "t0": 110.0,
+     "t1": 110.25
+    },
+    {
+     "parts": [
+      "i"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 110.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "i",
+     "disp": "i",
+     "text": "i",
+     "t0": 110.25,
+     "t1": 110.5
+    },
+    {
+     "parts": [
+      "g"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 110.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "g",
+     "disp": "g",
+     "text": "g",
+     "t0": 110.5,
+     "t1": 110.75
+    },
+    {
+     "parts": [
+      "big!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 111.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big!",
+     "text": "big",
+     "t0": 111.0,
+     "t1": 112.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 8,
+    "w": "big",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 12,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 112.0,
+   "t1": 113.75,
+   "words": [
+    {
+     "parts": [
+      "big!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 112.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Big!",
+     "text": "big",
+     "t0": 112.0,
+     "t1": 112.75
+    },
+    {
+     "parts": [
+      "big!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 113.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "big!",
+     "text": "big",
+     "t0": 113.0,
+     "t1": 113.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 8,
+    "w": "big",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 12,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 114.0,
+   "t1": 117.0,
+   "words": [
+    {
+     "parts": [
+      "Big,"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 114.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Big,",
+     "text": "Big",
+     "t0": 114.0,
+     "t1": 114.5
+    },
+    {
+     "parts": [
+      "big,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 114.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big,",
+     "text": "big",
+     "t0": 114.5,
+     "t1": 115.0
+    },
+    {
+     "parts": [
+      "big"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 115.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big",
+     "text": "big",
+     "t0": 115.0,
+     "t1": 115.5
+    },
+    {
+     "parts": [
+      "whale!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 115.5,
+       "dur": 1.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "whale!",
+     "text": "whale",
+     "t0": 115.5,
+     "t1": 117.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 8,
+    "w": "big",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 13,
+   "kind": "rhyme",
+   "voice": "lead",
+   "t0": 118.0,
+   "t1": 121.5,
+   "words": [
+    {
+     "parts": [
+      "pig"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 118.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Pig",
+     "text": "pig",
+     "t0": 118.0,
+     "t1": 118.5
+    },
+    {
+     "parts": [
+      "big!"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 118.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big!",
+     "text": "big",
+     "t0": 118.5,
+     "t1": 119.0
+    },
+    {
+     "parts": [
+      "pig"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 119.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "pig",
+     "text": "pig",
+     "t0": 119.0,
+     "t1": 119.5
+    },
+    {
+     "parts": [
+      "big!"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 119.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big!",
+     "text": "big",
+     "t0": 119.5,
+     "t1": 120.0
+    },
+    {
+     "parts": [
+      "They"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 120.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "They",
+     "text": "They",
+     "t0": 120.0,
+     "t1": 120.5
+    },
+    {
+     "parts": [
+      "rhyme!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 120.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "rhyme!",
+     "text": "rhyme",
+     "t0": 120.5,
+     "t1": 121.5
+    }
+   ],
+   "meta": {
+    "part": "pair",
+    "li": 0,
+    "r": 1,
+    "pair": [
+     "pig",
+     "big"
+    ],
+    "end": "ig",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 13,
+   "kind": "rhyme",
+   "voice": "lead",
+   "t0": 122.0,
+   "t1": 124.5,
+   "words": [
+    {
+     "parts": [
+      "ig"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 122.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Ig",
+     "text": "ig",
+     "t0": 122.0,
+     "t1": 122.5
+    },
+    {
+     "parts": [
+      "ig"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 122.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "ig",
+     "text": "ig",
+     "t0": 122.5,
+     "t1": 123.0
+    },
+    {
+     "parts": [
+      "ig"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 123.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "ig",
+     "text": "ig",
+     "t0": 123.0,
+     "t1": 123.5
+    },
+    {
+     "parts": [
+      "ig!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 123.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "ig!",
+     "text": "ig",
+     "t0": 123.5,
+     "t1": 124.5
+    }
+   ],
+   "meta": {
+    "part": "end",
+    "li": 1,
+    "r": 1,
+    "pair": [
+     "pig",
+     "big"
+    ],
+    "end": "ig",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 14,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 126.0,
+   "t1": 128.0,
+   "words": [
+    {
+     "parts": [
+      "Which"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 126.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Which",
+     "text": "Which",
+     "t0": 126.0,
+     "t1": 126.5
+    },
+    {
+     "parts": [
+      "word"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 126.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "word",
+     "text": "word",
+     "t0": 126.5,
+     "t1": 127.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 127.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 127.0,
+     "t1": 127.5
+    },
+    {
+     "parts": [
+      "red?"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 127.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red?",
+     "text": "red",
+     "t0": 127.5,
+     "t1": 128.0
+    }
+   ],
+   "meta": {
+    "part": "q",
+    "k": 1,
+    "w": "red",
+    "cards": [
+     "big",
+     "run",
+     "red"
+    ],
+    "tr": 2
+   }
+  },
+  {
+   "sec": 14,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 132.0,
+   "t1": 134.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 132.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 132.0,
+     "t1": 132.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 132.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 132.5,
+     "t1": 133.0
+    },
+    {
+     "parts": [
+      "red!"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 133.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "red!",
+     "text": "red",
+     "t0": 133.0,
+     "t1": 134.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 1,
+    "w": "red",
+    "cards": [
+     "big",
+     "run",
+     "red"
+    ],
+    "tr": 2
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 134.0,
+   "t1": 135.5,
+   "words": [
+    {
+     "parts": [
+      "r"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 134.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "r",
+     "disp": "R",
+     "text": "r",
+     "t0": 134.0,
+     "t1": 134.5
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 134.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 134.5,
+     "t1": 135.0
+    },
+    {
+     "parts": [
+      "n"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 135.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": "n",
+     "disp": "n",
+     "text": "n",
+     "t0": 135.0,
+     "t1": 135.5
+    }
+   ],
+   "meta": {
+    "part": "snd",
+    "li": 0,
+    "i": 9,
+    "w": "run",
+    "tr": 4
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 136.0,
+   "t1": 138.0,
+   "words": [
+    {
+     "parts": [
+      "r"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 136.0,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "r",
+     "disp": "R",
+     "text": "r",
+     "t0": 136.0,
+     "t1": 136.25
+    },
+    {
+     "parts": [
+      "u"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 136.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "u",
+     "disp": "u",
+     "text": "u",
+     "t0": 136.25,
+     "t1": 136.5
+    },
+    {
+     "parts": [
+      "n"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 136.5,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": "n",
+     "disp": "n",
+     "text": "n",
+     "t0": 136.5,
+     "t1": 136.75
+    },
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 137.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 137.0,
+     "t1": 138.0
+    }
+   ],
+   "meta": {
+    "part": "blend",
+    "li": 1,
+    "i": 9,
+    "w": "run",
+    "tr": 4
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 138.0,
+   "t1": 139.75,
+   "words": [
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 138.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Run!",
+     "text": "run",
+     "t0": 138.0,
+     "t1": 138.75
+    },
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 139.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 139.0,
+     "t1": 139.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 9,
+    "w": "run",
+    "tr": 4
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "stop",
+   "voice": "lead",
+   "t0": 140.0,
+   "t1": 143.0,
+   "words": [
+    {
+     "parts": [
+      "Run,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 140.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Run,",
+     "text": "Run",
+     "t0": 140.0,
+     "t1": 140.5
+    },
+    {
+     "parts": [
+      "run,"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 140.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run,",
+     "text": "run",
+     "t0": 140.5,
+     "t1": 141.0
+    },
+    {
+     "parts": [
+      "run,"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 141.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run,",
+     "text": "run",
+     "t0": 141.0,
+     "t1": 141.5
+    },
+    {
+     "parts": [
+      "run,"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 141.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run,",
+     "text": "run",
+     "t0": 141.5,
+     "t1": 142.0
+    },
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 142.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 142.0,
+     "t1": 143.0
+    }
+   ],
+   "meta": {
+    "part": "sent",
+    "li": 3,
+    "i": 9,
+    "w": "run",
+    "tr": 4
+   }
+  },
+  {
+   "sec": 16,
+   "kind": "rhyme",
+   "voice": "lead",
+   "t0": 144.0,
+   "t1": 147.5,
+   "words": [
+    {
+     "parts": [
+      "sun"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 144.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Sun",
+     "text": "sun",
+     "t0": 144.0,
+     "t1": 144.5
+    },
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 144.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 144.5,
+     "t1": 145.0
+    },
+    {
+     "parts": [
+      "sun"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 145.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sun",
+     "text": "sun",
+     "t0": 145.0,
+     "t1": 145.5
+    },
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 145.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 145.5,
+     "t1": 146.0
+    },
+    {
+     "parts": [
+      "They"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 146.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "They",
+     "text": "They",
+     "t0": 146.0,
+     "t1": 146.5
+    },
+    {
+     "parts": [
+      "rhyme!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 146.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "rhyme!",
+     "text": "rhyme",
+     "t0": 146.5,
+     "t1": 147.5
+    }
+   ],
+   "meta": {
+    "part": "pair",
+    "li": 0,
+    "r": 2,
+    "pair": [
+     "sun",
+     "run"
+    ],
+    "end": "un",
+    "tr": 4
+   }
+  },
+  {
+   "sec": 16,
+   "kind": "rhyme",
+   "voice": "lead",
+   "t0": 148.0,
+   "t1": 150.5,
+   "words": [
+    {
+     "parts": [
+      "un"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 148.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Un",
+     "text": "un",
+     "t0": 148.0,
+     "t1": 148.5
+    },
+    {
+     "parts": [
+      "un"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 148.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "un",
+     "text": "un",
+     "t0": 148.5,
+     "t1": 149.0
+    },
+    {
+     "parts": [
+      "un"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 149.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "un",
+     "text": "un",
+     "t0": 149.0,
+     "t1": 149.5
+    },
+    {
+     "parts": [
+      "un!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 149.5,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "un!",
+     "text": "un",
+     "t0": 149.5,
+     "t1": 150.5
+    }
+   ],
+   "meta": {
+    "part": "end",
+    "li": 1,
+    "r": 2,
+    "pair": [
+     "sun",
+     "run"
+    ],
+    "end": "un",
+    "tr": 4
+   }
+  },
+  {
+   "sec": 17,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 152.0,
+   "t1": 154.0,
+   "words": [
+    {
+     "parts": [
+      "Which"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 152.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Which",
+     "text": "Which",
+     "t0": 152.0,
+     "t1": 152.5
+    },
+    {
+     "parts": [
+      "word"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 152.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "word",
+     "text": "word",
+     "t0": 152.5,
+     "t1": 153.0
+    },
+    {
+     "parts": [
+      "says"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 153.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "says",
+     "text": "says",
+     "t0": 153.0,
+     "t1": 153.5
+    },
+    {
+     "parts": [
+      "dog?"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 153.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dog?",
+     "text": "dog",
+     "t0": 153.5,
+     "t1": 154.0
+    }
+   ],
+   "meta": {
+    "part": "q",
+    "k": 2,
+    "w": "dog",
+    "cards": [
+     "dog",
+     "cat",
+     "pig"
+    ],
+    "tr": 4
+   }
+  },
+  {
+   "sec": 17,
+   "kind": "game",
+   "voice": "lead",
+   "t0": 158.0,
+   "t1": 160.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 158.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 158.0,
+     "t1": 158.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 158.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 158.5,
+     "t1": 159.0
+    },
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 159.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "kids",
+     "ph": null,
+     "disp": "dog!",
+     "text": "dog",
+     "t0": 159.0,
+     "t1": 160.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 2,
+    "w": "dog",
+    "cards": [
+     "dog",
+     "cat",
+     "pig"
+    ],
+    "tr": 4
+   }
+  },
+  {
+   "sec": 18,
+   "kind": "recap",
+   "voice": "lead",
+   "t0": 160.0,
+   "t1": 164.0,
+   "words": [
+    {
+     "parts": [
+      "We"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 160.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "We",
+     "text": "We",
+     "t0": 160.0,
+     "t1": 160.5
+    },
+    {
+     "parts": [
+      "can"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 160.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "can",
+     "text": "can",
+     "t0": 160.5,
+     "t1": 161.0
+    },
+    {
+     "parts": [
+      "read!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 161.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "read!",
+     "text": "read",
+     "t0": 161.0,
+     "t1": 162.0
+    },
+    {
+     "parts": [
+      "We"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 162.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "We",
+     "text": "We",
+     "t0": 162.0,
+     "t1": 162.5
+    },
+    {
+     "parts": [
+      "can"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 162.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "can",
+     "text": "can",
+     "t0": 162.5,
+     "t1": 163.0
+    },
+    {
+     "parts": [
+      "read!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 163.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "read!",
+     "text": "read",
+     "t0": 163.0,
+     "t1": 164.0
+    }
+   ],
+   "meta": {
+    "li": 0
+   }
+  },
+  {
+   "sec": 18,
+   "kind": "recap",
+   "voice": "lead",
+   "t0": 164.0,
+   "t1": 168.0,
+   "words": [
+    {
+     "parts": [
+      "Cat,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 164.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Cat,",
+     "text": "Cat",
+     "t0": 164.0,
+     "t1": 164.75
+    },
+    {
+     "parts": [
+      "dog,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 164.75,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dog,",
+     "text": "dog",
+     "t0": 164.75,
+     "t1": 165.5
+    },
+    {
+     "parts": [
+      "sun,"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 165.5,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sun,",
+     "text": "sun",
+     "t0": 165.5,
+     "t1": 166.25
+    },
+    {
+     "parts": [
+      "hat,"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 166.25,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat,",
+     "text": "hat",
+     "t0": 166.25,
+     "t1": 167.0
+    },
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 167.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "pig!",
+     "text": "pig",
+     "t0": 167.0,
+     "t1": 168.0
+    }
+   ],
+   "meta": {
+    "li": 1
+   }
+  },
+  {
+   "sec": 18,
+   "kind": "recap",
+   "voice": "lead",
+   "t0": 168.0,
+   "t1": 172.0,
+   "words": [
+    {
+     "parts": [
+      "Bus,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 168.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Bus,",
+     "text": "Bus",
+     "t0": 168.0,
+     "t1": 168.75
+    },
+    {
+     "parts": [
+      "cup,"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 168.75,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cup,",
+     "text": "cup",
+     "t0": 168.75,
+     "t1": 169.5
+    },
+    {
+     "parts": [
+      "red,"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 169.5,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red,",
+     "text": "red",
+     "t0": 169.5,
+     "t1": 170.25
+    },
+    {
+     "parts": [
+      "big,"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 170.25,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big,",
+     "text": "big",
+     "t0": 170.25,
+     "t1": 171.0
+    },
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 171.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 171.0,
+     "t1": 172.0
+    }
+   ],
+   "meta": {
+    "li": 2
+   }
+  },
+  {
+   "sec": 19,
+   "kind": "fin",
+   "voice": "lead",
+   "t0": 172.0,
+   "t1": 175.5,
+   "words": [
+    {
+     "parts": [
+      "Bye"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 172.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Bye",
+     "text": "Bye",
+     "t0": 172.0,
+     "t1": 172.5
+    },
+    {
+     "parts": [
+      "bye,"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 172.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "bye,",
+     "text": "bye",
+     "t0": 172.5,
+     "t1": 173.0
+    },
+    {
+     "parts": [
+      "words!"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 173.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "words!",
+     "text": "words",
+     "t0": 173.0,
+     "t1": 173.5
+    },
+    {
+     "parts": [
+      "Kid",
+      "do"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 173.5,
+       "dur": 0.5
+      },
+      {
+       "note": 71,
+       "t0": 174.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "KiddoVerse!",
+     "text": "Kiddo",
+     "t0": 173.5,
+     "t1": 175.5,
+     "merged": true,
+     "subs": [
+      {
+       "parts": [
+        "Kid",
+        "do"
+       ],
+       "syl": [
+        {
+         "note": 68,
+         "t0": 173.5,
+         "dur": 0.5
+        },
+        {
+         "note": 71,
+         "t0": 174.0,
+         "dur": 0.5
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "Kiddo",
+       "text": "Kiddo",
+       "t0": 173.5,
+       "t1": 174.5
+      },
+      {
+       "parts": [
+        "verse!"
+       ],
+       "syl": [
+        {
+         "note": 76,
+         "t0": 174.5,
+         "dur": 1.0
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "verse!",
+       "text": "verse",
+       "t0": 174.5,
+       "t1": 175.5
+      }
+     ]
+    }
+   ],
+   "meta": {
+    "li": 0
+   }
+  },
+  {
+   "sec": 20,
+   "kind": "outro",
+   "voice": "lead",
+   "t0": 176.0,
+   "t1": 178.0,
+   "words": [
+    {
+     "parts": [
+      "Bye"
+     ],
+     "syl": [
+      {
+       "note": 67,
+       "t0": 176.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Bye",
+     "text": "Bye",
+     "t0": 176.0,
+     "t1": 176.5
+    },
+    {
+     "parts": [
+      "bye,"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 176.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "bye,",
+     "text": "bye",
+     "t0": 176.5,
+     "t1": 177.0
+    },
+    {
+     "parts": [
+      "Kid",
+      "do"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 177.0,
+       "dur": 0.25
+      },
+      {
+       "note": 67,
+       "t0": 177.25,
+       "dur": 0.25
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "KiddoVerse!",
+     "text": "Kiddo",
+     "t0": 177.0,
+     "t1": 178.0,
+     "merged": true,
+     "subs": [
+      {
+       "parts": [
+        "Kid",
+        "do"
+       ],
+       "syl": [
+        {
+         "note": 64,
+         "t0": 177.0,
+         "dur": 0.25
+        },
+        {
+         "note": 67,
+         "t0": 177.25,
+         "dur": 0.25
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "Kiddo",
+       "text": "Kiddo",
+       "t0": 177.0,
+       "t1": 177.5
+      },
+      {
+       "parts": [
+        "verse!"
+       ],
+       "syl": [
+        {
+         "note": 72,
+         "t0": 177.5,
+         "dur": 0.5
+        }
+       ],
+       "who": "lead",
+       "ph": null,
+       "disp": "verse!",
+       "text": "verse",
+       "t0": 177.5,
+       "t1": 178.0
+      }
+     ]
+    }
+   ],
+   "meta": {}
+  },
+  {
+   "sec": 2,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 16.0,
+   "t1": 17.75,
+   "words": [
+    {
+     "parts": [
+      "cat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 16.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cat!",
+     "text": "cat",
+     "t0": 16.0,
+     "t1": 16.75
+    },
+    {
+     "parts": [
+      "cat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 17.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cat!",
+     "text": "cat",
+     "t0": 17.0,
+     "t1": 17.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 0,
+    "w": "cat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 3,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 26.0,
+   "t1": 27.75,
+   "words": [
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 26.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dog!",
+     "text": "dog",
+     "t0": 26.0,
+     "t1": 26.75
+    },
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 27.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dog!",
+     "text": "dog",
+     "t0": 27.0,
+     "t1": 27.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 1,
+    "w": "dog",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 4,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 36.0,
+   "t1": 37.75,
+   "words": [
+    {
+     "parts": [
+      "sun!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 36.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sun!",
+     "text": "sun",
+     "t0": 36.0,
+     "t1": 36.75
+    },
+    {
+     "parts": [
+      "sun!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 37.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sun!",
+     "text": "sun",
+     "t0": 37.0,
+     "t1": 37.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 2,
+    "w": "sun",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 5,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 46.0,
+   "t1": 47.75,
+   "words": [
+    {
+     "parts": [
+      "hat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 46.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat!",
+     "text": "hat",
+     "t0": 46.0,
+     "t1": 46.75
+    },
+    {
+     "parts": [
+      "hat!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 47.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "hat!",
+     "text": "hat",
+     "t0": 47.0,
+     "t1": 47.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 3,
+    "w": "hat",
+    "tr": 0
+   }
+  },
+  {
+   "sec": 7,
+   "kind": "game",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 66.0,
+   "t1": 68.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 72,
+       "t0": 66.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 66.0,
+     "t1": 66.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 69,
+       "t0": 66.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 66.5,
+     "t1": 67.0
+    },
+    {
+     "parts": [
+      "sun!"
+     ],
+     "syl": [
+      {
+       "note": 64,
+       "t0": 67.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "sun!",
+     "text": "sun",
+     "t0": 67.0,
+     "t1": 68.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 0,
+    "w": "sun",
+    "cards": [
+     "bus",
+     "sun",
+     "cup"
+    ],
+    "tr": 0
+   }
+  },
+  {
+   "sec": 8,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 72.0,
+   "t1": 73.75,
+   "words": [
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 72.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "pig!",
+     "text": "pig",
+     "t0": 72.0,
+     "t1": 72.75
+    },
+    {
+     "parts": [
+      "pig!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 73.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "pig!",
+     "text": "pig",
+     "t0": 73.0,
+     "t1": 73.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 4,
+    "w": "pig",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 9,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 82.0,
+   "t1": 83.75,
+   "words": [
+    {
+     "parts": [
+      "bus!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 82.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "bus!",
+     "text": "bus",
+     "t0": 82.0,
+     "t1": 82.75
+    },
+    {
+     "parts": [
+      "bus!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 83.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "bus!",
+     "text": "bus",
+     "t0": 83.0,
+     "t1": 83.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 5,
+    "w": "bus",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 10,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 92.0,
+   "t1": 93.75,
+   "words": [
+    {
+     "parts": [
+      "cup!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 92.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cup!",
+     "text": "cup",
+     "t0": 92.0,
+     "t1": 92.75
+    },
+    {
+     "parts": [
+      "cup!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 93.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "cup!",
+     "text": "cup",
+     "t0": 93.0,
+     "t1": 93.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 6,
+    "w": "cup",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 11,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 102.0,
+   "t1": 103.75,
+   "words": [
+    {
+     "parts": [
+      "red!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 102.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red!",
+     "text": "red",
+     "t0": 102.0,
+     "t1": 102.75
+    },
+    {
+     "parts": [
+      "red!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 103.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red!",
+     "text": "red",
+     "t0": 103.0,
+     "t1": 103.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 7,
+    "w": "red",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 12,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 112.0,
+   "t1": 113.75,
+   "words": [
+    {
+     "parts": [
+      "big!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 112.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big!",
+     "text": "big",
+     "t0": 112.0,
+     "t1": 112.75
+    },
+    {
+     "parts": [
+      "big!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 113.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "big!",
+     "text": "big",
+     "t0": 113.0,
+     "t1": 113.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 8,
+    "w": "big",
+    "tr": 2
+   }
+  },
+  {
+   "sec": 14,
+   "kind": "game",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 132.0,
+   "t1": 134.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 74,
+       "t0": 132.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 132.0,
+     "t1": 132.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 71,
+       "t0": 132.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 132.5,
+     "t1": 133.0
+    },
+    {
+     "parts": [
+      "red!"
+     ],
+     "syl": [
+      {
+       "note": 66,
+       "t0": 133.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "red!",
+     "text": "red",
+     "t0": 133.0,
+     "t1": 134.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 1,
+    "w": "red",
+    "cards": [
+     "big",
+     "run",
+     "red"
+    ],
+    "tr": 2
+   }
+  },
+  {
+   "sec": 15,
+   "kind": "stop",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 138.0,
+   "t1": 139.75,
+   "words": [
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 138.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 138.0,
+     "t1": 138.75
+    },
+    {
+     "parts": [
+      "run!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 139.0,
+       "dur": 0.75
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "run!",
+     "text": "run",
+     "t0": 139.0,
+     "t1": 139.75
+    }
+   ],
+   "meta": {
+    "part": "say",
+    "li": 2,
+    "i": 9,
+    "w": "run",
+    "tr": 4
+   }
+  },
+  {
+   "sec": 17,
+   "kind": "game",
+   "voice": "lead",
+   "hidden": true,
+   "t0": 158.0,
+   "t1": 160.0,
+   "words": [
+    {
+     "parts": [
+      "Yes!"
+     ],
+     "syl": [
+      {
+       "note": 76,
+       "t0": 158.0,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "Yes!",
+     "text": "Yes",
+     "t0": 158.0,
+     "t1": 158.5
+    },
+    {
+     "parts": [
+      "It's"
+     ],
+     "syl": [
+      {
+       "note": 73,
+       "t0": 158.5,
+       "dur": 0.5
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "It's",
+     "text": "It's",
+     "t0": 158.5,
+     "t1": 159.0
+    },
+    {
+     "parts": [
+      "dog!"
+     ],
+     "syl": [
+      {
+       "note": 68,
+       "t0": 159.0,
+       "dur": 1.0
+      }
+     ],
+     "who": "lead",
+     "ph": null,
+     "disp": "dog!",
+     "text": "dog",
+     "t0": 159.0,
+     "t1": 160.0
+    }
+   ],
+   "meta": {
+    "part": "a",
+    "k": 2,
+    "w": "dog",
+    "cards": [
+     "dog",
+     "cat",
+     "pig"
+    ],
+    "tr": 4
+   }
+  }
+ ],
+ "speech": [
+  {
+   "t": 2.0,
+   "who": "gizmo",
+   "text": "Word machine!",
+   "kind": "intro"
+  },
+  {
+   "t": 3.0,
+   "who": "all",
+   "text": "Let's read!",
+   "kind": "intro"
+  },
+  {
+   "t": 178.0,
+   "who": "all",
+   "text": "See you next time!",
+   "kind": "outro"
+  },
+  {
+   "t": 180.0,
+   "who": "luma",
+   "text": "Ask a grown-up to subscribe!",
+   "kind": "outro"
+  }
+ ],
+ "words": [
+  {
+   "w": "cat",
+   "letters": [
+    {
+     "ch": "c",
+     "snd": "k",
+     "say": "kuh"
+    },
+    {
+     "ch": "a",
+     "snd": "a",
+     "say": "a"
+    },
+    {
+     "ch": "t",
+     "snd": "t",
+     "say": "tuh"
+    }
+   ],
+   "pic": "cat",
+   "world": "hills",
+   "tr": 0,
+   "flash": "MEOW!"
+  },
+  {
+   "w": "dog",
+   "letters": [
+    {
+     "ch": "d",
+     "snd": "d",
+     "say": "duh"
+    },
+    {
+     "ch": "o",
+     "snd": "o",
+     "say": "o"
+    },
+    {
+     "ch": "g",
+     "snd": "g",
+     "say": "guh"
+    }
+   ],
+   "pic": "dog",
+   "world": "dino",
+   "tr": 0,
+   "flash": "WAG!"
+  },
+  {
+   "w": "sun",
+   "letters": [
+    {
+     "ch": "s",
+     "snd": "s",
+     "say": "suh"
+    },
+    {
+     "ch": "u",
+     "snd": "u",
+     "say": "u"
+    },
+    {
+     "ch": "n",
+     "snd": "n",
+     "say": "nuh"
+    }
+   ],
+   "pic": "sun",
+   "world": "cloud",
+   "tr": 0,
+   "flash": "HOT!"
+  },
+  {
+   "w": "hat",
+   "letters": [
+    {
+     "ch": "h",
+     "snd": "h",
+     "say": "huh"
+    },
+    {
+     "ch": "a",
+     "snd": "a",
+     "say": "a"
+    },
+    {
+     "ch": "t",
+     "snd": "t",
+     "say": "tuh"
+    }
+   ],
+   "pic": "hat",
+   "world": "disco",
+   "tr": 0,
+   "flash": "ON!"
+  },
+  {
+   "w": "pig",
+   "letters": [
+    {
+     "ch": "p",
+     "snd": "p",
+     "say": "puh"
+    },
+    {
+     "ch": "i",
+     "snd": "i",
+     "say": "i"
+    },
+    {
+     "ch": "g",
+     "snd": "g",
+     "say": "guh"
+    }
+   ],
+   "pic": "pig",
+   "world": "c_green",
+   "tr": 2,
+   "flash": "DIG!"
+  },
+  {
+   "w": "bus",
+   "letters": [
+    {
+     "ch": "b",
+     "snd": "b",
+     "say": "buh"
+    },
+    {
+     "ch": "u",
+     "snd": "u",
+     "say": "u"
+    },
+    {
+     "ch": "s",
+     "snd": "s",
+     "say": "suh"
+    }
+   ],
+   "pic": "bus",
+   "world": "hub",
+   "tr": 2,
+   "flash": "BEEP!"
+  },
+  {
+   "w": "cup",
+   "letters": [
+    {
+     "ch": "c",
+     "snd": "k",
+     "say": "kuh"
+    },
+    {
+     "ch": "u",
+     "snd": "u",
+     "say": "u"
+    },
+    {
+     "ch": "p",
+     "snd": "p",
+     "say": "puh"
+    }
+   ],
+   "pic": "cup",
+   "world": "c_orange",
+   "tr": 2,
+   "flash": "YUM!"
+  },
+  {
+   "w": "red",
+   "letters": [
+    {
+     "ch": "r",
+     "snd": "r",
+     "say": "ruh"
+    },
+    {
+     "ch": "e",
+     "snd": "e",
+     "say": "e"
+    },
+    {
+     "ch": "d",
+     "snd": "d",
+     "say": "duh"
+    }
+   ],
+   "pic": "apple",
+   "world": "c_red",
+   "tr": 2,
+   "flash": "RED!"
+  },
+  {
+   "w": "big",
+   "letters": [
+    {
+     "ch": "b",
+     "snd": "b",
+     "say": "buh"
+    },
+    {
+     "ch": "i",
+     "snd": "i",
+     "say": "i"
+    },
+    {
+     "ch": "g",
+     "snd": "g",
+     "say": "guh"
+    }
+   ],
+   "pic": "whale",
+   "world": "space",
+   "tr": 2,
+   "flash": "BIG!"
+  },
+  {
+   "w": "run",
+   "letters": [
+    {
+     "ch": "r",
+     "snd": "r",
+     "say": "ruh"
+    },
+    {
+     "ch": "u",
+     "snd": "u",
+     "say": "u"
+    },
+    {
+     "ch": "n",
+     "snd": "n",
+     "say": "nuh"
+    }
+   ],
+   "pic": "shoe",
+   "world": "numland",
+   "tr": 4,
+   "flash": "RUN!"
+  }
+ ],
+ "rhymes": [
+  {
+   "a": "cat",
+   "b": "hat",
+   "end": "at",
+   "tr": 0
+  },
+  {
+   "a": "pig",
+   "b": "big",
+   "end": "ig",
+   "tr": 2
+  },
+  {
+   "a": "sun",
+   "b": "run",
+   "end": "un",
+   "tr": 4
+  }
+ ],
+ "games": [
+  {
+   "k": 0,
+   "w": "sun",
+   "cards": [
+    "bus",
+    "sun",
+    "cup"
+   ],
+   "tr": 0
+  },
+  {
+   "k": 1,
+   "w": "red",
+   "cards": [
+    "big",
+    "run",
+    "red"
+   ],
+   "tr": 2
+  },
+  {
+   "k": 2,
+   "w": "dog",
+   "cards": [
+    "dog",
+    "cat",
+    "pig"
+   ],
+   "tr": 4
+  }
+ ]
+}

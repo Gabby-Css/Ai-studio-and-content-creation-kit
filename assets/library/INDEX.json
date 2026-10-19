@@ -1,0 +1,1339 @@
+{
+  "updated": "2026-07-21T22:06:07.902Z",
+  "assets": [
+    {
+      "id": "logos-brands/facebook",
+      "name": "facebook",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/facebook.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/facebook.png",
+      "bytes": 13060,
+      "tags": [
+        "facebook"
+      ]
+    },
+    {
+      "id": "logos-brands/facebook",
+      "name": "facebook",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/facebook.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/facebook.svg",
+      "bytes": 542,
+      "tags": [
+        "facebook"
+      ]
+    },
+    {
+      "id": "logos-brands/instagram",
+      "name": "instagram",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/instagram.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/instagram.png",
+      "bytes": 18584,
+      "tags": [
+        "instagram"
+      ]
+    },
+    {
+      "id": "logos-brands/instagram",
+      "name": "instagram",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/instagram.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/instagram.svg",
+      "bytes": 2101,
+      "tags": [
+        "instagram"
+      ]
+    },
+    {
+      "id": "logos-brands/linkedin",
+      "name": "linkedin",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/linkedin.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/linkedin.png",
+      "bytes": 10760,
+      "tags": [
+        "linkedin"
+      ]
+    },
+    {
+      "id": "logos-brands/linkedin",
+      "name": "linkedin",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/linkedin.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/linkedin.svg",
+      "bytes": 610,
+      "tags": [
+        "linkedin"
+      ]
+    },
+    {
+      "id": "logos-brands/pinterest",
+      "name": "pinterest",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/pinterest.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/pinterest.png",
+      "bytes": 7395,
+      "tags": [
+        "pinterest"
+      ]
+    },
+    {
+      "id": "logos-brands/pinterest",
+      "name": "pinterest",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/pinterest.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/pinterest.svg",
+      "bytes": 909,
+      "tags": [
+        "pinterest"
+      ]
+    },
+    {
+      "id": "logos-brands/reddit",
+      "name": "reddit",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/reddit.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/reddit.png",
+      "bytes": 6951,
+      "tags": [
+        "reddit"
+      ]
+    },
+    {
+      "id": "logos-brands/reddit",
+      "name": "reddit",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/reddit.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/reddit.svg",
+      "bytes": 1233,
+      "tags": [
+        "reddit"
+      ]
+    },
+    {
+      "id": "logos-brands/snapchat",
+      "name": "snapchat",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/snapchat.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/snapchat.png",
+      "bytes": 4320,
+      "tags": [
+        "snapchat"
+      ]
+    },
+    {
+      "id": "logos-brands/snapchat",
+      "name": "snapchat",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/snapchat.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/snapchat.svg",
+      "bytes": 1478,
+      "tags": [
+        "snapchat"
+      ]
+    },
+    {
+      "id": "logos-brands/telegram",
+      "name": "telegram",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/telegram.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/telegram.png",
+      "bytes": 5746,
+      "tags": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "logos-brands/telegram",
+      "name": "telegram",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/telegram.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/telegram.svg",
+      "bytes": 742,
+      "tags": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "logos-brands/threads",
+      "name": "threads",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/threads.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/threads.png",
+      "bytes": 7211,
+      "tags": [
+        "threads"
+      ]
+    },
+    {
+      "id": "logos-brands/threads",
+      "name": "threads",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/threads.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/threads.svg",
+      "bytes": 1287,
+      "tags": [
+        "threads"
+      ]
+    },
+    {
+      "id": "logos-brands/tiktok",
+      "name": "tiktok",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/tiktok.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/tiktok.png",
+      "bytes": 10682,
+      "tags": [
+        "tiktok"
+      ]
+    },
+    {
+      "id": "logos-brands/tiktok",
+      "name": "tiktok",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/tiktok.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/tiktok.svg",
+      "bytes": 707,
+      "tags": [
+        "tiktok"
+      ]
+    },
+    {
+      "id": "logos-brands/whatsapp",
+      "name": "whatsapp",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/whatsapp.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/whatsapp.png",
+      "bytes": 7198,
+      "tags": [
+        "whatsapp"
+      ]
+    },
+    {
+      "id": "logos-brands/whatsapp",
+      "name": "whatsapp",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/whatsapp.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/whatsapp.svg",
+      "bytes": 1216,
+      "tags": [
+        "whatsapp"
+      ]
+    },
+    {
+      "id": "logos-brands/x",
+      "name": "x",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/x.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/x.png",
+      "bytes": 16487,
+      "tags": [
+        "x"
+      ]
+    },
+    {
+      "id": "logos-brands/x",
+      "name": "x",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/x.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/x.svg",
+      "bytes": 299,
+      "tags": [
+        "x"
+      ]
+    },
+    {
+      "id": "logos-brands/youtube",
+      "name": "youtube",
+      "category": "logos-brands",
+      "ext": "png",
+      "rel": "logos-brands/youtube.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/youtube.png",
+      "bytes": 10107,
+      "tags": [
+        "youtube"
+      ]
+    },
+    {
+      "id": "logos-brands/youtube",
+      "name": "youtube",
+      "category": "logos-brands",
+      "ext": "svg",
+      "rel": "logos-brands/youtube.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-brands/youtube.svg",
+      "bytes": 459,
+      "tags": [
+        "youtube"
+      ]
+    },
+    {
+      "id": "logos-ai/adobe",
+      "name": "adobe",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/adobe.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/adobe.png",
+      "bytes": 4698,
+      "tags": [
+        "adobe"
+      ]
+    },
+    {
+      "id": "logos-ai/adobe",
+      "name": "adobe",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/adobe.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/adobe.svg",
+      "bytes": 216,
+      "tags": [
+        "adobe"
+      ]
+    },
+    {
+      "id": "logos-ai/anthropic",
+      "name": "anthropic",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/anthropic.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/anthropic.png",
+      "bytes": 4664,
+      "tags": [
+        "anthropic"
+      ]
+    },
+    {
+      "id": "logos-ai/anthropic",
+      "name": "anthropic",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/anthropic.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/anthropic.svg",
+      "bytes": 281,
+      "tags": [
+        "anthropic"
+      ]
+    },
+    {
+      "id": "logos-ai/canva",
+      "name": "canva",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/canva.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/canva.png",
+      "bytes": 7387,
+      "tags": [
+        "canva"
+      ]
+    },
+    {
+      "id": "logos-ai/canva",
+      "name": "canva",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/canva.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/canva.svg",
+      "bytes": 2756,
+      "tags": [
+        "canva"
+      ]
+    },
+    {
+      "id": "logos-ai/claude-code-lockup-white",
+      "name": "claude-code-lockup-white",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/claude-code-lockup-white.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/claude-code-lockup-white.png",
+      "bytes": 46541,
+      "tags": [
+        "claude",
+        "code",
+        "lockup",
+        "white"
+      ]
+    },
+    {
+      "id": "logos-ai/claude-code-logo",
+      "name": "claude-code-logo",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/claude-code-logo.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/claude-code-logo.png",
+      "bytes": 10358,
+      "tags": [
+        "claude",
+        "code",
+        "logo"
+      ]
+    },
+    {
+      "id": "logos-ai/claude-logo-wikimedia",
+      "name": "claude-logo-wikimedia",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/claude-logo-wikimedia.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/claude-logo-wikimedia.png",
+      "bytes": 33177,
+      "tags": [
+        "claude",
+        "logo",
+        "wikimedia"
+      ]
+    },
+    {
+      "id": "logos-ai/claude-sunburst",
+      "name": "claude-sunburst",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/claude-sunburst.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/claude-sunburst.png",
+      "bytes": 23458,
+      "tags": [
+        "claude",
+        "sunburst"
+      ]
+    },
+    {
+      "id": "logos-ai/elevenlabs",
+      "name": "elevenlabs",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/elevenlabs.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/elevenlabs.png",
+      "bytes": 1470,
+      "tags": [
+        "elevenlabs"
+      ]
+    },
+    {
+      "id": "logos-ai/elevenlabs",
+      "name": "elevenlabs",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/elevenlabs.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/elevenlabs.svg",
+      "bytes": 158,
+      "tags": [
+        "elevenlabs"
+      ]
+    },
+    {
+      "id": "logos-ai/figma",
+      "name": "figma",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/figma.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/figma.png",
+      "bytes": 5833,
+      "tags": [
+        "figma"
+      ]
+    },
+    {
+      "id": "logos-ai/figma",
+      "name": "figma",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/figma.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/figma.svg",
+      "bytes": 1093,
+      "tags": [
+        "figma"
+      ]
+    },
+    {
+      "id": "logos-ai/google",
+      "name": "google",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/google.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/google.png",
+      "bytes": 5300,
+      "tags": [
+        "google"
+      ]
+    },
+    {
+      "id": "logos-ai/google",
+      "name": "google",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/google.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/google.svg",
+      "bytes": 457,
+      "tags": [
+        "google"
+      ]
+    },
+    {
+      "id": "logos-ai/notion",
+      "name": "notion",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/notion.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/notion.png",
+      "bytes": 6373,
+      "tags": [
+        "notion"
+      ]
+    },
+    {
+      "id": "logos-ai/notion",
+      "name": "notion",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/notion.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/notion.svg",
+      "bytes": 978,
+      "tags": [
+        "notion"
+      ]
+    },
+    {
+      "id": "logos-ai/perplexity",
+      "name": "perplexity",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/perplexity.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/perplexity.png",
+      "bytes": 4820,
+      "tags": [
+        "perplexity"
+      ]
+    },
+    {
+      "id": "logos-ai/perplexity",
+      "name": "perplexity",
+      "category": "logos-ai",
+      "ext": "svg",
+      "rel": "logos-ai/perplexity.svg",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/perplexity.svg",
+      "bytes": 618,
+      "tags": [
+        "perplexity"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-bot",
+      "name": "lucide-bot",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-bot.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-bot.png",
+      "bytes": 3019,
+      "tags": [
+        "lucide",
+        "bot"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-bot",
+      "name": "lucide-bot",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-bot.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-bot.svg",
+      "bytes": 306,
+      "tags": [
+        "lucide",
+        "bot"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-calendar-clock",
+      "name": "lucide-calendar-clock",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-calendar-clock.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-calendar-clock.png",
+      "bytes": 5922,
+      "tags": [
+        "lucide",
+        "calendar",
+        "clock"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-calendar-clock",
+      "name": "lucide-calendar-clock",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-calendar-clock.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-calendar-clock.svg",
+      "bytes": 334,
+      "tags": [
+        "lucide",
+        "calendar",
+        "clock"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-check-circle",
+      "name": "lucide-check-circle",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-check-circle.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-check-circle.png",
+      "bytes": 5546,
+      "tags": [
+        "lucide",
+        "check",
+        "circle"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-check-circle",
+      "name": "lucide-check-circle",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-check-circle.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-check-circle.svg",
+      "bytes": 265,
+      "tags": [
+        "lucide",
+        "check",
+        "circle"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-dollar-sign",
+      "name": "lucide-dollar-sign",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-dollar-sign.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-dollar-sign.png",
+      "bytes": 3310,
+      "tags": [
+        "lucide",
+        "dollar",
+        "sign"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-dollar-sign",
+      "name": "lucide-dollar-sign",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-dollar-sign.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-dollar-sign.svg",
+      "bytes": 258,
+      "tags": [
+        "lucide",
+        "dollar",
+        "sign"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-folder-open",
+      "name": "lucide-folder-open",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-folder-open.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-folder-open.png",
+      "bytes": 3824,
+      "tags": [
+        "lucide",
+        "folder",
+        "open"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-folder-open",
+      "name": "lucide-folder-open",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-folder-open.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-folder-open.svg",
+      "bytes": 378,
+      "tags": [
+        "lucide",
+        "folder",
+        "open"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-folder",
+      "name": "lucide-folder",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-folder.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-folder.png",
+      "bytes": 2486,
+      "tags": [
+        "lucide",
+        "folder"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-folder",
+      "name": "lucide-folder",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-folder.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-folder.svg",
+      "bytes": 319,
+      "tags": [
+        "lucide",
+        "folder"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-layers",
+      "name": "lucide-layers",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-layers.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-layers.png",
+      "bytes": 5353,
+      "tags": [
+        "lucide",
+        "layers"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-layers",
+      "name": "lucide-layers",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-layers.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-layers.svg",
+      "bytes": 486,
+      "tags": [
+        "lucide",
+        "layers"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-play",
+      "name": "lucide-play",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-play.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-play.png",
+      "bytes": 2949,
+      "tags": [
+        "lucide",
+        "play"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-play",
+      "name": "lucide-play",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-play.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-play.svg",
+      "bytes": 283,
+      "tags": [
+        "lucide",
+        "play"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-repeat",
+      "name": "lucide-repeat",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-repeat.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-repeat.png",
+      "bytes": 3040,
+      "tags": [
+        "lucide",
+        "repeat"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-repeat",
+      "name": "lucide-repeat",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-repeat.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-repeat.svg",
+      "bytes": 309,
+      "tags": [
+        "lucide",
+        "repeat"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-rocket",
+      "name": "lucide-rocket",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-rocket.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-rocket.png",
+      "bytes": 5897,
+      "tags": [
+        "lucide",
+        "rocket"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-rocket",
+      "name": "lucide-rocket",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-rocket.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-rocket.svg",
+      "bytes": 489,
+      "tags": [
+        "lucide",
+        "rocket"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-scissors",
+      "name": "lucide-scissors",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-scissors.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-scissors.png",
+      "bytes": 4123,
+      "tags": [
+        "lucide",
+        "scissors"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-scissors",
+      "name": "lucide-scissors",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-scissors.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-scissors.svg",
+      "bytes": 326,
+      "tags": [
+        "lucide",
+        "scissors"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-sparkles",
+      "name": "lucide-sparkles",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-sparkles.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-sparkles.png",
+      "bytes": 6272,
+      "tags": [
+        "lucide",
+        "sparkles"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-sparkles",
+      "name": "lucide-sparkles",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-sparkles.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-sparkles.svg",
+      "bytes": 514,
+      "tags": [
+        "lucide",
+        "sparkles"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-trending-up",
+      "name": "lucide-trending-up",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-trending-up.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-trending-up.png",
+      "bytes": 1843,
+      "tags": [
+        "lucide",
+        "trending",
+        "up"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-trending-up",
+      "name": "lucide-trending-up",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-trending-up.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-trending-up.svg",
+      "bytes": 253,
+      "tags": [
+        "lucide",
+        "trending",
+        "up"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-upload",
+      "name": "lucide-upload",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-upload.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-upload.png",
+      "bytes": 2465,
+      "tags": [
+        "lucide",
+        "upload"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-upload",
+      "name": "lucide-upload",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-upload.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-upload.svg",
+      "bytes": 263,
+      "tags": [
+        "lucide",
+        "upload"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-wand-2",
+      "name": "lucide-wand-2",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-wand-2.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-wand-2.png",
+      "bytes": 3791,
+      "tags": [
+        "lucide",
+        "wand",
+        "2"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-wand-2",
+      "name": "lucide-wand-2",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-wand-2.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-wand-2.svg",
+      "bytes": 393,
+      "tags": [
+        "lucide",
+        "wand",
+        "2"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-zap",
+      "name": "lucide-zap",
+      "category": "icons-line",
+      "ext": "png",
+      "rel": "icons-line/lucide-zap.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-zap.png",
+      "bytes": 4666,
+      "tags": [
+        "lucide",
+        "zap"
+      ]
+    },
+    {
+      "id": "icons-line/lucide-zap",
+      "name": "lucide-zap",
+      "category": "icons-line",
+      "ext": "svg",
+      "rel": "icons-line/lucide-zap.svg",
+      "path": "<STUDIO_ROOT>/assets/library/icons-line/lucide-zap.svg",
+      "bytes": 356,
+      "tags": [
+        "lucide",
+        "zap"
+      ]
+    },
+    {
+      "id": "icons-3d/claude",
+      "name": "claude",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/claude.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/claude.png",
+      "bytes": 50307,
+      "tags": [
+        "claude"
+      ]
+    },
+    {
+      "id": "icons-3d/facebook",
+      "name": "facebook",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/facebook.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/facebook.png",
+      "bytes": 32166,
+      "tags": [
+        "facebook"
+      ]
+    },
+    {
+      "id": "icons-3d/instagram",
+      "name": "instagram",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/instagram.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/instagram.png",
+      "bytes": 82319,
+      "tags": [
+        "instagram"
+      ]
+    },
+    {
+      "id": "icons-3d/linkedin",
+      "name": "linkedin",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/linkedin.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/linkedin.png",
+      "bytes": 30769,
+      "tags": [
+        "linkedin"
+      ]
+    },
+    {
+      "id": "icons-3d/tiktok",
+      "name": "tiktok",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/tiktok.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/tiktok.png",
+      "bytes": 29439,
+      "tags": [
+        "tiktok"
+      ]
+    },
+    {
+      "id": "icons-3d/x",
+      "name": "x",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/x.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/x.png",
+      "bytes": 33548,
+      "tags": [
+        "x"
+      ]
+    },
+    {
+      "id": "icons-3d/youtube",
+      "name": "youtube",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/youtube.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/youtube.png",
+      "bytes": 32007,
+      "tags": [
+        "youtube"
+      ]
+    },
+    {
+      "id": "icons-3d/_contact",
+      "name": "_contact",
+      "category": "icons-3d",
+      "ext": "png",
+      "rel": "icons-3d/_contact.png",
+      "path": "<STUDIO_ROOT>/assets/library/icons-3d/_contact.png",
+      "bytes": 90400,
+      "tags": [
+        "contact"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-1f4b0",
+      "name": "emoji-1f4b0",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-1f4b0.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-1f4b0.png",
+      "bytes": 772,
+      "tags": [
+        "emoji",
+        "1f4b0"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-1f4c8",
+      "name": "emoji-1f4c8",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-1f4c8.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-1f4c8.png",
+      "bytes": 727,
+      "tags": [
+        "emoji",
+        "1f4c8"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-1f4f1",
+      "name": "emoji-1f4f1",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-1f4f1.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-1f4f1.png",
+      "bytes": 239,
+      "tags": [
+        "emoji",
+        "1f4f1"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-1f525",
+      "name": "emoji-1f525",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-1f525.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-1f525.png",
+      "bytes": 928,
+      "tags": [
+        "emoji",
+        "1f525"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-1f680",
+      "name": "emoji-1f680",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-1f680.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-1f680.png",
+      "bytes": 1064,
+      "tags": [
+        "emoji",
+        "1f680"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-1f929",
+      "name": "emoji-1f929",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-1f929.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-1f929.png",
+      "bytes": 1175,
+      "tags": [
+        "emoji",
+        "1f929"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-26a1",
+      "name": "emoji-26a1",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-26a1.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-26a1.png",
+      "bytes": 446,
+      "tags": [
+        "emoji",
+        "26a1"
+      ]
+    },
+    {
+      "id": "emoji-3d/emoji-2705",
+      "name": "emoji-2705",
+      "category": "emoji-3d",
+      "ext": "png",
+      "rel": "emoji-3d/emoji-2705.png",
+      "path": "<STUDIO_ROOT>/assets/library/emoji-3d/emoji-2705.png",
+      "bytes": 525,
+      "tags": [
+        "emoji",
+        "2705"
+      ]
+    },
+    {
+      "id": "fonts/archivo",
+      "name": "archivo",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/archivo.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/archivo.ttf",
+      "bytes": 658596,
+      "tags": [
+        "archivo"
+      ]
+    },
+    {
+      "id": "fonts/bebas",
+      "name": "bebas",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/bebas.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/bebas.ttf",
+      "bytes": 61400,
+      "tags": [
+        "bebas"
+      ]
+    },
+    {
+      "id": "fonts/courierprime-bold",
+      "name": "courierprime-bold",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/courierprime-bold.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/courierprime-bold.ttf",
+      "bytes": 72856,
+      "tags": [
+        "courierprime",
+        "bold"
+      ]
+    },
+    {
+      "id": "fonts/courierprime",
+      "name": "courierprime",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/courierprime.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/courierprime.ttf",
+      "bytes": 71188,
+      "tags": [
+        "courierprime"
+      ]
+    },
+    {
+      "id": "fonts/inter",
+      "name": "inter",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/inter.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/inter.ttf",
+      "bytes": 876576,
+      "tags": [
+        "inter"
+      ]
+    },
+    {
+      "id": "fonts/oswald",
+      "name": "oswald",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/oswald.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/oswald.ttf",
+      "bytes": 172088,
+      "tags": [
+        "oswald"
+      ]
+    },
+    {
+      "id": "fonts/playfair",
+      "name": "playfair",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/playfair.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/playfair.ttf",
+      "bytes": 300724,
+      "tags": [
+        "playfair"
+      ]
+    },
+    {
+      "id": "fonts/robotocond",
+      "name": "robotocond",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/robotocond.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/robotocond.ttf",
+      "bytes": 14,
+      "tags": [
+        "robotocond"
+      ]
+    },
+    {
+      "id": "fonts/spacemono-bold",
+      "name": "spacemono-bold",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/spacemono-bold.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/spacemono-bold.ttf",
+      "bytes": 98232,
+      "tags": [
+        "spacemono",
+        "bold"
+      ]
+    },
+    {
+      "id": "fonts/spacemono",
+      "name": "spacemono",
+      "category": "fonts",
+      "ext": "ttf",
+      "rel": "fonts/spacemono.ttf",
+      "path": "<STUDIO_ROOT>/assets/library/fonts/spacemono.ttf",
+      "bytes": 99356,
+      "tags": [
+        "spacemono"
+      ]
+    },
+    {
+      "id": "logos-ai/googlegemini",
+      "name": "googlegemini",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/googlegemini.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/googlegemini.png",
+      "bytes": 6181,
+      "source": "simple-icons",
+      "license": "CC0-1.0",
+      "tags": [
+        "googlegemini",
+        "logo",
+        "png"
+      ]
+    },
+    {
+      "id": "logos-ai/adobepremierepro",
+      "name": "adobepremierepro",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/adobepremierepro.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/adobepremierepro.png",
+      "bytes": 7967,
+      "source": "simple-icons",
+      "license": "CC0-1.0",
+      "tags": [
+        "adobepremierepro",
+        "logo",
+        "png"
+      ]
+    },
+    {
+      "id": "logos-ai/openai",
+      "name": "openai",
+      "category": "logos-ai",
+      "ext": "png",
+      "rel": "logos-ai/openai.png",
+      "path": "<STUDIO_ROOT>/assets/library/logos-ai/openai.png",
+      "bytes": 15395,
+      "source": "simple-icons",
+      "license": "CC0-1.0",
+      "tags": [
+        "openai",
+        "logo",
+        "png"
+      ]
+    }
+  ]
+}

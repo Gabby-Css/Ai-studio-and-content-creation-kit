@@ -1,0 +1,14 @@
+intro   t=    0s  words   2  recognised   1 ( 50%)   heard: kiddo first all aboard the zoomy ready ready three two one zoom
+chorus  t=    8s  words  37  recognised  33 ( 89%)   heard: zoom zoom zoom kiddo first hop on board let's go zoom zoom kiddo first clap clap here we go round th
+v1      t=   24s  words  24  recognised  20 ( 83%)   heard: rainbow heels what do we see red blue moons floating free yellow sun and a deep we'll see green gree
+chorus  t=   40s  words  37  recognised  29 ( 78%)   heard: tune zoom kiddo first hop on board let's go tune zoom kiddo first clap clap here we go round the sta
+v2      t=   56s  words  23  recognised  18 ( 78%)   heard: rumble the dino go stomp stomp stomp can the eggs pop pop pop one two three four five but the dino's
+chorus  t=   72s  words  37  recognised  25 ( 68%)   heard: soon soon kiddo first hop on board let's go soon soon kiddo first clap clap here we go round the sta
+v3      t=   88s  words  27  recognised  26 ( 96%)   heard: sometimes i'm happy be shining bright sometimes i'm sad and i rain at night take a deep deep breath 
+dance   t=  104s  words  13  recognised   7 ( 54%)   heard: for the kiddo wiggle wiggle left wiggle right wiggle left wiggle right jump a high speed around circ
+v4      t=  120s  words  22  recognised  20 ( 91%)   heard: circle wheels go round square square blocks on the ground triangle triangle roofs up high star star 
+bridge  t=  136s  words  23  recognised  17 ( 74%)   heard: or small near or far everyone that us is is a star different friends from everywhere kido first has 
+fin     t=  152s  words  37  recognised  22 ( 59%)   heard: tsum tsum kido first hop on board let's go tsum tsum kido first clap clap here we go from the stars 
+fin2    t=  168s  words  33  recognised  16 ( 48%)   heard: soon soon keto first hop on board let's go soon soon keto first clap clap here we go from the stars 
+outro   t=  184s  words   4  recognised   2 ( 50%)   heard: bye bye keto first see you next time thanks for watching
+OVERALL master_v3.wav: recognised 236/319 = 74%

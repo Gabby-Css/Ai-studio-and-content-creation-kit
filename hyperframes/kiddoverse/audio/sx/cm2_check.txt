@@ -1,0 +1,9 @@
+MIX CM3 BUILT
+CM3_estoi: mean ESTOI 0.661 over 13 sections
+MIX CM4 BUILT
+CM4_estoi: mean ESTOI 0.675 over 13 sections
+CM3         59%   per segment: 24s:94%  72s:64%  104s:35%  136s:50%  152s:55%  168s:47%
+CM4         60%   per segment: 24s:94%  72s:62%  104s:35%  136s:52%  152s:58%  168s:53%
+OVERALL master_v3_CM3.wav: recognised 209/319 = 66%
+OVERALL master_v3_CM4.wav: recognised 205/319 = 64%
+CM2 CHECK DONE

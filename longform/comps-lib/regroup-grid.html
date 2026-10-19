@@ -1,0 +1,192 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* regroup-grid — a field of N marks fills, then REGROUPS into k labelled clusters.
+   Derived from ref10 (2026-07-19 motion study): the dot field there morphs down through
+   hierarchy levels (CENTRAL COMMITTEE -> POLITBURO -> GENERAL SECRETARY) and the motion
+   itself carries the argument. A static grid states a number; a regrouping grid states
+   what happens TO the number. Use only when the line is about volume being distributed.
+
+   Contract: window.__seek(t) synchronous + deterministic, window.__ready after first seek,
+   transparent background, pure DOM/CSS, comp-local time from 0. No random at runtime. */
+@font-face{ font-family:'Anton'; src:url('anton.ttf'); }
+@font-face{ font-family:'Mont'; src:url('mont.ttf'); }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#stage{ position:absolute; inset:0; background:#06080E; font-family:'Mont',sans-serif; overflow:hidden; will-change:clip-path; }
+#bg{ position:absolute; inset:0; display:grid; grid-template-columns:repeat(12,1fr); }
+#bg span{ border-left:1px solid rgba(140,180,220,0.05); }
+#glow{ position:absolute; left:8%; top:-24%; width:84%; height:120%;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%, rgba(77,216,255,0.13) 0%, rgba(77,216,255,0) 70%); }
+
+.stamp{ position:absolute; left:104px; top:92px; display:flex; align-items:center; gap:16px; will-change:transform,opacity; }
+.stamp em{ width:11px; height:11px; background:#4DD8FF; font-style:normal; }
+.stamp i{ font-style:normal; font-weight:900; font-size:24px; letter-spacing:9px; color:#33414F; }
+.stamp span{ font-weight:900; font-size:24px; letter-spacing:9px; color:#4DD8FF; text-transform:uppercase; }
+#rule{ position:absolute; left:104px; top:236px; height:4px; width:1712px; background:#4DD8FF; transform-origin:left center; }
+
+/* the count sits top-left and stays put through the regroup — it is the constant the
+   marks are rearranging under, so it must not move when they do */
+#count{ position:absolute; left:104px; top:286px; will-change:transform,filter; }
+#num{ font-family:'Anton',sans-serif; font-size:212px; line-height:0.82; color:#F1F0F5; letter-spacing:-3px; }
+#cap{ margin-top:10px; font-weight:900; font-size:34px; letter-spacing:2px; color:#F1F0F5; text-transform:uppercase; }
+#cap b{ color:#4DD8FF; font-weight:900; }
+
+/* marks are absolutely positioned and driven by transform only — layout never reflows
+   mid-animation, which is what keeps 300 elements cheap enough for a DOM comp */
+#field{ position:absolute; inset:0; }
+#field b{ position:absolute; left:0; top:0; width:22px; height:22px; border-radius:2px;
+  background:#161C26; will-change:transform,background-color; }
+#field b.on{ background:#1E5E77; }
+#field b.edge{ background:#4DD8FF; }
+
+.clab{ position:absolute; text-align:center; will-change:transform,opacity;
+  font-weight:900; font-size:21px; letter-spacing:4px; color:#8DA0B4; text-transform:uppercase; }
+.clab u{ display:block; text-decoration:none; margin-top:7px; font-family:'Anton',sans-serif;
+  font-size:40px; letter-spacing:0; color:#4DD8FF; }
+
+#foot{ position:absolute; left:104px; bottom:104px; font-weight:800; font-size:29px; letter-spacing:4px;
+  color:#6C7C8D; text-transform:uppercase; will-change:transform,opacity; }
+#meta{ position:absolute; left:104px; bottom:52px; font-weight:600; font-size:15px; letter-spacing:2px;
+  color:#2C3742; text-transform:uppercase; }
+</style></head>
+<body><div id="stage">
+  <div id="bg"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div id="glow"></div>
+  <div id="rule"></div>
+  <div class="stamp"><em></em><i id="stampNo">01</i><span id="stampTx">THE VOLUME</span></div>
+
+  <div id="count">
+    <div id="num">0</div>
+    <div id="cap"></div>
+  </div>
+
+  <div id="field"></div>
+  <div id="foot"></div>
+  <div id="meta"></div>
+</div>
+<script>
+/* ============================ CONFIG — edit only this block ============================ */
+const CONFIG = {
+  DUR: 4.5,
+  N: 300,                    // total marks
+  stamp: { no:'01', text:'THE VOLUME' },
+  caption: 'Videos clipped. <b>Hands off.</b>',
+  foot:    "that's a month of output — in a folder",
+  meta:    'DEMO DATA · REPLACE WITH VERIFIED PROJECT VALUES',
+  grid:    { cols:30, pitch:30, rowPitch:32, cx:1150, cy:560 },   // cx/cy = grid CENTRE
+  // clusters the marks regroup into. Marks are dealt round-robin (i % k) so the regroup
+  // reads as SORTING rather than slicing — piles being dealt, not a bar chart filling.
+  clusters: [
+    { label:'INSTAGRAM', x: 720 },
+    { label:'TIKTOK',    x:1050 },
+    { label:'SNAP',      x:1380 },
+    { label:'FACEBOOK',  x:1710 },
+  ],
+  // pitch MUST exceed markSize*endScale or the pile fuses into a solid slab and the
+  // "one mark = one video" reading — the entire point of the field — is destroyed.
+  cluster: { cols:9, pitch:22, rowPitch:23, cy:640, labelY:852, endScale:0.72 },
+  t: { fill:[0.25,1.25], regroup:[1.70,1.45], labels:[2.95,0.55], foot:[1.45,0.5], meta:[1.85,0.6] },
+};
+/* ====================================================================================== */
+
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const p01=(t,t0,d)=>clamp((t-t0)/d,0,1);
+const outCubic=p=>1-Math.pow(1-p,3);
+const outQuint=p=>1-Math.pow(1-p,5);
+const inCubic=p=>p*p*p;
+const settle=(p,amp=0.10,f=2.0,decay=5.0)=>p>=1?1:outCubic(p)+amp*Math.sin(2*Math.PI*f*p)*Math.exp(-decay*p);
+const D=id=>document.getElementById(id);
+const {DUR,N}=CONFIG;
+
+D('stampNo').textContent=CONFIG.stamp.no;
+D('stampTx').textContent=CONFIG.stamp.text;
+D('cap').innerHTML=CONFIG.caption;
+D('foot').textContent=CONFIG.foot;
+D('meta').textContent=CONFIG.meta;
+
+/* Precompute each mark's start (grid) and end (cluster) position once. Doing this per-frame
+   would be the difference between a comp that renders and one that crawls. */
+const g=CONFIG.grid, c=CONFIG.cluster, K=CONFIG.clusters.length;
+const gRows=Math.ceil(N/g.cols);
+const gx0=g.cx-(g.cols-1)*g.pitch/2, gy0=g.cy-(gRows-1)*g.rowPitch/2;
+const perCluster=Math.ceil(N/K);
+const cRows=Math.ceil(perCluster/c.cols);
+
+const field=D('field'), MARK=[], POS=[];
+for(let i=0;i<N;i++){
+  const b=document.createElement('b'); field.appendChild(b); MARK.push(b);
+  const gr=Math.floor(i/g.cols), gc=i%g.cols;
+  const k=i%K, j=Math.floor(i/K);
+  const cr=Math.floor(j/c.cols), cc=j%c.cols;
+  const cx0=CONFIG.clusters[k].x-(c.cols-1)*c.pitch/2, cy0=c.cy-(cRows-1)*c.rowPitch/2;
+  POS.push({
+    x0:gx0+gc*g.pitch, y0:gy0+gr*g.rowPitch,
+    x1:cx0+cc*c.pitch, y1:cy0+cr*c.rowPitch,
+    // deterministic per-mark stagger — no Math.random, or seeking would not be reproducible
+    d:((i*2654435761)%1000)/1000,
+  });
+}
+
+const LAB=CONFIG.clusters.map((cl,k)=>{
+  const el=document.createElement('div'); el.className='clab';
+  const n=Math.floor(N/K)+(k<N%K?1:0);
+  el.innerHTML=cl.label+'<u>'+n+'</u>';
+  el.style.left=(cl.x-150)+'px'; el.style.width='300px'; el.style.top=c.labelY+'px';
+  D('stage').appendChild(el); return el;
+});
+
+window.__seek=(t)=>{
+  const wi=outQuint(p01(t,0,0.34));
+  const wo=inCubic(p01(t,DUR-0.30,0.30));
+  D('stage').style.clipPath='inset(0% '+((1-wi)*100).toFixed(2)+'% 0% '+(wo*100).toFixed(2)+'%)';
+
+  const fade=1-p01(t,DUR-0.34,0.34);
+  const exitSlide=outQuint(p01(t,DUR-0.34,0.34))*90;
+
+  // fill — count and lit-marks share ONE progress so the number always equals what's lit
+  const fp=outQuint(p01(t,CONFIG.t.fill[0],CONFIG.t.fill[1]));
+  const lit=Math.round(N*fp);
+  D('num').textContent=String(lit);
+
+  // regroup — each mark eases from grid slot to cluster slot on its own staggered window
+  const [rt0,rtd]=CONFIG.t.regroup;
+  const span=rtd*0.55, lead=rtd-span;
+  for(let i=0;i<N;i++){
+    const p=POS[i], m=MARK[i];
+    const rp=outCubic(p01(t, rt0+lead*p.d, span));
+    const x=p.x0+(p.x1-p.x0)*rp, y=p.y0+(p.y1-p.y0)*rp;
+    // shrink through the move AND land smaller — the pile has to stay countable
+    const s=(1-(1-c.endScale)*rp)-0.10*Math.sin(Math.PI*rp);
+    m.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px) scale('+s.toFixed(3)+')';
+    const on=i<lit;
+    const edge=on && i>=lit-26 && lit<N;              // only the leading edge burns bright
+    if(on!==m.classList.contains('on')) m.classList.toggle('on',on);
+    if(edge!==m.classList.contains('edge')) m.classList.toggle('edge',edge);
+  }
+
+  const [lt0,ltd]=CONFIG.t.labels;
+  LAB.forEach((el,k)=>{
+    const s=settle(p01(t,lt0+k*0.07,ltd));
+    el.style.opacity=(s*fade).toFixed(3);
+    el.style.transform='translateY('+((1-s)*22).toFixed(1)+'px)';
+  });
+
+  const e=settle(p01(t,0.12,0.72));
+  const dt=1/30, e2=settle(p01(t-dt,0.12,0.72));
+  const blur=clamp(Math.abs(e-e2)/dt*90*0.020,0,14);   // velocity-derived motion blur
+  D('count').style.transform='translateX('+((1-e)*70-exitSlide).toFixed(1)+'px)';
+  D('count').style.filter='blur('+blur.toFixed(1)+'px)';
+
+  D('rule').style.transform='scaleX('+outQuint(p01(t,0.06,0.85)).toFixed(3)+')';
+
+  const fs=outCubic(p01(t,CONFIG.t.foot[0],CONFIG.t.foot[1]));
+  D('foot').style.opacity=(fs*fade).toFixed(3);
+  D('foot').style.transform='translateY('+((1-fs)*16).toFixed(1)+'px)';
+  D('meta').style.opacity=(outCubic(p01(t,CONFIG.t.meta[0],CONFIG.t.meta[1]))*fade).toFixed(3);
+
+  const es=outCubic(p01(t,0.16,0.44));
+  const st=document.querySelector('.stamp');
+  st.style.opacity=(es*fade).toFixed(3);
+  st.style.transform='translateX('+((1-es)*-24).toFixed(1)+'px)';
+};
+window.__ready=true; window.__seek(0);
+</script></body></html>
