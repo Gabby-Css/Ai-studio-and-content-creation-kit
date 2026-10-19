@@ -100,3 +100,4 @@ hyperframes/*/deliver/assets_out/
 hyperframes/**/audio/**/*.png
 hyperframes/**/audio/ref/
 shotcraft/demos/_textures/
+.backup_state/
